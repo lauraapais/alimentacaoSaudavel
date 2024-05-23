@@ -14,7 +14,7 @@
     --marginH: 2vw;
 
     --headerHminMobile: 12vh;
-    --marginHMobile: 5vw;
+    --marginHMobile: 6vw;
 }
 
 
@@ -824,7 +824,7 @@ footer {
     }
 
     #levelMain span {
-        font-size: calc(19px + 0.6vw);
+        font-size: calc(17px + 0.6vw);
     }
 
 }
