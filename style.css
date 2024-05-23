@@ -658,6 +658,7 @@ footer {
     .landingIntro{
         width:100%;
         margin-bottom: 10vh;
+        font-size: calc(15px + 1.1vw);
     }
 
     main{
