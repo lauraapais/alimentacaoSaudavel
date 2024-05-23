@@ -318,10 +318,8 @@ footer {
 
 
 .level {
-    width: calc(90px + 12vw) !important;
-    height: 100%;
-    min-height: 300px;
-    max-height: 550px;
+    width: calc(250px + 5vw);
+    height: calc(400px + 5vw);
     border-radius: 25px;
     filter: drop-shadow(0px 0px 0px #4444);
     transition: filter 0.3s;
@@ -591,8 +589,6 @@ footer {
     }
 
     #levelMain {
-        width: calc(100vw - 4vw);
-        height: auto !important;
         display: flex;
         align-content: center;
         justify-content: space-between;
@@ -620,6 +616,16 @@ footer {
         width:70%;
     }
 
+    .menuItems{
+        font-size: 7vh;
+    }
+
+    .level{
+        width: 300px;
+        height: 450px;
+    }
+
+
 }
 
 @media screen and (max-width:900px) {
@@ -640,11 +646,17 @@ footer {
         width: calc(28px + 1.5vw) !important;
         height: fit-content;
     }
+
     #levelMain {
         height: auto !important;
         align-content: center !important;
         justify-content: center !important;
         align-items: center !important;
+        width: calc(100vw - var(--marginHMobile) * 2);
+    }
+
+    #levelMain span{
+        font-size: calc(19px + 0.6vw);
     }
 
 
@@ -659,6 +671,11 @@ footer {
     }
 
     header{
+        height: min(var(--headerHminMobile), 200px);
+        margin: var(--marginHMobile);
+    }
+
+    .headerGame{
         height: min(var(--headerHminMobile), 200px);
         margin: var(--marginHMobile);
     }
@@ -734,6 +751,11 @@ footer {
         display: block;
         height: 100vh;
         min-height: none;
+    }
+
+    .level{
+        width: 250px;
+        height: 350px;
     }
 
     
