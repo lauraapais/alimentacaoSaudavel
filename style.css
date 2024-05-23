@@ -779,6 +779,7 @@ footer {
         height: calc(var(--vh, 1h)*100);
         position: absolute;
     top: calc((var(--vh, 1h)*100) *-1);
+    overflow-y: auto;
     }
 
     .level{
