@@ -213,7 +213,7 @@ footer {
 }
 
 .mainLanding {
-    height: calc(100vh - min(var(--headerHmin), 500px) - var(--marginH) * 5);
+    height: calc(100vh - min(var(--headerHmin), 500px) - var(--marginH) * 4);
     display: flex;
     justify-content: center;
     align-items: center;
@@ -665,7 +665,7 @@ footer {
     }
 
     .mainLanding {
-        height: calc(100vh - min(var(--headerHminMobile), 500px) - var(--marginHMobile)* 4);
+        height: calc(100vh - min(var(--headerHminMobile), 500px) - var(--marginHMobile)* 5);
     }
     .illustrationsIndex{
         flex-direction: column;
@@ -695,7 +695,7 @@ footer {
     }
     .menuItems{
         font-size: 6vh;
-        height: calc(100vh - min(var(--headerHminMobile), 500px) - var(--marginHMobile)* 5);
+        height: calc(100vh - min(var(--headerHminMobile), 500px) - var(--marginHMobile)* 6);
     }
 
     .menu img{
