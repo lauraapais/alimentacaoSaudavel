@@ -695,8 +695,13 @@ footer {
         display: none;
     }
     .menuItems{
-        font-size: 6vh;
+        font-size: 5.5vh;
         height: calc(100vh - min(var(--headerHminMobile), 500px) - var(--marginHMobile) * 8);
+    }
+
+    .menuItems li{
+        margin-bottom: calc(var(--marginHMobile) / 2);
+        margin-left: var(--marginHMobile);
     }
 
     .menu img{
@@ -705,5 +710,6 @@ footer {
 
     .menuDiv{
         display: block;
+        height: 100vh;
     }
 }
