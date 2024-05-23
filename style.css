@@ -652,6 +652,7 @@ footer {
         justify-content: center !important;
         align-items: center !important;
         width: calc(100vw - var(--marginHMobile) * 2);
+        height: calc(100vh - var(--marginHMobile) * 8);
     }
 
     #levelMain span{
@@ -755,6 +756,7 @@ footer {
     .level{
         width: 45%;
         height: 40%;
+        max-height: 350px;
         margin-bottom: var(--marginHMobile);
     }
 
