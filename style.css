@@ -679,7 +679,7 @@ footer {
     .illustrationsIndex img {
         height: 50vw;
     }
-    
+
     .illustrationsIndex span {
         margin-bottom: var(--marginHMobile);
         font-size: calc(15px + 0.5vw);
@@ -723,6 +723,7 @@ footer {
     .menuDiv{
         display: block;
         height: 100vh;
+        min-width: none;
     }
 
     #menuMobile{
