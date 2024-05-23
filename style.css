@@ -695,10 +695,14 @@ footer {
     }
     .menuItems{
         font-size: 6vh;
-        height: fit-content;
+        height: calc(100vh - min(var(--headerHminMobile), 500px) - var(--marginHMobile) * 8);
     }
 
     .menu img{
         width: calc(25px + 1.5vw);
+    }
+
+    .menuDiv{
+        display: block;
     }
 }
