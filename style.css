@@ -213,7 +213,7 @@ footer {
 }
 
 .mainLanding {
-    height: calc(100vh - min(var(--headerHmin), 500px) - var(--marginH)*4);
+    height: calc(100vh - min(var(--headerHmin), 500px) - var(--marginH) * 5);
     display: flex;
     justify-content: center;
     align-items: center;
@@ -648,7 +648,7 @@ footer {
     }
 
     .buttonIndex{
-        width:25vw;
+        width: 30vw;
     }
 
     .menu li{
@@ -695,7 +695,7 @@ footer {
     }
     .menuItems{
         font-size: 6vh;
-        height: calc(100vh - min(var(--headerHminMobile), 500px) - var(--marginHMobile)* 4);
+        height: calc(100vh - min(var(--headerHminMobile), 500px) - var(--marginHMobile)* 5);
     }
 
     .menu img{
