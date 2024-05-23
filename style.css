@@ -723,7 +723,7 @@ footer {
     .menuDiv{
         display: block;
         height: 100vh;
-        min-width: none;
+        min-height: none;
     }
 
     #menuMobile{
