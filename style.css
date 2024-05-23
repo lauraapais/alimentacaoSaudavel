@@ -630,20 +630,20 @@ footer {
 
 @media screen and (max-width:900px) {
     .homeIcon {
-        width: calc(28px + 1.5vw) !important;
+        width: calc(25px + 1.5vw) !important;
     }
 
     .closeIcon {
-        width: calc(28px + 1.5vw) !important;
+        width: calc(25px + 1.5vw) !important;
         margin-left: 5vw;
     }
 
     #menuMobile{
-        width: calc(28px + 1.5vw) !important;
+        width: calc(25px + 1.5vw) !important;
        }
 
        .menu img{
-        width: calc(28px + 1.5vw) !important;
+        width: calc(25px + 1.5vw) !important;
         height: fit-content;
     }
 
