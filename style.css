@@ -704,6 +704,11 @@ footer {
         font-size: calc(17px + 0.5vw);
     }
 
+    .iconsIntroTitle span {
+        font-size: calc(35px + 1vw);
+    }
+
+
 
 
 
