@@ -101,7 +101,7 @@ header {
     transition: top 1s;
 }
 
-#menuMobile{
+#menuMobile {
     display: none;
 }
 
@@ -140,7 +140,7 @@ main {
     text-decoration: none;
 }
 
-footer { 
+footer {
     margin: var(--marginH);
     width: calc(100vw - var(--marginH) * 2);
 }
@@ -159,7 +159,7 @@ footer {
 .footerImg {
     display: flex;
     flex-wrap: wrap;
-   
+
 }
 
 .footerImg img {
@@ -321,7 +321,7 @@ footer {
     transition: filter 0.3s;
     cursor: pointer;
     position: relative;
-    margin-bottom:  var(--marginH);
+    margin-bottom: var(--marginH);
 }
 
 
@@ -495,7 +495,7 @@ footer {
     background-color: var(--green);
 }
 
-#projectInfo  #textInfoTitle{
+#projectInfo #textInfoTitle {
     background-color: var(--green);
 }
 
@@ -549,7 +549,7 @@ footer {
     margin-top: calc(var(--marginH) * 3);
 }
 
-#textInfoTitle span{
+#textInfoTitle span {
     font-family: AuthenticSans130;
     font-size: 100px;
     color: var(--grey);
@@ -558,6 +558,7 @@ footer {
 
 
 @media screen and (max-width:1500px) {
+
     /*index*/
     #levelMain {
         display: flex;
@@ -578,44 +579,41 @@ footer {
     }
 
     .buttonIndex {
-        width:15vw;
+        width: 15vw;
         max-width: 250px;
         min-width: 200px;
     }
 
-    .landingIntro{
-        width:70%;
+    .landingIntro {
+        width: 70%;
     }
 
 
 
 
     /*general*/
-    .menuItems{
+    .menuItems {
         font-size: 7vh;
     }
 
-    footer{
-        padding: var(--marginHMobile);
-    }
+   
 
 
 
-
-     /*níveis menu*/
-    .level{
+    /*níveis menu*/
+    .level {
         width: 300px;
         height: 450px;
     }
 
-    .textInfoBox{
+    .textInfoBox {
         display: block;
     }
 
 
 
 
-     /*info pages*/
+    /*info pages*/
     .textInfo {
         width: 100%;
         margin-bottom: var(--marginHMobile);
@@ -645,11 +643,11 @@ footer {
         margin-left: 5vw;
     }
 
-    #menuMobile{
+    #menuMobile {
         width: calc(23px + 1.5vw) !important;
-       }
+    }
 
-       .menu img{
+    .menu img {
         width: calc(23px + 1.5vw) !important;
         height: fit-content;
     }
@@ -668,18 +666,18 @@ footer {
         height: auto;
     }
 
-    .buttonIndex{
+    .buttonIndex {
         width: 35vw;
-            max-width: 200px;
-            min-width: 100px;
+        max-width: 200px;
+        min-width: 100px;
     }
 
-    .menu li{
+    .menu li {
         font-size: calc(20pt + 0.5vw);
     }
 
-    .landingIntro{
-        width:100%;
+    .landingIntro {
+        width: 100%;
         margin-bottom: 10vh;
         font-size: calc(15px + 1.1vw);
     }
@@ -687,7 +685,8 @@ footer {
     .mainLanding {
         height: calc(var(--vh, 1h)*100 - min(var(--headerHminMobile), 500px) - var(--marginHMobile)* 6);
     }
-    .illustrationsIndex{
+
+    .illustrationsIndex {
         flex-direction: column;
     }
 
@@ -705,7 +704,7 @@ footer {
 
     /*general*/
 
-    main{
+    main {
         padding: var(--marginHMobile);
     }
 
@@ -713,52 +712,63 @@ footer {
         font-size: calc(14px + 0.5vw);
     }
 
+    footer {
+        margin: var(--marginHMobile);
+        padding:0;
+        width: calc(100vw - var(--marginHMobile)*2);
+    }
 
-    .footerDiv{
+    .footerDiv {
         flex-direction: column;
     }
 
-    .footerImg{
+    .footerImg {
         flex-wrap: wrap;
     }
 
-    #menuDesktop{
+    
+
+    #menuDesktop {
         display: none;
     }
 
-    #menuMobile{
+    #menuMobile {
         display: block;
     }
 
-    .menuItems{
+    .menuItems {
         font-size: 5.5vh;
         margin: 0 var(--marginHMobile);
         height: calc(var(--vh, 1h)*100 - min(var(--headerHminMobile), 500px) - var(--marginHMobile) * 2);
-        width: calc(100vw- var(--marginHMobile)*2);
+        width: calc(100vw - var(--marginHMobile)*2);
     }
 
-    .menuItems li{
+    .menuItems li {
         margin-bottom: calc(var(--marginHMobile) / 2);
     }
 
-    header{
+    header {
         height: min(var(--headerHminMobile), 200px);
         margin: var(--marginHMobile);
     }
 
-    .headerGame{
+    .headerGame {
         height: min(var(--headerHminMobile), 200px);
         margin: var(--marginHMobile);
         padding: 0;
     }
 
-    .menuDiv{
+    .menuDiv {
         display: block;
         height: calc(var(--vh, 1h)*100);
         position: absolute;
-    top: calc((var(--vh, 1h)*100) *-1);
-    overflow-y: auto;
+        top: calc((var(--vh, 1h)*100) *-1);
+        overflow-y: auto;
     }
+
+   
+
+    
 
 
 
@@ -769,12 +779,12 @@ footer {
         font-size: 70px;
     }
 
-    .textInfo{
+    .textInfo {
         font-size: calc(14px + 0.3vw);
     }
-    #textInfoTitle span{
+
+    #textInfoTitle span {
         font-size: 50px;
-        line-height: 50px;
         margin-bottom: var(--marginHMobile);
     }
 
@@ -790,7 +800,7 @@ footer {
 
 
     /*niveis*/
-    .level{
+    .level {
         width: 45%;
         height: 40%;
         max-height: 350px;
@@ -802,16 +812,16 @@ footer {
         justify-content: center !important;
         align-items: center !important;
         width: calc(100vw - var(--marginHMobile) * 2);
-        height: calc(var(--vh, 1h)*100 - var(--marginHMobile) * 8 - min(var(--headerHminMobile), 500px));
+        height: calc(var(--vh, 1h) * 100 - var(--marginHMobile) * 8 - min(var(--headerHminMobile), 500px));
         margin: var(--marginHMobile);
-        padding:0;
+        padding: 0;
     }
 
     .levelTitle {
         margin: calc(var(--marginHMobile) / 2);
     }
 
-    #levelMain span{
+    #levelMain span {
         font-size: calc(19px + 0.6vw);
     }
 
