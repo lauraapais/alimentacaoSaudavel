@@ -95,7 +95,7 @@ header {
 
 .menuDiv {
     width: 100vw;
-    min-height: 100vh;
+    min-height: calc(var(--vh, 1h)*100);
     position: absolute;
     top: -100%;
     background-color: var(--lightOrange);
@@ -608,8 +608,8 @@ footer {
 
     .buttonIndex {
         width:15vw;
-        max-width: 200px;
-        min-width: 100px;
+        max-width: 250px;
+        min-width: 200px;
     }
 
     .landingIntro{
