@@ -803,7 +803,7 @@ footer {
     .level {
         width: 45%;
         height: 40%;
-        max-height: 350px;
+        max-height: 370px;
         margin-bottom: var(--marginHMobile);
     }
 
@@ -812,7 +812,7 @@ footer {
         justify-content: center !important;
         align-items: center !important;
         width: calc(100vw - var(--marginHMobile) * 2);
-        height: calc(var(--vh, 1h) * 100 - var(--marginHMobile) * 8 - min(var(--headerHminMobile), 500px));
+        height: calc(var(--vh, 1h) * 100 - var(--marginHMobile) * 3 - min(var(--headerHminMobile), 500px));
         margin: var(--marginHMobile);
         padding: 0;
     }
