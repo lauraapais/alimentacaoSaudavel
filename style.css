@@ -80,7 +80,7 @@ header {
     font-size: calc(17pt + 0.5vw);
     cursor: pointer;
     height: fit-content;
-    margin-left: 2vw;
+    margin: 0 var(--marginH);
 }
 
 
@@ -129,13 +129,14 @@ main {
     font-size: 10vh;
     display: flex;
     flex-direction: column;
-    height: calc(100vh - min(var(--headerHmin), 500px) - var(--marginH) * 2);
     justify-content: center;
+    height: calc(100vh - min(var(--headerHmin), 500px) - var(--marginH) * 2);
+    width: calc(100vw - var(--marginH)*2);
+    margin: 0 var(--marginH);
 }
 
 .menuItems li {
     margin-bottom: calc(var(--marginH) / 2);
-    margin-left: var(--marginH);
 }
 
 .menuItems li:hover {
@@ -147,9 +148,9 @@ main {
     text-decoration: none;
 }
 
-footer {
-    width: 100%;
+footer { 
     margin: var(--marginH);
+    width: calc(100vw - var(--marginH) * 2);
 }
 
 .support {
@@ -707,12 +708,13 @@ footer {
 
     .menuItems{
         font-size: 5.5vh;
-        height: calc(100vh - min(var(--headerHminMobile), 500px) - var(--marginHMobile) * 8);
+        margin: 0 var(--marginHMobile);
+        height: calc(100vh - min(var(--headerHminMobile), 500px) - var(--marginHMobile) * 2);
+        width: calc(100vw - var(--marginHMobile)*2);
     }
 
     .menuItems li{
         margin-bottom: calc(var(--marginHMobile) / 2);
-        margin-left: var(--marginHMobile);
     }
 
     .menu img{
