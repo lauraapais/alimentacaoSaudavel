@@ -708,12 +708,16 @@ footer {
 
     .menu img{
         width: calc(25px + 1.5vw);
-        height: auto;
+        height: fit-content;
     }
 
     .menuDiv{
         display: block;
         height: 100vh;
+    }
+
+    #menuMobile{
+     align-self: flex-start;
     }
 
 
