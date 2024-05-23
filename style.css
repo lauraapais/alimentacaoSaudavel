@@ -305,7 +305,7 @@ footer {
     flex-wrap: wrap;
     justify-content: space-evenly;
     align-items: center;
-
+    gap: var(--marginH);
 }
 
 .levelMenu {
@@ -322,6 +322,8 @@ footer {
     cursor: pointer;
     position: relative;
     margin-bottom: var(--marginH);
+   
+    box-sizing: border-box;
 }
 
 
@@ -335,13 +337,14 @@ footer {
 }
 
 .levelTitle {
-    margin: 1vw;
+    margin-top: calc(var(--marginH));
+    margin: calc(var(--marginH)) calc(var(--marginH) / 2) calc(var(--marginH) / 2);
 }
 
 #levelMain span {
     color: var(--grey);
-    font-size: calc(22px + 0.6vw);
-    line-height: calc(22px + 0.6vw);
+    font-size: calc(21px + 0.6vw);
+    line-height: calc(21px + 0.6vw);
     mix-blend-mode: multiply;
     margin-top: 5px;
 }
@@ -601,16 +604,27 @@ footer {
 
 
 
-    /*níveis menu*/
+    /*niveis*/
     .level {
-        width: 300px;
-        height: 450px;
+        margin-bottom: var(--marginHMobile);
+        gap: var(--marginHMobile);
+        box-sizing: border-box;
     }
 
-    .textInfoBox {
-        display: block;
+    #levelMain {
+        width: calc(100vw - var(--marginHMobile) * 2);
+        height: calc(var(--vh, 1h) * 100 - var(--marginHMobile) * 3 - min(var(--headerHminMobile), 500px));
+        margin: var(--marginHMobile);
+        padding: 0;
     }
 
+    .levelTitle {
+        margin: calc(var(--marginHMobile) / 2);
+    }
+
+    #levelMain span {
+        font-size: calc(20px + 0.6vw);
+    }
 
 
 
@@ -819,6 +833,8 @@ footer {
         height: 40%;
         max-height: 370px;
         margin-bottom: var(--marginHMobile);
+        gap: var(--marginHMobile);
+        box-sizing: border-box;
     }
 
     #levelMain {
