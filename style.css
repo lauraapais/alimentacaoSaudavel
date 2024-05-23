@@ -805,7 +805,7 @@ footer {
     }
 
     .textInfo{
-        font-size: calc(15px + 0.3vw);
+        font-size: calc(14px + 0.3vw);
     }
     #textInfoTitle {
         font-size: 50px;
