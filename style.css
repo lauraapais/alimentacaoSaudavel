@@ -512,6 +512,10 @@ footer {
     background-color: var(--green);
 }
 
+#projectInfo  #textInfoTitle{
+    background-color: var(--green);
+}
+
 #explorarInfo {
     background-color: var(--blue);
 }
@@ -566,7 +570,7 @@ footer {
     margin-top: 7vh;
 }
 
-#textInfoTitle {
+#textInfoTitle span{
     font-family: AuthenticSans130;
     font-size: 100px;
     color: var(--grey);
@@ -797,7 +801,7 @@ footer {
     }
     
     .imageInfo img {
-        width: 75%;
+        width: 100%;
     }
 
     #textInfoTitle {
@@ -807,7 +811,7 @@ footer {
     .textInfo{
         font-size: calc(14px + 0.3vw);
     }
-    #textInfoTitle {
+    #textInfoTitle span{
         font-size: 50px;
         line-height: 50px;
         margin-bottom: var(--marginHMobile);
