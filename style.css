@@ -190,6 +190,9 @@ footer {
     background-color: var(--lighLightPink);
 }
 
+.overflow-hidden {
+    overflow: hidden;
+}
 
 
 
@@ -444,6 +447,8 @@ footer {
 .playLevel img:hover {
     filter: drop-shadow(0px 9px 40px rgba(0, 0, 0, 15));
 }
+
+
 
 
 
@@ -767,7 +772,7 @@ footer {
         font-size: 5.5vh;
         margin: 0 var(--marginHMobile);
         height: calc(var(--vh, 1h)*100 - min(var(--headerHminMobile), 500px) - var(--marginHMobile) * 2);
-        width: calc(var(--vh, 1h)*100 - var(--marginHMobile)*2);
+        width: calc(100vw- var(--marginHMobile)*2);
     }
 
     .menuItems li{
