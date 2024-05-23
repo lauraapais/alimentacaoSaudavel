@@ -701,4 +701,8 @@ footer {
     .menu img{
         width: calc(25px + 1.5vw);
     }
+
+    .menuDiv{
+        display: none;
+    }
 }
