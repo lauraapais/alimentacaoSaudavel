@@ -815,8 +815,8 @@ footer {
 
     /*niveis*/
     .level {
-        width: 48%;
-        height: 40%;
+        width: 41%;
+        height: calc(var(--vh, 1h) * 40);
         max-height: 370px;
         margin-bottom: var(--marginHMobile);
     }
