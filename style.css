@@ -97,7 +97,7 @@ header {
     width: 100vw;
     min-height: calc(var(--vh, 1h)*100);
     position: absolute;
-    top: -100%;
+    top: calc(var(--vh, 1h) * -100);
     background-color: var(--lightOrange);
     z-index: 1;
     transition: top 1s;
@@ -655,20 +655,20 @@ footer {
 
     
     .homeIcon {
-        width: calc(25px + 1.5vw) !important;
+        width: calc(23px + 1.5vw) !important;
     }
 
     .closeIcon {
-        width: calc(25px + 1.5vw) !important;
+        width: calc(23px + 1.5vw) !important;
         margin-left: 5vw;
     }
 
     #menuMobile{
-        width: calc(25px + 1.5vw) !important;
+        width: calc(23px + 1.5vw) !important;
        }
 
        .menu img{
-        width: calc(25px + 1.5vw) !important;
+        width: calc(23px + 1.5vw) !important;
         height: fit-content;
     }
 
