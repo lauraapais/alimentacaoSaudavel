@@ -672,7 +672,7 @@ footer {
         justify-content: center !important;
         align-items: center !important;
         width: calc(100vw - var(--marginHMobile) * 2);
-        height: calc(100vh - var(--marginHMobile) * 8 - min(var(--headerHminMobile), 500px));
+        height: calc(var(--vh, 1h)*100 - var(--marginHMobile) * 8 - min(var(--headerHminMobile), 500px));
         margin: var(--marginHMobile);
         padding:0;
     }
@@ -726,7 +726,7 @@ footer {
     }
 
     .mainLanding {
-        height: calc(calc(var(--vh, 1h)*100) - min(var(--headerHminMobile), 500px) - var(--marginHMobile)* 6);
+        height: calc(var(--vh, 1h)*100 - min(var(--headerHminMobile), 500px) - var(--marginHMobile)* 6);
     }
     .illustrationsIndex{
         flex-direction: column;
@@ -764,8 +764,8 @@ footer {
     .menuItems{
         font-size: 5.5vh;
         margin: 0 var(--marginHMobile);
-        height: calc(calc(var(--vh, 1h)*100) - min(var(--headerHminMobile), 500px) - var(--marginHMobile) * 2);
-        width: calc(calc(var(--vh, 1h)*100) - var(--marginHMobile)*2);
+        height: calc(var(--vh, 1h)*100 - min(var(--headerHminMobile), 500px) - var(--marginHMobile) * 2);
+        width: calc(var(--vh, 1h)*100 - var(--marginHMobile)*2);
     }
 
     .menuItems li{
