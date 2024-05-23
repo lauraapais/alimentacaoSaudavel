@@ -670,7 +670,7 @@ footer {
     }
 
     .mainLanding {
-        height: calc(100vh - min(var(--headerHminMobile), 500px) - var(--marginHMobile)* 6);
+        height: calc(100vh - min(var(--headerHminMobile), 500px) - var(--marginHMobile)* 8);
     }
     .illustrationsIndex{
         flex-direction: column;
