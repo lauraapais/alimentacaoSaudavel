@@ -325,7 +325,7 @@ footer {
     transition: filter 0.3s;
     cursor: pointer;
     position: relative;
-    margin-bottom: 50px;
+    margin-bottom:  var(--marginH);
 }
 
 
@@ -648,7 +648,6 @@ footer {
     }
 
     #levelMain {
-        height: auto !important;
         align-content: center !important;
         justify-content: center !important;
         align-items: center !important;
@@ -754,8 +753,9 @@ footer {
     }
 
     .level{
-        width: 250px;
-        height: 350px;
+        width: 45%;
+        height: 40%;
+        margin-bottom: var(--marginHMobile);
     }
 
     
