@@ -808,7 +808,8 @@ footer {
         font-size: calc(15px + 0.3vw);
     }
     #textInfoTitle {
-        font-size: 40px;
-        line-height: 40px;
+        font-size: 50px;
+        line-height: 50px;
+        margin-bottom: var(--marginHMobile);
     }
 }
