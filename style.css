@@ -659,6 +659,10 @@ footer {
         padding:0;
     }
 
+    .levelTitle {
+        margin: calc(var(--marginHMobile) / 2);
+    }
+
     #levelMain span{
         font-size: calc(19px + 0.6vw);
     }
