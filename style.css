@@ -582,7 +582,7 @@ footer {
         width: 15vw;
         max-width: 250px;
         min-width: 200px;
-        margin-bottom: calc(var(--marginHMobile) * 2);
+        margin-bottom: calc(var(--marginHMobile));
     }
 
     .landingIntro {
@@ -649,7 +649,7 @@ footer {
     }
 
     .menu img {
-        width: calc(23px + 1.5vw) !important;
+        width: calc(28px + 1.5vw) !important;
         height: fit-content;
     }
 
