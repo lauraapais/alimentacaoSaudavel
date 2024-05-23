@@ -47,6 +47,10 @@
     src: url(data/font/AUTHENTIC\ Sans\ ^.otf);
     font-weight: bold;
 }
+html, body {
+    height: 100%;
+    overflow: hidden;
+}
 
 body {
     margin: 0;
