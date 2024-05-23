@@ -1,0 +1,384 @@
+var w = window.innerWidth;
+var h = window.innerHeight;
+
+var items = {};
+var levels;
+var plate, plateSize;
+var itemsScale = 0.16;
+var close;
+var heightQuestion = 400;
+
+var endLevel = false, level = 1;
+
+function preload() {
+    plate = loadImage('data/jogo/plate.png');
+    close = loadImage('data/icons/home.png');
+}
+
+function setup() {
+    canvas = createCanvas(w, h);
+    loadItems();
+    loadLevels();
+    imageMode(CENTER);
+    platesize();
+}
+
+function draw() {
+    levels.display();
+}
+
+window.onresize = function () {
+    w = window.innerWidth;
+    h = window.innerHeight;
+    canvas.size(w, h);
+
+    platesize();
+}
+
+function platesize() {
+    if (w > h) plateSize = h * 0.5;
+    else plateSize = w * 0.5;
+}
+
+function loadItems() {
+    //Trás-os-Montes
+    items.lemon = new Gameitem('data/jogo/level1/screen1/4.png');
+    items.pepper = new Gameitem('data/jogo/level1/screen2/2.png');
+    items.leek = new Gameitem('data/jogo/level1/screen3/2.png');
+    items.chestnut = new Gameitem('data/jogo/level1/screen3/3.png');
+    items.peach = new Gameitem('data/jogo/level2/screen1/6.png');
+    items.alheira = new Gameitem('data/jogo/level2/screen1/1.png');
+}
+
+function loadLevels() {
+    var level_one;
+    //Trás-os-Montes
+    level_one = new Level(color(239,190,46),'data/jogo/level2/screen1/textTM.png' ,
+    new UIFinish('data/jogo/endLevel/5.png'));
+    level_one.addItem(items.alheira, true, 'data/jogo/certoErrado/level2/screen1/certo.png');
+    level_one.addItem(items.leek, false, 'data/jogo/certoErrado/level2/screen1/errado.png');
+    level_one.addItem(items.chestnut, true, 'data/jogo/certoErrado/level2/screen1/certo.png');
+    level_one.addItem(items.lemon, false, 'data/jogo/certoErrado/level2/screen1/errado.png');
+    level_one.addItem(items.pepper, false, 'data/jogo/certoErrado/level2/screen1/errado.png');
+    level_one.addItem(items.peach, true, 'data/jogo/certoErrado/level2/screen1/certo.png');    
+    level_one.setDefaultPosition();
+
+    levels = new LevelLoader();
+    levels.addLevel(level_one);
+
+    levels.play();
+    
+}
+
+class LevelLoader {
+    constructor() {
+        this.levels = [];
+        this.currentLevel = 0;
+        this.status = false;
+    }
+
+    play() {
+        this.status = !this.status;
+    }
+
+    addLevel(newLevel) {
+        this.levels.push(newLevel);
+    }
+
+    nextLevel() {
+        if (this.levels.length > this.currentLevel)
+            this.currentLevel++;
+    }
+
+    previousLevel() {
+        if (this.currentLevel > 0)
+            this.currentLevel--;
+    }
+
+    setLevel(level) {
+        this.currentLevel = level;
+    }
+
+    display() {
+        if (this.checkLevel)
+            this.levels[this.currentLevel].display();
+    }
+
+    mousePressed() {
+        if (this.status && this.checkLevel)
+            this.levels[this.currentLevel].mousePressed();
+
+        if (this.levels[this.currentLevel].uiEndLevel.status)
+            if(this.currentLevel+1 < this.levels.length)
+                this.currentLevel++;
+            else
+                window.location.href = 'niveisMenu.html';
+    }
+
+    mouseDragged() {
+        if (this.status && this.checkLevel)
+            this.levels[this.currentLevel].mouseDragged();
+    }
+
+    mouseReleased() {
+        if (this.status && this.checkLevel)
+            this.levels[this.currentLevel].mouseReleased();
+    }
+
+    checkLevel() {
+        if (this.levels.length > 0 &&
+            this.currentLevel > 0 &&
+            this.currentLevel < this.levels.length)
+            return true;
+        return false
+    }
+}
+
+class UIFinish {
+    constructor(imageURL) {
+        this.image = loadImage(imageURL);
+        this.text = "Concluíste o nível primavera!";
+        this.w = 400;
+        this.h = 400;
+        this.margin = 40;
+
+        this.status = false;
+    }
+
+    display() {
+        imageMode(CENTER);
+        image(this.image, width / 2, height / 2, 500, 500);
+
+        push();
+        blendMode(MULTIPLY);
+        image(close, width / 2 - 170, height / 2 - 175, 50, 50);
+        pop();
+
+        push();
+        rectMode(CENTER);
+        blendMode(MULTIPLY);
+        noStroke();
+        fill(109, 111, 113);
+        rect(width/2, height / 2 + 175 -  12.5, 250, 75, 22);
+        pop();
+
+        push();
+        textSize(32);
+        fill(255);
+        textAlign(CENTER);
+        text('Menu', width / 2, height / 2 + 175 - 13.5 + textAscent()/2);
+        pop();    
+    }
+
+    mousePressed() {
+        if (mouseX > width / 2 - (75 / 2) &&
+            mouseX < width / 2 + (75 / 2) &&
+            mouseY > (height / 2 + 175 - 12.5) - (22 / 2) &&
+            mouseY < (height / 2 + 175 - 12.5) + (22 / 2)) {
+            this.status = true;
+        }
+        else if (mouseX > (width/2 - 170) - 50/2 &&
+            mouseX < (width/2 - 170) + 50 / 2 &&
+            mouseY > (height/2 - 175) - (50 / 2) &&
+            mouseY < (height/2 - 175) + (50 / 2)) {
+                window.location.href = 'niveisMenu.html';
+        }
+    }
+}
+
+class Level {
+    constructor(background, question, uiEndLevel) {
+        this.items = [];
+        this.textSize = 50;
+        this.draggingItem = null;
+        this.offsetX = 0;
+        this.offsetY = 0;
+        this.background = background;
+        this.totalTrues = 0;
+        this.totalFalses = 0;
+        this.question = loadImage(question);
+        this.uiEndLevel = uiEndLevel;
+        this.points = 0;
+
+        this.currentText = "";
+        this.currentTextTimer = 0;
+
+        this.lastPlateItem = null;
+
+        this.timeScaleMax = 10;
+
+        this.status = false;
+    }
+
+    addItem(item, value, description) {
+        this.items.push({
+            "item": item,
+            "value": value,
+            "description": loadImage(description),
+            "pos": createVector(0, 0),
+            "scale": itemsScale,
+            "plate": false,
+            "dragScale": 0
+        });
+
+        if (value) {
+            this.totalTrues++;
+        }
+        else {
+            this.totalFalses++;
+        }
+    }
+
+    display() {
+        background(this.background);
+        push();
+        blendMode(MULTIPLY);
+        image(plate, width / 2, height / 2, plateSize, plateSize);
+        pop();
+
+        for (let i = 0; i < this.items.length; i++) {
+            let item = this.items[i];
+            item.item.show(item.pos,
+                (item.scale + item.scale * item.dragScale / this.timeScaleMax / 2) //Animation Scale
+            );
+        }
+
+        this.ui();
+
+        this.animationScale();
+
+        if (this.status && this.currentTextTimer == 0) {
+            fill(0, 100);
+            rect(0, 0, width, height);
+            this.uiEndLevel.display();
+        }
+    }
+
+    ui() {
+        let content = this.points + "/" + this.totalTrues;
+        textSize(this.textSize);
+        push();
+        fill(109, 111, 113);
+        blendMode(MULTIPLY);
+        text(content, 64, heightQuestion/1.20 + textAscent());
+        pop();
+        rectMode(CORNERS);
+        push();
+        blendMode(MULTIPLY);
+        image(this.question, 420, 200, 800, 400);
+        pop();
+
+        if (this.lastPlateItem != null && this.currentTextTimer != 0) {
+            image(this.lastPlateItem.description, width / 2 + plateSize / 3, height / 2 + plateSize / 3, 250, 250);
+            this.currentTextTimer--;
+        }
+    }
+
+    animationScale() {
+        for (let i = 0; i < this.items.length; i++) {
+            if (this.items[i] != this.draggingItem) {
+                if (this.items[i].dragScale > 0)
+                    this.items[i].dragScale--;
+            } else {
+                if (this.items[i].dragScale < this.timeScaleMax)
+                    this.items[i].dragScale++;
+            }
+        }
+    }
+
+    mousePressed() {
+        if (!this.status) {
+            for (let i = 0; i < this.items.length; i++) {
+                let item = this.items[i];
+                let d = dist(mouseX, mouseY, item.pos.x, item.pos.y);
+                if (d < item.item.image.width * item.scale / 2) {
+                    this.draggingItem = item;
+                    this.offsetX = mouseX - this.draggingItem.pos.x;
+                    this.offsetY = mouseY - this.draggingItem.pos.y;
+                    break;
+                }
+            }
+
+            if (this.draggingItem != null) {
+                if (this.draggingItem.value && this.draggingItem.plate) this.points--;
+                this.draggingItem.plate = false;
+            }
+        } else {
+            this.uiEndLevel.mousePressed();
+        }
+    }
+
+    mouseDragged() {
+        if (!this.status) {
+            if (this.draggingItem) {
+                this.draggingItem.pos.x = mouseX - this.offsetX;
+                this.draggingItem.pos.y = mouseY - this.offsetY;
+            }
+        }
+    }
+
+    mouseReleased() {
+        if (!this.status) {
+            if (this.draggingItem != null) {
+                this.insidePlate(this.draggingItem);
+                this.status = this.checkEndLevel();
+            }
+            this.draggingItem = null;
+        }
+    }
+
+    setDefaultPosition() {
+        let space = width / (this.items.length + 1);
+        for (let i = 0; i < this.items.length; i++) {
+            this.items[i].pos.set(
+                space * (i + 1), height * (1 - 0.13)
+            );
+        }
+    }
+
+    insidePlate(item) {
+        if (dist(item.pos.x, item.pos.y, width / 2, height / 2) < plateSize / 2) {
+            item.plate = true;
+            this.lastPlateItem = item;
+            this.currentTextTimer = 50;
+            if (item.value) this.points++;
+        } else if (item.plate) {
+            item.plate = false;
+            if (item.value) this.points--;
+        }
+    }
+
+    checkEndLevel() {
+        for (let i = 0; i < this.items.length; i++) {
+            if (this.items[i].value != this.items[i].plate)
+                return false;
+        }
+        return true;
+    }
+}
+
+class Gameitem {
+    constructor(imageURL, name) {
+        this.image = loadImage(imageURL);
+        this.name = name;
+    }
+
+    show(pos, scale) {
+        image(this.image, pos.x, pos.y,
+            this.image.width * scale,
+            this.image.height * scale);
+    }
+}
+
+// Mouse event handlers
+function mousePressed() {
+    levels.mousePressed();
+}
+
+function mouseDragged() {
+    levels.mouseDragged();
+}
+
+function mouseReleased() {
+    levels.mouseReleased();
+}

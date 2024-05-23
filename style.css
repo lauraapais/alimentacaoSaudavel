@@ -1,0 +1,704 @@
+:root {
+    --grey: #6D6E70;
+    --salmon: #DD6A65;
+    --lightBlue: #9ECFC7;
+    --blue: #72BEC3;
+    --green: #67AF88;
+    --pink: #D473A6;
+    --lightPink: #E0AACA;
+    --lighLightPink: #EBB6B4;
+    --toastedYellow: #EFBE2E;
+    --lightOrange: #EFB057;
+
+    --headerHmin: 15vh;
+    --marginH: 2vw;
+
+    --headerHminMobile: 12vh;
+    --marginHMobile: 5vw;
+}
+
+
+
+
+/*backgrounds*/
+#backgroundNiveis {
+    background-color: var(--lightBlue);
+}
+
+#projectBackground {
+    background-color: var(--green);
+}
+
+#explorarBackground {
+    background-color: var(--blue);
+}
+
+#escolasBackground {
+    background-color: var(--lighLightPink);
+}
+
+
+
+
+
+/*general*/
+@font-face {
+    font-family: AuthenticSans130;
+    src: url(data/font/AUTHENTIC\ Sans\ ^.otf);
+    font-weight: bold;
+}
+
+body {
+    margin: 0;
+    font-family: AuthenticSans130;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    margin: var(--marginH);
+    margin-bottom: 0;
+    mix-blend-mode: multiply;
+    height: min(var(--headerHmin), 500px);
+}
+
+
+.menu {
+    display: flex;
+    justify-content: space-between;
+    width: fit-content;
+    color: var(--grey);
+    mix-blend-mode: multiply;
+}
+
+.menu li {
+    list-style-type: none;
+    font-family: AuthenticSans130;
+    font-size: calc(17pt + 0.5vw);
+    cursor: pointer;
+    margin-left: 2vw;
+}
+
+
+.menu a {
+    color: var(--grey);
+    text-decoration: none;
+}
+
+.menuSelect {
+    text-decoration: underline;
+}
+
+.menuDiv {
+    width: 100vw;
+    min-height: 100vh;
+    position: absolute;
+    top: -100%;
+    background-color: var(--lightOrange);
+    z-index: 1;
+    transition: top 1s;
+}
+
+
+#menuMobile{
+    display: none;
+}
+
+.active {
+    transition: top 1s;
+    top: 0 !important;
+}
+
+main {
+    padding: var(--marginH);
+}
+
+.menu img {
+    height: fit-content;
+    width: calc(10px + 1.5vw);
+}
+
+.menuItems {
+    list-style-type: none;
+    color: var(--grey);
+    mix-blend-mode: multiply;
+    font-size: 10vh;
+    display: flex;
+    flex-direction: column;
+    height: calc(100vh - min(var(--headerHmin), 500px) - var(--marginH)*2);
+    justify-content: center;
+}
+
+.menuItems li {
+    margin-bottom: 1vh;
+    margin-left: 2vw;
+}
+
+.menuItems li:hover {
+    text-decoration: underline;
+}
+
+.menuItems a {
+    color: var(--grey);
+    text-decoration: none;
+}
+
+footer {
+    width: 100%;
+    margin: var(--marginH);
+}
+
+.support {
+    margin-bottom: 4vh;
+}
+
+.support span {
+    font-family: AuthenticSans130;
+    font-size: 23px;
+    color: var(--grey);
+    mix-blend-mode: multiply;
+}
+
+.footerImg {
+    display: flex;
+    flex-wrap: wrap;
+   
+}
+
+.footerImg img {
+    height: 3vh;
+    min-height: 30px;
+    margin-right: 2vw;
+    margin-top: 1vh;
+}
+
+.footerDiv {
+    display: flex;
+}
+
+#projectBackground .support {
+    background-color: var(--green);
+}
+
+#explorarBackground .support {
+    background-color: var(--blue);
+}
+
+#escolasBackground .support {
+    background-color: var(--lighLightPink);
+}
+
+
+
+
+/** Index **/
+
+
+.logoHeader {
+    mix-blend-mode: multiply;
+}
+
+
+.logoHeaderIndex img {
+    width: auto;
+    height: 100%;
+    cursor: pointer;
+}
+
+.logoHeaderIndex {
+    height: 100%;
+}
+
+.mainLanding {
+    height: calc(100vh - min(var(--headerHmin), 500px) - var(--marginH)*4);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: var(--marginH);
+    position: relative;
+}
+
+
+.indexImage {
+    height: 100%;
+}
+
+.indexImage .indexIllustration {
+    width: auto;
+    height: 100%;
+}
+
+.buttonIndex {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    width: 10vw;
+    filter: drop-shadow(0px 0px 0px #4444);
+}
+
+.buttonIndex:hover {
+    filter: drop-shadow(0px 0px 5px rgba(0, 0, 0, 0.15));
+}
+
+
+.landingIntro {
+    margin-top: 15vh;
+    margin-bottom: 20vh;
+    width: 50%;
+    font-family: AuthenticSans130;
+    font-size: calc(20px + 1.1vw);
+    color: var(--grey);
+}
+
+.landingIntro span {
+    mix-blend-mode: multiply;
+
+}
+
+.iconsIntro {
+    justify-content: center;
+    margin-bottom: 10vh;
+}
+
+.iconsIntroTitle {
+    margin-bottom: 5vh;
+}
+
+.iconsIntroTitle span {
+    display: flex;
+    justify-content: center;
+    font-family: AuthenticSans130;
+    font-size: calc(40px + 1vw);
+    color: var(--grey);
+    mix-blend-mode: multiply;
+}
+
+.illustrationsIndex {
+    display: flex;
+    justify-content: space-around
+}
+
+.illustrationsIndex img {
+    height: 20vw;
+    margin-bottom: 5vh;
+}
+
+.illustrationsIndex div {
+    display: grid;
+    justify-items: center;
+}
+
+.illustrationsIndex span {
+    font-size: calc(20px + 0.5vw);
+    color: var(--grey);
+    mix-blend-mode: multiply;
+}
+
+
+
+
+/** Level Menu **/
+
+#levelMain {
+    width: calc(100vw - var(--marginH) * 2);
+    height: calc(100vh - min(var(--headerHmin), 500px) - var(--marginH) * 4);
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    align-items: center;
+
+}
+
+.levelMenu {
+    display: flex;
+}
+
+
+.level {
+    width: calc(90px + 12vw) !important;
+    height: 100%;
+    min-height: 300px;
+    max-height: 550px;
+    border-radius: 25px;
+    filter: drop-shadow(0px 0px 0px #4444);
+    transition: filter 0.3s;
+    cursor: pointer;
+    position: relative;
+    margin-bottom: 50px;
+}
+
+
+.level:hover {
+    filter: drop-shadow(0px 0px 5px rgba(0, 0, 0, 0.15));
+}
+
+.block {}
+
+.block:hover {
+    filter: none;
+    cursor: default;
+}
+
+.levelTitle {
+    margin: 1vw;
+}
+
+#levelMain span {
+    color: var(--grey);
+    font-size: calc(22px + 0.6vw);
+    line-height: calc(22px + 0.6vw);
+    mix-blend-mode: multiply;
+    margin-top: 5px;
+}
+
+#alimentosSazonais {
+    background-color: var(--blue);
+
+    background-image: url(data/jogo/levels/alimentosSazonais.png);
+    background-size: contain;
+    background-position: bottom;
+    background-repeat: no-repeat;
+}
+
+
+#alimentosRegionais {
+    background-color: var(--toastedYellow);
+
+    background-image: url(data/jogo/levels/alimentosRegionais.png);
+    background-size: contain;
+    background-position: bottom;
+    background-repeat: no-repeat;
+}
+
+#rodadosAlimentos {
+    background-color: var(--pink);
+
+    background-image: url(data/jogo/levels/rodaAlimentos.png);
+    background-size: contain;
+    background-position: bottom;
+    background-repeat: no-repeat;
+}
+
+#alimentacaoEquilibrada {
+    background-color: var(--lighLightPink);
+
+    background-image: url(data/jogo/levels/alimentacaoEquilibrada.png);
+    background-size: contain;
+    background-position: bottom;
+    background-repeat: no-repeat;
+}
+
+
+
+#levelMain a {
+    text-decoration: none;
+}
+
+.block>.blockDiv {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+
+    background-color: rgba(0, 0, 0, 0.5);
+    border-radius: 25px;
+}
+
+.blockDiv img {
+    width: 45px !important;
+}
+
+.nonBlock>.blockDiv {
+    display: none !important;
+}
+
+
+
+.nonBlock .playLevel {
+    position: absolute;
+    bottom: -70px;
+    right: -50px;
+}
+
+.block .playLevel {
+    display: none;
+}
+
+.playLevel {
+    display: none;
+}
+
+.playLevel img {
+    width: 200px;
+    height: auto;
+}
+
+.playLevel img:hover {
+    filter: drop-shadow(0px 9px 40px rgba(0, 0, 0, 15));
+}
+
+
+
+
+
+/** Game **/
+#canvas_parent {
+    display: flex;
+    justify-content: center;
+    height: 85vh;
+    width: 100%;
+}
+
+.gameBody {
+    padding: 0 !important;
+}
+
+.headerGame {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    padding: var(--marginH);
+    mix-blend-mode: multiply;
+    height: min(var(--headerHmin), 500px);
+}
+
+.headerGameInside {
+    position: absolute;
+    right: 0;
+    top: 0;
+    margin: 2vw;
+}
+
+.closeIcon {
+    mix-blend-mode: multiply;
+    width: calc(7px + 1.5vw);
+    margin-left: 1.5vw;
+}
+
+.homeIcon {
+    mix-blend-mode: multiply;
+    width: calc(7px + 1.5vw);
+}
+
+
+
+
+/** Project **/
+
+#projectInfo {
+    background-color: var(--green);
+}
+
+#projectInfo .textInfo {
+    background-color: var(--green);
+}
+
+#explorarInfo {
+    background-color: var(--blue);
+}
+
+#explorarInfo .textInfo {
+    background-color: var(--blue);
+}
+
+#escolasInfo {
+    background-color: var(--lighLightPink);
+}
+
+#escolasInfo .textInfo {
+    background-color: var(--lighLightPink);
+}
+
+
+
+
+
+.textInfo {
+    width: 45%;
+    font-family: AuthenticSans130;
+    font-size: calc(20px + 0.3vw);
+    color: var(--grey);
+}
+
+.textInfo span {
+    mix-blend-mode: multiply;
+}
+
+.textInfoBox {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 5vh;
+}
+
+.imageInfo {
+    width: 45%;
+    display: flex;
+    justify-content: center;
+    height: fit-content;
+
+}
+
+.imageInfo img {
+    width: 75%;
+    height: auto;
+}
+
+.info {
+    margin-top: 7vh;
+}
+
+#textInfoTitle {
+    font-family: AuthenticSans130;
+    font-size: 100px;
+    color: var(--grey);
+    mix-blend-mode: multiply;
+}
+
+
+@media screen and (max-width:1500px) {
+
+    #alimentosSazonais {
+        background-image: url(data/jogo/levels/alimentosSazonais_2.png);
+    }
+
+
+    #alimentosRegionais {
+        background-image: url(data/jogo/levels/alimentosRegionais_2.png);
+    }
+
+    #rodadosAlimentos {
+        background-image: url(data/jogo/levels/rodaAlimentos_2.png);
+    }
+
+    #alimentacaoEquilibrada {
+        background-image: url(data/jogo/levels/alimentacaoEquilibrada_2.png);
+    }
+
+    #levelMain {
+        width: calc(100vw - 4vw);
+        height: auto !important;
+        display: flex;
+        align-content: center;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .indexImage {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .indexImage .indexIllustration {
+        width: 80%;
+        height: auto;
+    }
+
+    .buttonIndex {
+        width: min(15vw, 150px);
+    }
+
+    .landingIntro{
+        width:70%;
+    }
+
+}
+
+@media screen and (max-width:900px) {
+    .homeIcon {
+        width: calc(28px + 1.5vw) !important;
+    }
+
+    .closeIcon {
+        width: calc(28px + 1.5vw) !important;
+        margin-left: 5vw;
+    }
+
+    #levelMain {
+        height: auto !important;
+        align-content: center !important;
+        justify-content: center !important;
+        align-items: center !important;
+    }
+
+
+    .indexImage {
+        display: flex;
+        align-items: center;
+    }
+
+    .indexImage .indexIllustration {
+        width: 100%;
+        height: auto;
+    }
+
+    header{
+        height: min(var(--headerHminMobile), 200px);
+        margin: var(--marginHMobile);
+    }
+
+    .buttonIndex{
+        width:25vw;
+    }
+
+    .menu li{
+        font-size: calc(20pt + 0.5vw);
+    }
+
+    .landingIntro{
+        width:100%;
+        margin-bottom: 10vh;
+    }
+
+    main{
+        padding: var(--marginHMobile);
+    }
+
+    .mainLanding {
+        height: calc(100vh - min(var(--headerHminMobile), 500px) - var(--marginHMobile)* 4);
+    }
+    .illustrationsIndex{
+        flex-direction: column;
+    }
+
+    .illustrationsIndex img {
+        height: 50vw;
+    }
+    .illustrationsIndex span {
+        margin-bottom: var(--marginHMobile);
+    }
+
+    .footerDiv{
+        flex-direction: column;
+    }
+
+    .footerImg{
+        flex-wrap: wrap;
+    }
+
+    #menuMobile{
+        display: block;
+    }
+
+    #openMenu img{
+        display: none;
+    }
+    .menuItems{
+        font-size: 6vh;
+        height: calc(100vh - min(var(--headerHminMobile), 500px) - var(--marginHMobile)* 4);
+    }
+
+    .menu img{
+        width: calc(25px + 1.5vw);
+    }
+}
