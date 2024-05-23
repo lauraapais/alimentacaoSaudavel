@@ -709,8 +709,7 @@ footer {
 
     .buttonIndex{
         width: 35vw;
-            width:15vw;
-            max-width: 150px;
+            max-width: 200px;
             min-width: 100px;
     }
 
