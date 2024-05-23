@@ -629,6 +629,8 @@ footer {
 }
 
 @media screen and (max-width:900px) {
+
+    
     .homeIcon {
         width: calc(25px + 1.5vw) !important;
     }
@@ -652,7 +654,7 @@ footer {
         justify-content: center !important;
         align-items: center !important;
         width: calc(100vw - var(--marginHMobile) * 2);
-        height: calc(100vh - var(--marginHMobile) * 8 - var(--headerHminMobile));
+        height: calc(100vh - var(--marginHMobile) * 8 - min(var(--headerHminMobile), 500px));
         margin: var(--marginHMobile);
         padding:0;
     }
