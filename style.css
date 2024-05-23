@@ -777,10 +777,8 @@ footer {
     .menuDiv{
         display: block;
         height: calc(var(--vh, 1h)*100);
-
         position: absolute;
     top: calc((var(--vh, 1h)*100) *-1);
-    transition: top 1s;
     }
 
     .level{
