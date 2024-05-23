@@ -636,20 +636,23 @@ footer {
 
     /*icons*/
     .homeIcon {
-        width: calc(23px + 1.5vw) !important;
+        width: calc(20px + 1.5vw) !important;
+        height: fit-content;
     }
 
     .closeIcon {
-        width: calc(23px + 1.5vw) !important;
+        width: calc(20px + 1.5vw) !important;
         margin-left: 5vw;
+        height: fit-content;
     }
 
     #menuMobile {
-        width: calc(23px + 1.5vw) !important;
+        width: calc(30px + 1.5vw) !important;
+        height: fit-content;
     }
 
     .menu img {
-        width: calc(28px + 1.5vw) !important;
+        width: calc(23px + 1.5vw) !important;
         height: fit-content;
     }
 
