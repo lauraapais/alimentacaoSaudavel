@@ -127,7 +127,7 @@ main {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    height: calc(100vh - min(var(--headerHmin), 500px) - var(--marginH) * 2);
+    height: calc(100vh - min(var(--headerHmin), 500px) - var(--marginH) * 4);
     width: calc(100vw - var(--marginH)*2);
     margin: 0 var(--marginH);
 }
@@ -777,6 +777,10 @@ footer {
     .menuDiv{
         display: block;
         height: calc(var(--vh, 1h)*100);
+
+        position: absolute;
+    top: calc((var(--vh, 1h)*100) *-1);
+    transition: top 1s;
     }
 
     .level{
