@@ -1,9 +1,9 @@
 
 //header absolute
 var menuDiv = document.getElementById("menuDiv");
-var openMenu = document.getElementById("openMenu");
+var menuDesktop = document.getElementById("menuDesktop");
 
-openMenu.addEventListener("click", function () {
+menuDesktop.addEventListener("click", function () {
     menuDiv.classList.add("active");
 });
 

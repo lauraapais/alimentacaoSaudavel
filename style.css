@@ -79,6 +79,7 @@ header {
     font-family: AuthenticSans130;
     font-size: calc(17pt + 0.5vw);
     cursor: pointer;
+    height: fit-content;
     margin-left: 2vw;
 }
 
@@ -687,13 +688,14 @@ footer {
         flex-wrap: wrap;
     }
 
+    #menuDesktop{
+        display: none;
+    }
+
     #menuMobile{
         display: block;
     }
 
-    #openMenu img{
-        display: none;
-    }
     .menuItems{
         font-size: 5.5vh;
         height: calc(100vh - min(var(--headerHminMobile), 500px) - var(--marginHMobile) * 8);
@@ -712,4 +714,6 @@ footer {
         display: block;
         height: 100vh;
     }
+
+
 }
