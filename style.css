@@ -128,13 +128,13 @@ main {
     font-size: 10vh;
     display: flex;
     flex-direction: column;
-    height: calc(100vh - min(var(--headerHmin), 500px) - var(--marginH)*2);
+    height: calc(100vh - min(var(--headerHmin), 500px) - var(--marginH) * 2);
     justify-content: center;
 }
 
 .menuItems li {
-    margin-bottom: 1vh;
-    margin-left: 2vw;
+    margin-bottom: calc(var(--marginH) / 2);
+    margin-left: var(--marginH);
 }
 
 .menuItems li:hover {
@@ -695,7 +695,7 @@ footer {
     }
     .menuItems{
         font-size: 6vh;
-        height: calc(100vh - min(var(--headerHminMobile), 500px) - var(--marginHMobile) * 8);
+        height: fit-content;
     }
 
     .menu img{
