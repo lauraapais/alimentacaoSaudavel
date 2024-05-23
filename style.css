@@ -648,7 +648,7 @@ footer {
     }
 
     .buttonIndex{
-        width: 30vw;
+        width: 35vw;
     }
 
     .menu li{
@@ -665,7 +665,7 @@ footer {
     }
 
     .mainLanding {
-        height: calc(100vh - min(var(--headerHminMobile), 500px) - var(--marginHMobile)* 5);
+        height: calc(100vh - min(var(--headerHminMobile), 500px) - var(--marginHMobile)* 6);
     }
     .illustrationsIndex{
         flex-direction: column;
