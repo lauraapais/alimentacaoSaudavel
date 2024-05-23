@@ -652,7 +652,9 @@ footer {
         justify-content: center !important;
         align-items: center !important;
         width: calc(100vw - var(--marginHMobile) * 2);
-        height: calc(100vh - var(--marginHMobile) * 8);
+        height: calc(100vh - var(--marginHMobile) * 8 - var(--headerHminMobile));
+        margin: var(--marginHMobile);
+        padding:0;
     }
 
     #levelMain span{
@@ -678,6 +680,7 @@ footer {
     .headerGame{
         height: min(var(--headerHminMobile), 200px);
         margin: var(--marginHMobile);
+        padding: 0;
     }
 
     .buttonIndex{
