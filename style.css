@@ -315,8 +315,10 @@ footer {
 
 
 .level {
-    width: calc(250px + 5vw);
-    height: calc(400px + 5vw);
+    width: 16vw;
+    height: 25vw;
+    min-width: 280px;
+    min-height: 410px;
     border-radius: 25px;
     filter: drop-shadow(0px 0px 0px #4444);
     transition: filter 0.3s;
@@ -339,7 +341,7 @@ footer {
 
 .levelTitle {
     margin-top: calc(var(--marginH));
-    margin: calc(var(--marginH)) calc(var(--marginH) / 2) calc(var(--marginH) / 2);
+    margin: calc(var(--marginH)) calc(var(--marginH) / 2);
 }
 
 #levelMain span {
@@ -358,7 +360,6 @@ footer {
     background-position: bottom;
     background-repeat: no-repeat;
 }
-
 
 #alimentosRegionais {
     background-color: var(--toastedYellow);
@@ -570,13 +571,6 @@ footer {
 @media screen and (max-width:1500px) {
 
     /*index*/
-    #levelMain {
-        display: flex;
-        align-content: center;
-        justify-content: space-between;
-        align-items: center;
-    }
-
     .indexImage {
         display: flex;
         align-items: center;
@@ -619,6 +613,10 @@ footer {
     }
 
     #levelMain {
+        display: flex;
+        align-content: center;
+        justify-content: center;
+        align-items: center;
         width: calc(100vw - var(--marginHMobile) * 2);
         height: calc(var(--vh, 1h) * 100 - var(--marginHMobile) * 3 - min(var(--headerHminMobile), 500px));
         margin: var(--marginHMobile);
@@ -633,6 +631,7 @@ footer {
         font-size: calc(20px + 0.6vw);
     }
 
+    
 
 
     /*info pages*/
@@ -757,8 +756,6 @@ footer {
         flex-wrap: wrap;
     }
 
-
-
     #menuDesktop {
         display: none;
     }
@@ -776,6 +773,24 @@ footer {
 
     .menuItems li {
         margin-bottom: calc(var(--marginHMobile) / 2);
+    }
+
+
+    #alimentosSazonais {
+
+        background-image: url(data/jogo/levels/alimentosSazonais_3.png);
+    }
+    
+    #alimentosRegionais {
+        background-image: url(data/jogo/levels/alimentosRegionais_3.png);
+    }
+    
+    #rodadosAlimentos {
+        background-image: url(data/jogo/levels/rodaAlimentos_3.png);
+    }
+    
+    #alimentacaoEquilibrada {
+  background-image: url(data/jogo/levels/alimentacaoEquilibrada_3.png);
     }
 
     #menuExplorePage {
@@ -854,6 +869,7 @@ footer {
 
     .levelTitle {
         margin: calc(var(--marginHMobile) / 2);
+        display: none;
     }
 
     #levelMain span {
