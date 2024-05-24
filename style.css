@@ -289,7 +289,7 @@ footer {
 }
 
 .illustrationsIndex span {
-    font-size: calc(20px + 0.5vw);
+    font-size: calc(16px + 0.5vw);
     color: var(--grey);
     mix-blend-mode: multiply;
 }
