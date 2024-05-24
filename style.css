@@ -507,6 +507,10 @@ footer {
     background-color: var(--blue);
 }
 
+#explorarInfo #textInfoTitle {
+    background-color: var(--blue);
+}
+
 #explorarInfo .textInfo {
     background-color: var(--blue);
 }
@@ -515,6 +519,9 @@ footer {
     background-color: var(--lighLightPink);
 }
 
+#escolasInfo #textInfoTitle {
+    background-color: var(--lighLightPink);
+}
 #escolasInfo .textInfo {
     background-color: var(--lighLightPink);
 }
@@ -533,7 +540,6 @@ footer {
 .textInfoBox {
     display: flex;
     justify-content: space-between;
-    margin-bottom: 5vh;
 }
 
 .imageInfo {
@@ -550,12 +556,12 @@ footer {
 }
 
 .info {
-    margin-top: calc(var(--marginH) * 3);
+    margin-top: var(--marginH);
 }
 
 #textInfoTitle span {
     font-family: AuthenticSans130;
-    font-size: 100px;
+    font-size: calc(80px + 0.5vw);
     color: var(--grey);
     mix-blend-mode: multiply;
 }
