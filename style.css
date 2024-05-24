@@ -857,6 +857,8 @@ footer {
         margin-bottom: var(--marginHMobile);
         gap: var(--marginHMobile);
         box-sizing: border-box;
+        min-width: unset;
+        min-height: unset;
     }
 
     #levelMain {
