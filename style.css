@@ -267,7 +267,8 @@ footer {
     display: flex;
     justify-content: center;
     font-family: AuthenticSans130;
-    font-size: calc(40px + 1vw);
+    font-size: calc(35px + 1vw);
+    line-height: calc(35px + 1vw);
     color: var(--grey);
     mix-blend-mode: multiply;
 }
