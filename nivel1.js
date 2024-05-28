@@ -364,7 +364,7 @@ class Level {
         text(content, 30, heightQuestion/5*3.3 + textAscent());
         }
         else{
-            text(content, marginMobile , marginMobile + textAscent());
+            text(content, marginMobile , heightQuestion/4 + marginMobile * 1.5 + textAscent()*2);
         }
         pop();
         rectMode(CORNERS);
@@ -374,7 +374,7 @@ class Level {
         image(this.question,heightQuestion + 30, heightQuestion/3 + 30,heightQuestion/1.5 * 3, heightQuestion/1.5);
         }
         else{
-            image(this.question, heightQuestion/1 + marginMobile, heightQuestion/3 + marginMobile + textAscent()*2,heightQuestion/1.5 * 3, heightQuestion/1.5);
+            image(this.question, heightQuestion/1.33 + marginMobile, heightQuestion/4 + marginMobile,heightQuestion/2 * 3, heightQuestion/2);
         }
         pop();
 
