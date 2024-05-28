@@ -1,4 +1,3 @@
-
 var w = window.innerWidth;
 var h = window.innerHeight;
 
@@ -58,7 +57,7 @@ window.onresize = function () {
 
 function platesize() {
     if (w < 600) {
-        plateSize = w * 0.6;
+        plateSize = w * 0.8;
     } else if (w < 1000) {
         plateSize = w * 0.45;
     } else if (w < 1500) {
@@ -81,7 +80,6 @@ function itemsize() {
 }
 
 function textsize() {
-
     if (w < 900) {
         h2Size = h * 0.03;
         heightQuestion = height / 4;
