@@ -297,12 +297,7 @@ class Level {
         push();
         fill(109, 111, 113);
         blendMode(MULTIPLY);
-        if(levels.currentLevel == 1 || levels.currentLevel == 2 || levels.currentLevel == 3 || levels.currentLevel == 5){
         text(content, 30, heightQuestion/5*3.9 + textAscent());
-        }
-        else if(levels.currentLevel == 0 || levels.currentLevel == 4){
-            text(content, 30, heightQuestion/5*2.9 + textAscent());
-        }
         pop();
         rectMode(CORNERS);
         push();
