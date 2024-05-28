@@ -57,9 +57,11 @@ window.onresize = function () {
 }
 
 function platesize() {
-    if (w < 900) {
+    if (w < 600) {
         plateSize = w * 0.65;
-    } else if (w < 1500) {
+    }else if (w <   1000) {
+        plateSize = w * 0.54;
+    }  else if (w < 1500) {
         plateSize = w * 0.4;
     } else {
         plateSize = w * 0.28;
@@ -67,9 +69,11 @@ function platesize() {
 }
 
 function itemsize() {
-    if (w < 900) {
+    if (w < 600) {
         itemSize = w * 0.0002;
-    } else if (w < 1500) {
+    } else if (w <   1000) {
+        itemSize = w * 0.00015;
+    }else if (w < 1500) {
         itemSize = w * 0.0001;
     } else {
         itemSize = w * 0.00007;
