@@ -60,7 +60,7 @@ function platesize() {
     if (w < 600) {
         plateSize = w * 0.6;
     } else if (w < 1000) {
-        plateSize = w * 0.5;
+        plateSize = w * 0.45;
     } else if (w < 1500) {
         plateSize = w * 0.3;
     } else {
