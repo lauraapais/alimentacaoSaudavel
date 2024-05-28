@@ -10,6 +10,8 @@ var heightQuestion = 300;
 
 var pw, ph;
 
+var pw, ph;
+
 var endLevel = false, level = 1;
 
 var h1Size, h2Size;
@@ -58,13 +60,21 @@ function platesize() {
 }
 
 function itemsize() {
+<<<<<<< HEAD
     if (w > h) itemSize = h * 0.00013;
+=======
+    if (w > h) itemSize = h * 0.0002;
+>>>>>>> d55876e0465934ae8e016e2b46ae3994b5e52e47
     else itemSize = w * 0.0002;
 }
 
 function textsize() {
     if (w > h) {
+<<<<<<< HEAD
         h2Size = h * 0.04;
+=======
+        h2Size = h * 0.06;
+>>>>>>> d55876e0465934ae8e016e2b46ae3994b5e52e47
         heightQuestion = height / 3;
     } else {
         h2Size = h * 0.04;
@@ -352,14 +362,23 @@ class Level {
         push();
         fill(109, 111, 113);
         blendMode(MULTIPLY);
+<<<<<<< HEAD
         text(content, 30, heightQuestion/5*3.1 + textAscent());
+=======
+        text(content, 30, heightQuestion/5*3.8 + textAscent());
+>>>>>>> d55876e0465934ae8e016e2b46ae3994b5e52e47
         pop();
         rectMode(CORNERS);
         push();
         blendMode(MULTIPLY);
         image(this.question,
+<<<<<<< HEAD
             heightQuestion + 30, heightQuestion/3 + 30,
             heightQuestion/1.5 * 3, heightQuestion/1.5);
+=======
+            heightQuestion + 30, heightQuestion/2 + 30,
+            heightQuestion*2, heightQuestion);
+>>>>>>> d55876e0465934ae8e016e2b46ae3994b5e52e47
         pop();
 
         if (this.lastPlateItem != null && this.currentTextTimer != 0) {
@@ -428,7 +447,11 @@ class Level {
             space = width / (this.items.length + 1);
             for (let i = 0; i < this.items.length; i++) {
                 this.items[i].pos.set(
+<<<<<<< HEAD
                     space * (i + 1), height * (1 - itemsScale/1.3)
+=======
+                    space * (i + 1), height * (1 - itemsScale)
+>>>>>>> d55876e0465934ae8e016e2b46ae3994b5e52e47
                 );
             }
         }
