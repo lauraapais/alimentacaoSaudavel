@@ -549,8 +549,7 @@ class Level {
     setDefaultPosition() {
         let space;
 
-
-        if (w < 900) {
+        if (w < 600) {
             space = width / (this.items.length / 2 + 3);
             for (let i = 0; i < this.items.length; i++) {
                 let xd;
@@ -560,13 +559,6 @@ class Level {
                 this.items[i].pos.set(
                     space * (i + 1 - xd),
                     height * (1 - itemsScale / 1.5 * (1 + xd))
-                );
-            }
-        } else if (w < 1500) {
-            space = width / (this.items.length + 1);
-            for (let i = 0; i < this.items.length; i++) {
-                this.items[i].pos.set(
-                    space * (i + 1), height * (1 - itemsScale / 1.3)
                 );
             }
         } else {
