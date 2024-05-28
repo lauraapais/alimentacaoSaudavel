@@ -56,7 +56,7 @@ window.onresize = function () {
 }
 
 function platesize() {
-    if (w > h) plateSize = h * 0.55;
+    if (w > h) plateSize = w * 0.28;
     else plateSize = w * 0.8;
 }
 
@@ -332,7 +332,7 @@ class Level {
         image(plate, width / 2, height / 2.1, plateSize, plateSize);
         }
         else{
-            image(plate, width / 2, height / 2, plateSize, plateSize);
+            image(plate, width / 2, height / 2.2, plateSize, plateSize);
         }
         pop();
 
@@ -383,7 +383,7 @@ class Level {
             image(this.lastPlateItem.description, width / 2 + plateSize / 3, height / 2 + plateSize / 3, 250, 250);
             }
             else{
-                image(this.lastPlateItem.description, width / 2 + plateSize / 3, height / 2 + plateSize / 3, 180, 180);
+                image(this.lastPlateItem.description, width / 2 + plateSize / 3, height / 2 + plateSize / 3, 160, 160);
             }
             this.currentTextTimer--;
         }
