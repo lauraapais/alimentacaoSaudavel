@@ -325,7 +325,7 @@ class Level {
         background(this.background);
         push();
         blendMode(MULTIPLY);
-        image(plate, width / 2, height / 2, plateSize, plateSize);
+        image(plate, width / 2, height / 2.3, plateSize, plateSize);
         pop();
 
         for (let i = 0; i < this.items.length; i++) {
