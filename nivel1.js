@@ -67,7 +67,7 @@ function textsize() {
         h2Size = h * 0.04;
         heightQuestion = height / 3;
     } else {
-        h2Size = h * 0.04;
+        h2Size = h * 0.03;
         heightQuestion = height / 4;
     }
 }
@@ -325,7 +325,12 @@ class Level {
         background(this.background);
         push();
         blendMode(MULTIPLY);
-        image(plate, width / 2, height / 2.3, plateSize, plateSize);
+        if (w > h){
+        image(plate, width / 2, height / 2.1, plateSize, plateSize);
+        }
+        else{
+            image(plate, width / 2, height / 2, plateSize, plateSize);
+        }
         pop();
 
         for (let i = 0; i < this.items.length; i++) {
@@ -357,9 +362,12 @@ class Level {
         rectMode(CORNERS);
         push();
         blendMode(MULTIPLY);
-        image(this.question,
-            heightQuestion + 30, heightQuestion/3 + 30,
-            heightQuestion/1.5 * 3, heightQuestion/1.5);
+        if (w > h){
+        image(this.question,heightQuestion + 30, heightQuestion/3 + 30,heightQuestion/1.5 * 3, heightQuestion/1.5);
+        }
+        else{
+            image(this.question, heightQuestion/1.33 + 30, heightQuestion/3 + 30,heightQuestion/2 * 3, heightQuestion/2);
+        }
         pop();
 
         if (this.lastPlateItem != null && this.currentTextTimer != 0) {
