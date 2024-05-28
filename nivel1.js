@@ -16,6 +16,7 @@ var endLevel = false, level = 1;
 var h1Size, h2Size;
 
 marginMobile = 0.06 * w;
+marginDesktop = 0.02 * w;
 
 function preload() {
     plate = loadImage('data/jogo/plate.png');
@@ -56,22 +57,36 @@ window.onresize = function () {
 }
 
 function platesize() {
-    if (w > h) plateSize = w * 0.28;
-    else plateSize = w * 0.8;
+    if (w < 900) {
+        plateSize = w * 0.7;
+    } else if (w < 1500) {
+        plateSize = w * 0.4;
+    } else {
+        plateSize = w * 0.28;
+    }
 }
 
 function itemsize() {
-    if (w > h) itemSize = w * 0.00007;
-    else itemSize = w * 0.0002;
+    if (w < 900) {
+        itemSize = w * 0.0002;
+    } else if (w < 1500) {
+        itemSize = w * 0.0001;
+    } else {
+        itemSize = w * 0.00007;
+    }
 }
 
 function textsize() {
-    if (w > h) {
+
+    if (w < 900) {
+        h2Size = h * 0.03;
+        heightQuestion = height / 4;
+    } else if (w < 1500) {
         h2Size = h * 0.04;
         heightQuestion = height / 3;
     } else {
-        h2Size = h * 0.03;
-        heightQuestion = height / 4;
+        h2Size = h * 0.04;
+        heightQuestion = height / 3;
     }
 }
 
@@ -141,7 +156,7 @@ function loadLevels() {
         'data/jogo/level1/screen4/textInverno.png',
         new UIFinish('data/jogo/endLevel/4.png')
     );
-    
+
     level_four.addItem(items.carot, false, 'data/jogo/certoErrado/level1/screen4/errado.png');
     level_four.addItem(items.potato, true, 'data/jogo/certoErrado/level1/screen4/certo.png');
     level_four.addItem(items.lemon, false, 'data/jogo/certoErrado/level1/screen4/errado.png');
@@ -198,7 +213,7 @@ class LevelLoader {
             this.levels[this.currentLevel].mousePressed();
 
         if (this.levels[this.currentLevel].uiEndLevel.status)
-            if(this.currentLevel+1 < this.levels.length)
+            if (this.currentLevel + 1 < this.levels.length)
                 this.currentLevel++;
             else
                 window.location.href = 'niveisMenu.html';
@@ -223,7 +238,7 @@ class LevelLoader {
     }
 
     recalcLevel() {
-        for(let i = 0; i < this.levels.length; i++) {
+        for (let i = 0; i < this.levels.length; i++) {
             this.levels[i].recalcItem();
         }
     }
@@ -254,15 +269,15 @@ class UIFinish {
         blendMode(MULTIPLY);
         noStroke();
         fill(109, 111, 113);
-        rect(width/2, height / 2 + 175 -  12.5, 250, 75, 22);
+        rect(width / 2, height / 2 + 175 - 12.5, 250, 75, 22);
         pop();
 
         push();
         textSize(32);
         fill(255);
         textAlign(CENTER);
-        text('Continuar', width / 2, height / 2 + 175 - 13.5 + textAscent()/2);
-        pop();    
+        text('Continuar', width / 2, height / 2 + 175 - 13.5 + textAscent() / 2);
+        pop();
     }
 
     mousePressed() {
@@ -272,11 +287,11 @@ class UIFinish {
             mouseY < (height / 2 + 175 - 12.5) + (22 / 2)) {
             this.status = true;
         }
-        else if (mouseX > (width/2 - 170) - 50/2 &&
-            mouseX < (width/2 - 170) + 50 / 2 &&
-            mouseY > (height/2 - 175) - (50 / 2) &&
-            mouseY < (height/2 - 175) + (50 / 2)) {
-                window.location.href = 'niveisMenu.html';
+        else if (mouseX > (width / 2 - 170) - 50 / 2 &&
+            mouseX < (width / 2 - 170) + 50 / 2 &&
+            mouseY > (height / 2 - 175) - (50 / 2) &&
+            mouseY < (height / 2 - 175) + (50 / 2)) {
+            window.location.href = 'niveisMenu.html';
         }
     }
 }
@@ -328,11 +343,13 @@ class Level {
         background(this.background);
         push();
         blendMode(MULTIPLY);
-        if (w > h){
-        image(plate, width / 2, height / 2.1, plateSize, plateSize);
-        }
-        else{
+
+        if (w < 900) {
             image(plate, width / 2, height / 2.2, plateSize, plateSize);
+        } else if (w < 1500) {
+            image(plate, width / 2, height / 2.1, plateSize, plateSize);
+        } else {
+            image(plate, width / 2, height / 2.1, plateSize, plateSize);
         }
         pop();
 
@@ -360,30 +377,36 @@ class Level {
         push();
         fill(109, 111, 113);
         blendMode(MULTIPLY);
-        if (w > h){
-        text(content, 30, heightQuestion/5*3.3 + textAscent());
+
+        if (w < 900) {
+            text(content, marginMobile, heightQuestion / 4 + marginMobile * 1.5 + textAscent() * 2);
+        } else if (w < 1500) {
+            text(content, marginDesktop, heightQuestion / 6 * 3.3 + textAscent());
+        } else {
+            text(content, marginDesktop, heightQuestion / 5 * 3.3 + textAscent());
         }
-        else{
-            text(content, marginMobile , heightQuestion/4 + marginMobile * 1.5 + textAscent()*2);
-        }
+
         pop();
         rectMode(CORNERS);
         push();
         blendMode(MULTIPLY);
-        if (w > h){
-        image(this.question,heightQuestion + 30, heightQuestion/3 + 30,heightQuestion/1.5 * 3, heightQuestion/1.5);
-        }
-        else{
-            image(this.question, heightQuestion/1.33 + marginMobile, heightQuestion/4 + marginMobile,heightQuestion/2 * 3, heightQuestion/2);
+
+        if (w < 900) {
+            image(this.question, heightQuestion / 1.33 + marginMobile, heightQuestion / 4 + marginMobile, heightQuestion / 2 * 3, heightQuestion / 2);
+        } else if (w < 1500) {
+            image(this.question, heightQuestion / 1.33 + marginDesktop, heightQuestion / 4 + marginDesktop, heightQuestion / 2 * 3, heightQuestion / 2);
+        } else {
+            image(this.question, heightQuestion + marginDesktop, heightQuestion / 3 + marginDesktop, heightQuestion / 1.5 * 3, heightQuestion / 1.5);
         }
         pop();
 
         if (this.lastPlateItem != null && this.currentTextTimer != 0) {
-            if (w > h){
-            image(this.lastPlateItem.description, width / 2 + plateSize / 3, height / 2 + plateSize / 3, 250, 250);
-            }
-            else{
+            if (w < 900) {
                 image(this.lastPlateItem.description, width / 2 + plateSize / 3, height / 2 + plateSize / 3, 160, 160);
+            } else if (w < 1500) {
+                image(this.lastPlateItem.description, width / 2 + plateSize / 3, height / 2 + plateSize / 3, 200, 200);
+            } else {
+                image(this.lastPlateItem.description, width / 2 + plateSize / 3, height / 2 + plateSize / 3, 250, 250);
             }
             this.currentTextTimer--;
         }
@@ -445,24 +468,31 @@ class Level {
     setDefaultPosition() {
         let space;
 
-        if (w > h) {
-            space = width / (this.items.length + 1);
-            for (let i = 0; i < this.items.length; i++) {
-                this.items[i].pos.set(
-                    space * (i + 1), height * (1 - itemsScale/1.3)
-                );
-            }
-        }
-        else {
-            space = width / (this.items.length/2 + 3);
+
+        if (w < 900) {
+            space = width / (this.items.length / 2 + 3);
             for (let i = 0; i < this.items.length; i++) {
                 let xd;
-                if(i%2 == 0) xd = 0;
+                if (i % 2 == 0) xd = 0;
                 else xd = 1;
 
                 this.items[i].pos.set(
                     space * (i + 1 - xd),
-                    height * (1 - itemsScale/1.5 * (1+xd))
+                    height * (1 - itemsScale / 1.5 * (1 + xd))
+                );
+            }
+        } else if (w < 1500) {
+            space = width / (this.items.length + 1);
+            for (let i = 0; i < this.items.length; i++) {
+                this.items[i].pos.set(
+                    space * (i + 1), height * (1 - itemsScale / 1.3)
+                );
+            }
+        } else {
+            space = width / (this.items.length + 1);
+            for (let i = 0; i < this.items.length; i++) {
+                this.items[i].pos.set(
+                    space * (i + 1), height * (1 - itemsScale / 1.3)
                 );
             }
         }
