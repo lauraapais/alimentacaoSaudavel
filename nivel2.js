@@ -3,12 +3,16 @@ var h = window.innerHeight;
 
 var items = {};
 var levels;
-var plate, plateSize;
+var plate, plateSize, itemSize;
 var itemsScale = 0.16;
 var close;
-var heightQuestion = 400;
+var heightQuestion = 300;
+
+var pw, ph;
 
 var endLevel = false, level = 1;
+
+var h1Size, h2Size;
 
 function preload() {
     plate = loadImage('data/jogo/plate.png');
@@ -17,10 +21,16 @@ function preload() {
 
 function setup() {
     canvas = createCanvas(w, h);
+    pw = w;
+    ph = h;
+
     loadItems();
     loadLevels();
     imageMode(CENTER);
+
     platesize();
+    itemsize();
+    textsize();
 }
 
 function draw() {
@@ -28,18 +38,39 @@ function draw() {
 }
 
 window.onresize = function () {
+    pw = w;
+    ph = h;
+
     w = window.innerWidth;
     h = window.innerHeight;
     canvas.size(w, h);
 
     platesize();
+    itemsize();
+    textsize();
+
+    levels.recalcLevel();
 }
 
 function platesize() {
     if (w > h) plateSize = h * 0.5;
-    else plateSize = w * 0.5;
+    else plateSize = w * 0.8;
 }
 
+function itemsize() {
+    if (w > h) itemSize = h * 0.00013;
+    else itemSize = w * 0.0002;
+}
+
+function textsize() {
+    if (w > h) {
+        h2Size = h * 0.04;
+        heightQuestion = height / 3;
+    } else {
+        h2Size = h * 0.04;
+        heightQuestion = height / 4;
+    }
+}
 function loadItems() {
     //Trás-os-Montes
     items.lemon = new Gameitem('data/jogo/level1/screen1/4.png');
@@ -132,6 +163,12 @@ class LevelLoader {
             return true;
         return false
     }
+
+    recalcLevel() {
+        for(let i = 0; i < this.levels.length; i++) {
+            this.levels[i].recalcItem();
+        }
+    }
 }
 
 class UIFinish {
@@ -166,7 +203,7 @@ class UIFinish {
         textSize(32);
         fill(255);
         textAlign(CENTER);
-        text('Menu', width / 2, height / 2 + 175 - 13.5 + textAscent()/2);
+        text('Continuar', width / 2, height / 2 + 175 - 13.5 + textAscent()/2);
         pop();    
     }
 
@@ -239,7 +276,7 @@ class Level {
         for (let i = 0; i < this.items.length; i++) {
             let item = this.items[i];
             item.item.show(item.pos,
-                (item.scale + item.scale * item.dragScale / this.timeScaleMax / 2) //Animation Scale
+                (itemSize + itemSize * item.dragScale / this.timeScaleMax / 10) //Animation Scale
             );
         }
 
@@ -256,16 +293,23 @@ class Level {
 
     ui() {
         let content = this.points + "/" + this.totalTrues;
-        textSize(this.textSize);
+        textSize(h2Size);
         push();
         fill(109, 111, 113);
         blendMode(MULTIPLY);
-        text(content, 64, heightQuestion/1.20 + textAscent());
+        if(levels.currentLevel == 1 || levels.currentLevel == 2 || levels.currentLevel == 3 || levels.currentLevel == 5){
+        text(content, 30, heightQuestion/5*3.9 + textAscent());
+        }
+        else if(levels.currentLevel == 0 || levels.currentLevel == 4){
+            text(content, 30, heightQuestion/5*2.9 + textAscent());
+        }
         pop();
         rectMode(CORNERS);
         push();
         blendMode(MULTIPLY);
-        image(this.question, 420, 200, 800, 400);
+        image(this.question,
+            heightQuestion + 30, heightQuestion/3 + 30,
+            heightQuestion/1.5 * 3, heightQuestion/1.5);
         pop();
 
         if (this.lastPlateItem != null && this.currentTextTimer != 0) {
@@ -291,7 +335,7 @@ class Level {
             for (let i = 0; i < this.items.length; i++) {
                 let item = this.items[i];
                 let d = dist(mouseX, mouseY, item.pos.x, item.pos.y);
-                if (d < item.item.image.width * item.scale / 2) {
+                if (d < item.item.image.width * itemSize / 2) {
                     this.draggingItem = item;
                     this.offsetX = mouseX - this.draggingItem.pos.x;
                     this.offsetY = mouseY - this.draggingItem.pos.y;
@@ -328,11 +372,28 @@ class Level {
     }
 
     setDefaultPosition() {
-        let space = width / (this.items.length + 1);
-        for (let i = 0; i < this.items.length; i++) {
-            this.items[i].pos.set(
-                space * (i + 1), height * (1 - 0.13)
-            );
+        let space;
+
+        if (w > h) {
+            space = width / (this.items.length + 1);
+            for (let i = 0; i < this.items.length; i++) {
+                this.items[i].pos.set(
+                    space * (i + 1), height * (1 - itemsScale/1.3)
+                );
+            }
+        }
+        else {
+            space = width / (this.items.length/2 + 3);
+            for (let i = 0; i < this.items.length; i++) {
+                let xd;
+                if(i%2 == 0) xd = 0;
+                else xd = 1;
+
+                this.items[i].pos.set(
+                    space * (i + 1 - xd),
+                    height * (1 - itemsScale/1.5 * (1+xd))
+                );
+            }
         }
     }
 
@@ -354,6 +415,13 @@ class Level {
                 return false;
         }
         return true;
+    }
+
+    recalcItem() {
+        for (let i = 0; i < this.items.length; i++) {
+            this.items[i].pos = replaceItem(this.items[i].pos.x, this.items[i].pos.y,
+                pw, ph, width, height);
+        }
     }
 }
 
@@ -381,4 +449,11 @@ function mouseDragged() {
 
 function mouseReleased() {
     levels.mouseReleased();
+}
+
+function replaceItem(px, py, pw, ph, w, h) {
+    let x = px * w / pw;
+    let y = py * h / ph;
+
+    return createVector(x, y);
 }
