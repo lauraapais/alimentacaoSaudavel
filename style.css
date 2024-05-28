@@ -468,7 +468,7 @@ footer {
     position: absolute;
     right: 0;
     top: 0;
-    margin: 2vw;
+    margin: var(--marginH);
 }
 
 .closeIcon {
@@ -876,6 +876,11 @@ footer {
 
     #levelMain span {
         font-size: calc(17px + 0.6vw);
+    }
+
+
+    .headerGameInside {
+        margin: var(--marginHMobile);
     }
 
 }

@@ -1,3 +1,4 @@
+
 var w = window.innerWidth;
 var h = window.innerHeight;
 
@@ -13,6 +14,8 @@ var pw, ph;
 var endLevel = false, level = 1;
 
 var h1Size, h2Size;
+
+marginMobile = 0.06 * w;
 
 function preload() {
     plate = loadImage('data/jogo/plate.png');
@@ -361,7 +364,7 @@ class Level {
         text(content, 30, heightQuestion/5*3.3 + textAscent());
         }
         else{
-            text(content, 30, heightQuestion/5*2.6 + textAscent());
+            text(content, marginMobile , marginMobile + textAscent());
         }
         pop();
         rectMode(CORNERS);
@@ -371,12 +374,17 @@ class Level {
         image(this.question,heightQuestion + 30, heightQuestion/3 + 30,heightQuestion/1.5 * 3, heightQuestion/1.5);
         }
         else{
-            image(this.question, heightQuestion/1.33 + 30, heightQuestion/3,heightQuestion/2 * 3, heightQuestion/2);
+            image(this.question, heightQuestion/1 + marginMobile, heightQuestion/3 + marginMobile + textAscent()*2,heightQuestion/1.5 * 3, heightQuestion/1.5);
         }
         pop();
 
         if (this.lastPlateItem != null && this.currentTextTimer != 0) {
+            if (w > h){
             image(this.lastPlateItem.description, width / 2 + plateSize / 3, height / 2 + plateSize / 3, 250, 250);
+            }
+            else{
+                image(this.lastPlateItem.description, width / 2 + plateSize / 3, height / 2 + plateSize / 3, 180, 180);
+            }
             this.currentTextTimer--;
         }
     }
