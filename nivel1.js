@@ -357,7 +357,12 @@ class Level {
         push();
         fill(109, 111, 113);
         blendMode(MULTIPLY);
+        if (w > h){
         text(content, 30, heightQuestion/5*3.3 + textAscent());
+        }
+        else{
+            text(content, 30, heightQuestion/5*2.6 + textAscent());
+        }
         pop();
         rectMode(CORNERS);
         push();
@@ -366,7 +371,7 @@ class Level {
         image(this.question,heightQuestion + 30, heightQuestion/3 + 30,heightQuestion/1.5 * 3, heightQuestion/1.5);
         }
         else{
-            image(this.question, heightQuestion/1.33 + 30, heightQuestion/3 + 30,heightQuestion/2 * 3, heightQuestion/2);
+            image(this.question, heightQuestion/1.33 + 30, heightQuestion/3,heightQuestion/2 * 3, heightQuestion/2);
         }
         pop();
 
