@@ -59,9 +59,9 @@ window.onresize = function () {
 function platesize() {
     if (w < 600) {
         plateSize = w * 0.65;
-    }else if (w <   1000) {
+    } else if (w < 1000) {
         plateSize = w * 0.54;
-    }  else if (w < 1500) {
+    } else if (w < 1500) {
         plateSize = w * 0.4;
     } else {
         plateSize = w * 0.28;
@@ -71,9 +71,9 @@ function platesize() {
 function itemsize() {
     if (w < 600) {
         itemSize = w * 0.0002;
-    } else if (w <   1000) {
+    } else if (w < 1000) {
         itemSize = w * 0.00015;
-    }else if (w < 1500) {
+    } else if (w < 1500) {
         itemSize = w * 0.0001;
     } else {
         itemSize = w * 0.00007;
@@ -261,11 +261,28 @@ class UIFinish {
 
     display() {
         imageMode(CENTER);
-        image(this.image, width / 2, height / 2, 500, 500);
+        if (w < 900) {
+            image(this.image, width / 2, height / 2, 300, 300);
+        }
+        else if (w < 1500) {
+            image(this.image, width / 2, height / 2, 400, 400);
+        } else {
+            image(this.image, width / 2, height / 2, 500, 500);
+        }
+
 
         push();
         blendMode(MULTIPLY);
-        image(close, width / 2 - 170, height / 2 - 175, 50, 50);
+
+        if (w < 900) {
+            image(close, width / 2 - 102, height / 2 - 105, 30, 30);
+        }
+        else if (w < 1500) {
+            image(close, width / 2 - 136, height / 2 - 140, 40, 40);
+        } else {
+            image(close, width / 2 - 170, height / 2 - 175, 50, 50);
+        }
+        
         pop();
 
         push();
@@ -273,14 +290,38 @@ class UIFinish {
         blendMode(MULTIPLY);
         noStroke();
         fill(109, 111, 113);
-        rect(width / 2, height / 2 + 175 - 12.5, 250, 75, 22);
+
+        if (w < 900) {
+            rect(width / 2, height / 2 + 105 - 7.5, 150, 45, 22);
+        }
+        else if (w < 1500) {
+            rect(width / 2, height / 2 + 140 - 10, 200, 60, 22);
+        } else {
+            rect(width / 2, height / 2 + 175 - 12.5, 250, 75, 22);
+        }
         pop();
 
         push();
-        textSize(32);
+        if (w < 900) {
+            textSize(19.2);
+        }
+        else if (w < 1500) {
+            textSize(25.6);
+        } else {
+            textSize(32);
+        }
+
         fill(255);
         textAlign(CENTER);
-        text('Continuar', width / 2, height / 2 + 175 - 13.5 + textAscent() / 2);
+
+        if (w < 900) {
+            text('Continuar', width / 2, height / 2 + 105 - 8.1 + textAscent() / 2);
+        }
+        else if (w < 1500) {
+            text('Continuar', width / 2, height / 2 + 140 - 10.8 + textAscent() / 2);
+        } else {
+            text('Continuar', width / 2, height / 2 + 175 - 13.5 + textAscent() / 2);
+        }
         pop();
     }
 
