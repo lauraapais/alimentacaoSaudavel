@@ -58,7 +58,7 @@ function platesize() {
 }
 
 function itemsize() {
-    if (w > h) itemSize = h * 0.00013;
+    if (w > h) itemSize = w * 0.00007;
     else itemSize = w * 0.0002;
 }
 
