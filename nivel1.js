@@ -58,7 +58,7 @@ window.onresize = function () {
 
 function platesize() {
     if (w < 900) {
-        plateSize = w * 0.7;
+        plateSize = w * 0.65;
     } else if (w < 1500) {
         plateSize = w * 0.4;
     } else {
