@@ -268,7 +268,6 @@ class UIFinish {
             image(this.image, width / 2, height / 2, 500, 500);
         }
 
-
         push();
         blendMode(MULTIPLY);
 
@@ -324,7 +323,42 @@ class UIFinish {
     }
 
     mousePressed() {
-        if (mouseX > width / 2 - (75 / 2) &&
+
+        if (w < 900) {
+            if (mouseX > width / 2 - (45 / 2) &&
+            mouseX < width / 2 + (45 / 2) &&
+            mouseY > (height / 2 + 105 - 7.5) - (22 / 2) &&
+            mouseY < (height / 2 + 105 - 7.5) + (22 / 2)) {
+            this.status = true;
+        }
+        else if (mouseX > (width / 2 - 102) - 30 / 2 &&
+            mouseX < (width / 2 - 102) + 30 / 2 &&
+            mouseY > (height / 2 - 195) - (30 / 2) &&
+            mouseY < (height / 2 - 105) + (30 / 2)) {
+            window.location.href = 'niveisMenu.html';
+        }
+        } 
+        
+        
+        else if (w < 1500) {
+            if (mouseX > width / 2 - (60 / 2) &&
+            mouseX < width / 2 + (60 / 2) &&
+            mouseY > (height / 2 + 140 - 10) - (22 / 2) &&
+            mouseY < (height / 2 + 140 - 10) + (22 / 2)) {
+            this.status = true;
+        }
+        else if (mouseX > (width / 2 - 136) - 40 / 2 &&
+            mouseX < (width / 2 - 136) + 40 / 2 &&
+            mouseY > (height / 2 - 140) - (50 / 2) &&
+            mouseY < (height / 2 - 140) + (50 / 2)) {
+            window.location.href = 'niveisMenu.html';
+        }
+        }
+        
+        
+        
+        else {
+            if (mouseX > width / 2 - (75 / 2) &&
             mouseX < width / 2 + (75 / 2) &&
             mouseY > (height / 2 + 175 - 12.5) - (22 / 2) &&
             mouseY < (height / 2 + 175 - 12.5) + (22 / 2)) {
@@ -336,6 +370,10 @@ class UIFinish {
             mouseY < (height / 2 - 175) + (50 / 2)) {
             window.location.href = 'niveisMenu.html';
         }
+        }
+
+
+        
     }
 }
 
