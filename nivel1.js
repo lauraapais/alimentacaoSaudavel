@@ -352,7 +352,7 @@ class Level {
         push();
         fill(109, 111, 113);
         blendMode(MULTIPLY);
-        text(content, 30, heightQuestion/5*3.1 + textAscent());
+        text(content, 30, heightQuestion/5*3.3 + textAscent());
         pop();
         rectMode(CORNERS);
         push();
