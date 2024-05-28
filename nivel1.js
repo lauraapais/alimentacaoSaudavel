@@ -53,7 +53,7 @@ window.onresize = function () {
 }
 
 function platesize() {
-    if (w > h) plateSize = h * 0.5;
+    if (w > h) plateSize = h * 0.55;
     else plateSize = w * 0.8;
 }
 
