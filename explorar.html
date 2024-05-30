@@ -12,7 +12,7 @@
 </head>
 
 
-<body id="explorarBackground" data-scroll-container>
+<body id="explorarBackground">
 
     <div class="menuDiv" id="menuDiv">
         <header>
@@ -40,51 +40,51 @@
         </div>
     </div>
 
-    <header data-scroll-section>
-        <div class="logoHeaderIndex logoHeader">
-            <a href="index.html"><img src="data/general/logo.png"
-                    alt="Alimentação Saudável e Sustentável de Trás-os-Montes"></a>
-        </div>
-        <div class="menu" id="openMenu">
-            <li id="menuDesktop">Menu</li>
-            <img id= "menuMobile" src="data/icons/menuMobile.svg">
-        </div>
-    </header>
+    <div data-scroll-container>
+        <header data-scroll-section>
+            <div class="logoHeaderIndex logoHeader">
+                <a href="index.html"><img src="data/general/logo.png"
+                        alt="Alimentação Saudável e Sustentável de Trás-os-Montes"></a>
+            </div>
+            <div class="menu" id="openMenu">
+                <li id="menuDesktop">Menu</li>
+                <img id="menuMobile" src="data/icons/menuMobile.svg">
+            </div>
+        </header>
 
-    <main data-scroll-section>
-        <div class="info" id="explorarInfo">
-            <div id="textInfoTitle" data-scroll data-scroll-direction="vertical" data-scroll-speed="1"
-            data-scroll-delay="0.2">
-            <span>Explorar</span>
-        </div>
-        </div>
-    </div>
-    </main>
-    
-    <footer data-scroll-section>
-        <div  class="footerDiv" data-scroll data-scroll-direction="vertical" data-scroll-speed="1">
-            <div id="footerSuport" class="support">
-                <div>
-                    <div><span>Apoio</span></div>
-                    <div class="footerImg">
-                        <img src="data/apoios/PDR.png">
-                        <img src="data/apoios/PT.png">
+        <main data-scroll-section>
+            <div class="info" id="explorarInfo">
+                <div id="textInfoTitle" data-scroll data-scroll-direction="vertical" data-scroll-speed="1"
+                    data-scroll-delay="0.2">
+                    <span>Explorar</span>
+                </div>
+            </div>
+        </main>
+
+        <footer data-scroll-section>
+            <div class="footerDiv" data-scroll data-scroll-direction="vertical" data-scroll-speed="1">
+                <div id="footerSuport" class="support">
+                    <div>
+                        <div><span>Apoio</span></div>
+                        <div class="footerImg">
+                            <img src="data/apoios/PDR.png">
+                            <img src="data/apoios/PT.png">
+                        </div>
                     </div>
                 </div>
-            </div>
-            <div id="footerPartnership" class="support">
-                <div><span>Parceria</span></div>
-                <div class="footerImg">
-                    <img src="data/apoios/Corane.png">
-                    <img src="data/apoios/Desteque.png">
-                    <img src="data/apoios/DS.png">
-                    <img src="data/apoios/TM.png">
-                    <img src="data/apoios/RP.png">
-                    <img src="data/apoios/IPB.png">
+                <div id="footerPartnership" class="support">
+                    <div><span>Parceria</span></div>
+                    <div class="footerImg">
+                        <img src="data/apoios/Corane.png">
+                        <img src="data/apoios/Desteque.png">
+                        <img src="data/apoios/DS.png">
+                        <img src="data/apoios/TM.png">
+                        <img src="data/apoios/RP.png">
+                        <img src="data/apoios/IPB.png">
+                    </div>
                 </div>
-            </div>
-    </footer>
-
+        </footer>
+    </div>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.4.0/p5.js"></script>
     <script src="JS/locomotive-scroll.min.js"></script>
     <script>

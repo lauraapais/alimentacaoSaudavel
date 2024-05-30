@@ -46,6 +46,10 @@ window.onresize = function () {
 
     w = window.innerWidth;
     h = window.innerHeight;
+
+    marginMobile = 0.06 * w;
+    marginDesktop = 0.02 * w;
+
     canvas.size(w, h);
 
     platesize();

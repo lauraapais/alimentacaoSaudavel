@@ -93,11 +93,11 @@ header {
 
 .menuDiv {
     width: 100vw;
-    min-height: calc(var(--vh, 1h)*100);
-    position: absolute;
+    min-height: calc(var(--vh, 1h) * 100);
+    position: fixed;
     top: calc(var(--vh, 1h) * -100);
     background-color: var(--lightOrange);
-    z-index: 1;
+    z-index: 4;
     transition: top 1s;
 }
 
@@ -224,16 +224,21 @@ footer {
 
 .indexImage .indexIllustration {
     width: auto;
-    height: 100%;
+    height: auto;
+    max-width: 100%;
+    max-height: 100%;
 }
 
 .buttonIndex {
     position: absolute;
     bottom: 0;
     right: 0;
-    width: calc(150px + 4vw);
     filter: drop-shadow(0px 0px 0px #4444);
-    min-width: 200px;
+    margin: 0;
+    z-index: 1;
+    max-width: 25vw;
+    max-height: 25vw;
+    width: 25vh;
 }
 
 .buttonIndex:hover {
@@ -577,17 +582,19 @@ footer {
         justify-content: center;
     }
 
-    .indexImage .indexIllustration {
-        width: 80%;
+    /*.indexImage .indexIllustration {
+        width: auto;
         height: auto;
-    }
+        max-width: 100%;
+        max-height: 100%;
+    }*/
 
-    .buttonIndex {
+    /*.buttonIndex {
         width: 15vw;
         max-width: 250px;
         min-width: 200px;
         margin-bottom: calc(var(--marginHMobile));
-    }
+    }*/
 
     .landingIntro {
         width: 70%;
@@ -685,16 +692,18 @@ footer {
         align-items: center;
     }
 
-    .indexImage .indexIllustration {
-        width: 100%;
+    /*.indexImage .indexIllustration {
+        width: auto;
         height: auto;
-    }
+        max-width: 100%;
+        max-height: 100%;
+    }*/
 
-    .buttonIndex {
+    /*.buttonIndex {
         width: 35vw;
         max-width: 200px;
         min-width: 100px;
-    }
+    }*/
 
     .menu li {
         font-size: calc(20pt + 0.5vw);
@@ -800,6 +809,7 @@ footer {
     header {
         height: min(var(--headerHminMobile), 200px);
         margin: var(--marginHMobile);
+        margin-bottom: 0;
     }
 
     .headerGame {
