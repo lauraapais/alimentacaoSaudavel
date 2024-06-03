@@ -31,8 +31,8 @@ function setup() {
     loadLevels();
     imageMode(CENTER);
 
-    platesize();
     itemsize();
+    platesize();
     textsize();
 }
 
@@ -52,15 +52,15 @@ window.onresize = function () {
 
     canvas.size(w, h);
 
-    platesize();
     itemsize();
+    platesize();
     textsize();
 
     levels.recalcLevel();
 }
 
 function platesize() {
-    if (w < 600) {
+    /*if (w < 600) {
         plateSize = w * 0.8;
     } else if (w < 1000) {
         plateSize = w * 0.45;
@@ -68,7 +68,11 @@ function platesize() {
         plateSize = w * 0.3;
     } else {
         plateSize = w * 0.28;
-    }
+    }*/
+    plateSize = min(min(width*itemSize*8,
+                        width*.9), 
+                        height*.6);
+
 }
 
 function itemsize() {

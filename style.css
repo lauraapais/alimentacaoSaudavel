@@ -330,8 +330,9 @@ footer {
     cursor: pointer;
     position: relative;
     margin-bottom: var(--marginH);
-   
-    box-sizing: border-box;
+
+    overflow: hidden;
+    max-width: 45%;
 }
 
 
@@ -345,8 +346,10 @@ footer {
 }
 
 .levelTitle {
-    margin-top: calc(var(--marginH));
-    margin: calc(var(--marginH)) calc(var(--marginH) / 2);
+    padding: 20px 20px 0 20px;
+    height: 25%;
+    /*margin-top: calc(var(--marginH));
+    margin: calc(var(--marginH)) calc(var(--marginH) / 2);*/
 }
 
 #levelMain span {
@@ -357,40 +360,46 @@ footer {
     margin-top: 5px;
 }
 
+.level .cover {
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+    width: 100%;
+    height: 75%;
+    position: absolute;
+    bottom: 0;
+}
+
 #alimentosSazonais {
     background-color: var(--blue);
+}
 
+#alimentosSazonais .cover {
     background-image: url(data/jogo/levels/alimentosSazonais.png);
-    background-size: contain;
-    background-position: bottom;
-    background-repeat: no-repeat;
 }
 
 #alimentosRegionais {
     background-color: var(--toastedYellow);
+}
 
+#alimentosRegionais .cover {
     background-image: url(data/jogo/levels/alimentosRegionais.png);
-    background-size: contain;
-    background-position: bottom;
-    background-repeat: no-repeat;
 }
 
 #rodadosAlimentos {
     background-color: var(--pink);
+}
 
+#rodadosAlimentos .cover {
     background-image: url(data/jogo/levels/rodaAlimentos.png);
-    background-size: contain;
-    background-position: bottom;
-    background-repeat: no-repeat;
 }
 
 #alimentacaoEquilibrada {
     background-color: var(--lighLightPink);
+}
 
+#alimentacaoEquilibrada .cover {
     background-image: url(data/jogo/levels/alimentacaoEquilibrada.png);
-    background-size: contain;
-    background-position: bottom;
-    background-repeat: no-repeat;
 }
 
 #levelMain a {
@@ -528,6 +537,7 @@ footer {
 #escolasInfo #textInfoTitle {
     background-color: var(--lighLightPink);
 }
+
 #escolasInfo .textInfo {
     background-color: var(--lighLightPink);
 }
@@ -614,9 +624,15 @@ footer {
 
     /*niveis*/
     .level {
-        margin-bottom: var(--marginHMobile);
+        /*margin-bottom: var(--marginHMobile);*/
+        margin: 0;
         gap: var(--marginHMobile);
         box-sizing: border-box;
+
+        min-height: 100%;
+        width: 20%;
+        min-width: auto;
+        /*height: 50%;*/
     }
 
     #levelMain {
@@ -631,14 +647,14 @@ footer {
     }
 
     .levelTitle {
-        margin: calc(var(--marginHMobile) / 2);
+        /*margin: calc(var(--marginHMobile) / 2);*/
     }
 
     #levelMain span {
         font-size: calc(20px + 0.6vw);
     }
 
-    
+
 
 
     /*info pages*/
@@ -784,22 +800,26 @@ footer {
         margin-bottom: calc(var(--marginHMobile) / 2);
     }
 
+    .level .cover {
+        height: 100%;
+        background-size: cover;
+    }
 
-    #alimentosSazonais {
 
+    #alimentosSazonais .cover {
         background-image: url(data/jogo/levels/alimentosSazonais_3.png);
     }
-    
-    #alimentosRegionais {
+
+    #alimentosRegionais .cover {
         background-image: url(data/jogo/levels/alimentosRegionais_3.png);
     }
-    
-    #rodadosAlimentos {
+
+    #rodadosAlimentos .cover {
         background-image: url(data/jogo/levels/rodaAlimentos_3.png);
     }
-    
-    #alimentacaoEquilibrada {
-  background-image: url(data/jogo/levels/alimentacaoEquilibrada_3.png);
+
+    #alimentacaoEquilibrada .cover {
+        background-image: url(data/jogo/levels/alimentacaoEquilibrada_3.png);
     }
 
     #menuExplorePage {
@@ -872,7 +892,7 @@ footer {
     }
 
     #levelMain {
-        
+
         width: calc(100vw - var(--marginHMobile) * 2);
         height: calc(var(--vh, 1h) * 100 - var(--marginHMobile) * 3 - min(var(--headerHminMobile), 500px));
         margin: var(--marginHMobile);
@@ -880,7 +900,7 @@ footer {
     }
 
     .levelTitle {
-        margin: calc(var(--marginHMobile) / 2);
+        /*margin: calc(var(--marginHMobile) / 2);*/
         display: none;
     }
 
