@@ -361,8 +361,8 @@ footer {
 }
 
 .level .cover {
-    background-size: contain;
-    background-position: center;
+    background-size: cover;
+    background-position: top;
     background-repeat: no-repeat;
     width: 100%;
     height: 75%;
