@@ -238,7 +238,7 @@ footer {
     z-index: 1;
     max-width: 25vw;
     max-height: 25vw;
-    width: 25vh;
+    width: 12vw;
 }
 
 .buttonIndex:hover {
@@ -599,12 +599,9 @@ footer {
         max-height: 100%;
     }*/
 
-    /*.buttonIndex {
-        width: 15vw;
-        max-width: 250px;
-        min-width: 200px;
-        margin-bottom: calc(var(--marginHMobile));
-    }*/
+    .buttonIndex {
+        width: 25vh;
+    }
 
     .landingIntro {
         width: 70%;
@@ -707,19 +704,6 @@ footer {
         display: flex;
         align-items: center;
     }
-
-    /*.indexImage .indexIllustration {
-        width: auto;
-        height: auto;
-        max-width: 100%;
-        max-height: 100%;
-    }*/
-
-    /*.buttonIndex {
-        width: 35vw;
-        max-width: 200px;
-        min-width: 100px;
-    }*/
 
     .menu li {
         font-size: calc(20pt + 0.5vw);
