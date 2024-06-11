@@ -10,7 +10,7 @@
     --toastedYellow: #EFBE2E;
     --lightOrange: #EFB057;
 
-    --headerHmin: 17vh;
+    --headerHmin: 15vh;
     --marginH: 2vw;
 
     --headerHminMobile: 13vh;
@@ -101,8 +101,14 @@ header {
     transition: top 1s;
 }
 
-#menuMobile {
-    display: none;
+#menuIcon{
+    width: calc(20px + 1.5vw) !important;
+    height: fit-content;
+}
+
+#closeMenu, #closeGame{
+    width: calc(10px + 1.5vw) !important;
+    height: fit-content;
 }
 
 .active {
@@ -189,6 +195,25 @@ footer {
     overflow: hidden;
 }
 
+svg{
+    stroke: #6d6e70;
+    mix-blend-mode: multiply;
+    fill: none;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+}
+
+#menuIcon{
+    stroke-width: 6px;
+}
+
+#closeMenu, #closeGame{
+    stroke-width: 1.5px;
+}
+
+#homeIcon{
+    stroke-width: 1.8px;
+}
 
 
 
@@ -197,7 +222,6 @@ footer {
 .logoHeader {
     mix-blend-mode: multiply;
 }
-
 
 .logoHeaderIndex img {
     width: auto;
@@ -256,7 +280,6 @@ footer {
 
 .landingIntro span {
     mix-blend-mode: multiply;
-
 }
 
 .iconsIntro {
@@ -318,7 +341,6 @@ footer {
     display: flex;
 }
 
-
 .level {
     width: 16vw;
     height: 25vw;
@@ -334,8 +356,6 @@ footer {
     overflow: hidden;
     max-width: 45%;
 }
-
-
 .level:hover {
     filter: drop-shadow(0px 0px 5px rgba(0, 0, 0, 0.15));
 }
@@ -502,6 +522,9 @@ footer {
     height: fit-content;
 }
 
+.gameMenu{
+    display: flex;
+}
 
 
 
@@ -686,8 +709,13 @@ footer {
         height: fit-content;
     }
 
-    #menuMobile {
+    #menuIcon{
         width: calc(27px + 1.5vw) !important;
+        height: fit-content;
+    }
+
+    #menuIcon, #closeMenu, #closeGame {
+        width: calc(20px + 1.5vw) !important;
         height: fit-content;
     }
 
@@ -765,13 +793,6 @@ footer {
         flex-wrap: wrap;
     }
 
-    #menuDesktop {
-        display: none;
-    }
-
-    #menuMobile {
-        display: block;
-    }
 
     .menuItems {
         font-size: 5.5vh;

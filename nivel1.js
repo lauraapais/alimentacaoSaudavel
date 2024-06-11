@@ -71,7 +71,7 @@ function platesize() {
     }*/
     plateSize = min(min(width*itemSize*8,
                         width*.9), 
-                        height*.6);
+                        height*.5);
 
 }
 
@@ -83,20 +83,20 @@ function itemsize() {
     } else if (w < 1500) {
         itemSize = w * 0.00009;
     } else {
-        itemSize = w * 0.00007;
+        itemSize = w * 0.00006;
     }
 }
 
 function textsize() {
     if (w < 900) {
-        h2Size = h * 0.03;
-        heightQuestion = height / 4;
+        h2Size = h * 0.025;
+        heightQuestion = height / 4.5;
     } else if (w < 1500) {
-        h2Size = h * 0.04;
-        heightQuestion = height / 3;
+        h2Size = h * 0.035;
+        heightQuestion = height / 3.5;
     } else {
-        h2Size = h * 0.04;
-        heightQuestion = height / 3;
+        h2Size = h * 0.035;
+        heightQuestion = height / 3.5;
     }
 }
 
