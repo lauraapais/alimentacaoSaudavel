@@ -124,7 +124,7 @@ main {
     list-style-type: none;
     color: var(--grey);
     mix-blend-mode: multiply;
-    font-size: 10vh;
+    font-size: calc(80px + 0.5vw);
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -595,7 +595,7 @@ svg{
 }
 
 .info {
-    margin-top: var(--marginH);
+    margin-top: calc((--marginH)*2);
 }
 
 #textInfoTitle span {
@@ -635,7 +635,7 @@ svg{
 
     /*general*/
     .menuItems {
-        font-size: 7vh;
+        font-size: calc(50px + 0.5vw);
     }
 
 
@@ -714,13 +714,8 @@ svg{
         height: fit-content;
     }
 
-    #menuIcon, #closeMenu, #closeGame {
+ #closeMenu, #closeGame {
         width: calc(20px + 1.5vw) !important;
-        height: fit-content;
-    }
-
-    .menu img {
-        width: calc(23px + 1.5vw) !important;
         height: fit-content;
     }
 
