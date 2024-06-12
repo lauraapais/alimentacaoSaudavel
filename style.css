@@ -590,7 +590,7 @@ svg{
 }
 
 .imageInfo img {
-    width: 75%;
+    width: 80%;
     height: auto;
 }
 
@@ -603,6 +603,7 @@ svg{
     font-size: calc(80px + 0.5vw);
     color: var(--grey);
     mix-blend-mode: multiply;
+    margin-top: var(--marginH);
 }
 
 
@@ -688,7 +689,7 @@ svg{
     }
 
     .imageInfo img {
-        width: 50%;
+        width: 80%;
     }
 
 
@@ -874,6 +875,10 @@ svg{
 
     .imageInfo img {
         width: 100%;
+    }
+
+    .textInfoBox{
+        flex-direction: column;
     }
 
 
