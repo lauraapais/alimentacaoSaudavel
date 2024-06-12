@@ -660,9 +660,7 @@ svg{
 
     #levelMain {
         display: flex;
-        align-content: center;
-        justify-content: center;
-        align-items: center;
+        justify-content: space-between;
         width: calc(100vw - var(--marginHMobile) * 2);
         height: calc(var(--vh, 1h) * 100 - var(--marginHMobile) * 3 - min(var(--headerHminMobile), 500px));
         margin: var(--marginHMobile);
@@ -857,13 +855,12 @@ svg{
 
 
     /*info Pages*/
-
-    #textInfoTitle {
-        font-size: 70px;
-    }
-
     .textInfo {
         font-size: calc(14px + 0.3vw);
+    }
+
+    #textInfoTitle{
+        margin-bottom: var(--marginHMobile);
     }
 
     #textInfoTitle span {
@@ -880,6 +877,10 @@ svg{
         width: 100%;
     }
 
+    .imageInfo{
+margin:var(--marginHMobile) 0;
+    }
+
     .textInfoBox{
         flex-direction: column;
     }
@@ -890,7 +891,7 @@ svg{
     /*niveis*/
     .level {
         width: 48%;
-        height: 45%;
+        height: 42%;
         max-height: 370px;
         margin-bottom: var(--marginHMobile);
         gap: var(--marginHMobile);
@@ -905,6 +906,7 @@ svg{
         height: calc(var(--vh, 1h) * 100 - var(--marginHMobile) * 3 - min(var(--headerHminMobile), 500px));
         margin: var(--marginHMobile);
         padding: 0;
+        
     }
 
     .levelTitle {
