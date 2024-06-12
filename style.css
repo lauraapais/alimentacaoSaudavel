@@ -102,7 +102,7 @@ header {
 }
 
 #menuIcon{
-    width: calc(20px + 1.5vw) !important;
+    width: calc(15px + 1.5vw) !important;
     height: fit-content;
 }
 
@@ -110,6 +110,19 @@ header {
     width: calc(10px + 1.5vw) !important;
     height: fit-content;
 }
+
+#menuIcon{
+    stroke-width: 5px;
+}
+
+#closeMenu, #closeGame{
+    stroke-width: 1.4px;
+}
+
+#homeIcon{
+    stroke-width: 1.8px;
+}
+
 
 .active {
     transition: top 1s;
@@ -124,7 +137,7 @@ main {
     list-style-type: none;
     color: var(--grey);
     mix-blend-mode: multiply;
-    font-size: calc(80px + 0.5vw);
+    font-size: calc(65px + 0.5vw);
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -203,17 +216,6 @@ svg{
     stroke-linejoin: round;
 }
 
-#menuIcon{
-    stroke-width: 6px;
-}
-
-#closeMenu, #closeGame{
-    stroke-width: 1.5px;
-}
-
-#homeIcon{
-    stroke-width: 1.8px;
-}
 
 
 
@@ -566,10 +568,14 @@ svg{
 }
 
 .textInfo {
-    width: 45%;
+    width: 50%;
     font-family: AuthenticSans130;
-    font-size: calc(20px + 0.3vw);
+    font-size: calc(16px + 0.3vw);
     color: var(--grey);
+}
+
+.info {
+    margin-top: calc(var(--marginH));
 }
 
 .textInfo span {
@@ -582,7 +588,7 @@ svg{
 }
 
 .imageInfo {
-    width: 45%;
+    width: 50%;
     display: flex;
     justify-content: center;
     height: fit-content;
@@ -594,13 +600,9 @@ svg{
     height: auto;
 }
 
-.info {
-    margin-top: calc((--marginH)*2);
-}
-
 #textInfoTitle span {
     font-family: AuthenticSans130;
-    font-size: calc(80px + 0.5vw);
+    font-size: calc(65px + 0.5vw);
     color: var(--grey);
     mix-blend-mode: multiply;
     margin-top: var(--marginH);
