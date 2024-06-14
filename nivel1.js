@@ -566,7 +566,7 @@ class Level {
 
                 this.items[i].pos.set(
                     (width* 0.025) +space * (i + 1 - xd),
-                    height * (1 - itemsScale / 1.5 * (1 + xd))
+                    height * (1 - itemsScale / 1.8 * (1 + xd))
                 );
             }
         } else {
