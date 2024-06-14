@@ -9,6 +9,8 @@ var close;
 var heightQuestion = 300;
 var widthQuestionMobile;
 
+let maxWidth;
+
 var pw, ph;
 
 var endLevel = false, level = 1;
@@ -21,6 +23,8 @@ marginDesktop = 0.02 * w;
 function preload() {
     plate = loadImage('data/jogo/plate.png');
     close = loadImage('data/icons/home.png');
+    fontBold=loadFont('data/font/AUTHENTICSans-130.otf');
+    fontRegular=loadFont('data/font/AUTHENTICSans-90.otf');
 }
 
 function setup() {
@@ -96,7 +100,7 @@ function itemsize() {
 
 function textsize() {
     if (w < 900) {
-        h2Size = h * 0.028;
+        h2Size = h * 0.035;
         heightQuestion = height / 4;
     } else if (w < 1500) {
         h2Size = h * 0.04;
@@ -120,7 +124,7 @@ function loadItems() {
 function loadLevels() {
     var level_one;
     //Trás-os-Montes
-    level_one = new Level(color(239,190,46),'data/jogo/level2/screen1/textTM.png' ,
+    level_one = new Level(color(239,190,46),'Quais são os alimentos locais das Terras de  Trás-os-Montes?' ,
     new UIFinish('data/jogo/endLevel/5.png'));
     level_one.addItem(items.alheira, true, 'data/jogo/certoErrado/level2/screen1/certo.png');
     level_one.addItem(items.leek, false, 'data/jogo/certoErrado/level2/screen1/errado.png');
@@ -214,7 +218,6 @@ class UIFinish {
         this.w = 400;
         this.h = 400;
         this.margin = 40;
-
         this.status = false;
     }
 
@@ -274,7 +277,7 @@ class UIFinish {
 
         fill(255);
         textAlign(CENTER);
-
+textFont(fontBold);
         if (w < 900) {
             text('Continuar', width / 2, height / 2 + 105 - 8.1 + textAscent() / 2);
         }
@@ -347,7 +350,7 @@ class Level {
         this.background = background;
         this.totalTrues = 0;
         this.totalFalses = 0;
-        this.question = loadImage(question);
+        this.question = question;
         this.uiEndLevel = uiEndLevel;
         this.points = 0;
 
@@ -413,36 +416,64 @@ class Level {
     }
 
     ui() {
-        let content = this.points + "/" + this.totalTrues;
+        push();
+        rectMode(CORNERS);
+        blendMode(MULTIPLY);
+
+        let lastY;
         textSize(h2Size);
+        textFont(fontBold);
+        fill(109, 111, 113);
+        blendMode(MULTIPLY);
+
+        if (w < 900) {
+            let maxWidth = windowWidth * 0.7;
+            let lines = wrapText(this.question, maxWidth);
+            let y = marginMobile + textAscent();
+            for (let i = 0; i < lines.length; i++) {
+                text(lines[i], marginMobile, y);
+                y += textAscent() + textDescent();
+            }
+            lastY = y;
+        } else if (w < 1500) {
+            let maxWidth = windowWidth * 0.4;
+            let lines = wrapText(this.question, maxWidth);
+            let y = marginDesktop + textAscent();
+            for (let i = 0; i < lines.length; i++) {
+                text(lines[i], marginDesktop, y);
+                y += textAscent() + textDescent();
+            }
+            lastY = y;
+        } else {
+            let maxWidth = windowWidth * 0.3;
+            let lines = wrapText(this.question, maxWidth);
+            let y = marginDesktop + textAscent();
+            for (let i = 0; i < lines.length; i++) {
+                text(lines[i], marginDesktop, y);
+                y += textAscent() + textDescent();
+            }
+            lastY = y;
+        }
+        pop();
+
+        
+
+        let content = this.points + "/" + this.totalTrues;
+        textSize(h2Size*0.8);
+        textFont(fontRegular);
         push();
         fill(109, 111, 113);
         blendMode(MULTIPLY);
-        widthQuestionMobile=(width*0.5)/2;
 
-        if (w < 900) {
-            text(content, marginMobile, widthQuestionMobile + textAscent() + marginMobile * 1.3);
-        } else if (w < 1500) {
-            text(content, marginDesktop, widthQuestionMobile/2 + textAscent()*1.8);
+        if (windowWidth < 900) {
+            text(content, marginMobile, lastY + marginMobile/2);
+        } else if (windowWidth < 1500) {
+            text(content, marginDesktop, lastY + textAscent());
         } else {
-            text(content, marginDesktop, widthQuestionMobile/2 + textAscent()*1.8);
-        }
-
-        pop();
-        rectMode(CORNERS);
-        push();
-        blendMode(MULTIPLY);
-
- 
-
-        if (w < 900) {
-            image(this.question, ((width*0.5)) / 1.33 + marginMobile, ((width*0.5)) / 4 + marginMobile, (width*0.5)/2 * 3, (width*0.5)/2);
-        } else if (w < 1500) {
-            image(this.question, heightQuestion / 1.33 + marginDesktop, heightQuestion / 4 + marginDesktop, heightQuestion / 2 * 3, heightQuestion / 2);
-        } else {
-            image(this.question, heightQuestion + marginDesktop, heightQuestion / 3 + marginDesktop, heightQuestion / 1.5 * 3, heightQuestion / 1.5);
+            text(content, marginDesktop, lastY + textAscent());
         }
         pop();
+
 
         if (this.lastPlateItem != null && this.currentTextTimer != 0) {
             if (w < 900) {
@@ -597,4 +628,24 @@ function replaceItem(px, py, pw, ph, w, h) {
     let y = py * h / ph;
 
     return createVector(x, y);
+}
+
+function wrapText(txt, maxWidth) {
+    let words = txt.split(' '); 
+    let lines = [];
+    let currentLine = words[0];
+
+    for (let i = 1; i < words.length; i++) {
+        let word = words[i];
+        let width = textWidth(currentLine + ' ' + word); 
+        if (width < maxWidth) {
+            currentLine += ' ' + word; 
+        } else {
+            lines.push(currentLine); 
+            currentLine = word; 
+        }
+    }
+    lines.push(currentLine);
+
+    return lines;
 }

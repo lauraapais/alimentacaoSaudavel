@@ -475,26 +475,42 @@ class Level {
         blendMode(MULTIPLY);
 
         let lastY;
+        textSize(h2Size);
+        textFont(fontBold);
+        fill(109, 111, 113);
+        blendMode(MULTIPLY);
 
-        if (windowWidth < 900) {
-            textSize(h2Size);
-            textFont(fontBold);
-            fill(109, 111, 113);
-            blendMode(MULTIPLY);
-
+        if (w < 900) {
             let maxWidth = windowWidth * 0.7;
             let lines = wrapText(this.question, maxWidth);
-
             let y = marginMobile + textAscent();
             for (let i = 0; i < lines.length; i++) {
                 text(lines[i], marginMobile, y);
                 y += textAscent() + textDescent();
             }
             lastY = y;
+        } else if (w < 1500) {
+            let maxWidth = windowWidth * 0.4;
+            let lines = wrapText(this.question, maxWidth);
+            let y = marginDesktop + textAscent();
+            for (let i = 0; i < lines.length; i++) {
+                text(lines[i], marginDesktop, y);
+                y += textAscent() + textDescent();
+            }
+            lastY = y;
         } else {
-            lastY = marginDesktop;
+            let maxWidth = windowWidth * 0.3;
+            let lines = wrapText(this.question, maxWidth);
+            let y = marginDesktop + textAscent();
+            for (let i = 0; i < lines.length; i++) {
+                text(lines[i], marginDesktop, y);
+                y += textAscent() + textDescent();
+            }
+            lastY = y;
         }
         pop();
+
+        
 
         let content = this.points + "/" + this.totalTrues;
         textSize(h2Size*0.8);
@@ -512,18 +528,6 @@ class Level {
         }
         pop();
 
-
-        /*
-                if (w < 900) {
-                    image(this.question, ((width*0.5)) / 1.33 + marginMobile, ((width*0.5)) / 4 + marginMobile, (width*0.5)/2 * 3, (width*0.5)/2);
-                } else if (w < 1500) {
-                    image(this.question, heightQuestion / 1.33 + marginDesktop, heightQuestion / 4 + marginDesktop, heightQuestion / 2 * 3, heightQuestion / 2);
-                } else {
-                    image(this.question, heightQuestion + marginDesktop, heightQuestion / 3 + marginDesktop, heightQuestion / 1.5 * 3, heightQuestion / 1.5);
-                }
-                
-        
-                */
 
         if (this.lastPlateItem != null && this.currentTextTimer != 0) {
             if (w < 900) {
@@ -681,21 +685,21 @@ function replaceItem(px, py, pw, ph, w, h) {
 }
 
 function wrapText(txt, maxWidth) {
-    let words = txt.split(' '); // Divide o texto em palavras
+    let words = txt.split(' '); 
     let lines = [];
     let currentLine = words[0];
 
     for (let i = 1; i < words.length; i++) {
         let word = words[i];
-        let width = textWidth(currentLine + ' ' + word); // Calcula a largura da linha atual mais a próxima palavra
+        let width = textWidth(currentLine + ' ' + word); 
         if (width < maxWidth) {
-            currentLine += ' ' + word; // Adiciona a palavra à linha atual se ela caber na largura máxima
+            currentLine += ' ' + word; 
         } else {
-            lines.push(currentLine); // Adiciona a linha à lista de linhas
-            currentLine = word; // Inicia uma nova linha com a palavra atual
+            lines.push(currentLine); 
+            currentLine = word; 
         }
     }
-    lines.push(currentLine); // Adiciona a última linha
+    lines.push(currentLine);
 
     return lines;
 }

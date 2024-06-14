@@ -9,6 +9,8 @@ var close;
 var heightQuestion = 300;
 var widthQuestionMobile;
 
+let maxWidth;
+
 var pw, ph;
 
 var endLevel = false, level = 1;
@@ -21,6 +23,8 @@ marginDesktop = 0.02 * w;
 function preload() {
     plate = loadImage('data/jogo/plate.png');
     close = loadImage('data/icons/home.png');
+    fontBold=loadFont('data/font/AUTHENTICSans-130.otf');
+    fontRegular=loadFont('data/font/AUTHENTICSans-90.otf');
 }
 
 function setup() {
@@ -96,7 +100,7 @@ function itemsize() {
 
 function textsize() {
     if (w < 900) {
-        h2Size = h * 0.028;
+        h2Size = h * 0.035;
         heightQuestion = height / 4;
     } else if (w < 1500) {
         h2Size = h * 0.04;
@@ -106,7 +110,6 @@ function textsize() {
         heightQuestion = height / 3;
     }
 }
-
 function loadItems() {
     //Laticineos
     items.lemon = new Gameitem('data/jogo/level1/screen1/4.png');
@@ -145,7 +148,7 @@ function loadItems() {
 function loadLevels() {
     var level_one, level_two, level_three, level_four, level_five, level_six;
     //Laticineos
-    level_one = new Level(color(114,190,195),'data/jogo/level3/screen1/textLaticineos.png',
+    level_one = new Level(color(114,190,195),'Sabes que alimentos são laticíneos?',
     new UIFinish('data/jogo/endLevel/6.png'));
     level_one.addItem(items.milk, true, 'data/jogo/certoErrado/level3/screen1/certo.png');
     level_one.addItem(items.cheese1, true, 'data/jogo/certoErrado/level3/screen1/certo.png');
@@ -155,7 +158,7 @@ function loadLevels() {
     level_one.addItem(items.cheese2, true, 'data/jogo/certoErrado/level3/screen1/certo.png');    
     level_one.setDefaultPosition();
      //Frutas
-     level_two = new Level(color(235,182,180),'data/jogo/level3/screen2/textFrutas.png',
+     level_two = new Level(color(235,182,180),'Sabes que alimentos são da família das frutas?',
      new UIFinish('data/jogo/endLevel/7.png'));
      level_two.addItem(items.eggplant, false, 'data/jogo/certoErrado/level3/screen2/errado.png');
      level_two.addItem(items.orange, true, 'data/jogo/certoErrado/level3/screen2/certo.png');
@@ -165,7 +168,7 @@ function loadLevels() {
      level_two.addItem(items.tomato, true, 'data/jogo/certoErrado/level3/screen2/certo.png');    
      level_two.setDefaultPosition();
      //Hortículas
-     level_three = new Level(color(103,175,136),'data/jogo/level3/screen3/textHorticulas.png',
+     level_three = new Level(color(103,175,136),'Sabes que alimentos são do grupo dos hortículas?',
      new UIFinish('data/jogo/endLevel/8.png'));
      level_three.addItem(items.lettuce, true, 'data/jogo/certoErrado/level3/screen3/certo.png');
      level_three.addItem(items.beans, false, 'data/jogo/certoErrado/level3/screen3/errado.png');
@@ -175,7 +178,7 @@ function loadLevels() {
      level_three.addItem(items.redonion, true, 'data/jogo/certoErrado/level3/screen3/certo.png');
      level_three.setDefaultPosition();
      //Carne Peixe Ovos
-     level_four = new Level(color(221,106,101),'data/jogo/level3/screen4/textCarnePescadoOvos.png',
+     level_four = new Level(color(221,106,101),'Sabes que alimentos são do grupo carne, pescado e ovos?',
      new UIFinish('data/jogo/endLevel/9.png'));
      level_four.addItem(items.fish, true, 'data/jogo/certoErrado/level3/screen4/certo.png');
      level_four.addItem(items.shrimp, true, 'data/jogo/certoErrado/level3/screen4/certo.png');
@@ -185,7 +188,7 @@ function loadLevels() {
      level_four.addItem(items.cheese2, false, 'data/jogo/certoErrado/level3/screen4/errado.png');    
      level_four.setDefaultPosition();
      //GordurasOleos
-     level_five = new Level(color(155,206,195),'data/jogo/level3/screen5/textGordurasOleos.png',
+     level_five = new Level(color(155,206,195),'Sabes que alimentos são gorduras e óleos?',
      new UIFinish('data/jogo/endLevel/10.png'));
      level_five.addItem(items.oliveOli, true, 'data/jogo/certoErrado/level3/screen5/certo.png');
      level_five.addItem(items.eggplant, false, 'data/jogo/certoErrado/level3/screen5/errado.png');
@@ -195,7 +198,7 @@ function loadLevels() {
      level_five.addItem(items.shrimp, false, 'data/jogo/certoErrado/level3/screen5/errado.png');    
      level_five.setDefaultPosition();
      //Cereais
-     level_six = new Level(color(239,176,87),'data/jogo/level3/screen6/textCereais.png',
+     level_six = new Level(color(239,176,87),'Sabes que alimentos são cereais, derivados e tubérculos?',
      new UIFinish('data/jogo/endLevel/11.png'));
      level_six.addItem(items.carot, false, 'data/jogo/certoErrado/level3/screen6/errado.png');
      level_six.addItem(items.potato, true, 'data/jogo/certoErrado/level3/screen6/certo.png');
@@ -293,7 +296,6 @@ class UIFinish {
         this.w = 400;
         this.h = 400;
         this.margin = 40;
-
         this.status = false;
     }
 
@@ -353,7 +355,7 @@ class UIFinish {
 
         fill(255);
         textAlign(CENTER);
-
+textFont(fontBold);
         if (w < 900) {
             text('Continuar', width / 2, height / 2 + 105 - 8.1 + textAscent() / 2);
         }
@@ -426,7 +428,7 @@ class Level {
         this.background = background;
         this.totalTrues = 0;
         this.totalFalses = 0;
-        this.question = loadImage(question);
+        this.question = question;
         this.uiEndLevel = uiEndLevel;
         this.points = 0;
 
@@ -492,36 +494,64 @@ class Level {
     }
 
     ui() {
-        let content = this.points + "/" + this.totalTrues;
+        push();
+        rectMode(CORNERS);
+        blendMode(MULTIPLY);
+
+        let lastY;
         textSize(h2Size);
+        textFont(fontBold);
+        fill(109, 111, 113);
+        blendMode(MULTIPLY);
+
+        if (w < 900) {
+            let maxWidth = windowWidth * 0.7;
+            let lines = wrapText(this.question, maxWidth);
+            let y = marginMobile + textAscent();
+            for (let i = 0; i < lines.length; i++) {
+                text(lines[i], marginMobile, y);
+                y += textAscent() + textDescent();
+            }
+            lastY = y;
+        } else if (w < 1500) {
+            let maxWidth = windowWidth * 0.4;
+            let lines = wrapText(this.question, maxWidth);
+            let y = marginDesktop + textAscent();
+            for (let i = 0; i < lines.length; i++) {
+                text(lines[i], marginDesktop, y);
+                y += textAscent() + textDescent();
+            }
+            lastY = y;
+        } else {
+            let maxWidth = windowWidth * 0.3;
+            let lines = wrapText(this.question, maxWidth);
+            let y = marginDesktop + textAscent();
+            for (let i = 0; i < lines.length; i++) {
+                text(lines[i], marginDesktop, y);
+                y += textAscent() + textDescent();
+            }
+            lastY = y;
+        }
+        pop();
+
+        
+
+        let content = this.points + "/" + this.totalTrues;
+        textSize(h2Size*0.8);
+        textFont(fontRegular);
         push();
         fill(109, 111, 113);
         blendMode(MULTIPLY);
-        widthQuestionMobile=(width*0.5)/2;
 
-        if (w < 900) {
-            text(content, marginMobile, widthQuestionMobile + textAscent() + marginMobile/2);
-        } else if (w < 1500) {
-            text(content, marginDesktop, heightQuestion / 6 * 3.3 + textAscent());
+        if (windowWidth < 900) {
+            text(content, marginMobile, lastY + marginMobile/2);
+        } else if (windowWidth < 1500) {
+            text(content, marginDesktop, lastY + textAscent());
         } else {
-            text(content, marginDesktop, heightQuestion / 5 * 3.3 + textAscent());
-        }
-
-        pop();
-        rectMode(CORNERS);
-        push();
-        blendMode(MULTIPLY);
-
- 
-
-        if (w < 900) {
-            image(this.question, ((width*0.5)) / 1.33 + marginMobile, ((width*0.5)) / 4 + marginMobile, (width*0.5)/2 * 3, (width*0.5)/2);
-        } else if (w < 1500) {
-            image(this.question, heightQuestion / 1.33 + marginDesktop, heightQuestion / 4 + marginDesktop, heightQuestion / 2 * 3, heightQuestion / 2);
-        } else {
-            image(this.question, heightQuestion + marginDesktop, heightQuestion / 3 + marginDesktop, heightQuestion / 1.5 * 3, heightQuestion / 1.5);
+            text(content, marginDesktop, lastY + textAscent());
         }
         pop();
+
 
         if (this.lastPlateItem != null && this.currentTextTimer != 0) {
             if (w < 900) {
@@ -676,4 +706,24 @@ function replaceItem(px, py, pw, ph, w, h) {
     let y = py * h / ph;
 
     return createVector(x, y);
+}
+
+function wrapText(txt, maxWidth) {
+    let words = txt.split(' '); 
+    let lines = [];
+    let currentLine = words[0];
+
+    for (let i = 1; i < words.length; i++) {
+        let word = words[i];
+        let width = textWidth(currentLine + ' ' + word); 
+        if (width < maxWidth) {
+            currentLine += ' ' + word; 
+        } else {
+            lines.push(currentLine); 
+            currentLine = word; 
+        }
+    }
+    lines.push(currentLine);
+
+    return lines;
 }
