@@ -65,10 +65,12 @@ function platesize() {
             width*.85), 
             height*.55);
     }
-    else  if (w < 600) {
-        plateSize = min(min(width*itemSize*8,
-            width*.99), 
-            height*.69);
+
+    else if (w < 600) {
+        // Ajustes para aumentar o prato no modo mobile
+        plateSize = min(min(width * itemSize * 12,  // Aumenta o multiplicador para 12
+                            width * 1.2),          // Usa 120% da largura
+                        height * .8);             // Usa 80% da altura
     }
     else{
     plateSize = min(min(width*itemSize*8,
