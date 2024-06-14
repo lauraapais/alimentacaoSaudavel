@@ -331,7 +331,7 @@ class UIFinish {
 
         fill(255);
         textAlign(CENTER);
-
+textFont(fontBold);
         if (w < 900) {
             text('Continuar', width / 2, height / 2 + 105 - 8.1 + textAscent() / 2);
         }
