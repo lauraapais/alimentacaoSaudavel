@@ -553,14 +553,14 @@ class Level {
         let space;
 
         if (w < 600) {
-            space = width * 0.9 / (this.items.length / 2 + 3);
+            space = width * 0.95 / (this.items.length / 2 + 3);
             for (let i = 0; i < this.items.length; i++) {
                 let xd;
                 if (i % 2 == 0) xd = 0;
                 else xd = 1;
 
                 this.items[i].pos.set(
-                    (width* 0.05) +space * (i + 1 - xd),
+                    (width* 0.025) +space * (i + 1 - xd),
                     height * (1 - itemsScale / 1.5 * (1 + xd))
                 );
             }
