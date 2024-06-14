@@ -84,8 +84,11 @@ function itemsize() {
         itemSize = w * 0.0001;
     } else if (w < 1500) {
         itemSize = w * 0.00009;
-    } else {
-        itemSize = w * 0.00006;
+    }else if (w > 2000) {
+        itemSize = w * 0.000057;
+    }
+     else {
+        itemSize = w * 0.000065;
     }
 }
 
