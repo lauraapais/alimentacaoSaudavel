@@ -96,7 +96,7 @@ function itemsize() {
 
 function textsize() {
     if (w < 900) {
-        h2Size = h * 0.025;
+        h2Size = h * 0.028;
         heightQuestion = height / 4;
     } else if (w < 1500) {
         h2Size = h * 0.04;
@@ -475,7 +475,7 @@ class Level {
         widthQuestionMobile=(width*0.5)/2;
 
         if (w < 900) {
-            text(content, marginMobile, widthQuestionMobile / 4 + marginMobile * 2.5 + textAscent() * 2);
+            text(content, marginMobile, widthQuestionMobile + textAscent() + marginMobile);
         } else if (w < 1500) {
             text(content, marginDesktop, heightQuestion / 6 * 3.3 + textAscent());
         } else {
