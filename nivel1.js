@@ -60,7 +60,7 @@ window.onresize = function () {
 }
 
 function platesize() {
-    if (w > 2000) {
+    if (w > 2500) {
         plateSize = min(min(width * itemSize * 8,
             width * .85),
             height * .55);
@@ -86,11 +86,11 @@ function itemsize() {
         itemSize = w * 0.0001;
     } else if (w < 1500) {
         itemSize = w * 0.00009;
-    } else if (w > 2000) {
+    } else if (w > 2500) {
         itemSize = w * 0.000057;
     }
     else {
-        itemSize = w * 0.000065;
+        itemSize = w * 0.000060;
     }
 }
 
@@ -277,7 +277,7 @@ class UIFinish {
         if (w < 900) {
             image(this.image, width / 2, height / 2, 300, 300);
         }
-        else if (w > 2000) {
+        else if (w > 2500) {
             image(this.image, width / 2, height / 2, 500, 500);
         } else {
             image(this.image, width / 2, height / 2, 400, 400);
@@ -289,7 +289,7 @@ class UIFinish {
         if (w < 900) {
             image(close, width / 2 - 102, height / 2 - 105, 30, 30);
         }
-        else if (w > 2000) {
+        else if (w > 2500) {
             image(close, width / 2 - 170, height / 2 - 175, 50, 50);
 
         }
@@ -308,7 +308,7 @@ class UIFinish {
         if (w < 900) {
             rect(width / 2, height / 2 + 105 - 7.5, 150, 45, 22);
         }
-        else if (w > 2000) {
+        else if (w > 2500) {
             rect(width / 2, height / 2 + 175 - 12.5, 250, 75, 22);
 
         } else {
@@ -320,10 +320,10 @@ class UIFinish {
         if (w < 900) {
             textSize(19.2);
         }
-        else if (w > 2000) {
+        else if (w > 2500) {
             textSize(32);
         } else {
-            textSize(10);
+            textSize(25);
         }
 
         fill(255);
@@ -332,7 +332,7 @@ class UIFinish {
         if (w < 900) {
             text('Continuar', width / 2, height / 2 + 105 - 8.1 + textAscent() / 2);
         }
-        else if (w > 2000) {
+        else if (w > 2500) {
             text('Continuar', width / 2, height / 2 + 175 - 13.5 + textAscent() / 2);
         }
         else {
@@ -358,7 +358,7 @@ class UIFinish {
             }
         }
 
-        else if (w > 2000) {
+        else if (w > 2500) {
 
             if (mouseX > width / 2 - (75 / 2) &&
                 mouseX < width / 2 + (75 / 2) &&
