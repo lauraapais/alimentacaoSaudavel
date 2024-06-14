@@ -323,7 +323,7 @@ class UIFinish {
         else if (w > 2000) {
             textSize(32);
         } else {
-            textSize(25.6);
+            textSize(10);
         }
 
         fill(255);
