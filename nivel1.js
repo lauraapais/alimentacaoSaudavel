@@ -69,9 +69,16 @@ function platesize() {
     } else {
         plateSize = w * 0.28;
     }*/
+    if(w > 2000){
+        plateSize = min(min(width*itemSize*8,
+            width*.85), 
+            height*.55);
+    }
+    else{
     plateSize = min(min(width*itemSize*8,
                         width*.9), 
                         height*.6);
+    }
 
 }
 
@@ -573,7 +580,7 @@ class Level {
             space = width * 0.8 / (this.items.length + 1);
             for (let i = 0; i < this.items.length; i++) {
                 this.items[i].pos.set(
-                    (width* 0.1) + space * (i + 1), height * (1 - itemsScale / 1.3)
+                    (width* 0.1) + space * (i + 1), height * (1 - itemsScale / 1.5)
                 );
             }
         }

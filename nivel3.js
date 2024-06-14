@@ -69,9 +69,16 @@ function platesize() {
     } else {
         plateSize = w * 0.28;
     }*/
+    if(w > 2000){
+        plateSize = min(min(width*itemSize*8,
+            width*.85), 
+            height*.55);
+    }
+    else{
     plateSize = min(min(width*itemSize*8,
                         width*.9), 
                         height*.6);
+    }
 
 }
 
@@ -83,7 +90,7 @@ function itemsize() {
     } else if (w < 1500) {
         itemSize = w * 0.00009;
     } else {
-        itemSize = w * 0.00007;
+        itemSize = w * 0.00006;
     }
 }
 
@@ -99,6 +106,7 @@ function textsize() {
         heightQuestion = height / 3;
     }
 }
+
 function loadItems() {
     //Laticineos
     items.lemon = new Gameitem('data/jogo/level1/screen1/4.png');
@@ -594,15 +602,15 @@ class Level {
                 );
             }
         } else {
-            space = width / (this.items.length + 1);
+            space = width * 0.8 / (this.items.length + 1);
             for (let i = 0; i < this.items.length; i++) {
                 this.items[i].pos.set(
-                    space * (i + 1), height * (1 - itemsScale / 1.3)
+                    (width* 0.1) + space * (i + 1), height * (1 - itemsScale / 1.5)
                 );
             }
         }
     }
-
+ﬂ
     insidePlate(item) {
         if (dist(item.pos.x, item.pos.y, width / 2, height / 2) < plateSize / 2) {
             item.plate = true;
