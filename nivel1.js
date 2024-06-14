@@ -494,8 +494,12 @@ class Level {
                 image(this.lastPlateItem.description, width / 2 + plateSize / 3, height / 2 + plateSize / 3, 160, 160);
             } else if (w < 1500) {
                 image(this.lastPlateItem.description, width / 2 + plateSize / 3, height / 2 + plateSize / 3, 200, 200);
-            } else {
+            } 
+            else if (w > 2000) {
                 image(this.lastPlateItem.description, width / 2 + plateSize / 3, height / 2 + plateSize / 3, 250, 250);
+            }
+            else {
+                image(this.lastPlateItem.description, width / 2 + plateSize / 3, height / 2 + plateSize / 3, 200, 200);
             }
             this.currentTextTimer--;
         }
