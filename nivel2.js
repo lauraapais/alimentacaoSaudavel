@@ -101,13 +101,10 @@ function itemsize() {
 function textsize() {
     if (w < 900) {
         h2Size = h * 0.035;
-        heightQuestion = height / 4;
     } else if (w < 1500) {
         h2Size = h * 0.05;
-        heightQuestion = height / 3;
     } else {
-        h2Size = h * 0.05;
-        heightQuestion = height / 3;
+        h2Size = h * 0.055;
     }
 }
 
@@ -566,7 +563,7 @@ class Level {
             for (let i = 0; i < this.items.length; i++) {
                 this.items[i].pos.set(
                     (width * 0.1) + space * (i + 1),
-                     height * (1 - itemsScale / 1.5) 
+                    height * (1 - itemsScale / 1.5) 
                 );
             }
         }

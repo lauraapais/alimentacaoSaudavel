@@ -617,7 +617,7 @@ class Level {
         }
     }
     
-    
+
     insidePlate(item) {
         if (dist(item.pos.x, item.pos.y, width / 2, height / 2) < plateSize / 2) {
             item.plate = true;

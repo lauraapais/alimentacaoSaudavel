@@ -101,16 +101,12 @@ function itemsize() {
 function textsize() {
     if (w < 900) {
         h2Size = h * 0.035;
-        heightQuestion = height / 4;
     } else if (w < 1500) {
         h2Size = h * 0.05;
-        heightQuestion = height / 3;
     } else {
-        h2Size = h * 0.05;
-        heightQuestion = height / 3;
+        h2Size = h * 0.055;
     }
 }
-
 function loadItems() {
     //Laticineos
     items.lemon = new Gameitem('data/jogo/level1/screen1/4.png');
@@ -651,7 +647,6 @@ class Level {
         }
     }
     
-
 
     insidePlate(item) {
         if (dist(item.pos.x, item.pos.y, width / 2, height / 2) < plateSize / 2) {
