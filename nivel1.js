@@ -83,7 +83,7 @@ function itemsize() {
     } else if (w < 1500) {
         itemSize = w * 0.00009;
     } else {
-        itemSize = w * 0.00007;
+        itemSize = w * 0.00006;
     }
 }
 
@@ -570,15 +570,15 @@ class Level {
                 );
             }
         } else {
-            space = width / (this.items.length + 1);
+            space = width * 0.8 / (this.items.length + 1);
             for (let i = 0; i < this.items.length; i++) {
                 this.items[i].pos.set(
-                    space * (i + 1), height * (1 - itemsScale / 1.3)
+                    (width* 0.1) + space * (i + 1), height * (1 - itemsScale / 1.3)
                 );
             }
         }
     }
-
+ﬂ
     insidePlate(item) {
         if (dist(item.pos.x, item.pos.y, width / 2, height / 2) < plateSize / 2) {
             item.plate = true;
