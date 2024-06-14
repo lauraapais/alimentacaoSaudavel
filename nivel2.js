@@ -543,7 +543,7 @@ class Level {
             this.draggingItem = null;
         }
     }
-    
+
     setDefaultPosition() {
         let space;
         let rowSpacingFactor = 1.4;
@@ -566,7 +566,7 @@ class Level {
             for (let i = 0; i < this.items.length; i++) {
                 this.items[i].pos.set(
                     (width * 0.1) + space * (i + 1),
-                    height * (1 - itemsScale / 2) 
+                     height * (1 - itemsScale / 1.5) 
                 );
             }
         }
