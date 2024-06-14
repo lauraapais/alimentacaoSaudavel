@@ -67,8 +67,8 @@ function platesize() {
     }
     else  if (w < 600) {
         plateSize = min(min(width*itemSize*8,
-            width*.10), 
-            height*.7);
+            width*.99), 
+            height*.69);
     }
     else{
     plateSize = min(min(width*itemSize*8,
