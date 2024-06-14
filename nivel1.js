@@ -60,22 +60,22 @@ window.onresize = function () {
 }
 
 function platesize() {
-    if(w > 2000){
-        plateSize = min(min(width*itemSize*8,
-            width*.85), 
-            height*.55);
+    if (w > 2000) {
+        plateSize = min(min(width * itemSize * 8,
+            width * .85),
+            height * .55);
     }
 
     else if (w < 600) {
         // Ajustes para aumentar o prato no modo mobile
         plateSize = min(min(width * itemSize * 9,  // Aumenta o multiplicador para 12
-                            width * 1.8),          // Usa 120% da largura
-                        height * .8);             // Usa 80% da altura
+            width * 1.8),          // Usa 120% da largura
+            height * .8);             // Usa 80% da altura
     }
-    else{
-    plateSize = min(min(width*itemSize*8,
-                        width*.9), 
-                        height*.6);
+    else {
+        plateSize = min(min(width * itemSize * 8,
+            width * .9),
+            height * .6);
     }
 }
 
@@ -86,10 +86,10 @@ function itemsize() {
         itemSize = w * 0.0001;
     } else if (w < 1500) {
         itemSize = w * 0.00009;
-    }else if (w > 2000) {
+    } else if (w > 2000) {
         itemSize = w * 0.000057;
     }
-     else {
+    else {
         itemSize = w * 0.000065;
     }
 }
@@ -291,12 +291,12 @@ class UIFinish {
         }
         else if (w > 2000) {
             image(close, width / 2 - 170, height / 2 - 175, 50, 50);
-            
+
         }
-         else {
+        else {
             image(close, width / 2 - 136, height / 2 - 140, 40, 40);
         }
-        
+
         pop();
 
         push();
@@ -310,7 +310,7 @@ class UIFinish {
         }
         else if (w > 2000) {
             rect(width / 2, height / 2 + 175 - 12.5, 250, 75, 22);
-            
+
         } else {
             rect(width / 2, height / 2 + 140 - 10, 200, 60, 22);
         }
@@ -334,7 +334,7 @@ class UIFinish {
         }
         else if (w > 2000) {
             text('Continuar', width / 2, height / 2 + 175 - 13.5 + textAscent() / 2);
-        } 
+        }
         else {
             text('Continuar', width / 2, height / 2 + 140 - 10.8 + textAscent() / 2);
         }
@@ -345,52 +345,49 @@ class UIFinish {
 
         if (w < 900) {
             if (mouseX > width / 2 - (45 / 2) &&
-            mouseX < width / 2 + (45 / 2) &&
-            mouseY > (height / 2 + 105 - 7.5) - (22 / 2) &&
-            mouseY < (height / 2 + 105 - 7.5) + (22 / 2)) {
-            this.status = true;
+                mouseX < width / 2 + (45 / 2) &&
+                mouseY > (height / 2 + 105 - 7.5) - (22 / 2) &&
+                mouseY < (height / 2 + 105 - 7.5) + (22 / 2)) {
+                this.status = true;
+            }
+            else if (mouseX > (width / 2 - 102) - 30 / 2 &&
+                mouseX < (width / 2 - 102) + 30 / 2 &&
+                mouseY > (height / 2 - 195) - (30 / 2) &&
+                mouseY < (height / 2 - 105) + (30 / 2)) {
+                window.location.href = 'niveisMenu.html';
+            }
         }
-        else if (mouseX > (width / 2 - 102) - 30 / 2 &&
-            mouseX < (width / 2 - 102) + 30 / 2 &&
-            mouseY > (height / 2 - 195) - (30 / 2) &&
-            mouseY < (height / 2 - 105) + (30 / 2)) {
-            window.location.href = 'niveisMenu.html';
-        }
-        } 
-        
-        
-        else if (w < 1500) {
-            if (mouseX > width / 2 - (60 / 2) &&
-            mouseX < width / 2 + (60 / 2) &&
-            mouseY > (height / 2 + 140 - 10) - (22 / 2) &&
-            mouseY < (height / 2 + 140 - 10) + (22 / 2)) {
-            this.status = true;
-        }
-        else if (mouseX > (width / 2 - 136) - 40 / 2 &&
-            mouseX < (width / 2 - 136) + 40 / 2 &&
-            mouseY > (height / 2 - 140) - (50 / 2) &&
-            mouseY < (height / 2 - 140) + (50 / 2)) {
-            window.location.href = 'niveisMenu.html';
-        }
-        }
-        
-        
-        
-        else {
+
+        else if (w > 2000) {
+
             if (mouseX > width / 2 - (75 / 2) &&
-            mouseX < width / 2 + (75 / 2) &&
-            mouseY > (height / 2 + 175 - 12.5) - (22 / 2) &&
-            mouseY < (height / 2 + 175 - 12.5) + (22 / 2)) {
-            this.status = true;
+                mouseX < width / 2 + (75 / 2) &&
+                mouseY > (height / 2 + 175 - 12.5) - (22 / 2) &&
+                mouseY < (height / 2 + 175 - 12.5) + (22 / 2)) {
+                this.status = true;
+            }
+            else if (mouseX > (width / 2 - 170) - 50 / 2 &&
+                mouseX < (width / 2 - 170) + 50 / 2 &&
+                mouseY > (height / 2 - 175) - (50 / 2) &&
+                mouseY < (height / 2 - 175) + (50 / 2)) {
+                window.location.href = 'niveisMenu.html';
+            }
         }
-        else if (mouseX > (width / 2 - 170) - 50 / 2 &&
-            mouseX < (width / 2 - 170) + 50 / 2 &&
-            mouseY > (height / 2 - 175) - (50 / 2) &&
-            mouseY < (height / 2 - 175) + (50 / 2)) {
-            window.location.href = 'niveisMenu.html';
+
+        else {
+            if (mouseX > width / 2 - (60 / 2) &&
+                mouseX < width / 2 + (60 / 2) &&
+                mouseY > (height / 2 + 140 - 10) - (22 / 2) &&
+                mouseY < (height / 2 + 140 - 10) + (22 / 2)) {
+                this.status = true;
+            }
+            else if (mouseX > (width / 2 - 136) - 40 / 2 &&
+                mouseX < (width / 2 - 136) + 40 / 2 &&
+                mouseY > (height / 2 - 140) - (50 / 2) &&
+                mouseY < (height / 2 - 140) + (50 / 2)) {
+                window.location.href = 'niveisMenu.html';
+            }
         }
-        }
-    
     }
 }
 
@@ -503,7 +500,7 @@ class Level {
                 image(this.lastPlateItem.description, width / 2 + plateSize / 3, height / 2 + plateSize / 3, 160, 160);
             } else if (w < 1500) {
                 image(this.lastPlateItem.description, width / 2 + plateSize / 3, height / 2 + plateSize / 3, 200, 200);
-            } 
+            }
             else if (w > 2000) {
                 image(this.lastPlateItem.description, width / 2 + plateSize / 3, height / 2 + plateSize / 3, 250, 250);
             }
@@ -578,7 +575,7 @@ class Level {
                 else xd = 1;
 
                 this.items[i].pos.set(
-                    (width* 0.025) +space * (i + 1 - xd),
+                    (width * 0.025) + space * (i + 1 - xd),
                     height * (1 - itemsScale / 1.8 * (1 + xd))
                 );
             }
@@ -586,12 +583,12 @@ class Level {
             space = width * 0.8 / (this.items.length + 1);
             for (let i = 0; i < this.items.length; i++) {
                 this.items[i].pos.set(
-                    (width* 0.1) + space * (i + 1), height * (1 - itemsScale /1.5)
+                    (width * 0.1) + space * (i + 1), height * (1 - itemsScale / 1.5)
                 );
             }
         }
     }
-ﬂ
+    ﬂ
     insidePlate(item) {
         if (dist(item.pos.x, item.pos.y, width / 2, height / 2) < plateSize / 2) {
             item.plate = true;
