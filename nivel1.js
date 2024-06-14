@@ -96,7 +96,7 @@ function itemsize() {
 
 function textsize() {
     if (w < 900) {
-        h2Size = h * 0.03;
+        h2Size = h * 0.025;
         heightQuestion = height / 4;
     } else if (w < 1500) {
         h2Size = h * 0.04;
@@ -472,11 +472,10 @@ class Level {
         push();
         fill(109, 111, 113);
         blendMode(MULTIPLY);
+        widthQuestionMobile=(width*0.5)/2;
 
         if (w < 900) {
-            //
-            widthQuestionMobile = 0.9 * width;
-            text(content, marginMobile, heightQuestion / 4 + marginMobile * 1.5 + textAscent() * 2);
+            text(content, marginMobile, widthQuestionMobile / 4 + marginMobile * 2.5 + textAscent() * 2);
         } else if (w < 1500) {
             text(content, marginDesktop, heightQuestion / 6 * 3.3 + textAscent());
         } else {
@@ -488,9 +487,10 @@ class Level {
         push();
         blendMode(MULTIPLY);
 
-        widthQuestionMobile=(width*0.5)/2;
+ 
 
         if (w < 900) {
+            image(this.question, ((width*0.5)) / 1.33 + marginMobile, ((width*0.5)) / 4 + marginMobile, (width*0.5)/2 * 3, (width*0.5)/2);
         } else if (w < 1500) {
             image(this.question, heightQuestion / 1.33 + marginDesktop, heightQuestion / 4 + marginDesktop, heightQuestion / 2 * 3, heightQuestion / 2);
         } else {
