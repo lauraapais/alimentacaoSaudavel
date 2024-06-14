@@ -107,7 +107,7 @@ header {
 }
 
 #closeMenu, #closeGame{
-    width: calc(10px + 1.5vw) !important;
+    width: calc(8px + 1.5vw) !important;
     height: fit-content;
 }
 

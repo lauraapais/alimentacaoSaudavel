@@ -101,13 +101,10 @@ function itemsize() {
 function textsize() {
     if (w < 900) {
         h2Size = h * 0.035;
-        heightQuestion = height / 4;
     } else if (w < 1500) {
-        h2Size = h * 0.05;
-        heightQuestion = height / 3;
+        h2Size = h * 0.045;
     } else {
-        h2Size = h * 0.05;
-        heightQuestion = height / 3;
+        h2Size = h * 0.055;
     }
 }
 
