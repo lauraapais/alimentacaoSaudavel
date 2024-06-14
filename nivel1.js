@@ -102,7 +102,7 @@ function textsize() {
     if (w < 900) {
         h2Size = h * 0.035;
     } else if (w < 1500) {
-        h2Size = h * 0.045;
+        h2Size = h * 0.05;
     } else {
         h2Size = h * 0.055;
     }
