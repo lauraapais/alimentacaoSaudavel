@@ -69,16 +69,10 @@ function platesize() {
     } else {
         plateSize = w * 0.28;
     }*/
-    if (w < 600) {
     plateSize = min(min(width*itemSize*8,
                         width*.9), 
-                        height*.7);
-    }
-    else{
-        plateSize = min(min(width*itemSize*8,
-            width*.9), 
-            height*.5);
-    }
+                        height*.6);
+
 }
 
 function itemsize() {
@@ -89,20 +83,20 @@ function itemsize() {
     } else if (w < 1500) {
         itemSize = w * 0.00009;
     } else {
-        itemSize = w * 0.00006;
+        itemSize = w * 0.00007;
     }
 }
 
 function textsize() {
-    if (w < 600) {
+    if (w < 900) {
         h2Size = h * 0.03;
         heightQuestion = height / 4;
     } else if (w < 1500) {
-        h2Size = h * 0.035;
-        heightQuestion = height / 3.5;
+        h2Size = h * 0.04;
+        heightQuestion = height / 3;
     } else {
-        h2Size = h * 0.035;
-        heightQuestion = height / 3.5;
+        h2Size = h * 0.04;
+        heightQuestion = height / 3;
     }
 }
 
