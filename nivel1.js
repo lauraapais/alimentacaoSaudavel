@@ -491,7 +491,6 @@ class Level {
         widthQuestionMobile=(width*0.5)/2;
 
         if (w < 900) {
-            image(this.question, ((width*0.5)) / 1.33 + marginMobile, ((width*0.5)) / 4 + marginMobile, (width*0.5)/2 * 3, (width*0.5)/2);
         } else if (w < 1500) {
             image(this.question, heightQuestion / 1.33 + marginDesktop, heightQuestion / 4 + marginDesktop, heightQuestion / 2 * 3, heightQuestion / 2);
         } else {
