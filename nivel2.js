@@ -7,6 +7,7 @@ var plate, plateSize, itemSize;
 var itemsScale = 0.16;
 var close;
 var heightQuestion = 300;
+var widthQuestionMobile;
 
 var pw, ph;
 
@@ -60,15 +61,21 @@ window.onresize = function () {
 }
 
 function platesize() {
-    if(w > 2000){
-        plateSize = min(min(width*itemSize*8,
-            width*.85), 
-            height*.55);
+    if (w > 2500) {
+        plateSize = min(min(width * itemSize * 8,
+            width * .85),
+            height * .55);
     }
-    else{
-    plateSize = min(min(width*itemSize*8,
-                        width*.9), 
-                        height*.6);
+
+    else if (w < 600) {
+        plateSize = min(min(width * itemSize * 9,
+            width * 1.8),
+            height * .8);
+    }
+    else {
+        plateSize = min(min(width * itemSize * 8,
+            width * .9),
+            height * .6);
     }
 }
 
@@ -79,14 +86,17 @@ function itemsize() {
         itemSize = w * 0.0001;
     } else if (w < 1500) {
         itemSize = w * 0.00009;
-    } else {
-        itemSize = w * 0.00006;
+    } else if (w > 2500) {
+        itemSize = w * 0.000057;
+    }
+    else {
+        itemSize = w * 0.000060;
     }
 }
 
 function textsize() {
     if (w < 900) {
-        h2Size = h * 0.03;
+        h2Size = h * 0.028;
         heightQuestion = height / 4;
     } else if (w < 1500) {
         h2Size = h * 0.04;
@@ -213,10 +223,10 @@ class UIFinish {
         if (w < 900) {
             image(this.image, width / 2, height / 2, 300, 300);
         }
-        else if (w < 1500) {
-            image(this.image, width / 2, height / 2, 400, 400);
-        } else {
+        else if (w > 2500) {
             image(this.image, width / 2, height / 2, 500, 500);
+        } else {
+            image(this.image, width / 2, height / 2, 400, 400);
         }
 
         push();
@@ -225,12 +235,14 @@ class UIFinish {
         if (w < 900) {
             image(close, width / 2 - 102, height / 2 - 105, 30, 30);
         }
-        else if (w < 1500) {
-            image(close, width / 2 - 136, height / 2 - 140, 40, 40);
-        } else {
+        else if (w > 2500) {
             image(close, width / 2 - 170, height / 2 - 175, 50, 50);
+
         }
-        
+        else {
+            image(close, width / 2 - 136, height / 2 - 140, 40, 40);
+        }
+
         pop();
 
         push();
@@ -242,10 +254,11 @@ class UIFinish {
         if (w < 900) {
             rect(width / 2, height / 2 + 105 - 7.5, 150, 45, 22);
         }
-        else if (w < 1500) {
-            rect(width / 2, height / 2 + 140 - 10, 200, 60, 22);
-        } else {
+        else if (w > 2500) {
             rect(width / 2, height / 2 + 175 - 12.5, 250, 75, 22);
+
+        } else {
+            rect(width / 2, height / 2 + 140 - 10, 200, 60, 22);
         }
         pop();
 
@@ -253,10 +266,10 @@ class UIFinish {
         if (w < 900) {
             textSize(19.2);
         }
-        else if (w < 1500) {
-            textSize(25.6);
-        } else {
+        else if (w > 2500) {
             textSize(32);
+        } else {
+            textSize(25);
         }
 
         fill(255);
@@ -265,59 +278,62 @@ class UIFinish {
         if (w < 900) {
             text('Continuar', width / 2, height / 2 + 105 - 8.1 + textAscent() / 2);
         }
-        else if (w < 1500) {
-            text('Continuar', width / 2, height / 2 + 140 - 10.8 + textAscent() / 2);
-        } else {
+        else if (w > 2500) {
             text('Continuar', width / 2, height / 2 + 175 - 13.5 + textAscent() / 2);
+        }
+        else {
+            text('Continuar', width / 2, height / 2 + 140 - 10.8 + textAscent() / 2);
         }
         pop();
     }
 
     mousePressed() {
+
         if (w < 900) {
             if (mouseX > width / 2 - (45 / 2) &&
-            mouseX < width / 2 + (45 / 2) &&
-            mouseY > (height / 2 + 105 - 7.5) - (22 / 2) &&
-            mouseY < (height / 2 + 105 - 7.5) + (22 / 2)) {
-            this.status = true;
+                mouseX < width / 2 + (45 / 2) &&
+                mouseY > (height / 2 + 105 - 7.5) - (22 / 2) &&
+                mouseY < (height / 2 + 105 - 7.5) + (22 / 2)) {
+                this.status = true;
+            }
+            else if (mouseX > (width / 2 - 102) - 30 / 2 &&
+                mouseX < (width / 2 - 102) + 30 / 2 &&
+                mouseY > (height / 2 - 195) - (30 / 2) &&
+                mouseY < (height / 2 - 105) + (30 / 2)) {
+                window.location.href = 'niveisMenu.html';
+            }
         }
-        else if (mouseX > (width / 2 - 102) - 30 / 2 &&
-            mouseX < (width / 2 - 102) + 30 / 2 &&
-            mouseY > (height / 2 - 195) - (30 / 2) &&
-            mouseY < (height / 2 - 105) + (30 / 2)) {
-            window.location.href = 'niveisMenu.html';
-        }
-        } 
 
-        else if (w < 1500) {
-            if (mouseX > width / 2 - (60 / 2) &&
-            mouseX < width / 2 + (60 / 2) &&
-            mouseY > (height / 2 + 140 - 10) - (22 / 2) &&
-            mouseY < (height / 2 + 140 - 10) + (22 / 2)) {
-            this.status = true;
-        }
-        else if (mouseX > (width / 2 - 136) - 40 / 2 &&
-            mouseX < (width / 2 - 136) + 40 / 2 &&
-            mouseY > (height / 2 - 140) - (50 / 2) &&
-            mouseY < (height / 2 - 140) + (50 / 2)) {
-            window.location.href = 'niveisMenu.html';
-        }
-        }
-        
-        else {
+        else if (w > 2500) {
+
             if (mouseX > width / 2 - (75 / 2) &&
-            mouseX < width / 2 + (75 / 2) &&
-            mouseY > (height / 2 + 175 - 12.5) - (22 / 2) &&
-            mouseY < (height / 2 + 175 - 12.5) + (22 / 2)) {
-            this.status = true;
+                mouseX < width / 2 + (75 / 2) &&
+                mouseY > (height / 2 + 175 - 12.5) - (22 / 2) &&
+                mouseY < (height / 2 + 175 - 12.5) + (22 / 2)) {
+                this.status = true;
+            }
+            else if (mouseX > (width / 2 - 170) - 50 / 2 &&
+                mouseX < (width / 2 - 170) + 50 / 2 &&
+                mouseY > (height / 2 - 175) - (50 / 2) &&
+                mouseY < (height / 2 - 175) + (50 / 2)) {
+                window.location.href = 'niveisMenu.html';
+            }
         }
-        else if (mouseX > (width / 2 - 170) - 50 / 2 &&
-            mouseX < (width / 2 - 170) + 50 / 2 &&
-            mouseY > (height / 2 - 175) - (50 / 2) &&
-            mouseY < (height / 2 - 175) + (50 / 2)) {
-            window.location.href = 'niveisMenu.html';
+
+        else {
+            if (mouseX > width / 2 - (60 / 2) &&
+                mouseX < width / 2 + (60 / 2) &&
+                mouseY > (height / 2 + 140 - 10) - (22 / 2) &&
+                mouseY < (height / 2 + 140 - 10) + (22 / 2)) {
+                this.status = true;
+            }
+            else if (mouseX > (width / 2 - 136) - 40 / 2 &&
+                mouseX < (width / 2 - 136) + 40 / 2 &&
+                mouseY > (height / 2 - 140) - (50 / 2) &&
+                mouseY < (height / 2 - 140) + (50 / 2)) {
+                window.location.href = 'niveisMenu.html';
+            }
         }
-        }        
     }
 }
 
@@ -402,13 +418,14 @@ class Level {
         push();
         fill(109, 111, 113);
         blendMode(MULTIPLY);
+        widthQuestionMobile=(width*0.5)/2;
 
         if (w < 900) {
-            text(content, marginMobile, heightQuestion / 4 + marginMobile * 1.5 + textAscent() * 2);
+            text(content, marginMobile, widthQuestionMobile + textAscent() + marginMobile * 1.3);
         } else if (w < 1500) {
-            text(content, marginDesktop, heightQuestion / 6 * 3.3 + textAscent());
+            text(content, marginDesktop, widthQuestionMobile/2 + textAscent()*1.8);
         } else {
-            text(content, marginDesktop, heightQuestion / 5 * 3.3 + textAscent());
+            text(content, marginDesktop, widthQuestionMobile/2 + textAscent()*1.8);
         }
 
         pop();
@@ -416,8 +433,10 @@ class Level {
         push();
         blendMode(MULTIPLY);
 
+ 
+
         if (w < 900) {
-            image(this.question, heightQuestion / 1.33 + marginMobile, heightQuestion / 4 + marginMobile, heightQuestion / 2 * 3, heightQuestion / 2);
+            image(this.question, ((width*0.5)) / 1.33 + marginMobile, ((width*0.5)) / 4 + marginMobile, (width*0.5)/2 * 3, (width*0.5)/2);
         } else if (w < 1500) {
             image(this.question, heightQuestion / 1.33 + marginDesktop, heightQuestion / 4 + marginDesktop, heightQuestion / 2 * 3, heightQuestion / 2);
         } else {
@@ -430,8 +449,12 @@ class Level {
                 image(this.lastPlateItem.description, width / 2 + plateSize / 3, height / 2 + plateSize / 3, 160, 160);
             } else if (w < 1500) {
                 image(this.lastPlateItem.description, width / 2 + plateSize / 3, height / 2 + plateSize / 3, 200, 200);
-            } else {
+            }
+            else if (w > 2000) {
                 image(this.lastPlateItem.description, width / 2 + plateSize / 3, height / 2 + plateSize / 3, 250, 250);
+            }
+            else {
+                image(this.lastPlateItem.description, width / 2 + plateSize / 3, height / 2 + plateSize / 3, 200, 200);
             }
             this.currentTextTimer--;
         }
@@ -494,27 +517,27 @@ class Level {
         let space;
 
         if (w < 600) {
-            space = width / (this.items.length / 2 + 3);
+            space = width * 0.95 / (this.items.length / 2 + 3);
             for (let i = 0; i < this.items.length; i++) {
                 let xd;
                 if (i % 2 == 0) xd = 0;
                 else xd = 1;
 
                 this.items[i].pos.set(
-                    space * (i + 1 - xd),
-                    height * (1 - itemsScale / 1.5 * (1 + xd))
+                    (width * 0.025) + space * (i + 1 - xd),
+                    height * (1 - itemsScale / 1.8 * (1 + xd))
                 );
             }
         } else {
             space = width * 0.8 / (this.items.length + 1);
             for (let i = 0; i < this.items.length; i++) {
                 this.items[i].pos.set(
-                    (width* 0.1) + space * (i + 1), height * (1 - itemsScale / 1.5)
+                    (width * 0.1) + space * (i + 1), height * (1 - itemsScale / 1.5)
                 );
             }
         }
     }
-ﬂ
+    ﬂ
     insidePlate(item) {
         if (dist(item.pos.x, item.pos.y, width / 2, height / 2) < plateSize / 2) {
             item.plate = true;

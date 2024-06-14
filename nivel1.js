@@ -9,6 +9,8 @@ var close;
 var heightQuestion = 300;
 var widthQuestionMobile;
 
+let maxWidth;
+
 var pw, ph;
 
 var endLevel = false, level = 1;
@@ -134,7 +136,7 @@ function loadLevels() {
     var level_one, level_two, level_three, level_four;
     //Primavera
     level_one = new Level(color(235, 153, 194),
-        'data/jogo/level1/screen1/textPrimavera.png',
+        'Quais são os alimentos sazonais da primavera?',
         new UIFinish('data/jogo/endLevel/1.png')
     );
     level_one.addItem(items.grape, false, 'data/jogo/certoErrado/level1/screen1/errado.png');
@@ -146,7 +148,7 @@ function loadLevels() {
     level_one.setDefaultPosition();
     //Verão
     level_two = new Level(color(103, 175, 136),
-        'data/jogo/level1/screen2/textVerao.png',
+        'Quais são os alimentos sazonais do verão?',
         new UIFinish('data/jogo/endLevel/2.png')
     );
     level_two.addItem(items.lemon, false, 'data/jogo/certoErrado/level1/screen2/errado.png');
@@ -158,7 +160,7 @@ function loadLevels() {
     level_two.setDefaultPosition();
     //Outono
     level_three = new Level(color(239, 190, 46),
-        'data/jogo/level1/screen3/textOutono.png',
+        'Quais são os alimentos sazonais do outono?',
         new UIFinish('data/jogo/endLevel/3.png')
     );
     level_three.addItem(items.carot, false, 'data/jogo/certoErrado/level1/screen3/errado.png');
@@ -170,7 +172,7 @@ function loadLevels() {
     level_three.setDefaultPosition();
     //Inverno
     level_four = new Level(color(114, 190, 195),
-        'data/jogo/level1/screen4/textInverno.png',
+        'Quais são os alimentos sazonais do inverno?',
         new UIFinish('data/jogo/endLevel/4.png')
     );
 
@@ -268,7 +270,6 @@ class UIFinish {
         this.w = 400;
         this.h = 400;
         this.margin = 40;
-
         this.status = false;
     }
 
@@ -401,7 +402,7 @@ class Level {
         this.background = background;
         this.totalTrues = 0;
         this.totalFalses = 0;
-        this.question = loadImage(question);
+        this.question = question;
         this.uiEndLevel = uiEndLevel;
         this.points = 0;
 
@@ -467,36 +468,59 @@ class Level {
     }
 
     ui() {
+        push();
+        rectMode(CORNERS);
+        blendMode(MULTIPLY);
+
+        let lastY;
+
+        if (windowWidth < 900) {
+            textSize(h2Size);
+            textStyle(BOLD);
+            fill(109, 111, 113);
+            blendMode(MULTIPLY);
+
+            let maxWidth = windowWidth * 0.7;
+            let lines = wrapText(this.question, maxWidth);
+
+            let y = marginMobile + textAscent();
+            for (let i = 0; i < lines.length; i++) {
+                text(lines[i], marginMobile, y);
+                y += textAscent() + textDescent();
+            }
+            lastY = y;
+        } else {
+            lastY = marginDesktop;
+        }
+        pop();
+
         let content = this.points + "/" + this.totalTrues;
         textSize(h2Size);
         push();
         fill(109, 111, 113);
         blendMode(MULTIPLY);
-        widthQuestionMobile=(width*0.5)/2;
 
-        if (w < 900) {
-            text(content, marginMobile, widthQuestionMobile + textAscent() + marginMobile/2);
-        } else if (w < 1500) {
-            text(content, marginDesktop, heightQuestion / 6 * 3.3 + textAscent());
+        if (windowWidth < 900) {
+            text(content, marginMobile, lastY + marginMobile/2);
+        } else if (windowWidth < 1500) {
+            text(content, marginDesktop, lastY + textAscent());
         } else {
-            text(content, marginDesktop, heightQuestion / 5 * 3.3 + textAscent());
-        }
-
-        pop();
-        rectMode(CORNERS);
-        push();
-        blendMode(MULTIPLY);
-
- 
-
-        if (w < 900) {
-            image(this.question, ((width*0.5)) / 1.33 + marginMobile, ((width*0.5)) / 4 + marginMobile, (width*0.5)/2 * 3, (width*0.5)/2);
-        } else if (w < 1500) {
-            image(this.question, heightQuestion / 1.33 + marginDesktop, heightQuestion / 4 + marginDesktop, heightQuestion / 2 * 3, heightQuestion / 2);
-        } else {
-            image(this.question, heightQuestion + marginDesktop, heightQuestion / 3 + marginDesktop, heightQuestion / 1.5 * 3, heightQuestion / 1.5);
+            text(content, marginDesktop, lastY + textAscent());
         }
         pop();
+
+
+        /*
+                if (w < 900) {
+                    image(this.question, ((width*0.5)) / 1.33 + marginMobile, ((width*0.5)) / 4 + marginMobile, (width*0.5)/2 * 3, (width*0.5)/2);
+                } else if (w < 1500) {
+                    image(this.question, heightQuestion / 1.33 + marginDesktop, heightQuestion / 4 + marginDesktop, heightQuestion / 2 * 3, heightQuestion / 2);
+                } else {
+                    image(this.question, heightQuestion + marginDesktop, heightQuestion / 3 + marginDesktop, heightQuestion / 1.5 * 3, heightQuestion / 1.5);
+                }
+                
+        
+                */
 
         if (this.lastPlateItem != null && this.currentTextTimer != 0) {
             if (w < 900) {
@@ -651,4 +675,24 @@ function replaceItem(px, py, pw, ph, w, h) {
     let y = py * h / ph;
 
     return createVector(x, y);
+}
+
+function wrapText(txt, maxWidth) {
+    let words = txt.split(' '); // Divide o texto em palavras
+    let lines = [];
+    let currentLine = words[0];
+
+    for (let i = 1; i < words.length; i++) {
+        let word = words[i];
+        let width = textWidth(currentLine + ' ' + word); // Calcula a largura da linha atual mais a próxima palavra
+        if (width < maxWidth) {
+            currentLine += ' ' + word; // Adiciona a palavra à linha atual se ela caber na largura máxima
+        } else {
+            lines.push(currentLine); // Adiciona a linha à lista de linhas
+            currentLine = word; // Inicia uma nova linha com a palavra atual
+        }
+    }
+    lines.push(currentLine); // Adiciona a última linha
+
+    return lines;
 }
