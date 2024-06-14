@@ -705,7 +705,7 @@ svg{
     }
 
  #closeMenu, #closeGame {
-        width: calc(20px + 1.5vw) !important;
+    width: calc(17px + 1.5vw) !important;
         height: fit-content;
     }
 
