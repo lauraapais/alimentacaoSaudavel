@@ -320,10 +320,10 @@ class UIFinish {
         if (w < 900) {
             textSize(19.2);
         }
-        else if (w < 1500) {
-            textSize(25.6);
-        } else {
+        else if (w > 2000) {
             textSize(32);
+        } else {
+            textSize(25.6);
         }
 
         fill(255);
