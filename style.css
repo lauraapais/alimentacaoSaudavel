@@ -651,9 +651,8 @@ svg{
         margin: 0;
         gap: var(--marginHMobile);
         box-sizing: border-box;
-
-        min-height: 100%;
-        width: 20%;
+        min-height: 70%;
+        width: 23%;
         min-width: auto;
         /*height: 50%;*/
     }
@@ -668,6 +667,7 @@ svg{
     }
 
     .levelTitle {
+        display: none;
         /*margin: calc(var(--marginHMobile) / 2);*/
     }
 
