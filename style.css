@@ -354,7 +354,6 @@ svg{
     cursor: pointer;
     position: relative;
     margin-bottom: var(--marginH);
-
     overflow: hidden;
     max-width: 45%;
 }
@@ -370,8 +369,6 @@ svg{
 .levelTitle {
     padding: 20px 20px 0 20px;
     height: 25%;
-    /*margin-top: calc(var(--marginH));
-    margin: calc(var(--marginH)) calc(var(--marginH) / 2);*/
 }
 
 #levelMain span {
@@ -618,13 +615,6 @@ svg{
         justify-content: center;
     }
 
-    /*.indexImage .indexIllustration {
-        width: auto;
-        height: auto;
-        max-width: 100%;
-        max-height: 100%;
-    }*/
-
     .buttonIndex {
         width: 25vh;
     }
@@ -640,7 +630,6 @@ svg{
     .menuItems {
         font-size: calc(45px + 0.5vw); 
     }
-
 
 
 
@@ -691,10 +680,10 @@ svg{
     .imageInfo img {
         width: 80%;
     }
-
-
-
 }
+
+
+
 
 @media screen and (max-width:900px) {
 
@@ -789,7 +778,6 @@ svg{
         flex-wrap: wrap;
     }
 
-
     .menuItems {
         font-size: 5.5vh;
         margin: 0 var(--marginHMobile);
@@ -805,7 +793,6 @@ svg{
         height: 100%;
         background-size: cover;
     }
-
 
     #alimentosSazonais .cover {
         background-image: url(data/jogo/levels/alimentosSazonais_3.png);
@@ -846,10 +833,6 @@ svg{
         top: calc((var(--vh, 1h)*100) *-1);
         overflow-y: auto;
     }
-
-
-
-
 
 
 
@@ -910,14 +893,12 @@ margin:var(--marginHMobile) 0;
     }
 
     .levelTitle {
-        /*margin: calc(var(--marginHMobile) / 2);*/
         display: none;
     }
 
     #levelMain span {
         font-size: calc(17px + 0.6vw);
     }
-
 
     .headerGameInside {
         margin: var(--marginHMobile);

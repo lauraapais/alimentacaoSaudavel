@@ -60,15 +60,6 @@ window.onresize = function () {
 }
 
 function platesize() {
-    /*if (w < 600) {
-        plateSize = w * 0.8;
-    } else if (w < 1000) {
-        plateSize = w * 0.45;
-    } else if (w < 1500) {
-        plateSize = w * 0.3;
-    } else {
-        plateSize = w * 0.28;
-    }*/
     if(w > 2000){
         plateSize = min(min(width*itemSize*8,
             width*.85), 
@@ -79,7 +70,6 @@ function platesize() {
                         width*.9), 
                         height*.6);
     }
-
 }
 
 function itemsize() {
@@ -284,7 +274,6 @@ class UIFinish {
     }
 
     mousePressed() {
-
         if (w < 900) {
             if (mouseX > width / 2 - (45 / 2) &&
             mouseX < width / 2 + (45 / 2) &&
@@ -299,8 +288,7 @@ class UIFinish {
             window.location.href = 'niveisMenu.html';
         }
         } 
-        
-        
+
         else if (w < 1500) {
             if (mouseX > width / 2 - (60 / 2) &&
             mouseX < width / 2 + (60 / 2) &&
@@ -316,8 +304,6 @@ class UIFinish {
         }
         }
         
-        
-        
         else {
             if (mouseX > width / 2 - (75 / 2) &&
             mouseX < width / 2 + (75 / 2) &&
@@ -331,10 +317,7 @@ class UIFinish {
             mouseY < (height / 2 - 175) + (50 / 2)) {
             window.location.href = 'niveisMenu.html';
         }
-        }
-
-
-        
+        }        
     }
 }
 

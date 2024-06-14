@@ -7,6 +7,7 @@ var plate, plateSize, itemSize;
 var itemsScale = 0.16;
 var close;
 var heightQuestion = 300;
+var widthQuestionMobile;
 
 var pw, ph;
 
@@ -67,10 +68,9 @@ function platesize() {
     }
 
     else if (w < 600) {
-        // Ajustes para aumentar o prato no modo mobile
-        plateSize = min(min(width * itemSize * 9,  // Aumenta o multiplicador para 12
-            width * 1.8),          // Usa 120% da largura
-            height * .8);             // Usa 80% da altura
+        plateSize = min(min(width * itemSize * 9,
+            width * 1.8),
+            height * .8);
     }
     else {
         plateSize = min(min(width * itemSize * 8,
@@ -474,6 +474,8 @@ class Level {
         blendMode(MULTIPLY);
 
         if (w < 900) {
+            //
+            widthQuestionMobile = 0.9 * width;
             text(content, marginMobile, heightQuestion / 4 + marginMobile * 1.5 + textAscent() * 2);
         } else if (w < 1500) {
             text(content, marginDesktop, heightQuestion / 6 * 3.3 + textAscent());
@@ -486,8 +488,10 @@ class Level {
         push();
         blendMode(MULTIPLY);
 
+        widthQuestionMobile=(width*0.5)/2;
+
         if (w < 900) {
-            image(this.question, heightQuestion / 1.33 + marginMobile, heightQuestion / 4 + marginMobile, heightQuestion / 2 * 3, heightQuestion / 2);
+            image(this.question, ((width*0.5)) / 1.33 + marginMobile, ((width*0.5)) / 4 + marginMobile, (width*0.5)/2 * 3, (width*0.5)/2);
         } else if (w < 1500) {
             image(this.question, heightQuestion / 1.33 + marginDesktop, heightQuestion / 4 + marginDesktop, heightQuestion / 2 * 3, heightQuestion / 2);
         } else {
