@@ -307,12 +307,12 @@ class UIFinish {
             rect(width / 2, height / 2 + 105 - 7.5, 150, 45, 22);
         }
         else if (w < 1500) {
-            rect(width / 2, height / 2 + 140 - 10, 200, 60, 22);
+            rect(width / 2, height / 2 + 140 - 10, 100, 60, 22);
         }
         else if(w > 2000){
             rect(width / 2, height / 2 + 175 - 12.5, 250, 75, 22);
         } else {
-            rect(width / 2, height / 2 + 175 - 12.5, 200, 75, 22);
+            rect(width / 2, height / 2 + 175 - 12.5, 100, 75, 22);
         }
         pop();
 
