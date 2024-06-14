@@ -475,7 +475,7 @@ class Level {
         widthQuestionMobile=(width*0.5)/2;
 
         if (w < 900) {
-            text(content, marginMobile, widthQuestionMobile + textAscent() + marginMobile);
+            text(content, marginMobile, widthQuestionMobile + textAscent() + marginMobile/2);
         } else if (w < 1500) {
             text(content, marginDesktop, heightQuestion / 6 * 3.3 + textAscent());
         } else {
