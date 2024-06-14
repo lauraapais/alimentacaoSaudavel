@@ -308,8 +308,11 @@ class UIFinish {
         }
         else if (w < 1500) {
             rect(width / 2, height / 2 + 140 - 10, 200, 60, 22);
-        } else {
+        }
+        else if(w > 2000){
             rect(width / 2, height / 2 + 175 - 12.5, 250, 75, 22);
+        } else {
+            rect(width / 2, height / 2 + 175 - 12.5, 200, 75, 22);
         }
         pop();
 
@@ -319,6 +322,9 @@ class UIFinish {
         }
         else if (w < 1500) {
             textSize(25.6);
+        }
+        else if(w > 2000){
+            textSize(32);
         } else {
             textSize(32);
         }
@@ -331,7 +337,11 @@ class UIFinish {
         }
         else if (w < 1500) {
             text('Continuar', width / 2, height / 2 + 140 - 10.8 + textAscent() / 2);
-        } else {
+        } 
+        else if(w > 2000){
+            text('Continuar', width / 2, height / 2 + 175 - 13.5 + textAscent() / 2);
+        }
+        else {
             text('Continuar', width / 2, height / 2 + 175 - 13.5 + textAscent() / 2);
         }
         pop();
