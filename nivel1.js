@@ -96,7 +96,7 @@ function itemsize() {
 
 function textsize() {
     if (w < 900) {
-        h2Size = h * 0.028;
+        h2Size = h * 0.025;
         heightQuestion = height / 4;
     } else if (w < 1500) {
         h2Size = h * 0.04;
