@@ -103,13 +103,14 @@ function textsize() {
         h2Size = h * 0.035;
         heightQuestion = height / 4;
     } else if (w < 1500) {
-        h2Size = h * 0.04;
+        h2Size = h * 0.05;
         heightQuestion = height / 3;
     } else {
-        h2Size = h * 0.04;
+        h2Size = h * 0.05;
         heightQuestion = height / 3;
     }
 }
+
 function loadItems() {
     //Laticineos
     items.lemon = new Gameitem('data/jogo/level1/screen1/4.png');
