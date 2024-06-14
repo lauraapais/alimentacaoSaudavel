@@ -546,29 +546,32 @@ class Level {
 
     setDefaultPosition() {
         let space;
-
+        let rowSpacingFactor = 1.2;
+    
         if (w < 600) {
             space = width * 0.95 / (this.items.length / 2 + 3);
             for (let i = 0; i < this.items.length; i++) {
                 let xd;
                 if (i % 2 == 0) xd = 0;
                 else xd = 1;
-
+    
+            
                 this.items[i].pos.set(
                     (width * 0.025) + space * (i + 1 - xd),
-                    height * (1 - itemsScale / 1.8 * (1 + xd))
+                    height * (1 - itemsScale / 1.8 * (1 + xd * rowSpacingFactor))
                 );
             }
         } else {
             space = width * 0.8 / (this.items.length + 1);
             for (let i = 0; i < this.items.length; i++) {
                 this.items[i].pos.set(
-                    (width * 0.1) + space * (i + 1), height * (1 - itemsScale / 1.5)
+                    (width * 0.1) + space * (i + 1),
+                    height * (1 - itemsScale / 1) 
                 );
             }
         }
     }
-    ﬂ
+    
     insidePlate(item) {
         if (dist(item.pos.x, item.pos.y, width / 2, height / 2) < plateSize / 2) {
             item.plate = true;
