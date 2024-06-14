@@ -23,6 +23,8 @@ marginDesktop = 0.02 * w;
 function preload() {
     plate = loadImage('data/jogo/plate.png');
     close = loadImage('data/icons/home.png');
+    fontBold=loadFont('data/font/AUTHENTICSans-150.otf');
+    fontRegular=loadFont('data/font/AUTHENTICSans-90.otf');
 }
 
 function setup() {
@@ -476,7 +478,7 @@ class Level {
 
         if (windowWidth < 900) {
             textSize(h2Size);
-            textStyle(BOLD);
+            textFont(fontBold);
             fill(109, 111, 113);
             blendMode(MULTIPLY);
 
@@ -495,7 +497,8 @@ class Level {
         pop();
 
         let content = this.points + "/" + this.totalTrues;
-        textSize(h2Size);
+        textSize(h2Size*0.8);
+        textFont(fontRegular);
         push();
         fill(109, 111, 113);
         blendMode(MULTIPLY);
