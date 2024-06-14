@@ -624,7 +624,7 @@ class Level {
 
     setDefaultPosition() {
         let space;
-        let rowSpacingFactor = 1.3;
+        let rowSpacingFactor = 1.4;
     
         if (w < 600) {
             space = width * 0.95 / (this.items.length / 2 + 3);
@@ -644,11 +644,12 @@ class Level {
             for (let i = 0; i < this.items.length; i++) {
                 this.items[i].pos.set(
                     (width * 0.1) + space * (i + 1),
-                    height * (1 - itemsScale / 1) 
+                    height * (1 - itemsScale / 2) 
                 );
             }
         }
     }
+    
 
 
     insidePlate(item) {
