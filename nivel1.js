@@ -277,10 +277,10 @@ class UIFinish {
         if (w < 900) {
             image(this.image, width / 2, height / 2, 300, 300);
         }
-        else if (w < 1500) {
-            image(this.image, width / 2, height / 2, 400, 400);
-        } else {
+        else if (w > 2000) {
             image(this.image, width / 2, height / 2, 500, 500);
+        } else {
+            image(this.image, width / 2, height / 2, 400, 400);
         }
 
         push();
@@ -289,10 +289,12 @@ class UIFinish {
         if (w < 900) {
             image(close, width / 2 - 102, height / 2 - 105, 30, 30);
         }
-        else if (w < 1500) {
-            image(close, width / 2 - 136, height / 2 - 140, 40, 40);
-        } else {
+        else if (w > 2000) {
             image(close, width / 2 - 170, height / 2 - 175, 50, 50);
+            
+        }
+         else {
+            image(close, width / 2 - 136, height / 2 - 140, 40, 40);
         }
         
         pop();
@@ -306,13 +308,11 @@ class UIFinish {
         if (w < 900) {
             rect(width / 2, height / 2 + 105 - 7.5, 150, 45, 22);
         }
-        else if (w < 1500) {
-            rect(width / 2, height / 2 + 140 - 10, 100, 60, 22);
-        }
-        else if(w > 2000){
+        else if (w > 2000) {
             rect(width / 2, height / 2 + 175 - 12.5, 250, 75, 22);
+            
         } else {
-            rect(width / 2, height / 2 + 175 - 12.5, 100, 75, 22);
+            rect(width / 2, height / 2 + 140 - 10, 200, 60, 22);
         }
         pop();
 
@@ -322,9 +322,6 @@ class UIFinish {
         }
         else if (w < 1500) {
             textSize(25.6);
-        }
-        else if(w > 2000){
-            textSize(32);
         } else {
             textSize(32);
         }
@@ -335,14 +332,11 @@ class UIFinish {
         if (w < 900) {
             text('Continuar', width / 2, height / 2 + 105 - 8.1 + textAscent() / 2);
         }
-        else if (w < 1500) {
-            text('Continuar', width / 2, height / 2 + 140 - 10.8 + textAscent() / 2);
+        else if (w > 2000) {
+            text('Continuar', width / 2, height / 2 + 175 - 13.5 + textAscent() / 2);
         } 
-        else if(w > 2000){
-            text('Continuar', width / 2, height / 2 + 175 - 13.5 + textAscent() / 2);
-        }
         else {
-            text('Continuar', width / 2, height / 2 + 175 - 13.5 + textAscent() / 2);
+            text('Continuar', width / 2, height / 2 + 140 - 10.8 + textAscent() / 2);
         }
         pop();
     }
@@ -592,7 +586,7 @@ class Level {
             space = width * 0.8 / (this.items.length + 1);
             for (let i = 0; i < this.items.length; i++) {
                 this.items[i].pos.set(
-                    (width* 0.1) + space * (i + 1), height * (1 - itemsScale / 1.5)
+                    (width* 0.1) + space * (i + 1), height * (1 - itemsScale /1.5)
                 );
             }
         }
