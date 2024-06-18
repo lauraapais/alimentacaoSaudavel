@@ -1,16 +1,17 @@
 :root {
     --grey: #6D6E70;
-    --salmon: #DD6A65;
-    --lightBlue: #9ECFC7;
-    --blue: #72BEC3;
-    --green: #67AF88;
-    --pink: #D473A6;
-    --lightPink: #E0AACA;
-    --lighLightPink: #EBB6B4;
-    --toastedYellow: #EFBE2E;
+    --salmon: #EA6060;
+    --lightBlue: #8ED2C8;
+    --blue: #57BEC6;
+    --green: #55B184;
+    --pink: #E26BA9;
+    --lightPink: #E7A7CA;
+    --lighLightPink: #F3B1B4;
+    --toastedYellow: #EFBF33;
     --lightOrange: #EFB057;
 
-    --headerHmin: 15vh;
+
+    --headerHmin: 13vh;
     --marginH: 2vw;
 
     --headerHminMobile: 13vh;
@@ -31,6 +32,7 @@
 
 #explorarBackground {
     background-color: var(--blue);
+    transition: background-color 1s ease;
 }
 
 #escolasBackground {
@@ -56,6 +58,44 @@ body {
     user-select: none;
 }
 
+p {
+    font-size: calc(14px + 0.390625vw);
+    text-wrap: pretty;
+    color: var(--grey);
+    mix-blend-mode: multiply;
+    margin:calc(var(--marginH)/2) 0;
+}
+
+h1, li{
+    font-size: calc(65px + 0.390625vw);
+    text-wrap: pretty;
+    color: var(--grey);
+    mix-blend-mode: multiply;
+    margin:0;
+}
+
+h2{
+    font-size: calc(40px + 0.390625vw);
+    text-wrap: pretty;
+    color: var(--grey);
+    mix-blend-mode: multiply;
+    margin:0;
+}
+
+h3{
+    font-size: calc(30px + 0.390625vw);
+    text-wrap: pretty;
+    color: var(--grey);
+    mix-blend-mode: multiply;
+}
+
+h4{
+    font-size: calc(20px + 0.390625vw);
+    text-wrap: pretty;
+    color: var(--grey);
+    mix-blend-mode: multiply;
+}
+
 header {
     display: flex;
     justify-content: space-between;
@@ -69,14 +109,10 @@ header {
     display: flex;
     justify-content: space-between;
     width: fit-content;
-    color: var(--grey);
-    mix-blend-mode: multiply;
 }
 
 .menu li {
     list-style-type: none;
-    font-family: AuthenticSans130;
-    font-size: calc(17pt + 0.5vw);
     cursor: pointer;
     height: fit-content;
     margin: 0 var(--marginH);
@@ -101,28 +137,26 @@ header {
     transition: top 1s;
 }
 
-#menuIcon{
+#menuIcon {
     width: calc(15px + 1.5vw) !important;
     height: fit-content;
 }
 
-#closeMenu, #closeGame{
-    width: calc(8px + 1.5vw) !important;
+#closeMenu,
+#closeGame {
+    width: calc(1px + 1.5vw) !important;
     height: fit-content;
 }
 
-#menuIcon{
+#menuIcon {
     stroke-width: 5px;
+    cursor: pointer;
 }
 
-#closeMenu, #closeGame{
-    stroke-width: 1.4px;
+#closeMenu,
+#closeGame {
+    stroke-width: 1.6px;
 }
-
-#homeIcon{
-    stroke-width: 1.8px;
-}
-
 
 .active {
     transition: top 1s;
@@ -135,9 +169,6 @@ main {
 
 .menuItems {
     list-style-type: none;
-    color: var(--grey);
-    mix-blend-mode: multiply;
-    font-size: calc(65px + 0.5vw);
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -208,14 +239,13 @@ footer {
     overflow: hidden;
 }
 
-svg{
+svg {
     stroke: #6d6e70;
     mix-blend-mode: multiply;
     fill: none;
     stroke-linecap: round;
     stroke-linejoin: round;
 }
-
 
 
 
@@ -259,12 +289,12 @@ svg{
     position: absolute;
     bottom: 0;
     right: 0;
-    filter: drop-shadow(0px 0px 0px #4444);
     margin: 0;
     z-index: 1;
     max-width: 25vw;
     max-height: 25vw;
     width: 12vw;
+    filter: drop-shadow(0px 0px 0px #4444);
 }
 
 .buttonIndex:hover {
@@ -274,14 +304,7 @@ svg{
 .landingIntro {
     margin-top: 15vh;
     margin-bottom: 20vh;
-    width: 50%;
-    font-family: AuthenticSans130;
-    font-size: calc(20px + 1.1vw);
-    color: var(--grey);
-}
-
-.landingIntro span {
-    mix-blend-mode: multiply;
+    width: 45%;
 }
 
 .iconsIntro {
@@ -293,14 +316,9 @@ svg{
     margin-bottom: 5vh;
 }
 
-.iconsIntroTitle span {
+.iconsIntroTitle h2 {
     display: flex;
     justify-content: center;
-    font-family: AuthenticSans130;
-    font-size: calc(35px + 1vw);
-    line-height: calc(35px + 1vw);
-    color: var(--grey);
-    mix-blend-mode: multiply;
 }
 
 .illustrationsIndex {
@@ -317,13 +335,6 @@ svg{
     display: grid;
     justify-items: center;
 }
-
-.illustrationsIndex span {
-    font-size: calc(16px + 0.5vw);
-    color: var(--grey);
-    mix-blend-mode: multiply;
-}
-
 
 
 
@@ -357,6 +368,7 @@ svg{
     overflow: hidden;
     max-width: 45%;
 }
+
 .level:hover {
     filter: drop-shadow(0px 0px 5px rgba(0, 0, 0, 0.15));
 }
@@ -521,7 +533,7 @@ svg{
     height: fit-content;
 }
 
-.gameMenu{
+.gameMenu {
     display: flex;
 }
 
@@ -565,10 +577,7 @@ svg{
 }
 
 .textInfo {
-    width: 50%;
-    font-family: AuthenticSans130;
-    font-size: calc(16px + 0.3vw);
-    color: var(--grey);
+    width: 40%;
 }
 
 .info {
@@ -606,8 +615,75 @@ svg{
 }
 
 
-@media screen and (max-width:1500px) {
 
+
+
+/** Explorar **/
+#explorarBackground {
+    position: relative;
+    height: 100vh;
+    width: 100%;
+    overflow: hidden;
+}
+
+.videoSection {
+    position: relative;
+    width: 100%;
+    height: calc(100vh - var(--marginH) * 3 - var(--headerHmin));
+    background-color: var(--blue);
+}
+
+.exploreVideo {
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height:100%;
+}
+
+
+.videoSection .exploreVideo {
+    margin-bottom: var(--marginH);
+}
+
+#explorarInfo {
+    margin-top: 0 !important;
+}
+
+
+.exploreVideo video {
+   height:100%;
+}
+
+.infoVideo{
+    height: 100%;
+    display: flex;
+    padding-left: var(--marginH);
+    background-color: var(--blue);
+    flex-direction: column;
+    justify-content: space-between;
+    gap: var(--marginH);
+}
+
+
+
+.infoVideo h3{
+    margin:0;
+}
+
+.infoVideo h4{
+    margin-bottom: 0;
+}
+
+.infoVideo p:last-child{
+    margin:0;
+}
+
+
+
+@media screen and (max-width:1500px) {
     /*index*/
     .indexImage {
         display: flex;
@@ -628,7 +704,7 @@ svg{
 
     /*general*/
     .menuItems {
-        font-size: calc(45px + 0.5vw); 
+        font-size: calc(45px + 0.5vw);
     }
 
 
@@ -636,14 +712,12 @@ svg{
 
     /*niveis*/
     .level {
-        /*margin-bottom: var(--marginHMobile);*/
         margin: 0;
         gap: var(--marginHMobile);
         box-sizing: border-box;
         min-height: 70%;
         width: 23%;
         min-width: auto;
-        /*height: 50%;*/
     }
 
     #levelMain {
@@ -657,7 +731,6 @@ svg{
 
     .levelTitle {
         display: none;
-        /*margin: calc(var(--marginHMobile) / 2);*/
     }
 
     #levelMain span {
@@ -686,7 +759,6 @@ svg{
 
 
 @media screen and (max-width:900px) {
-
     /*icons*/
     .homeIcon {
         width: calc(20px + 1.5vw) !important;
@@ -699,13 +771,14 @@ svg{
         height: fit-content;
     }
 
-    #menuIcon{
+    #menuIcon {
         width: calc(27px + 1.5vw) !important;
         height: fit-content;
     }
 
- #closeMenu, #closeGame {
-    width: calc(17px + 1.5vw) !important;
+    #closeMenu,
+    #closeGame {
+        width: calc(17px + 1.5vw) !important;
         height: fit-content;
     }
 
@@ -755,7 +828,6 @@ svg{
 
 
     /*general*/
-
     main {
         padding: var(--marginHMobile);
     }
@@ -842,7 +914,7 @@ svg{
         font-size: calc(14px + 0.3vw);
     }
 
-    #textInfoTitle{
+    #textInfoTitle {
         margin-bottom: var(--marginHMobile);
     }
 
@@ -860,11 +932,11 @@ svg{
         width: 100%;
     }
 
-    .imageInfo{
-margin:var(--marginHMobile) 0;
+    .imageInfo {
+        margin: var(--marginHMobile) 0;
     }
 
-    .textInfoBox{
+    .textInfoBox {
         flex-direction: column;
     }
 
@@ -889,7 +961,7 @@ margin:var(--marginHMobile) 0;
         height: calc(var(--vh, 1h) * 100 - var(--marginHMobile) * 3 - min(var(--headerHminMobile), 500px));
         margin: var(--marginHMobile);
         padding: 0;
-        
+
     }
 
     .levelTitle {

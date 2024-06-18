@@ -9,14 +9,14 @@ var footerPartnership = document.getElementById("footerPartnership");
 
 // List of predefined colors
 var colors = [
-    "#DD6A65", // salmon
-    "#9ECFC7", // lightBlue
-    "#72BEC3", // blue
-    "#67AF88", // green
-    "#D473A6", // pink
-    "#E0AACA", // lightPink
-    "#EBB6B4", // lighLightPink
-    "#EFBE2E", // toastedYellow
+    "#EA6060", // salmon
+    "#8ED2C8", // lightBlue
+    "#57BEC6", // blue
+    "#55B184", // green
+    "#E26BA9", // pink
+    "#E7A7CA", // lightPink
+    "#F3B1B4", // lighLightPink
+    "#EFBF33", // toastedYellow
 ];
 
 // Function to get a random color
@@ -26,10 +26,10 @@ function getRandomColor() {
 }
 
 var randomColor = getRandomColor();
-    backgroundIndex.style.backgroundColor = randomColor;
-    mainLanding.style.backgroundColor = randomColor;
-    landingIntro.style.backgroundColor = randomColor;
-    iconsIntro.style.backgroundColor = randomColor;
-    iconsIntroTitle.style.backgroundColor = randomColor;
-    footerSuport.style.backgroundColor = randomColor;
-    footerPartnership.style.backgroundColor = randomColor;
+backgroundIndex.style.backgroundColor = randomColor;
+mainLanding.style.backgroundColor = randomColor;
+landingIntro.style.backgroundColor = randomColor;
+iconsIntro.style.backgroundColor = randomColor;
+iconsIntroTitle.style.backgroundColor = randomColor;
+footerSuport.style.backgroundColor = randomColor;
+footerPartnership.style.backgroundColor = randomColor;
