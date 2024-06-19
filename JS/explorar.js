@@ -77,4 +77,12 @@ function handleArrowLeftClick() {
 arrowRight.addEventListener('click', handleArrowRightClick);
 arrowLeft.addEventListener('click', handleArrowLeftClick);
 
+document.addEventListener('keydown', (event) => {
+    if (event.key === 'ArrowRight') {
+        handleArrowRightClick();
+    } else if (event.key === 'ArrowLeft') {
+        handleArrowLeftClick();
+    }
+});
+
 showVideo(currentVideo);
