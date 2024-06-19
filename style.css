@@ -710,6 +710,7 @@ stroke-width: 1.6px;
 
 
 @media screen and (max-width:1500px) {
+    
     /*index*/
     .indexImage {
         display: flex;
@@ -785,6 +786,36 @@ stroke-width: 1.6px;
 
 
 @media screen and (max-width:900px) {
+
+    p {
+        font-size: calc(16px + 0.390625vw);
+        margin:calc(var(--marginHMobile)/3) 0;
+    }
+    
+    h1{
+        font-size: calc(50px + 0.390625vw);
+    }
+
+    li{
+        font-size: calc(40px + 0.390625vw);
+    }
+    
+    h2{
+        font-size: calc(40px + 0.390625vw);
+    }
+    
+    h3{
+        font-size: calc(30px + 0.390625vw);
+    }
+    
+    h4{
+        font-size: calc(20px + 0.390625vw);
+    }
+
+
+
+
+
     /*icons*/
     .homeIcon {
         width: calc(20px + 1.5vw) !important;
@@ -817,14 +848,9 @@ stroke-width: 1.6px;
         align-items: center;
     }
 
-    .menu li {
-        font-size: calc(20pt + 0.5vw);
-    }
-
     .landingIntro {
         width: 100%;
         margin-bottom: 10vh;
-        font-size: calc(15px + 1.1vw);
     }
 
     .mainLanding {
@@ -840,14 +866,6 @@ stroke-width: 1.6px;
         height: 50vw;
     }
 
-    .illustrationsIndex span {
-        margin-bottom: var(--marginHMobile);
-        font-size: calc(17px + 0.5vw);
-    }
-
-    .iconsIntroTitle span {
-        font-size: calc(35px + 1vw);
-    }
 
 
 
@@ -856,10 +874,6 @@ stroke-width: 1.6px;
     /*general*/
     main {
         padding: var(--marginHMobile);
-    }
-
-    .support span {
-        font-size: calc(14px + 0.5vw);
     }
 
     footer {
@@ -877,7 +891,6 @@ stroke-width: 1.6px;
     }
 
     .menuItems {
-        font-size: 5.5vh;
         margin: 0 var(--marginHMobile);
         height: calc(var(--vh, 1h)*100 - min(var(--headerHminMobile), 500px) - var(--marginHMobile) * 2);
         width: calc(100vw - var(--marginHMobile)*2);
@@ -936,17 +949,11 @@ stroke-width: 1.6px;
 
 
     /*info Pages*/
-    .textInfo {
-        font-size: calc(14px + 0.3vw);
-    }
-
     #textInfoTitle {
         margin-bottom: var(--marginHMobile);
     }
 
     #textInfoTitle span {
-        font-size: calc(45px + 0.5vw);
-        line-height: calc(45px+0.5vw);
         margin-bottom: var(--marginHMobile);
     }
 
@@ -992,10 +999,6 @@ stroke-width: 1.6px;
 
     .levelTitle {
         display: none;
-    }
-
-    #levelMain span {
-        font-size: calc(17px + 0.6vw);
     }
 
     .headerGameInside {
