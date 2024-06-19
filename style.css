@@ -14,7 +14,7 @@
     --headerHmin: 13vh;
     --marginH: 2vw;
 
-    --headerHminMobile: 13vh;
+    --headerHminMobile: 10vh;
     --marginHMobile: 6vw;
 }
 
@@ -788,12 +788,12 @@ stroke-width: 1.6px;
 @media screen and (max-width:900px) {
 
     p {
-        font-size: calc(16px + 0.390625vw);
+        font-size: calc(15px + 0.390625vw);
         margin:calc(var(--marginHMobile)/3) 0;
     }
     
     h1{
-        font-size: calc(50px + 0.390625vw);
+        font-size: calc(40px + 0.390625vw);
     }
 
     li{
