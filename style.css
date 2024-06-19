@@ -878,7 +878,6 @@ stroke-width: 1.6px;
 
     footer {
         margin: var(--marginHMobile);
-        padding: 0;
         width: calc(100vw - var(--marginHMobile)*2);
     }
 
@@ -1005,4 +1004,9 @@ stroke-width: 1.6px;
         margin: var(--marginHMobile);
     }
 
+}
+
+#main-container {
+    position: absolute;
+    top: 0;
 }

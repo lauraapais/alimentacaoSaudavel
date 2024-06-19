@@ -45,7 +45,7 @@
         </div>
     </div>
     
-    <div data-scroll-container>
+    <div id="main-container" data-scroll-container>
         <header data-scroll-section>
             <div class="logoHeaderIndex logoHeader">
                 <a href="index.html"><img src="data/general/logo.png"
@@ -115,7 +115,7 @@
         </main>
 
         <footer data-scroll-section>
-            <div class="footerDiv" data-scroll data-scroll-direction="vertical" data-scroll-speed="1">
+            <div class="footerDiv" data-scroll>
                 <div id="footerSuport" class="support">
                     <div>
                         <div>
@@ -127,7 +127,7 @@
                         </div>
                     </div>
                 </div>
-                <div id="footerPartnership" class="support">
+                <div id="footerPartnership" class="support" data-scroll>
                     <div>
                         <p>Parceria</p>
                     </div>
@@ -145,7 +145,7 @@
     
     <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.4.0/p5.js"></script>
     <script src="JS/locomotive-scroll.min.js"></script>
-    <script>
+    <!--<script>
         document.addEventListener("DOMContentLoaded", function () {
             const locomotiveScroll = new LocomotiveScroll({
                 el: document.querySelector('[data-scroll-container]'),
@@ -153,10 +153,11 @@
 
             });
         });
-    </script>
+    </script>-->
     <script src="JS/header.js"></script>
     <script src="JS/index.js"></script>
     <script src="JS/mobileHeight.js"></script>
+    <script src="JS/locomotive-scroll-fix.js"></script>
 </body>
 
 </html>
