@@ -33,6 +33,7 @@
 #explorarBackground {
     background-color: var(--blue);
     transition: background-color 1s ease;
+
 }
 
 #escolasBackground {
@@ -63,7 +64,7 @@ p {
     text-wrap: pretty;
     color: var(--grey);
     mix-blend-mode: multiply;
-    margin:calc(var(--marginH)/2) 0;
+    margin:calc(var(--marginH)/3) 0;
 }
 
 h1, li{
@@ -227,9 +228,7 @@ footer {
     background-color: var(--green);
 }
 
-#explorarBackground .support {
-    background-color: var(--blue);
-}
+
 
 #escolasBackground .support {
     background-color: var(--lighLightPink);
@@ -552,18 +551,6 @@ svg {
     background-color: var(--green);
 }
 
-#explorarInfo {
-    background-color: var(--blue);
-}
-
-#explorarInfo #textInfoTitle {
-    background-color: var(--blue);
-}
-
-#explorarInfo .textInfo {
-    background-color: var(--blue);
-}
-
 #escolasInfo {
     background-color: var(--lighLightPink);
 }
@@ -630,7 +617,6 @@ svg {
     position: relative;
     width: 100%;
     height: calc(100vh - var(--marginH) * 3 - var(--headerHmin));
-    background-color: var(--blue);
 }
 
 .exploreVideo {
@@ -641,6 +627,8 @@ svg {
     justify-content: center;
     align-items: center;
     height:100%;
+    transition: all 1s ease;
+    opacity: 0; 
 }
 
 
@@ -648,26 +636,30 @@ svg {
     margin-bottom: var(--marginH);
 }
 
+.exploreVideo video {
+    height:100%;
+ }
+
 #explorarInfo {
     margin-top: 0 !important;
-}
-
-
-.exploreVideo video {
-   height:100%;
 }
 
 .infoVideo{
     height: 100%;
     display: flex;
-    padding-left: var(--marginH);
-    background-color: var(--blue);
+    padding-left: calc(var(--marginH) / 2);
     flex-direction: column;
     justify-content: space-between;
     gap: var(--marginH);
 }
 
+.infoVideoTitle{
+    margin-top:0.9vw !important;
+}
 
+.infoVideop{
+    margin-bottom:0.9vw !important;
+}
 
 .infoVideo h3{
     margin:0;
@@ -677,10 +669,44 @@ svg {
     margin-bottom: 0;
 }
 
-.infoVideo p:last-child{
-    margin:0;
+.infoVideo p:last-child, .infoVideo p:last-child{
+    margin-bottom:0;
 }
 
+
+#arrowLeft{
+    width: 2vw;
+    margin-right: 1vw;
+    stroke: #6d6e70;
+    mix-blend-mode: multiply;
+    fill: none;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    stroke-width: 1.6px;
+}
+
+#arrowRight{
+    width: 2vw;
+margin-left: 1vw;
+stroke: #6d6e70;
+mix-blend-mode: multiply;
+fill: none;
+stroke-linecap: round;
+stroke-linejoin: round;
+stroke-width: 1.6px;
+}
+
+.mainVideo{
+    display: flex;
+    align-items: center;
+    background-color: var(--blue);
+    transition: background-color 1s ease;
+}
+
+
+.videoSection.hidden {
+    opacity: 0;
+}
 
 
 @media screen and (max-width:1500px) {

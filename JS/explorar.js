@@ -1,65 +1,80 @@
 var currentVideo = 0;
-var infoVideo = document.querySelectorAll('.infoVideo');
+
+var infoVideos = document.querySelectorAll('.mainVideo');
 var explorarBackground = document.getElementById('explorarBackground');
-var explorarInfo = document.getElementById('explorarInfo');
 var videos = document.querySelectorAll('.exploreVideo');
+
+var arrowLeft = document.getElementById('arrowLeft');
+var arrowRight = document.getElementById('arrowRight');
 
 function showVideo(index) {
     videos.forEach((video, i) => {
-        video.style.display = i === index ? 'flex' : 'none';
+        if (i === index) {
+            video.style.display = 'flex';
+            setTimeout(() => {
+                video.style.opacity = 1;
+            }, 50);
+        } else {
+            video.style.opacity = 0;
+            setTimeout(() => {
+                video.style.display = 'none';
+            }, 500);
+        }
     });
 }
 
-explorarInfo.addEventListener('click', () => {
-    currentVideo = (currentVideo + 1) % videos.length;
-    showVideo(currentVideo);
+function changeBackgroundColor(index) {
+    let backgroundColor;
+
+    switch (true) {
+        case index < 1:
+            backgroundColor = "#52BFC5";
+            break;
+        case index == 2 || index == 3:
+            backgroundColor = "#4AB083";
+            break;
+        case index >= 4 && index <= 7:
+            backgroundColor = "#89CCC5";
+            break;
+        case index >= 8 && index <= 13:
+            backgroundColor = "#EC5F61";
+            break;
+        case index == 14:
+            backgroundColor = "#CE6198";
+            break;
+        case index == 15:
+            backgroundColor = "#EAB3D1";
+            break;
+        case index == 16:
+            backgroundColor = "#F5B1B2";
+            break;
+        case index == 17:
+            backgroundColor = "#ECBE2F";
+            break;
+    }
 
     explorarBackground.style.transition = 'background-color 1s ease';
-    infoVideo.forEach((element) => {
-        element.style.transition = 'background-color 1s ease';
-    });
+    explorarBackground.style.backgroundColor = backgroundColor;
 
-    if (currentVideo < 1) {
-        explorarBackground.style.backgroundColor = "#57BEC6";
-        infoVideo.forEach((element) => {
-            element.style.backgroundColor = "#57BEC6";
-        });
-    } else if (currentVideo == 2 || currentVideo == 3) {
-        explorarBackground.style.backgroundColor = "#55B184";
-        infoVideo.forEach((element) => {
-            element.style.backgroundColor = "#55B184";
-        });
-    } else if (currentVideo == 4 || currentVideo == 5 || currentVideo == 6 || currentVideo == 7) {
-        explorarBackground.style.backgroundColor = "#8ED2C8";
-        infoVideo.forEach((element) => {
-            element.style.backgroundColor = "#8ED2C8";
-        });
-    } else if (currentVideo >= 8 && currentVideo <= 13) {
-        explorarBackground.style.backgroundColor = "#EA6060";
-        infoVideo.forEach((element) => {
-            element.style.backgroundColor = "#EA6060";
-        });
-    } else if (currentVideo == 14) {
-        explorarBackground.style.backgroundColor = "#E26BA9";
-        infoVideo.forEach((element) => {
-            element.style.backgroundColor = "#E26BA9";
-        });
-    } else if (currentVideo == 15) {
-        explorarBackground.style.backgroundColor = "#E7A7CA";
-        infoVideo.forEach((element) => {
-            element.style.backgroundColor = "#E7A7CA";
-        });
-    } else if (currentVideo == 16) {
-        explorarBackground.style.backgroundColor = "#EFBF33";
-        infoVideo.forEach((element) => {
-            element.style.backgroundColor = "#EFBF33";
-        });
-    } else if (currentVideo == 17) {
-        explorarBackground.style.backgroundColor = "#F3B1B4";
-        infoVideo.forEach((element) => {
-            element.style.backgroundColor = "#F3B1B4";
-        });
-    }
-});
+    infoVideos.forEach(infoVideo => {
+        infoVideo.style.transition = 'background-color 1s ease';
+        infoVideo.style.backgroundColor = backgroundColor;
+    });
+}
+
+function handleArrowRightClick() {
+    currentVideo = (currentVideo + 1) % videos.length;
+    showVideo(currentVideo);
+    changeBackgroundColor(currentVideo);
+}
+
+function handleArrowLeftClick() {
+    currentVideo = (currentVideo - 1 + videos.length) % videos.length;
+    showVideo(currentVideo);
+    changeBackgroundColor(currentVideo);
+}
+
+arrowRight.addEventListener('click', handleArrowRightClick);
+arrowLeft.addEventListener('click', handleArrowLeftClick);
 
 showVideo(currentVideo);
