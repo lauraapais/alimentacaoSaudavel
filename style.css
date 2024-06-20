@@ -795,8 +795,8 @@ stroke-width: 1.6px;
     }
 
     p {
-        font-size: calc(15px + 0.390625vw);
-        margin:calc(var(--marginHMobile)/3) 0;
+        font-size: calc(14px + 0.390625vw);
+        margin:calc(var(--marginHMobile)/2) 0;
     }
     
     h1{
