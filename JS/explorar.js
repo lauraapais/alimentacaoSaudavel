@@ -2,13 +2,29 @@ var currentVideo = 0;
 
 var infoVideos = document.querySelectorAll('.mainVideo');
 var explorarBackground = document.getElementById('explorarBackground');
-var videos = document.querySelectorAll('.exploreVideo');
+var infoVideo = document.querySelectorAll('.infoVideo');
+var exploreVideo = document.querySelectorAll('.exploreVideo video');
+var videos = document.querySelectorAll('.infoVideo');
 
 var arrowLeft = document.getElementById('arrowLeft');
 var arrowRight = document.getElementById('arrowRight');
 
 function showVideo(index) {
-    videos.forEach((video, i) => {
+    infoVideo.forEach((video, i) => {
+        if (i === index) {
+            video.style.display = 'flex';
+            setTimeout(() => {
+                video.style.opacity = 1;
+            }, 50);
+        } else {
+            video.style.opacity = 0;
+            setTimeout(() => {
+                video.style.display = 'none';
+            }, 500);
+        }
+    });
+
+    exploreVideo.forEach((video, i) => {
         if (i === index) {
             video.style.display = 'flex';
             setTimeout(() => {
