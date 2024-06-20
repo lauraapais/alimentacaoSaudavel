@@ -743,10 +743,12 @@ svg {
 
 .exploreInfo {
     width: 20%;
-    height: 100%;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    opacity: 0;
+    transition: opacity 1s ease;
+    mix-blend-mode: multiply;
 }
 
 .exploreInfo p:last-child {
@@ -760,6 +762,8 @@ svg {
 .infoVideop {
     margin-top: 0.9vw !important;
 }
+
+
 
 @media screen and (max-width:1500px) {
 
