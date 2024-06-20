@@ -612,98 +612,27 @@ svg {
 
 
 
-/** Explorar **/
-#explorarBackground {
-    position: relative;
-    height: 100vh;
-    width: 100%;
-    overflow: hidden;
-}
-
-.videoSection {
-    position: relative;
-    width: 100%;
-}
-
-.exploreVideo {
-    position: absolute;
-    top: 0;
-    left: 0;
-    display: flex;
-    justify-content: center;
-    justify-content: space-between;
-    align-items: center;
-    height: 100%;
-}
-
-
-.videoSection .exploreVideo {
-    margin-bottom: var(--marginH);
-}
-
-.exploreVideo video {
-    width: 70%;
-    opacity: 0;
-    transition: opacity 1s ease;
-}
-
-#explorarInfo {
-    margin-top: 0 !important;
-}
-
-.infoVideo {
-    height: 100%;
-    display: flex;
-    padding-left: calc(var(--marginH) / 2);
-    flex-direction: column;
-    justify-content: space-between;
-    opacity: 0;
-    transition: opacity 1s ease;
-    mix-blend-mode: multiply;
-    gap: var(--marginH);
-}
-
-
-
-.infoVideo h3 {
-    margin: 0;
-}
-
-.infoVideo h4 {
-    margin-bottom: 0;
-}
-
-.infoVideo p:last-child,
-.infoVideo p:last-child {
-    margin-bottom: 0;
-}
-
-.mainVideo {
-    display: flex;
-    align-items: center;
-    background-color: var(--blue);
-    transition: background-color 1s ease;
-    height: calc(100vh - var(--marginH)* 3 - var(--headerHmin));
-}
-
-
-.videoSection.hidden {
-    opacity: 0;
-}
-
-
 /*new Explore*/
-#videoMain{
+
+
+#videoMain {
+    width: 100%;
     display: flex;
-    align-items: center;
+    flex-direction: row;
+    height: calc(100vh - var(--marginH) * 3 - var(--headerHmin));
+    max-height: calc(100vh - var(--marginH) * 3 - var(--headerHmin));
+    position: relative;
+    justify-content: space-between;
+
     background-color: var(--blue);
     transition: background-color 1s ease;
-    position: absolute;
 }
 
-.arrow{
-    width:5%;
+.arrow {
+    display: flex;
+    z-index: 200;
 }
+
 #arrowLeft {
     width: 1.7vw;
     margin-right: 1vw;
@@ -741,35 +670,49 @@ svg {
 }
 
 .videoContainer {
-    width: 70%;
+    width: 65%;
 }
 
 .videoContainer video {
     width: 100%;
+    max-height: 100%;
     opacity: 0;
     transition: opacity 1s ease;
 }
 
-.exploreContainer{
+.exploreContainer {
     position: relative;
 }
 
 .video_plus_info {
     display: flex;
     justify-content: space-between;
+    position: absolute;
+    top: 0;
+    max-height: calc(100vh - var(--marginH) * 3 - var(--headerHmin));
+}
+
+.exploreVideos {
+    width: 90%;
+    position: relative;
+    padding-right: 5%;
 }
 
 .exploreInfo {
-    width: 28%;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     mix-blend-mode: multiply;
     opacity: 0;
     transition: opacity 1s ease;
+
+
+    width: 35%;
+    overflow-y: scroll;
+    max-height: calc(100vh - var(--marginH) * 3 - var(--headerHmin));
 }
 
-.exploreInfo p:last-child {
+.exploreInfo p {
     margin: calc(var(--marginH)/2) 0;
 }
 
@@ -781,7 +724,7 @@ svg {
     margin-top: 0.9vw !important;
 }
 
-.infoVideop{
+.infoVideop {
     align-self: flex-end;
 }
 
@@ -879,17 +822,15 @@ svg {
 
     .infoVideoTitle {
         margin-left: 0.9vw !important;
-        margin-top: 0  !important;
+        margin-top: 0 !important;
     }
-    
+
     .infoVideop {
         margin-left: 0.9vw !important;
-        margin-top: 0  !important;
+        margin-top: 0 !important;
     }
-    
+
 }
-
-
 
 
 @media screen and (max-width:900px) {
@@ -1120,9 +1061,10 @@ svg {
 
 
     /*explore*/
-.mainVideo{
-    height: auto;
-}
+    .mainVideo {
+        height: auto;
+    }
+
     .exploreVideo video {
         width: 100%;
         height: 100%
@@ -1144,10 +1086,11 @@ svg {
 
 
     /*new explore*/
-    .exploreVideos{
-        position: absolute;
+    .exploreVideos {
+        position: relative;
+        width: 95%;
     }
-    
+
     .video_plus_info {
         display: flex;
         flex-direction: column;
@@ -1179,7 +1122,7 @@ svg {
         stroke-width: 2px;
     }
 
-    .infoVideoTitle{
+    .infoVideoTitle {
         margin-bottom: calc(var(--marginHMobile) / 4);
     }
 }

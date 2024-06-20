@@ -1,10 +1,9 @@
 var currentVideo = 0;
-
-var infoVideos = document.querySelectorAll('.mainVideo');
+var videoMain = document.getElementById('videoMain');
 var explorarBackground = document.getElementById('explorarBackground');
-var infoVideo = document.querySelectorAll('.infoVideo');
-var exploreVideo = document.querySelectorAll('.exploreVideo video');
-var videos = document.querySelectorAll('.infoVideo');
+var infoVideo = document.querySelectorAll('.exploreInfo');
+var exploreVideo = document.querySelectorAll('.video_plus_info video');
+var videos = document.querySelectorAll('.exploreInfo');
 
 var arrowLeft = document.getElementById('arrowLeft');
 var arrowRight = document.getElementById('arrowRight');
@@ -42,6 +41,7 @@ function showVideo(index) {
 function changeBackgroundColor(index) {
     let backgroundColor;
 
+
     switch (true) {
         case index <=1:
             backgroundColor = "#52BFC5";
@@ -71,6 +71,7 @@ function changeBackgroundColor(index) {
 
     explorarBackground.style.transition = 'background-color 1s ease';
     explorarBackground.style.backgroundColor = backgroundColor;
+    videoMain.style.backgroundColor = backgroundColor;
 
     infoVideos.forEach(infoVideo => {
         infoVideo.style.transition = 'background-color 1s ease';
