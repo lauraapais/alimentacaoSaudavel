@@ -1,7 +1,7 @@
 var backgroundIndex = document.getElementById("backgroundIndex");
 var mainLanding = document.getElementById("mainLanding");
 var landingIntro = document.getElementById("landingIntro");
-var iconsIntro = document.getElementById("iconsIntro");
+var mainIndex = document.getElementById("mainIndex");
 var iconsIntroTitle = document.getElementById("iconsIntroTitle");
 var footerSuport = document.getElementById("footerSuport");
 var footerPartnership = document.getElementById("footerPartnership");
@@ -29,7 +29,7 @@ var randomColor = getRandomColor();
 backgroundIndex.style.backgroundColor = randomColor;
 mainLanding.style.backgroundColor = randomColor;
 landingIntro.style.backgroundColor = randomColor;
-iconsIntro.style.backgroundColor = randomColor;
+mainIndex.style.backgroundColor = randomColor;
 iconsIntroTitle.style.backgroundColor = randomColor;
 footerSuport.style.backgroundColor = randomColor;
 footerPartnership.style.backgroundColor = randomColor;
