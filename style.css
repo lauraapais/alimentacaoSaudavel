@@ -592,11 +592,11 @@ svg {
     display: flex;
     justify-content: center;
     height: fit-content;
-
 }
 
 .imageInfo img {
-    width: 80%;
+    position: absolute;
+    width: 35%;
     height: auto;
 }
 
@@ -1025,6 +1025,18 @@ svg {
     .exploreVideo video {
         width: 100%;
         height: 100%
+    }
+
+    .exploreVideo{
+        flex-direction: column;
+    }
+
+    .videoSection .exploreVideo{
+        height: fit-content;
+    }
+
+    .videoSection{
+        height: fit-content;
     }
 
 }
