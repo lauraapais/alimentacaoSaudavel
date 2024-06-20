@@ -1009,4 +1009,5 @@ stroke-width: 1.6px;
 #main-container {
     position: absolute;
     top: 0;
+    width:100%;
 }
