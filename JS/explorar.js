@@ -43,7 +43,7 @@ function changeBackgroundColor(index) {
     let backgroundColor;
 
     switch (true) {
-        case index < 1:
+        case index <= 1:
             backgroundColor = "#52BFC5";
             break;
         case index == 2 || index == 3:
