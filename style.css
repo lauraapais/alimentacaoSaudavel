@@ -710,7 +710,6 @@ stroke-width: 1.6px;
 
 
 @media screen and (max-width:1500px) {
-    
     /*index*/
     .indexImage {
         display: flex;
@@ -719,7 +718,9 @@ stroke-width: 1.6px;
     }
 
     .buttonIndex {
-        width: 25vh;
+        width: 15vw;
+        max-width: 15vw;
+        max-height: 15vw;
     }
 
     .landingIntro {
@@ -786,6 +787,12 @@ stroke-width: 1.6px;
 
 
 @media screen and (max-width:900px) {
+
+    .buttonIndex {
+        width: 35vw;
+        max-width: 35vw;
+        max-height: 35vw;
+    }
 
     p {
         font-size: calc(15px + 0.390625vw);
