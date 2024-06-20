@@ -623,7 +623,6 @@ svg {
 .videoSection {
     position: relative;
     width: 100%;
-    height: calc(100vh - var(--marginH) * 3 - var(--headerHmin));
 }
 
 .exploreVideo {
@@ -643,7 +642,7 @@ svg {
 }
 
 .exploreVideo video {
-    height: 100%;
+    width: 70%;
     opacity: 0;
     transition: opacity 1s ease;
 }
@@ -684,6 +683,7 @@ svg {
     align-items: center;
     background-color: var(--blue);
     transition: background-color 1s ease;
+    height: calc(100vh - var(--marginH)* 3 - var(--headerHmin));
 }
 
 
@@ -697,7 +697,8 @@ svg {
     display: flex;
     align-items: center;
     background-color: var(--blue);
-
+    transition: background-color 1s ease;
+    position: absolute;
 }
 
 .arrow{
@@ -745,6 +746,12 @@ svg {
 
 .videoContainer video {
     width: 100%;
+    opacity: 0;
+    transition: opacity 1s ease;
+}
+
+.exploreContainer{
+    position: relative;
 }
 
 .video_plus_info {
@@ -752,14 +759,14 @@ svg {
     justify-content: space-between;
 }
 
-
-
 .exploreInfo {
     width: 28%;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     mix-blend-mode: multiply;
+    opacity: 0;
+    transition: opacity 1s ease;
 }
 
 .exploreInfo p:last-child {
@@ -895,7 +902,7 @@ svg {
 
     p {
         font-size: calc(14px + 0.390625vw);
-        margin: calc(var(--marginHMobile)/2) 0;
+        margin: calc(var(--marginHMobile)/4) 0;
     }
 
     h1 {
@@ -915,7 +922,8 @@ svg {
     }
 
     h4 {
-        font-size: calc(20px + 0.390625vw);
+        font-size: calc(17px + 0.390625vw);
+        margin: calc(var(--marginHMobile)/2) 0 calc(var(--marginHMobile)/4) 0
     }
 
 
@@ -1112,6 +1120,9 @@ svg {
 
 
     /*explore*/
+.mainVideo{
+    height: auto;
+}
     .exploreVideo video {
         width: 100%;
         height: 100%
@@ -1119,6 +1130,7 @@ svg {
 
     .exploreVideo {
         flex-direction: column;
+        height: 100%;
     }
 
     .videoSection .exploreVideo {
@@ -1132,6 +1144,10 @@ svg {
 
 
     /*new explore*/
+    .exploreVideos{
+        position: absolute;
+    }
+    
     .video_plus_info {
         display: flex;
         flex-direction: column;
@@ -1161,5 +1177,9 @@ svg {
     #arrowRight {
         width: 4vw;
         stroke-width: 2px;
+    }
+
+    .infoVideoTitle{
+        margin-bottom: calc(var(--marginHMobile) / 4);
     }
 }
