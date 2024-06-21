@@ -613,8 +613,6 @@ svg {
 
 
 /*new Explore*/
-
-
 #videoMain {
     width: 100%;
     display: flex;
@@ -623,14 +621,12 @@ svg {
     max-height: calc(100vh - var(--marginH) * 3 - var(--headerHmin));
     position: relative;
     justify-content: space-between;
-
-    background-color: var(--blue);
-    transition: background-color 1s ease;
 }
 
 .arrow {
     display: flex;
-    z-index: 200;
+    z-index: 200;    
+    background-color: var(--blue);
 }
 
 #arrowLeft {
@@ -687,6 +683,7 @@ svg {
 .video_plus_info {
     display: flex;
     justify-content: space-between;
+    gap: var(--marginH);
     position: absolute;
     top: 0;
     max-height: calc(100vh - var(--marginH) * 3 - var(--headerHmin));
@@ -695,7 +692,6 @@ svg {
 .exploreVideos {
     width: 90%;
     position: relative;
-    padding-right: 5%;
 }
 
 .exploreInfo {
@@ -706,9 +702,7 @@ svg {
     opacity: 0;
     transition: opacity 1s ease;
 
-
     width: 35%;
-    overflow-y: scroll;
     max-height: calc(100vh - var(--marginH) * 3 - var(--headerHmin));
 }
 
@@ -727,6 +721,11 @@ svg {
 .infoVideop {
     align-self: flex-end;
 }
+
+.infoVideop h4{
+    margin: calc(var(--marginH)/2) 0;
+}
+
 
 
 
@@ -1057,30 +1056,6 @@ svg {
 
     .headerGameInside {
         margin: var(--marginHMobile);
-    }
-
-
-    /*explore*/
-    .mainVideo {
-        height: auto;
-    }
-
-    .exploreVideo video {
-        width: 100%;
-        height: 100%
-    }
-
-    .exploreVideo {
-        flex-direction: column;
-        height: 100%;
-    }
-
-    .videoSection .exploreVideo {
-        height: fit-content;
-    }
-
-    .videoSection {
-        height: fit-content;
     }
 
 

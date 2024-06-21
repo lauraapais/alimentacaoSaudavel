@@ -4,6 +4,7 @@ var explorarBackground = document.getElementById('explorarBackground');
 var infoVideo = document.querySelectorAll('.exploreInfo');
 var exploreVideo = document.querySelectorAll('.video_plus_info video');
 var videos = document.querySelectorAll('.exploreInfo');
+var arrow = document.querySelectorAll('.arrow');
 
 var arrowLeft = document.getElementById('arrowLeft');
 var arrowRight = document.getElementById('arrowRight');
@@ -41,9 +42,8 @@ function showVideo(index) {
 function changeBackgroundColor(index) {
     let backgroundColor;
 
-
     switch (true) {
-        case index <=1:
+        case index <= 1:
             backgroundColor = "#52BFC5";
             break;
         case index == 2 || index == 3:
@@ -71,12 +71,12 @@ function changeBackgroundColor(index) {
 
     explorarBackground.style.transition = 'background-color 1s ease';
     explorarBackground.style.backgroundColor = backgroundColor;
-    videoMain.style.backgroundColor = backgroundColor;
 
-    infoVideos.forEach(infoVideo => {
-        infoVideo.style.transition = 'background-color 1s ease';
-        infoVideo.style.backgroundColor = backgroundColor;
+    arrow.forEach(arw => {
+        arw.style.transition = 'background-color 1s ease';
+        arw.style.backgroundColor = backgroundColor;
     });
+
 }
 
 function handleArrowRightClick() {
@@ -103,3 +103,20 @@ document.addEventListener('keydown', (event) => {
 });
 
 showVideo(currentVideo);
+
+
+
+
+function checkOverflowAndAddScroll() {
+    const elements = document.querySelectorAll('.exploreInfo');
+
+    elements.forEach(element => {
+        if (element.scrollHeight > element.clientHeight) {
+            element.style.overflowY = 'scroll';
+        } else {
+            element.style.overflowY = 'auto';
+        }
+    });
+}
+
+checkOverflowAndAddScroll();
