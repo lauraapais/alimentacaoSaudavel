@@ -1044,9 +1044,6 @@ svg {
         width: 100%!important;
     }
 
-    .imageInfo {
-        margin: var(--marginHMobile) 0;
-    }
 
     .textInfoBox {
         flex-direction: column;
