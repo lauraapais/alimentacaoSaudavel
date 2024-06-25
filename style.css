@@ -1189,10 +1189,5 @@ svg {
         height: calc(100vh - var(--marginHMobile)* 3 - var(--headerHminMobile));
     max-height: calc(100vh - var(--marginHmobile)* 3 - var(--headerHminMobile));
     }
-
-    
-    
-
-
 }
     
