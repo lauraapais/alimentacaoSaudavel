@@ -141,7 +141,7 @@ header {
     position: fixed;
     top: calc(var(--vh, 1h) * -100);
     background-color: var(--lightOrange);
-    z-index: 4;
+    z-index: 201;
     transition: top 1s;
 }
 
