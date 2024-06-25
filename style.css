@@ -289,6 +289,7 @@ svg {
     height: auto;
     max-width: 100%;
     max-height: 100%;
+    margin-bottom: 10vh;
 }
 
 .buttonIndex {
@@ -570,17 +571,24 @@ svg {
     background-color: var(--lighLightPink);
 }
 
-.textInfo {
+.mainInfoText {
+    display: flex;
+    flex-direction: row-reverse
+}
+
+.leftInfoText {
     width: 40%;
+}
+
+.textInfo {
+    width: 100%;
 }
 
 .info {
     margin-top: calc(var(--marginH));
 }
 
-.textInfo span {
-    mix-blend-mode: multiply;
-}
+.textInfo span {}
 
 .textInfoBox {
     display: flex;
@@ -588,10 +596,10 @@ svg {
 }
 
 .imageInfo {
-    width: 50%;
+    width: 60%;
     display: flex;
-    justify-content: center;
     height: fit-content;
+    justify-content: center;
 }
 
 .imageInfo img {
@@ -603,10 +611,16 @@ svg {
 #textInfoTitle span {
     font-family: AuthenticSans130;
     font-size: calc(65px + 0.5vw);
-    color: var(--grey);
-    mix-blend-mode: multiply;
+    color: var(--white);
     margin-top: var(--marginH);
 }
+
+#textInfoTitle img {
+    width: 20vw;
+    margin-bottom: calc(var(--marginH) /2);
+    margin-top: calc(var(--marginH) /2);
+}
+
 
 
 
@@ -789,19 +803,24 @@ svg {
 
 
 
-    /*info pages*/
-    .textInfo {
+     /*info pages*/
+     .textInfo {
         width: 100%;
         margin-bottom: var(--marginHMobile);
     }
 
     .imageInfo {
-        width: 100%;
+        width: 50%;
     }
 
-    .imageInfo img {
-        width: 80%;
+    .leftInfoText {
+        width: 50%;
     }
+
+    #textInfoTitle img {
+        width: 25vw;
+    }
+
 
 
 
@@ -1002,20 +1021,27 @@ svg {
 
 
     /*info Pages*/
-    #textInfoTitle {
-        margin-bottom: var(--marginHMobile);
+    .leftInfoText {
+        width: 100%;
     }
 
-    #textInfoTitle span {
-        margin-bottom: var(--marginHMobile);
+    .imageInfo img {
+        position: static;
+        width: 100%;
+    }
+
+    #textInfoTitle img {
+        width: 70vw;
+        margin-bottom: calc(var(--marginHMobile) /2);
+        margin-top: calc(var(--marginHMobile) /2);
     }
 
     .info {
         margin-top: calc(var(--marginH) * 3);
     }
 
-    .imageInfo img {
-        width: 100%;
+    .imageInfo {
+        width: 100%!important;
     }
 
     .imageInfo {
@@ -1023,6 +1049,11 @@ svg {
     }
 
     .textInfoBox {
+        flex-direction: column;
+    }
+
+    .mainInfoText {
+        display: flex;
         flex-direction: column;
     }
 
@@ -1100,4 +1131,6 @@ svg {
     .infoVideoTitle {
         margin-bottom: calc(var(--marginHMobile) / 4);
     }
+
+    
 }
