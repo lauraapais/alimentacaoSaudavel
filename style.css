@@ -588,7 +588,6 @@ svg {
     margin-top: calc(var(--marginH));
 }
 
-.textInfo span {}
 
 .textInfoBox {
     display: flex;
@@ -620,6 +619,7 @@ svg {
     margin-bottom: calc(var(--marginH) /2);
     margin-top: calc(var(--marginH) /2);
 }
+
 
 
 
@@ -701,7 +701,16 @@ svg {
     position: absolute;
     top: 0;
     max-height: calc(100vh - var(--marginH) * 3 - var(--headerHmin));
+    height: 100%;
+    align-items: center;
 }
+
+.videoInfoFlex{
+    display: flex;
+    height: auto;
+    gap: var(--marginH);
+}
+
 
 .exploreVideos {
     width: 90%;
@@ -723,6 +732,12 @@ svg {
 .exploreInfo p {
     margin: calc(var(--marginH)/2) 0;
 }
+
+.exploreInfo p:last-child {
+    margin: 0 !important;
+}
+
+
 
 .infoVideoTitle {
     margin-top: 0.9vw !important;
@@ -824,7 +839,12 @@ svg {
 
 
 
-    /*new explore*/
+     /*new explore*/
+     .exploreVideos {
+        position: relative;
+        width: 95%;
+    }
+
     .video_plus_info {
         display: flex;
         flex-direction: column;
@@ -835,18 +855,48 @@ svg {
     }
 
     .exploreInfo {
-        width: 80%;
+        width: 100%;
+    }
+
+    .exploreContainer {
+        align-items: flex-start;
+    }
+
+
+
+    #arrowLeft {
+        width: 4vw;
+        stroke-width: 2px;
+    }
+
+    #arrowRight {
+        width: 4vw;
+        stroke-width: 2px;
     }
 
     .infoVideoTitle {
-        margin-left: 0.9vw !important;
-        margin-top: 0 !important;
+        margin-bottom: calc(var(--marginHMobile) / 4);
     }
 
-    .infoVideop {
-        margin-left: 0.9vw !important;
-        margin-top: 0 !important;
+    .videoInfoFlex{
+    flex-direction: column;
     }
+
+    #videoMain{
+        height: calc(100vh - var(--marginHMobile)* 3 - var(--headerHminMobile));
+    max-height: calc(100vh - var(--marginHmobile)* 3 - var(--headerHminMobile));
+    }
+
+    #arrowLeft {
+        width: 2vw;
+        stroke-width: 2px;
+    }
+    
+    #arrowRight {
+        width: 2vw;
+        stroke-width: 2px;
+    }
+
 
 }
 
@@ -1111,10 +1161,6 @@ svg {
         align-items: flex-start;
     }
 
-    .exploreInfo {
-        margin-top: var(--marginHMobile);
-    }
-
     #arrowLeft {
         width: 4vw;
         stroke-width: 2px;
@@ -1129,5 +1175,17 @@ svg {
         margin-bottom: calc(var(--marginHMobile) / 4);
     }
 
-    
+    .videoInfoFlex{
+    flex-direction: column;
+    }
+
+    #videoMain{
+        height: calc(100vh - var(--marginHMobile)* 3 - var(--headerHminMobile));
+    max-height: calc(100vh - var(--marginHmobile)* 3 - var(--headerHminMobile));
+    }
+
+    .arrow{
+        align-self: flex-end;
+    }
 }
+    
