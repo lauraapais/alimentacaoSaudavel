@@ -1164,11 +1164,17 @@ svg {
     #arrowLeft {
         width: 4vw;
         stroke-width: 2px;
+        position: absolute;
+        bottom: 0;
+        left:0;
     }
 
     #arrowRight {
         width: 4vw;
         stroke-width: 2px;
+        position: absolute;
+        bottom: 0;
+        right:0;
     }
 
     .infoVideoTitle {
@@ -1184,8 +1190,9 @@ svg {
     max-height: calc(100vh - var(--marginHmobile)* 3 - var(--headerHminMobile));
     }
 
-    .arrow{
-        align-self: flex-end;
-    }
+    
+    
+
+
 }
     
