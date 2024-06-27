@@ -1139,11 +1139,6 @@ svg {
 
 
     /*new explore*/
-    .exploreVideos {
-        position: relative;
-        width: 95%;
-    }
-
     .video_plus_info {
         display: flex;
         flex-direction: column;
@@ -1155,26 +1150,25 @@ svg {
 
     .exploreInfo {
         width: 100%;
+        margin-bottom: var(--marginHMobile);
     }
 
     .exploreContainer {
         align-items: flex-start;
     }
 
+    .exploreInfo {
+        margin-top: var(--marginHMobile);
+    }
+
     #arrowLeft {
         width: 4vw;
         stroke-width: 2px;
-        position: absolute;
-        bottom: 0;
-        left:0;
     }
 
     #arrowRight {
         width: 4vw;
         stroke-width: 2px;
-        position: absolute;
-        bottom: 0;
-        right:0;
     }
 
     .infoVideoTitle {
@@ -1182,12 +1176,16 @@ svg {
     }
 
     .videoInfoFlex{
-    flex-direction: column;
+        flex-direction: column;
     }
 
     #videoMain{
-        height: calc(100vh - var(--marginHMobile)* 3 - var(--headerHminMobile));
-    max-height: calc(100vh - var(--marginHmobile)* 3 - var(--headerHminMobile));
+        height: calc(var(--vh, 1h)* 100 - var(--marginHMobile)* 3 - var(--headerHminMobile));
+    max-height: calc(var(--vh, 1h)* 100 - var(--marginHmobile)* 3 - var(--headerHminMobile));
+    }
+
+    .arrow{
+        align-self: flex-end;
     }
 }
     
