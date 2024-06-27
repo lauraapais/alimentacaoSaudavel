@@ -67,14 +67,40 @@ p {
     margin: calc(var(--marginH)/3) 0;
 }
 
-h1,
-li {
+h1{
     font-size: calc(65px + 0.390625vw);
     text-wrap: pretty;
     color: var(--grey);
     mix-blend-mode: multiply;
     margin: 0;
 }
+
+
+li {
+    font-size: calc(55px + 0.390625vw);
+    text-wrap: pretty;
+    color: var(--grey);
+    mix-blend-mode: multiply;
+    margin: 0;
+}
+
+
+::-webkit-scrollbar {
+    width: 15px;
+  }
+  
+  ::-webkit-scrollbar-track {
+    background: #f1f1f1;
+  }
+  
+  ::-webkit-scrollbar-thumb {
+    background: var(--black);
+  }
+  
+  ::-webkit-scrollbar-thumb:hover {
+    background: var(--black);
+  }
+
 
 h2 {
     font-size: calc(40px + 0.390625vw);
@@ -225,6 +251,7 @@ footer {
     min-height: 30px;
     margin-right: 2vw;
     margin-top: 1vh;
+    mix-blend-mode: multiply;
 }
 
 .footerDiv {
@@ -592,6 +619,7 @@ svg {
 .textInfoBox {
     display: flex;
     justify-content: space-between;
+    margin-top: calc(var(--marginH));
 }
 
 .imageInfo {
@@ -607,11 +635,10 @@ svg {
     height: auto;
 }
 
-#textInfoTitle span {
+#textInfoTitle {
     font-family: AuthenticSans130;
-    font-size: calc(65px + 0.5vw);
-    color: var(--white);
     margin-top: var(--marginH);
+    margin-bottom: calc(var(--marginH) / 2);
 }
 
 #textInfoTitle img {
@@ -835,6 +862,12 @@ svg {
     #textInfoTitle img {
         width: 25vw;
     }
+
+    .textInfoBox {
+        display: flex;
+        justify-content: space-between;
+    }
+    
 
 
 
@@ -1080,6 +1113,11 @@ svg {
         width: 100%;
     }
 
+    #textInfoTitle{
+            margin-top: var(--marginHMobile);
+            margin-bottom: calc(var(--marginHMobile) / 2);
+    }
+
     #textInfoTitle img {
         width: 70vw;
         margin-bottom: calc(var(--marginHMobile) /2);
@@ -1097,6 +1135,7 @@ svg {
 
     .textInfoBox {
         flex-direction: column;
+        margin-top: var(--marginH);
     }
 
     .mainInfoText {
