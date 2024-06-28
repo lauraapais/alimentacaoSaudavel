@@ -15,12 +15,12 @@ function showVideo(index) {
             video.style.display = 'flex';
             setTimeout(() => {
                 video.style.opacity = 1;
-            }, 50);
+            });
         } else {
             video.style.opacity = 0;
             setTimeout(() => {
                 video.style.display = 'none';
-            }, 500);
+            });
         }
     });
 
@@ -29,12 +29,12 @@ function showVideo(index) {
             video.style.display = 'flex';
             setTimeout(() => {
                 video.style.opacity = 1;
-            }, 50);
+            });
         } else {
             video.style.opacity = 0;
             setTimeout(() => {
                 video.style.display = 'none';
-            }, 500);
+            });
         }
     });
 }
@@ -52,19 +52,19 @@ function changeBackgroundColor(index) {
         case index >= 4 && index <= 7:
             backgroundColor = "#89CCC5";
             break;
-        case index >= 8 && index <= 13:
+        case index >= 8 && index <= 12:
             backgroundColor = "#EC5F61";
             break;
-        case index == 14:
+        case index == 13:
             backgroundColor = "#CE6198";
             break;
-        case index == 15:
+        case index == 14:
             backgroundColor = "#EAB3D1";
             break;
-        case index == 16:
+        case index == 15:
             backgroundColor = "#F5B1B2";
             break;
-        case index == 17:
+        case index == 16:
             backgroundColor = "#ECBE2F";
             break;
     }
@@ -105,18 +105,3 @@ document.addEventListener('keydown', (event) => {
 showVideo(currentVideo);
 
 
-
-
-function checkOverflowAndAddScroll() {
-    const elements = document.querySelectorAll('.exploreInfo');
-
-    elements.forEach(element => {
-        if (element.scrollHeight > element.clientHeight) {
-            element.style.overflowY = 'scroll';
-        } else {
-            element.style.overflowY = 'auto';
-        }
-    });
-}
-
-checkOverflowAndAddScroll();

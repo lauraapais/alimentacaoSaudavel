@@ -751,9 +751,10 @@ svg {
     mix-blend-mode: multiply;
     opacity: 0;
     transition: opacity 1s ease;
-
     width: 35%;
     max-height: calc(100vh - var(--marginH) * 3 - var(--headerHmin));
+    overflow-y: auto;
+    padding-right: 1em;
 }
 
 .exploreInfo p {
@@ -898,14 +899,15 @@ svg {
 
 
     #arrowLeft {
-        width: 4vw;
+        width: 6vw;
         stroke-width: 2px;
     }
 
     #arrowRight {
-        width: 4vw;
+        width: 6vw;
         stroke-width: 2px;
     }
+
 
     .infoVideoTitle {
         margin-bottom: calc(var(--marginHMobile) / 4);
