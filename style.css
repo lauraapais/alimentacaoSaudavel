@@ -32,7 +32,7 @@
 
 #explorarBackground {
     background-color: var(--blue);
-    transition: background-color 1s ease;
+    transition: background-color 2s ease;
 
 }
 
