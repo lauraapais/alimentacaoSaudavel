@@ -631,8 +631,15 @@ svg {
 
 .imageInfo img {
     position: absolute;
-    width: 38%;
     height: auto;
+}
+
+#escolasImg{
+    width: 35%;
+}
+
+#projetoImg{
+    width: 30%;
 }
 
 #textInfoTitle {
@@ -1119,6 +1126,14 @@ svg {
     .imageInfo img {
         position: static;
         width: 100%;
+    }
+
+    #escolasImg{
+        width: 100%;
+    }
+    
+    #projetoImg{
+        width: 80%;
     }
 
     #textInfoTitle{
