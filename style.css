@@ -932,6 +932,12 @@ svg {
         stroke-width: 2px;
     }
 
+    .infoVideop{
+        align-self: flex-start;
+    }
+
+    
+
 
 }
 
