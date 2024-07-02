@@ -129,9 +129,7 @@ h4 {
     width: 100%;
 }
 
-.noneMobile{
-    display: none;
-}
+
 
 header {
     display: flex;
@@ -1013,6 +1011,10 @@ svg {
         display: none;
     }
 
+
+    .noneMobile{
+        display: none;
+    }
 
 
 
