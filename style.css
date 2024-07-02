@@ -1307,13 +1307,19 @@ svg {
     }
 
     #arrowLeftMobile {
-        width: 7vw;
+        width: 6vw;
         stroke-width: 2px;
+        position: absolute;
+        left: 0;
+        bottom: var(--marginHMobile);
     }
 
     #arrowRightMobile {
-        width: 7vw;
+        width: 6vw;
         stroke-width: 2px;
+        position: absolute;
+        right: var(--marginHMobile);
+        bottom: var(--marginHMobile);
     }
 }
     

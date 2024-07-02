@@ -34,6 +34,23 @@ function showVideo(index) {
             video.style.display = 'none';
         }
     });
+
+    // Verificar se estamos no primeiro ou no último vídeo
+    if (index === 0) {
+        arrowLeft.style.display = 'none';
+        arrowLeftMobile.style.display = 'none';
+    } else {
+        arrowLeft.style.display = 'block';
+        arrowLeftMobile.style.display = 'block';
+    }
+
+    if (index === videos.length - 1) {
+        arrowRight.style.display = 'none';
+        arrowRightMobile.style.display = 'none';
+    } else {
+        arrowRight.style.display = 'block';
+        arrowRightMobile.style.display = 'block';
+    }
 }
 
 function changeBackgroundColor(index) {
@@ -75,19 +92,22 @@ function changeBackgroundColor(index) {
         arw.style.transition = 'background-color 1s ease';
         arw.style.backgroundColor = backgroundColor;
     });
-
 }
 
 function handleArrowRightClick() {
-    currentVideo = (currentVideo + 1) % videos.length;
-    showVideo(currentVideo);
-    changeBackgroundColor(currentVideo);
+    if (currentVideo < videos.length - 1) {
+        currentVideo++;
+        showVideo(currentVideo);
+        changeBackgroundColor(currentVideo);
+    }
 }
 
 function handleArrowLeftClick() {
-    currentVideo = (currentVideo - 1 + videos.length) % videos.length;
-    showVideo(currentVideo);
-    changeBackgroundColor(currentVideo);
+    if (currentVideo > 0) {
+        currentVideo--;
+        showVideo(currentVideo);
+        changeBackgroundColor(currentVideo);
+    }
 }
 
 arrowRight.addEventListener('click', handleArrowRightClick);
@@ -97,13 +117,12 @@ arrowRightMobile.addEventListener('click', handleArrowRightClick);
 arrowLeftMobile.addEventListener('click', handleArrowLeftClick);
 
 document.addEventListener('keydown', (event) => {
-    if (event.key === 'ArrowRight') {
+    if (event.key === 'ArrowRight' && currentVideo < videos.length - 1) {
         handleArrowRightClick();
-    } else if (event.key === 'ArrowLeft') {
+    } else if (event.key === 'ArrowLeft' && currentVideo > 0) {
         handleArrowLeftClick();
     }
 });
 
+// Exibição inicial
 showVideo(currentVideo);
-
-
