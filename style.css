@@ -367,7 +367,7 @@ svg {
 
 .illustrationsIndex div {
     display: grid;
-    justify-items: center;
+    justify-items: center; 
 }
 
 
@@ -1035,6 +1035,10 @@ svg {
 
     .illustrationsIndex img {
         height: 50vw;
+    }
+
+    .illustrationsIndex div {
+        margin-bottom: var(--marginHMobile);
     }
 
 
