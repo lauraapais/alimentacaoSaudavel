@@ -130,12 +130,15 @@ h4 {
     width: 100%;
 }
 
+.noneMobile{
+    display: none;
+}
+
 header {
     display: flex;
     justify-content: space-between;
     margin: var(--marginH);
     margin-bottom: 0;
-    mix-blend-mode: multiply;
     height: min(var(--headerHmin), 500px);
 }
 
