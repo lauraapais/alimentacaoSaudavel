@@ -33,7 +33,6 @@
 #explorarBackground {
     background-color: var(--blue);
     transition: background-color 2s ease;
-
 }
 
 #escolasBackground {
@@ -797,6 +796,10 @@ svg {
     margin: calc(var(--marginH)/2) 0;
 }
 
+.arrowMobile{
+    display: none;
+}
+
 
 
 
@@ -1232,13 +1235,13 @@ svg {
     }
 
 
-    #arrowLeft {
-        width: 4vw;
+    #arrowLeftMobile {
+        width: 7vw;
         stroke-width: 2px;
     }
 
-    #arrowRight {
-        width: 4vw;
+    #arrowRightMobile {
+        width: 7vw;
         stroke-width: 2px;
     }
 
@@ -1261,6 +1264,17 @@ svg {
     .exploreVideos {
         width: 100%;
         position: relative;
+    }
+
+    .arrowMobile{
+        display: flex;
+        width: calc(100% - var(--marginHMobile)*2);
+        position: absolute;
+        justify-content: space-between;
+        padding: var(--marginHMobile) 0;
+        background-color: var(--blue);
+        transition: background-color 1s ease;
+        bottom: 0;
     }
 }
     

@@ -8,6 +8,8 @@ var arrow = document.querySelectorAll('.arrow');
 
 var arrowLeft = document.getElementById('arrowLeft');
 var arrowRight = document.getElementById('arrowRight');
+var arrowLeftMobile = document.getElementById('arrowLeftMobile');
+var arrowRightMobile = document.getElementById('arrowRightMobile');
 
 function showVideo(index) {
     infoVideo.forEach((video, i) => {
@@ -66,6 +68,8 @@ function changeBackgroundColor(index) {
 
     explorarBackground.style.transition = 'background-color 1s ease';
     explorarBackground.style.backgroundColor = backgroundColor;
+    arrowMobile.style.transition = 'background-color 1s ease';
+    arrowMobile.style.backgroundColor = backgroundColor;
 
     arrow.forEach(arw => {
         arw.style.transition = 'background-color 1s ease';
@@ -88,6 +92,9 @@ function handleArrowLeftClick() {
 
 arrowRight.addEventListener('click', handleArrowRightClick);
 arrowLeft.addEventListener('click', handleArrowLeftClick);
+
+arrowRightMobile.addEventListener('click', handleArrowRightClick);
+arrowLeftMobile.addEventListener('click', handleArrowLeftClick);
 
 document.addEventListener('keydown', (event) => {
     if (event.key === 'ArrowRight') {
