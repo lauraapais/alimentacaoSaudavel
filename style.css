@@ -953,9 +953,34 @@ svg {
         align-self: flex-start;
     }
 
-    
+    .arrow{
+        display: none;
+    }
 
+    .exploreVideos {
+        width: 100%;
+        position: relative;
+    }
 
+    .arrowMobile{
+        display: flex;
+        width: calc(100% - var(--marginH)*2);
+        position: absolute;
+        justify-content: space-between;
+        background-color: var(--blue);
+        transition: background-color 1s ease;
+        bottom: 0;
+    }
+
+    #arrowLeftMobile {
+        width: 3vw;
+        stroke-width: 2px;
+    }
+
+    #arrowRightMobile {
+        width: 3vw;
+        stroke-width: 2px;
+    }
 }
 
 
@@ -1258,23 +1283,9 @@ svg {
     max-height: calc(var(--vh, 1h)* 100 - var(--marginHmobile)* 3 - var(--headerHminMobile));
     }
 
-    .arrow{
-        display: none;
-    }
-    .exploreVideos {
-        width: 100%;
-        position: relative;
-    }
-
     .arrowMobile{
-        display: flex;
         width: calc(100% - var(--marginHMobile)*2);
-        position: absolute;
-        justify-content: space-between;
-        padding: var(--marginHMobile) 0;
-        background-color: var(--blue);
-        transition: background-color 1s ease;
-        bottom: 0;
+        padding: var(--marginHMobile) 0 ;
     }
 }
     
