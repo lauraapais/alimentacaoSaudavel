@@ -831,6 +831,8 @@ svg {
         min-height: 70%;
         width: 23%;
         min-width: auto;
+        min-width: 200px;
+        min-height: 300px;
     }
 
     #levelMain {
