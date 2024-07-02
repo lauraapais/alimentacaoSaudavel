@@ -65,8 +65,6 @@ window.onresize = function () {
 }
 
 function platesize() {
-    console.log(w);
-
     if (w > 2500) {
         plateSize = min(min(width * itemSize * 8,
             width * .85),
@@ -84,15 +82,11 @@ function platesize() {
             plateSize = min(min(width * itemSize * 5,
                 width * 1.8),
                 height * .8);
-
-            console.log(plateSize);
         } else {
             plateSize = min(min(width * itemSize * 9,
                 width * 1.8),
                 height * .8);
-
         }
-
     }
     else {
         plateSize = min(min(width * itemSize * 8,
@@ -463,7 +457,7 @@ class Level {
         for (let i = 0; i < this.items.length; i++) {
             let item = this.items[i];
             item.item.show(item.pos,
-                (itemSize + itemSize * item.dragScale / this.timeScaleMax / 10) //Animation Scale
+                (itemSize + itemSize * item.dragScale / this.timeScaleMax / 10)
             );
         }
 

@@ -440,7 +440,7 @@ svg {
 }
 
 #alimentosSazonais .cover {
-    background-image: url(data/jogo/levels/alimentosSazonais.png);
+    background-image: url(data/jogo/levels/alimentosSazonais_baixo.png);
 }
 
 #alimentosRegionais {
@@ -448,7 +448,7 @@ svg {
 }
 
 #alimentosRegionais .cover {
-    background-image: url(data/jogo/levels/alimentosRegionais.png);
+    background-image: url(data/jogo/levels/alimentosRegionais_baixo.png);
 }
 
 #rodadosAlimentos {
@@ -456,7 +456,7 @@ svg {
 }
 
 #rodadosAlimentos .cover {
-    background-image: url(data/jogo/levels/rodaAlimentos.png);
+    background-image: url(data/jogo/levels/rodaAlimentos_baixo.png);
 }
 
 #alimentacaoEquilibrada {
@@ -464,7 +464,7 @@ svg {
 }
 
 #alimentacaoEquilibrada .cover {
-    background-image: url(data/jogo/levels/alimentacaoEquilibrada.png);
+    background-image: url(data/jogo/levels/alimentacaoEquilibrada_baixo.png);
 }
 
 #levelMain a {
