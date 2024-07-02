@@ -1224,16 +1224,13 @@ svg {
 
     .exploreInfo {
         width: 100%;
-        margin-bottom: var(--marginHMobile);
+        margin-bottom: calc(var(--marginHMobile)/2) 0 ;
     }
 
     .exploreContainer {
         align-items: flex-start;
     }
 
-    .exploreInfo {
-        margin-top: var(--marginHMobile);
-    }
 
     #arrowLeft {
         width: 4vw;
@@ -1259,7 +1256,11 @@ svg {
     }
 
     .arrow{
-        align-self: flex-end;
+        display: none;
+    }
+    .exploreVideos {
+        width: 100%;
+        position: relative;
     }
 }
     
