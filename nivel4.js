@@ -153,10 +153,10 @@ function loadLevels() {
         new UIFinish('data/jogo/endLevel/12.png'));
     level_one.addItem(items.sausage, false, 'data/jogo/certoErrado/level4/screen1/errado.png');
     level_one.addItem(items.grape, true, 'data/jogo/certoErrado/level4/screen1/certo.png');
-    level_one.addItem(items.milk, true, 'data/jogo/certoErrado/level4/screen1/certo.png');
+    level_one.addItem(items.cheese1, true, 'data/jogo/certoErrado/level4/screen1/certo.png');
     level_one.addItem(items.bread, true, 'data/jogo/certoErrado/level4/screen1/certo.png');
     level_one.addItem(items.eggs, true, 'data/jogo/certoErrado/level4/screen1/certo.png');
-    level_one.addItem(items.cheese1, false, 'data/jogo/certoErrado/level4/screen1/errado.png');
+    level_one.addItem(items.milk, false, 'data/jogo/certoErrado/level4/screen1/errado.png');
     level_one.setDefaultPosition();
     //Almoço
     level_two = new Level(color(221, 106, 101), 'Cria um almoço equilibrado e com alimentos saudáveis!',
@@ -493,7 +493,7 @@ class Level {
             }
             lastY = y;
         } else if (w < 1500) {
-            let maxWidth = windowWidth * 0.7;
+            let maxWidth = windowWidth * 0.8;
             let lines = wrapText(this.question, maxWidth);
             let y = marginDesktop + textAscent();
             for (let i = 0; i < lines.length; i++) {

@@ -893,20 +893,18 @@ svg {
      /*new explore*/
      .exploreVideos {
         position: relative;
-        width: 95%;
     }
 
     .video_plus_info {
         display: flex;
-        flex-direction: column;
     }
 
     .videoContainer {
-        width: 100%;
+        width: 70%;
     }
 
     .exploreInfo {
-        width: 100%;
+        width: 30%;
     }
 
     .exploreContainer {
@@ -930,24 +928,11 @@ svg {
         margin-bottom: calc(var(--marginHMobile) / 4);
     }
 
-    .videoInfoFlex{
-    flex-direction: column;
-    }
-
     #videoMain{
         height: calc(100vh - var(--marginHMobile)* 3 - var(--headerHminMobile));
     max-height: calc(100vh - var(--marginHmobile)* 3 - var(--headerHminMobile));
     }
 
-    #arrowLeft {
-        width: 2vw;
-        stroke-width: 2px;
-    }
-    
-    #arrowRight {
-        width: 2vw;
-        stroke-width: 2px;
-    }
 
     .infoVideop{
         align-self: flex-start;
@@ -955,11 +940,6 @@ svg {
 
     .arrow{
         display: none;
-    }
-
-    .exploreVideos {
-        width: 100%;
-        position: relative;
     }
 
     .arrowMobile{
@@ -981,7 +961,16 @@ svg {
         width: 3vw;
         stroke-width: 2px;
     }
+
+    #closeMenu,
+    #closeGame {
+        width: calc(15px + 1.5vw) !important;
+        height: fit-content;
+    }
 }
+
+  
+
 
 
 @media screen and (max-width:900px) {
@@ -1016,6 +1005,10 @@ svg {
     h4 {
         font-size: calc(17px + 0.390625vw);
         margin: calc(var(--marginHMobile)/2) 0 calc(var(--marginHMobile)/4) 0
+    }
+
+    .noneMobile{
+        display: none;
     }
 
 
@@ -1253,7 +1246,7 @@ svg {
 
     .exploreInfo {
         width: 100%;
-        margin-bottom: calc(var(--marginHMobile)/2) 0 ;
+        margin: calc(var(--marginHMobile)/2) 0 ;
     }
 
     .exploreContainer {
@@ -1275,6 +1268,10 @@ svg {
         margin-bottom: calc(var(--marginHMobile) / 4);
     }
 
+    .infoVideop{
+        margin:0 !important;
+    }
+
     .videoInfoFlex{
         flex-direction: column;
     }
@@ -1287,6 +1284,36 @@ svg {
     .arrowMobile{
         width: calc(100% - var(--marginHMobile)*2);
         padding: var(--marginHMobile) 0 ;
+    }
+
+    
+    .exploreVideos {
+        width: 100%;
+        position: relative;
+    }
+
+    .arrow{
+        display: none;
+    }
+
+    .arrowMobile{
+        display: flex;
+        width: calc(100% - var(--marginH)*2);
+        position: absolute;
+        justify-content: space-between;
+        background-color: var(--blue);
+        transition: background-color 1s ease;
+        bottom: 0;
+    }
+
+    #arrowLeftMobile {
+        width: 7vw;
+        stroke-width: 2px;
+    }
+
+    #arrowRightMobile {
+        width: 7vw;
+        stroke-width: 2px;
     }
 }
     
