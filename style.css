@@ -294,14 +294,11 @@ svg {
 
 
 /** Index **/
-.logoHeader {
-    mix-blend-mode: multiply;
-}
-
 .logoHeaderIndex img {
     width: auto;
     height: 100%;
     cursor: pointer;
+    mix-blend-mode: multiply;
 }
 
 .logoHeaderIndex {
