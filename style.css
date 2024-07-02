@@ -234,6 +234,12 @@ footer {
     margin-bottom: 4vh;
 }
 
+
+#backgroundIndex .support {
+    margin-bottom: 0vh!important;
+}
+
+
 .support span {
     font-family: AuthenticSans130;
     font-size: 23px;
