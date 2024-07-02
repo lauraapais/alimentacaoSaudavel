@@ -128,7 +128,6 @@ function textsize() {
         h2Size = h * 0.055;
     }
 }
-
 function loadItems() {
     //Laticineos
     items.lemon = new Gameitem('data/jogo/level1/screen1/4.png');
@@ -309,14 +308,13 @@ class LevelLoader {
 }
 
 class UIFinish {
-    constructor(imageURL, buttonColor) {
+    constructor(imageURL) {
         this.image = loadImage(imageURL);
         this.text = "Concluíste o nível primavera!";
         this.w = 400;
         this.h = 400;
         this.margin = 40;
         this.status = false;
-        this.buttonColor = buttonColor;
     }
 
     display() {
@@ -331,6 +329,8 @@ class UIFinish {
         }
 
         push();
+        blendMode(MULTIPLY);
+
         if (w < 900) {
             image(close, width / 2 - 102, height / 2 - 105, 30, 30);
         }
@@ -346,8 +346,9 @@ class UIFinish {
 
         push();
         rectMode(CENTER);
+        blendMode(MULTIPLY);
         noStroke();
-        fill(this.buttonColor);
+        fill(109, 111, 113);
 
         if (w < 900) {
             rect(width / 2, height / 2 + 105 - 7.5, 150, 45, 22);
@@ -372,7 +373,7 @@ class UIFinish {
 
         fill(255);
         textAlign(CENTER);
-        textFont(fontBold);
+textFont(fontBold);
         if (w < 900) {
             text('Continuar', width / 2, height / 2 + 105 - 8.1 + textAscent() / 2);
         }
@@ -386,6 +387,7 @@ class UIFinish {
     }
 
     mousePressed() {
+
         if (w < 900) {
             if (mouseX > width / 2 - (45 / 2) &&
                 mouseX < width / 2 + (45 / 2) &&
@@ -432,49 +434,6 @@ class UIFinish {
             }
         }
     }
-
-    mouseMoved() {
-    if (w < 900) {
-        if ((mouseX > width / 2 - (45 / 2) &&
-             mouseX < width / 2 + (45 / 2) &&
-             mouseY > (height / 2 + 105 - 7.5) - (22 / 2) &&
-             mouseY < (height / 2 + 105 - 7.5) + (22 / 2)) ||
-            (mouseX > (width / 2 - 102) - 30 / 2 &&
-             mouseX < (width / 2 - 102) + 30 / 2 &&
-             mouseY > (height / 2 - 195) - (30 / 2) &&
-             mouseY < (height / 2 - 105) + (30 / 2))) {
-            document.body.style.cursor = 'pointer';
-        } else {
-            document.body.style.cursor = 'default';
-        }
-    } else if (w > 2500) {
-        if ((mouseX > width / 2 - (75 / 2) &&
-             mouseX < width / 2 + (75 / 2) &&
-             mouseY > (height / 2 + 175 - 12.5) - (22 / 2) &&
-             mouseY < (height / 2 + 175 - 12.5) + (22 / 2)) ||
-            (mouseX > (width / 2 - 170) - 50 / 2 &&
-             mouseX < (width / 2 - 170) + 50 / 2 &&
-             mouseY > (height / 2 - 175) - (50 / 2) &&
-             mouseY < (height / 2 - 175) + (50 / 2))) {
-            document.body.style.cursor = 'pointer';
-        } else {
-            document.body.style.cursor = 'default';
-        }
-    } else {
-        if ((mouseX > width / 2 - (60 / 2) &&
-             mouseX < width / 2 + (60 / 2) &&
-             mouseY > (height / 2 + 140 - 10) - (22 / 2) &&
-             mouseY < (height / 2 + 140 - 10) + (22 / 2)) ||
-            (mouseX > (width / 2 - 136) - 40 / 2 &&
-             mouseX < (width / 2 - 136) + 40 / 2 &&
-             mouseY > (height / 2 - 140) - (50 / 2) &&
-             mouseY < (height / 2 - 140) + (50 / 2))) {
-            document.body.style.cursor = 'pointer';
-        } else {
-            document.body.style.cursor = 'default';
-        }
-    }
-}
 }
 
 class Level {
@@ -523,6 +482,7 @@ class Level {
     display() {
         background(this.background);
         push();
+        blendMode(MULTIPLY);
 
         if (w < 900) {
             image(plate, width / 2, height / 2.2, plateSize, plateSize);
@@ -554,11 +514,13 @@ class Level {
     ui() {
         push();
         rectMode(CORNERS);
+        blendMode(MULTIPLY);
 
         let lastY;
         textSize(h2Size);
         textFont(fontBold);
-        fill(255);
+        fill(109, 111, 113);
+        blendMode(MULTIPLY);
 
         if (w < 900) {
             let maxWidth = windowWidth * 0.7;
@@ -590,16 +552,17 @@ class Level {
         }
         pop();
 
-
+        
 
         let content = this.points + "/" + this.totalTrues;
-        textSize(h2Size * 0.8);
+        textSize(h2Size*0.8);
         textFont(fontRegular);
         push();
-        fill(255);
+        fill(109, 111, 113);
+        blendMode(MULTIPLY);
 
         if (windowWidth < 900) {
-            text(content, marginMobile, lastY + marginMobile / 2);
+            text(content, marginMobile, lastY + marginMobile/2);
         } else if (windowWidth < 1500) {
             text(content, marginDesktop, lastY + textAscent());
         } else {
@@ -680,15 +643,15 @@ class Level {
     setDefaultPosition() {
         let space;
         let rowSpacingFactor = 1.4;
-
+    
         if (w < 600) {
             space = width * 0.95 / (this.items.length / 2 + 3);
             for (let i = 0; i < this.items.length; i++) {
                 let xd;
                 if (i % 2 == 0) xd = 0;
                 else xd = 1;
-
-
+    
+            
                 this.items[i].pos.set(
                     (width * 0.025) + space * (i + 1 - xd),
                     height * (1 - itemsScale / 1.8 * (1 + xd * rowSpacingFactor))
@@ -699,12 +662,12 @@ class Level {
             for (let i = 0; i < this.items.length; i++) {
                 this.items[i].pos.set(
                     (width * 0.1) + space * (i + 1),
-                    height * (1 - itemsScale / 1.5)
+                    height * (1 - itemsScale / 1.5) 
                 );
             }
         }
     }
-
+    
 
     insidePlate(item) {
         if (dist(item.pos.x, item.pos.y, width / 2, height / 2) < plateSize / 2) {
@@ -768,18 +731,18 @@ function replaceItem(px, py, pw, ph, w, h) {
 }
 
 function wrapText(txt, maxWidth) {
-    let words = txt.split(' ');
+    let words = txt.split(' '); 
     let lines = [];
     let currentLine = words[0];
 
     for (let i = 1; i < words.length; i++) {
         let word = words[i];
-        let width = textWidth(currentLine + ' ' + word);
+        let width = textWidth(currentLine + ' ' + word); 
         if (width < maxWidth) {
-            currentLine += ' ' + word;
+            currentLine += ' ' + word; 
         } else {
-            lines.push(currentLine);
-            currentLine = word;
+            lines.push(currentLine); 
+            currentLine = word; 
         }
     }
     lines.push(currentLine);
