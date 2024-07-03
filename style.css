@@ -849,8 +849,8 @@ svg {
 
     /*niveis*/
     .level {
-        width: 48%;
-        height: 42%;
+        width: 45%;
+        height: 45%;
         max-width: 300px;
         max-height: 300px;
         gap: var(--marginHMobile);
