@@ -179,7 +179,7 @@ header {
 
 #menuIcon {
     width: calc(15px + 1.5vw) !important;
-    height: fit-content;
+    height: auto;
 }
 
 #closeMenu,
