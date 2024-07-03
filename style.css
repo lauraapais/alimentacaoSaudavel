@@ -964,6 +964,9 @@ svg {
     #arrowRightMobile {
         width: 3vw;
         stroke-width: 2px;
+        position: absolute;
+        right: var(--marginHMobile);
+        bottom: 0;
     }
 
     #closeMenu,
