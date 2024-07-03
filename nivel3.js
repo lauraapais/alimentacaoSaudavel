@@ -23,8 +23,8 @@ marginDesktop = 0.02 * w;
 function preload() {
     plate = loadImage('data/jogo/plate.png');
     close = loadImage('data/icons/home.png');
-    fontBold = loadFont('data/font/AUTHENTICSans-130.otf');
-    fontRegular = loadFont('data/font/AUTHENTICSans-90.otf');
+    fontBold=loadFont('data/font/AUTHENTICSans-130.otf');
+    fontRegular=loadFont('data/font/AUTHENTICSans-90.otf');
 }
 
 function setup() {
@@ -70,7 +70,9 @@ function platesize() {
             width * .85),
             height * .55);
     }
+
     else if (w < 600) {
+
         if (w > h) {
             plateSize = min(min(width * itemSize * 8,
                 width * .75),
@@ -95,10 +97,7 @@ function platesize() {
 
 function itemsize() {
     if (w < 600) {
-        if (w > h)
-            itemSize = w * 0.00012;
-        else
-            itemSize = w * 0.0002;
+        itemSize = w * 0.0002;
     } else if (w < 1000) {
         itemSize = w * 0.0001;
     } else if (w < 1500) {
@@ -114,12 +113,16 @@ function itemsize() {
 function textsize() {
     if (w < 900) {
         h2Size = h * 0.035;
+        heightQuestion = height / 4;
     } else if (w < 1500) {
         h2Size = h * 0.05;
+        heightQuestion = height / 3;
     } else {
-        h2Size = h * 0.055;
+        h2Size = h * 0.05;
+        heightQuestion = height / 3;
     }
 }
+
 function loadItems() {
     //Laticineos
     items.lemon = new Gameitem('data/jogo/level1/screen1/4.png');
@@ -482,7 +485,7 @@ class Level {
         for (let i = 0; i < this.items.length; i++) {
             let item = this.items[i];
             item.item.show(item.pos,
-                (itemSize + itemSize * item.dragScale / this.timeScaleMax / 10) //Animation Scale
+                (itemSize + itemSize * item.dragScale / this.timeScaleMax / 10)
             );
         }
 
@@ -518,7 +521,7 @@ class Level {
             }
             lastY = y;
         } else if (w < 1500) {
-            let maxWidth = windowWidth * 0.5;
+            let maxWidth = windowWidth * 0.8;
             let lines = wrapText(this.question, maxWidth);
             let y = marginDesktop + textAscent();
             for (let i = 0; i < lines.length; i++) {
@@ -527,7 +530,7 @@ class Level {
             }
             lastY = y;
         } else {
-            let maxWidth = windowWidth * 0.3;
+            let maxWidth = windowWidth * 0.4;
             let lines = wrapText(this.question, maxWidth);
             let y = marginDesktop + textAscent();
             for (let i = 0; i < lines.length; i++) {
