@@ -189,6 +189,10 @@ header {
     cursor: pointer;
 }
 
+#lastMenuPage{
+    color: var(--lightOrange);
+}
+
 #closeMenu,
 #closeGame {
     width: calc(1px + 1.5vw) !important;
