@@ -140,6 +140,11 @@ header {
     mix-blend-mode: multiply;
 }
 
+.headerLevel{
+    width: 100%;
+    margin:0 !important;
+}
+
 #headerIndex{
     mix-blend-mode: normal!important;
 }
@@ -355,7 +360,7 @@ svg {
 .landingIntro {
     margin-top: 15vh;
     margin-bottom: 20vh;
-    width: 45%;
+    width: 100%;
 }
 
 .iconsIntro {
@@ -634,6 +639,7 @@ svg {
 
 .leftInfoText {
     width: 40%;
+    margin-top: 5vh;
 }
 
 .textInfo {
@@ -661,6 +667,7 @@ svg {
 .imageInfo img {
     position: absolute;
     height: auto;
+    width: 70%;
 }
 
 #escolasImg{
@@ -825,6 +832,20 @@ svg {
 }
 
 
+@media screen and (max-width:2000px) {
+    li {
+        font-size: calc(37px + 0.390625vw);
+}
+
+#mainIndex{
+    padding-top:0 !important;
+}
+
+.mainLanding{
+    height: calc(100vh - min(var(--headerHmin), 500px) - var(--marginH)*2);
+}
+}
+
 
 
 @media screen and (max-width:1500px) {
@@ -848,7 +869,7 @@ svg {
     }
 
     .landingIntro {
-        width: 70%;
+        width: 100%;
     }
 
 
@@ -1178,7 +1199,7 @@ svg {
         margin-bottom: calc(var(--marginHMobile) / 2);
     }
 
-    #menuExplorePage {
+    #lastMenuPage {
         margin-bottom: 10vh;
     }
 

@@ -21,9 +21,9 @@ marginMobile = 0.06 * w;
 marginDesktop = 0.02 * w;
 
 function preload() {
-    plate = loadImage('data/jogo/plate.png');
+    plate = loadImage('data/jogo/mapa.png');
     close = loadImage('data/icons/home.png');
-    fontBold = loadFont('data/font/AUTHENTICSans-130.otf');
+    fontBold = loadFont('data/font/AUTHENTIC Sans ^.otf');
     fontRegular = loadFont('data/font/AUTHENTICSans-90.otf');
 }
 
@@ -126,6 +126,7 @@ function loadItems() {
     items.chestnut = new Gameitem('data/jogo/level1/screen3/3.png');
     items.peach = new Gameitem('data/jogo/level2/screen1/6.png');
     items.alheira = new Gameitem('data/jogo/level2/screen1/1.png');
+    items.oliveOli = new Gameitem('data/jogo/level3/screen5/1.png');
 }
 
 function loadLevels() {
@@ -133,12 +134,12 @@ function loadLevels() {
     //Trás-os-Montes
     level_one = new Level(color(239, 190, 46), 'Quais são os alimentos locais de Trás-os-Montes?',
         new UIFinish('data/jogo/endLevel/5.png'));
-    level_one.addItem(items.alheira, true, 'data/jogo/certoErrado/level2/screen1/certo.png');
-    level_one.addItem(items.leek, false, 'data/jogo/certoErrado/level2/screen1/errado.png');
-    level_one.addItem(items.chestnut, true, 'data/jogo/certoErrado/level2/screen1/certo.png');
-    level_one.addItem(items.lemon, false, 'data/jogo/certoErrado/level2/screen1/errado.png');
-    level_one.addItem(items.pepper, false, 'data/jogo/certoErrado/level2/screen1/errado.png');
-    level_one.addItem(items.peach, true, 'data/jogo/certoErrado/level2/screen1/certo.png');
+    level_one.addItem(items.alheira, true, 'data/jogo/certoErrado/level2/screen1/certo.png', 'Alheira');
+    level_one.addItem(items.oliveOli, true, 'data/jogo/certoErrado/level2/screen1/certo.png', 'Azeite');
+    level_one.addItem(items.chestnut, true, 'data/jogo/certoErrado/level2/screen1/certo.png', 'Castanha');
+    level_one.addItem(items.lemon, false, 'data/jogo/certoErrado/level2/screen1/errado.png', 'Limão');
+    level_one.addItem(items.pepper, false, 'data/jogo/certoErrado/level2/screen1/errado.png', 'Pimento');
+    level_one.addItem(items.peach, true, 'data/jogo/certoErrado/level2/screen1/certo.png', 'Pêssego');
     level_one.setDefaultPosition();
 
     levels = new LevelLoader();
@@ -365,11 +366,12 @@ class Level {
         this.status = false;
     }
 
-    addItem(item, value, description) {
+    addItem(item, value, description, name) {
         this.items.push({
             "item": item,
             "value": value,
             "description": loadImage(description),
+            "name": name,
             "pos": createVector(0, 0),
             "scale": itemsScale,
             "plate": false,
@@ -384,10 +386,11 @@ class Level {
         }
     }
 
+
     display() {
         background(this.background);
         push();
-        blendMode(MULTIPLY);
+        
 
         if (w < 900) {
             image(plate, width / 2, height / 2.2, plateSize, plateSize);
@@ -403,6 +406,24 @@ class Level {
             item.item.show(item.pos,
                 (itemSize + itemSize * item.dragScale / this.timeScaleMax / 10) //Animation Scale
             );
+
+            push();
+            if (w < 900) {
+                textSize(h2Size / 2);
+            }
+            else {
+                textSize(h2Size / 2.6);
+            }
+            textFont(fontBold);
+            fill(109, 111, 113);
+            blendMode(MULTIPLY);
+            textAlign(CENTER);
+            rectMode(CENTER);
+            let d = dist(mouseX, mouseY, item.pos.x, item.pos.y);
+            if (d < item.item.image.width * itemSize / 2 && !item.plate && this.draggingItem == null) {
+                text(item.name, item.pos.x, item.pos.y - (item.item.image.height * itemSize / 1.5));
+            }
+            pop();
         }
 
         this.ui();
@@ -495,8 +516,11 @@ class Level {
     animationScale() {
         for (let i = 0; i < this.items.length; i++) {
             if (this.items[i] != this.draggingItem) {
-                if (this.items[i].dragScale > 0)
-                    this.items[i].dragScale--;
+                if (this.items[i].plate) {
+                    if (this.items[i].dragScale < this.timeScaleMax * 3)
+                        this.items[i].dragScale += 2;
+                } else if (this.items[i].dragScale > 0)
+                    this.items[i].dragScale -= 2;
             } else {
                 if (this.items[i].dragScale < this.timeScaleMax)
                     this.items[i].dragScale++;
@@ -575,17 +599,26 @@ class Level {
 
 
     insidePlate(item) {
-        if (dist(item.pos.x, item.pos.y, width / 2, height / 2) < plateSize / 2) {
+        /*QUAD*/
+        if (item.pos.x > width / 2 - plateSize / 2 &&
+            item.pos.x < width / 2 + plateSize / 2 &&
+            item.pos.y > height / 2 - plateSize / 2 &&
+            item.pos.y < height / 2 + plateSize / 2) {
             item.plate = true;
             this.lastPlateItem = item;
             this.currentTextTimer = 50;
             if (item.value) this.points++;
-        } else if (item.plate) {
+        }
+        /*if (dist(item.pos.x, item.pos.y, width / 2, height / 2) < plateSize / 2) {
+            item.plate = true;
+            this.lastPlateItem = item;
+            this.currentTextTimer = 50;
+            if (item.value) this.points++;
+        }*/ else if (item.plate) {
             item.plate = false;
             if (item.value) this.points--;
         }
     }
-
     checkEndLevel() {
         for (let i = 0; i < this.items.length; i++) {
             if (this.items[i].value != this.items[i].plate)
