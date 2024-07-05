@@ -294,6 +294,16 @@ svg {
 
 
 /** Index **/
+#arrowIndex{
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    width: 2vw;
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    stroke-width: 1.3px;
+}
+
 .logoHeaderIndex img {
     width: auto;
     height: 100%;
@@ -306,7 +316,7 @@ svg {
 }
 
 .mainLanding {
-    height: calc(100vh - min(var(--headerHmin), 500px) - var(--marginH) * 4);
+    height: calc(100vh - min(var(--headerHmin), 500px) - var(--marginH) * 3);
     display: flex;
     justify-content: center;
     align-items: center;
@@ -820,6 +830,11 @@ svg {
 @media screen and (max-width:1500px) {
 
     /*index*/
+    #arrowIndex{
+        width: 4vw;
+        stroke-width: 1.5px;
+    }
+    
     .indexImage {
         display: flex;
         align-items: center;
@@ -1097,6 +1112,11 @@ svg {
 
 
     /*index*/
+    #arrowIndex{
+        width: 7vw;
+        stroke-width: 1.5px;
+    }
+    
     .indexImage {
         display: flex;
         align-items: center;
