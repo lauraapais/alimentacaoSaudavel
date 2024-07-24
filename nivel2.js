@@ -20,11 +20,15 @@ var h1Size, h2Size;
 marginMobile = 0.06 * w;
 marginDesktop = 0.02 * w;
 
+var soundTrue, soundFalse;
+
 function preload() {
     plate = loadImage('data/jogo/mapa.png');
     close = loadImage('data/icons/home.png');
     fontBold = loadFont('data/font/AUTHENTIC Sans ^.otf');
     fontRegular = loadFont('data/font/AUTHENTICSans-90.otf');
+    soundTrue = loadSound('data/sound1.wav');
+    soundFalse = loadSound('data/sound2.wav');
 }
 
 function setup() {
@@ -607,16 +611,16 @@ class Level {
             item.plate = true;
             this.lastPlateItem = item;
             this.currentTextTimer = 50;
-            if (item.value) this.points++;
+            if (item.value){
+                this.points++;
+                soundTrue.play();
+            }
         }
-        /*if (dist(item.pos.x, item.pos.y, width / 2, height / 2) < plateSize / 2) {
-            item.plate = true;
-            this.lastPlateItem = item;
-            this.currentTextTimer = 50;
-            if (item.value) this.points++;
-        }*/ else if (item.plate) {
+        else if (item.plate) {
             item.plate = false;
-            if (item.value) this.points--;
+            if (item.value) {this.points--;
+                soundFalse.play();
+            }
         }
     }
     checkEndLevel() {
