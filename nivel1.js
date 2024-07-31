@@ -135,6 +135,7 @@ function loadItems() {
     items.pepper = new Gameitem('data/jogo/level1/screen2/2.png');
     items.watermelon = new Gameitem('data/jogo/level1/screen2/3.png');
     items.beans = new Gameitem('data/jogo/level1/screen2/5.png');
+    items.walnut = new Gameitem('data/jogo/level1/screen2/4.png');
     //Outono
     items.carot = new Gameitem('data/jogo/level1/screen3/1.png');
     items.leek = new Gameitem('data/jogo/level1/screen3/2.png');
@@ -156,8 +157,8 @@ function loadLevels() {
     level_one.addItem(items.grape, false, 'data/jogo/certoErrado/level1/screen1/errado.png', 'Uvas');
     level_one.addItem(items.cherry, true, 'data/jogo/certoErrado/level1/screen1/certo.png', 'Cerejas');
     level_one.addItem(items.pea, true, 'data/jogo/certoErrado/level1/screen1/certo.png', 'Favas');
-    level_one.addItem(items.lemon, false, 'data/jogo/certoErrado/level1/screen1/errado.png', 'Limão');
-    level_one.addItem(items.redonion, true, 'data/jogo/certoErrado/level1/screen1/certo.png', 'Cebola');
+    level_one.addItem(items.almond, false, 'data/jogo/certoErrado/level1/screen1/errado.png', 'Amêndoa');
+    level_one.addItem(items.carot, false, 'data/jogo/certoErrado/level1/screen1/errado.png', 'Cenoura');
     level_one.addItem(items.tomato, false, 'data/jogo/certoErrado/level1/screen1/errado.png', 'Tomate');
     level_one.setDefaultPosition();
     //Verão
@@ -165,12 +166,12 @@ function loadLevels() {
         'Quais são os alimentos sazonais do verão?',
         new UIFinish('data/jogo/endLevel/2.png')
     );
-    level_two.addItem(items.lemon, false, 'data/jogo/certoErrado/level1/screen2/errado.png', 'Limão');
+    level_two.addItem(items.orange, false, 'data/jogo/certoErrado/level1/screen2/errado.png', 'Laranja');
     level_two.addItem(items.pepper, true, 'data/jogo/certoErrado/level1/screen2/certo.png', 'Pimento');
-    level_two.addItem(items.watermelon, false, 'data/jogo/certoErrado/level1/screen2/errado.png', 'Melancia');
-    level_two.addItem(items.tomato, true, 'data/jogo/certoErrado/level1/screen2/certo.png', 'Tomate');
-    level_two.addItem(items.beans, false, 'data/jogo/certoErrado/level1/screen2/errado.png', 'Feijão');
-    level_two.addItem(items.grape, false, 'data/jogo/certoErrado/level1/screen2/errado.png', 'Uvas');
+    level_two.addItem(items.watermelon, true, 'data/jogo/certoErrado/level1/screen2/certo.png', 'Melancia');
+    level_two.addItem(items.redonion, false, 'data/jogo/certoErrado/level1/screen2/errado.png', 'Cebola');
+    level_two.addItem(items.pea, false, 'data/jogo/certoErrado/level1/screen2/errado.png', 'Favas');
+    level_two.addItem(items.walnut, false, 'data/jogo/certoErrado/level1/screen2/errado.png', 'Noz');
     level_two.setDefaultPosition();
     //Outono
     level_three = new Level(color(239, 190, 46),
@@ -181,7 +182,7 @@ function loadLevels() {
     level_three.addItem(items.leek, false, 'data/jogo/certoErrado/level1/screen3/errado.png', 'Alho-Francês');
     level_three.addItem(items.chestnut, true, 'data/jogo/certoErrado/level1/screen3/certo.png', 'Castanha');
     level_three.addItem(items.almond, true, 'data/jogo/certoErrado/level1/screen3/certo.png', 'Amêndoa');
-    level_three.addItem(items.pepper, false, 'data/jogo/certoErrado/level1/screen3/errado.png', 'Pimento');
+    level_three.addItem(items.walnut, true, 'data/jogo/certoErrado/level1/screen3/certo.png', 'Noz');
     level_three.addItem(items.watermelon, false, 'data/jogo/certoErrado/level1/screen3/errado.png', 'Melancia');
     level_three.setDefaultPosition();
     //Inverno
@@ -190,12 +191,12 @@ function loadLevels() {
         new UIFinish('data/jogo/endLevel/4.png')
     );
 
-    level_four.addItem(items.carot, false, 'data/jogo/certoErrado/level1/screen4/errado.png', 'Cenoura');
+    level_four.addItem(items.cherry, false, 'data/jogo/certoErrado/level1/screen4/errado.png', 'Cerejas');
     level_four.addItem(items.potato, true, 'data/jogo/certoErrado/level1/screen4/certo.png', 'Batata');
-    level_four.addItem(items.lemon, false, 'data/jogo/certoErrado/level1/screen4/errado.png', 'Limão');
-    level_four.addItem(items.banana, false, 'data/jogo/certoErrado/level1/screen4/errado.png', 'Banana');
+    level_four.addItem(items.tomato, false, 'data/jogo/certoErrado/level1/screen4/errado.png', 'Tomate');
+    level_four.addItem(items.chestnut, false, 'data/jogo/certoErrado/level1/screen4/errado.png', 'Castanha');
     level_four.addItem(items.orange, true, 'data/jogo/certoErrado/level1/screen4/certo.png', 'Laranja');
-    level_four.addItem(items.redonion, true, 'data/jogo/certoErrado/level1/screen4/certo.png', 'Cebola');
+    level_four.addItem(items.pepper, false, 'data/jogo/certoErrado/level1/screen4/errado.png', 'Pimento');
     level_four.setDefaultPosition();
 
     levels = new LevelLoader();
@@ -666,11 +667,14 @@ class Level {
             if (item.value) {this.points++;
                 soundTrue.play();
             }
+            else{
+                soundFalse.play();
+            }
         }
          else if (item.plate) {
             item.plate = false;
             if (item.value){ this.points--;
-                soundFalse.play();}
+                }
         }
     }
 

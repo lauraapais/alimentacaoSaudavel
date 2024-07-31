@@ -615,11 +615,14 @@ class Level {
                 this.points++;
                 soundTrue.play();
             }
+            else{
+                soundFalse.play();
+            }
         }
         else if (item.plate) {
             item.plate = false;
             if (item.value) {this.points--;
-                soundFalse.play();
+                
             }
         }
     }
