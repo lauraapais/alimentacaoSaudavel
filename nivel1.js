@@ -5,7 +5,7 @@ var items = {};
 var levels;
 var plate, plateSize, itemSize;
 var itemsScale = 0.16;
-var close,refreshIcon, continueIcon, homeIcon;
+var close, refreshIcon, continueIcon, homeIcon;
 var heightQuestion = 300;
 var widthQuestionMobile;
 
@@ -27,7 +27,7 @@ function preload() {
     plate = loadImage('data/jogo/cesta.png');
     close = loadImage('data/icons/home.png');
     fontBold = loadFont('data/font/AUTHENTIC Sans ^.otf');
-    fontRegular=loadFont('data/font/AUTHENTICSans-90.otf');
+    fontRegular = loadFont('data/font/AUTHENTICSans-90.otf');
     soundTrue = loadSound('data/sound1.wav');
     soundFalse = loadSound('data/sound2.wav');
     refreshIcon = loadImage('data/jogo/endLevel/icons/refresh.png');
@@ -155,7 +155,7 @@ function loadLevels() {
     //Primavera
     level_one = new Level(color(235, 153, 194),
         'Quais são os alimentos sazonais da primavera?',
-        new UIFinish('data/jogo/endLevel/1.png')
+        new UIFinish('data/jogo/endLevel/1.png', 'data/jogo/endLevel/1.png')
     );
     level_one.addItem(items.grape, false, 'data/jogo/certoErrado/level1/screen1/errado.png', 'Uvas');
     level_one.addItem(items.cherry, true, 'data/jogo/certoErrado/level1/screen1/certo.png', 'Cerejas');
@@ -167,7 +167,7 @@ function loadLevels() {
     //Verão
     level_two = new Level(color(103, 175, 136),
         'Quais são os alimentos sazonais do verão?',
-        new UIFinish('data/jogo/endLevel/2.png')
+        new UIFinish('data/jogo/endLevel/2.png', 'data/jogo/endLevel/2.png')
     );
     level_two.addItem(items.orange, false, 'data/jogo/certoErrado/level1/screen2/errado.png', 'Laranja');
     level_two.addItem(items.pepper, true, 'data/jogo/certoErrado/level1/screen2/certo.png', 'Pimento');
@@ -179,7 +179,7 @@ function loadLevels() {
     //Outono
     level_three = new Level(color(239, 190, 46),
         'Quais são os alimentos sazonais do outono?',
-        new UIFinish('data/jogo/endLevel/3.png')
+        new UIFinish('data/jogo/endLevel/3.png', 'data/jogo/endLevel/3.png')
     );
     level_three.addItem(items.carot, false, 'data/jogo/certoErrado/level1/screen3/errado.png', 'Cenoura');
     level_three.addItem(items.leek, false, 'data/jogo/certoErrado/level1/screen3/errado.png', 'Alho-Francês');
@@ -191,7 +191,7 @@ function loadLevels() {
     //Inverno
     level_four = new Level(color(114, 190, 195),
         'Quais são os alimentos sazonais do inverno?',
-        new UIFinish('data/jogo/endLevel/4.png')
+        new UIFinish('data/jogo/endLevel/4.png', 'data/jogo/endLevel/4.png')
     );
 
     level_four.addItem(items.cherry, false, 'data/jogo/certoErrado/level1/screen4/errado.png', 'Cerejas');
@@ -282,24 +282,36 @@ class LevelLoader {
 }
 
 class UIFinish {
-    constructor(imageURL) {
-        this.image = loadImage(imageURL);
-        this.text = "Concluíste o nível primavera!";
+    constructor(imageURLWin, imageURLLose) {
+        this.imageWin = loadImage(imageURLWin);
+        this.imageLose = loadImage(imageURLLose);
+        //this.text = "Concluíste o nível primavera!";
         this.w = 400;
         this.h = 400;
         this.margin = 40;
         this.status = false;
     }
 
-    display() {
+    display(result) {
         imageMode(CENTER);
-        if (w < 900) {
-            image(this.image, width / 2, height / 2, 300, 300);
-        }
-        else if (w > 2500) {
-            image(this.image, width / 2, height / 2, 500, 500);
+        if (result) {
+            if (w < 900) {
+                image(this.imageWin, width / 2, height / 2, 300, 300);
+            }
+            else if (w > 2500) {
+                image(this.imageWin, width / 2, height / 2, 500, 500);
+            } else {
+                image(this.imageWin, width / 2, height / 2, 400, 400);
+            }
         } else {
-            image(this.image, width / 2, height / 2, 400, 400);
+            if (w < 900) {
+                image(this.imageLose, width / 2, height / 2, 300, 300);
+            }
+            else if (w > 2500) {
+                image(this.imageLose, width / 2, height / 2, 500, 500);
+            } else {
+                image(this.imageLose, width / 2, height / 2, 400, 400);
+            }
         }
 
         push();
@@ -323,10 +335,6 @@ class UIFinish {
         //blendMode(MULTIPLY);
         noStroke();
         fill(109, 111, 113);
-
- 
-
-        
 
 
         if (w < 900) {
@@ -352,15 +360,19 @@ class UIFinish {
 
         fill(255);
         textAlign(CENTER);
-textFont(fontBold);
-        if (w < 900) {
-            text('Continuar', width / 2, height / 2 + 105 - 8.1 + textAscent() / 2);
-        }
-        else if (w > 2500) {
-            text('Continuar', width / 2, height / 2 + 175 - 13.5 + textAscent() / 2);
-        }
-        else {
-            text('Continuar', width / 2, height / 2 + 140 - 10.8 + textAscent() / 2);
+        textFont(fontBold);
+        if (result) {
+            if (w < 900) {
+                text('Continuar', width / 2, height / 2 + 105 - 8.1 + textAscent() / 2);
+            }
+            else if (w > 2500) {
+                text('Continuar', width / 2, height / 2 + 175 - 13.5 + textAscent() / 2);
+            }
+            else {
+                text('Continuar', width / 2, height / 2 + 140 - 10.8 + textAscent() / 2);
+            }
+        } else {
+            text('NABO!', width / 2, height / 2 + 105 - 8.1 + textAscent() / 2);
         }
 
 
@@ -424,7 +436,6 @@ class Level {
         this.question = question;
         this.uiEndLevel = uiEndLevel;
         this.points = 0;
-        this.gamePlays=0;
 
         this.currentText = "";
         this.currentTextTimer = 0;
@@ -434,6 +445,8 @@ class Level {
         this.timeScaleMax = 10;
 
         this.status = false;
+
+        this.erros = 0;
     }
 
     addItem(item, value, description, name) {
@@ -502,7 +515,8 @@ class Level {
         if (this.status && this.currentTextTimer == 0) {
             fill(0, 100);
             rect(0, 0, width, height);
-            this.uiEndLevel.display();
+
+            this.uiEndLevel.display(this.erros < 2);
         }
     }
 
@@ -525,8 +539,8 @@ class Level {
                 text(lines[i], marginMobile, y);
                 y += textAscent() + textDescent();
             }
-            lastY = y; 
-        } 
+            lastY = y;
+        }
         else if (w < 1500) {
             let maxWidth = windowWidth * 0.5;
             let lines = wrapText(this.question, maxWidth);
@@ -537,8 +551,8 @@ class Level {
             }
             lastY = y;
         }
-        
-    else {
+
+        else {
             let maxWidth = windowWidth * 0.3;
             let lines = wrapText(this.question, maxWidth);
             let y = marginDesktop + textAscent();
@@ -550,20 +564,20 @@ class Level {
         }
         pop();
 
-        
+
 
         let content = this.points + "/" + this.totalTrues;
-        textSize(h2Size*0.8);
+        textSize(h2Size * 0.8);
         textFont(fontRegular);
 
-        let tries =  this.gamePlays + "/" + (this.totalTrues) + " Tentativas";
+        let tries = this.erros + "/2 Erros";
 
         push();
         fill(109, 111, 113);
         blendMode(MULTIPLY);
 
         if (windowWidth < 900) {
-            text(tries, marginMobile, lastY + marginMobile/2);
+            text(tries, marginMobile, lastY + marginMobile / 2);
         } else if (windowWidth < 1500) {
             text(tries, marginDesktop, lastY + textAscent());
         } else {
@@ -658,62 +672,70 @@ class Level {
         }
     }
 
-    setDefaultPosition() {
+    setDefaultPosition(item = -1) {
         let space;
         let rowSpacingFactor = 1.4;
-    
+
         if (w < 600) {
             space = width * 0.95 / (this.items.length / 2 + 3);
             for (let i = 0; i < this.items.length; i++) {
                 let xd;
                 if (i % 2 == 0) xd = 0;
                 else xd = 1;
-    
-            
-                this.items[i].pos.set(
-                    (width * 0.025) + space * (i + 1 - xd),
-                    height * (1 - itemsScale / 1.8 * (1 + xd * rowSpacingFactor))
-                );
+
+                if (item == -1 || item == this.items[i])
+                    this.items[i].pos.set(
+                        (width * 0.025) + space * (i + 1 - xd),
+                        height * (1 - itemsScale / 1.8 * (1 + xd * rowSpacingFactor))
+                    );
             }
         } else {
             space = width * 0.8 / (this.items.length + 1);
             for (let i = 0; i < this.items.length; i++) {
-                this.items[i].pos.set(
-                    (width * 0.1) + space * (i + 1),
-                    height * (1 - itemsScale / 1.5) 
-                );
+                if (item == -1 || item == this.items[i])
+                    this.items[i].pos.set(
+                        (width * 0.1) + space * (i + 1),
+                        height * (1 - itemsScale / 1.5)
+                    );
             }
         }
     }
-    
+
 
     insidePlate(item) {
         if (item.pos.x > width / 2 - plateSize / 2 &&
             item.pos.x < width / 2 + plateSize / 2 &&
             item.pos.y > height / 2 - plateSize / 4 &&
             item.pos.y < height / 2 + plateSize / 2) {
-            item.plate = true;
             this.lastPlateItem = item;
             this.currentTextTimer = 50;
-            this.gamePlays++;
-            if (item.value) {this.points++;
+            if (item.value) {
+                item.plate = true;
+                this.points++;
+
                 soundTrue.play();
             }
-            else{
+            else {
                 soundFalse.play();
+                this.erros++;
+                this.setDefaultPosition(item);
             }
         }
-         else if (item.plate) {
+        else if (item.plate) {
             item.plate = false;
-            if (item.value){ this.points--;
-                }
+            if (item.value) {
+                this.points--;
+            }
         }
     }
 
     checkEndLevel() {
-        for (let i = 0; i < this.items.length; i++) {
-            if (this.items[i].value != this.items[i].plate)
-                return false;
+        if (this.erros < 2) {
+            for (let i = 0; i < this.items.length; i++) {
+                if (this.items[i].value != this.items[i].plate)
+                    return false;
+            }
+
         }
         return true;
     }
@@ -760,18 +782,18 @@ function replaceItem(px, py, pw, ph, w, h) {
 }
 
 function wrapText(txt, maxWidth) {
-    let words = txt.split(' '); 
+    let words = txt.split(' ');
     let lines = [];
     let currentLine = words[0];
 
     for (let i = 1; i < words.length; i++) {
         let word = words[i];
-        let width = textWidth(currentLine + ' ' + word); 
+        let width = textWidth(currentLine + ' ' + word);
         if (width < maxWidth) {
-            currentLine += ' ' + word; 
+            currentLine += ' ' + word;
         } else {
-            lines.push(currentLine); 
-            currentLine = word; 
+            lines.push(currentLine);
+            currentLine = word;
         }
     }
     lines.push(currentLine);
