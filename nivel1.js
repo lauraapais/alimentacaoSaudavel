@@ -5,7 +5,7 @@ var items = {};
 var levels;
 var plate, plateSize, itemSize;
 var itemsScale = 0.16;
-var close;
+var close,refreshIcon, continueIcon, homeIcon;
 var heightQuestion = 300;
 var widthQuestionMobile;
 
@@ -30,6 +30,9 @@ function preload() {
     fontRegular=loadFont('data/font/AUTHENTICSans-90.otf');
     soundTrue = loadSound('data/sound1.wav');
     soundFalse = loadSound('data/sound2.wav');
+    refreshIcon = loadImage('data/jogo/endLevel/icons/refresh.png');
+    homeIcon = loadImage('data/jogo/endLevel/icons/home.png');
+    continueIcon = loadImage('data/jogo/endLevel/icons/continue.png');
 }
 
 function setup() {
@@ -317,9 +320,14 @@ class UIFinish {
 
         push();
         rectMode(CENTER);
-        blendMode(MULTIPLY);
+        //blendMode(MULTIPLY);
         noStroke();
         fill(109, 111, 113);
+
+ 
+
+        
+
 
         if (w < 900) {
             rect(width / 2, height / 2 + 105 - 7.5, 150, 45, 22);
@@ -354,6 +362,8 @@ textFont(fontBold);
         else {
             text('Continuar', width / 2, height / 2 + 140 - 10.8 + textAscent() / 2);
         }
+
+
         pop();
     }
 
@@ -546,7 +556,7 @@ class Level {
         textSize(h2Size*0.8);
         textFont(fontRegular);
 
-        let tries =  this.gamePlays + "/" + (this.totalTrues + 1) + " Tentativas";
+        let tries =  this.gamePlays + "/" + (this.totalTrues) + " Tentativas";
 
         push();
         fill(109, 111, 113);
