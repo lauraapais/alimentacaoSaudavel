@@ -201,7 +201,7 @@ header {
 
 #closeMenu,
 #closeGame {
-    width: calc(1px + 1.5vw) !important;
+    width: calc(1px + 1vw) !important;
     height: auto;
 }
 
@@ -1357,6 +1357,7 @@ svg {
         position: absolute;
         margin: var(--marginHMobile);
         right: 0;
+        mix-blend-mode: multiply;
     }
 
 
