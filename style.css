@@ -189,8 +189,8 @@ header {
 }
 
 #menuIcon {
-    width: calc(15px + 1.5vw) !important;
-    height: auto;
+    height: calc(6px + 1vw) !important;
+    width: auto;
     stroke-width: 5px;
     cursor: pointer;
 }
@@ -201,8 +201,8 @@ header {
 
 #closeMenu,
 #closeGame {
-    width: calc(17px + 1.5vw) !important;
-    height: auto;
+    height: calc(13px + 1vw) !important;
+    width: auto;
 }
 
 #closeMenu,
@@ -312,7 +312,7 @@ svg {
 #arrowIndex {
     stroke-linecap: round;
     stroke-linejoin: round;
-    width: calc(20px + 1.5vw) !important;
+    width: calc(6px + 1vw) !important;
     position: absolute;
     bottom: 0;
     left: 50%;
@@ -599,11 +599,7 @@ svg {
     mix-blend-mode: multiply;
 }
 
-.closeIcon {
-    mix-blend-mode: multiply;
-    width: calc(7px + 1.5vw);
-    margin-left: 1.5vw;
-}
+
 
 .homeIcon {
     mix-blend-mode: multiply;
@@ -878,7 +874,7 @@ svg {
     /*index*/
     #arrowIndex {
         width: calc(20px + 1.5vw) !important;
-        stroke-width: 1.5px;
+        stroke-width: 1px;
     }
 
     .indexImage {
@@ -897,8 +893,22 @@ svg {
         width: 100%;
     }
 
+    #menuIcon {
+        height: calc(8px + 1.5vw) !important;
 
+        width: fit-content;
+    }
 
+    .closeIcon {
+        
+    }
+
+    #closeMenu,
+#closeGame {
+    mix-blend-mode: multiply;
+        height: calc(10px + 1.5vw) !important;
+        margin-left: 1.5vw;
+}
 
     /*general*/
     .menuItems {
@@ -1150,39 +1160,25 @@ svg {
 
 
     /*icons*/
-    .homeIcon {
-        width: calc(20px + 1.5vw) !important;
-        height: fit-content;
-    }
-
-    .closeIcon {
-        width: calc(20px + 1.5vw) !important;
-        margin-left: 5vw;
-        height: auto;
-        display: flex;
-        
-        align-items: flex-start;
-        align-content: flex-start;
-    }
-
     #menuIcon {
-        width: calc(27px + 1.5vw) !important;
-        height: fit-content;
+        height: calc(10px + 1.5vw) !important;
+        width: fit-content;
     }
 
     #closeMenu,
     #closeGame {
-        width: calc(17px + 1.5vw) !important;
-        height: fit-content;
+        height: calc(20px + 1.5vw) !important;
+        margin-left: 5vw;
+        height: auto;
+        display: flex;
+        align-items: flex-start;
+        align-content: flex-start;
     }
-
-
-
 
     /*index*/
     #arrowIndex {
         width: calc(27px + 1.5vw) !important;
-        stroke-width: 1.5px;
+        stroke-width: 1px;
     }
 
     .indexImage {
