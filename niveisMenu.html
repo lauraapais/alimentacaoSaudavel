@@ -20,10 +20,10 @@
             <div class="menu">
                 <svg id="closeMenu" data-name="Layer 2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 18 18">
                     <g>
-                      <line class="cls-1" x1="17" y1="17" x2="1" y2="1"/>
-                      <line class="cls-1" x1="1" y1="17" x2="17" y2="1"/>
+                        <line class="cls-1" x1="17" y1="17" x2="1" y2="1" />
+                        <line class="cls-1" x1="1" y1="17" x2="17" y2="1" />
                     </g>
-                  </svg>
+                </svg>
             </div>
         </header>
         <div class="menuItems">
@@ -36,19 +36,18 @@
             <a href="explorar.html">
                 <li>Explorar</li>
             </a>
-        </a>
-        <a href="filme.html">
-            <li>Filme</li>
-        </a>
+            </a>
+            <a href="filme.html">
+                <li>Filme</li>
+            </a>
             <a href="niveisMenu.html">
                 <li id="lastMenuPage">Jogo</li>
             </a>
         </div>
     </div>
-    
 
-    <main id="levelMain">
-        <header id="headerIndex"  class="headerLevel" data-scroll-section>
+    <div id="main-container" data-scroll-container>
+        <header data-scroll-section>
             <div class="logoHeaderIndex logoHeader">
                 <a href="index.html"><img src="data/general/logo.png"
                         alt="Alimentação Saudável e Sustentável de Trás-os-Montes"></a>
@@ -56,54 +55,67 @@
             <div class="menu" id="openMenu">
                 <svg id="menuIcon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 89.98 49.56">
                     <g class="cls-3">
-                      <g id="Layer_2" data-name="Layer 2">
-                        <g id="Layer_1-2" data-name="Layer 1">
-                          <g class="cls-1">
-                            <line class="cls-2" x1="3.3" y1="46.26" x2="86.68" y2="46.26"/>
-                            <line class="cls-2" x1="3.3" y1="24.48" x2="86.68" y2="24.48"/>
-                            <line class="cls-2" x1="3.3" y1="3.3" x2="86.68" y2="3.3"/>
-                          </g>
+                        <g id="Layer_2" data-name="Layer 2">
+                            <g id="Layer_1-2" data-name="Layer 1">
+                                <g class="cls-1">
+                                    <line class="cls-2" x1="3.3" y1="46.26" x2="86.68" y2="46.26" />
+                                    <line class="cls-2" x1="3.3" y1="24.48" x2="86.68" y2="24.48" />
+                                    <line class="cls-2" x1="3.3" y1="3.3" x2="86.68" y2="3.3" />
+                                </g>
+                            </g>
                         </g>
-                      </g>
                     </g>
-                  </svg>
+                </svg>
             </div>
         </header>
 
-        <div class="levelFlex">
-        <div class="level nonBlock" id="alimentosSazonais">
-            <div class="levelTitle">
-                <span>Alimentos<br>Sazonais</span>
-            </div>
-            <div class="cover"></div>
-        </div>
+        <main id="levelMain">
+            <div class="levelFlex">
+                <div class="level nonBlock" id="alimentosSazonais">
+                    <div class="levelHover">
+                        <span>Alimentos<br>Sazonais</span>
+                    </div>
+                    <div class="levelTitle">
+                        <span>Alimentos<br>Sazonais</span>
+                    </div>
+                    <div class="cover"></div>
+                </div>
 
-        <div class="level nonBlock" id="alimentosRegionais">
-            <div class="levelTitle">
-                <span>Alimentos<br>Regionais</span>
-            </div>
-            <div class="cover"></div>
-        </div>
+                <div class="level nonBlock" id="alimentosRegionais">
+                    <div class="levelHover">
+                        <span>Alimentos<br>Sazonais</span>
+                    </div>
+                    <div class="levelTitle">
+                        <span>Alimentos<br>Regionais</span>
+                    </div>
+                    <div class="cover"></div>
+                </div>
 
-        <div class="level nonBlock" id="rodadosAlimentos">
-            <div class="levelTitle">
-                <span>Roda dos<br>Alimentos</span>
-            </div>
-            <div class="cover"></div>
-        </div>
+                <div class="level nonBlock" id="rodadosAlimentos">
+                    <div class="levelHover">
+                        <span>Alimentos<br>Sazonais</span>
+                    </div>
+                    <div class="levelTitle">
+                        <span>Roda dos<br>Alimentos</span>
+                    </div>
+                    <div class="cover"></div>
+                </div>
 
-        <div class="level nonBlock" id="alimentacaoEquilibrada">
-            <div class="levelTitle">
-                <span>Dieta<br>Mediterrânica</span>
+                <div class="level nonBlock" id="alimentacaoEquilibrada">
+                    <div class="levelHover">
+                        <span>Alimentos<br>Sazonais</span>
+                    </div>
+                    <div class="levelTitle">
+                        <span>Dieta<br>Mediterrânea</span>
+                    </div>
+                    <div class="cover"></div>
+                </div>
             </div>
-            <div class="cover"></div>
-        </div>
-        </div>
-    </main>
+        </main>
 
-    <script src="JS/header.js"></script>
-    <script src="interact.js" defer></script>
-    <script src="JS/mobileHeight.js"></script>
+        <script src="JS/header.js"></script>
+        <script src="interact.js" defer></script>
+        <script src="JS/mobileHeight.js"></script>
 </body>
 
 </html>

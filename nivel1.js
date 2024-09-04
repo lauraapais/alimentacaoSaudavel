@@ -117,7 +117,7 @@ function textsize() {
     if (w < 900) {
         h2Size = h * 0.035;
     } else if (w < 1500) {
-        h2Size = h * 0.05;
+        h2Size = h * 0.04;
     } else {
         h2Size = h * 0.055;
     }
@@ -507,15 +507,16 @@ class Level {
         blendMode(MULTIPLY);
 
         if (w < 900) {
-            let maxWidth = windowWidth * 0.7;
+            let maxWidth = windowWidth * 0.8;
             let lines = wrapText(this.question, maxWidth);
             let y = marginMobile + textAscent();
             for (let i = 0; i < lines.length; i++) {
                 text(lines[i], marginMobile, y);
                 y += textAscent() + textDescent();
             }
-            lastY = y;
-        } else if (w < 1500) {
+            lastY = y; 
+        } 
+        else if (w < 1500) {
             let maxWidth = windowWidth * 0.5;
             let lines = wrapText(this.question, maxWidth);
             let y = marginDesktop + textAscent();
@@ -524,7 +525,9 @@ class Level {
                 y += textAscent() + textDescent();
             }
             lastY = y;
-        } else {
+        }
+        
+    else {
             let maxWidth = windowWidth * 0.3;
             let lines = wrapText(this.question, maxWidth);
             let y = marginDesktop + textAscent();

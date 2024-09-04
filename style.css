@@ -66,7 +66,7 @@ p {
     margin: calc(var(--marginH)/3) 0;
 }
 
-h1{
+h1 {
     font-size: calc(65px + 0.390625vw);
     text-wrap: pretty;
     color: var(--grey);
@@ -86,19 +86,19 @@ li {
 
 ::-webkit-scrollbar {
     width: 15px;
-  }
-  
-  ::-webkit-scrollbar-track {
+}
+
+::-webkit-scrollbar-track {
     background: #f1f1f1;
-  }
-  
-  ::-webkit-scrollbar-thumb {
+}
+
+::-webkit-scrollbar-thumb {
     background: var(--black);
-  }
-  
-  ::-webkit-scrollbar-thumb:hover {
+}
+
+::-webkit-scrollbar-thumb:hover {
     background: var(--black);
-  }
+}
 
 
 h2 {
@@ -140,20 +140,20 @@ header {
     mix-blend-mode: multiply;
 }
 
-.headerLevel{
+.headerLevel {
     width: 100%;
-    margin:0 !important;
+    margin: 0 !important;
 }
 
-#headerIndex{
-    mix-blend-mode: normal!important;
+#headerIndex {
+    mix-blend-mode: normal !important;
 }
 
 .menu {
     display: flex;
     justify-content: space-between;
     width: fit-content;
-    align-items: flex-start!important;
+    align-items: flex-start !important;
 }
 
 .menu li {
@@ -189,7 +189,7 @@ header {
     cursor: pointer;
 }
 
-#lastMenuPage{
+#lastMenuPage {
     color: var(--lightOrange);
 }
 
@@ -247,7 +247,7 @@ footer {
 
 
 #backgroundIndex .support {
-    margin-bottom: 0vh!important;
+    margin-bottom: 0vh !important;
 }
 
 
@@ -303,7 +303,7 @@ svg {
 
 
 /** Index **/
-#arrowIndex{
+#arrowIndex {
     stroke-linecap: round;
     stroke-linejoin: round;
     width: 2vw;
@@ -393,7 +393,7 @@ svg {
 
 .illustrationsIndex div {
     display: grid;
-    justify-items: center; 
+    justify-items: center;
 }
 
 
@@ -402,7 +402,8 @@ svg {
 /** Level Menu **/
 #levelMain {
     width: calc(100vw - var(--marginH) * 2);
-    height: calc(100vh - min(var(--headerHmin), 500px) - var(--marginH) * 4);
+    min-height: calc(100vh - min(var(--headerHmin), 500px) - var(--marginH) * 3);
+    height: calc(100vh - var(--headerHmin) - var(--marginH)*4);
     display: flex;
     flex-wrap: wrap;
     justify-content: space-evenly;
@@ -424,21 +425,9 @@ svg {
     transition: filter 0.3s;
     cursor: pointer;
     position: relative;
-    margin-bottom: var(--marginH);
     overflow: hidden;
     max-width: 45%;
 }
-
-.levelFlex{
-    width: 100%;
-        height: 100%;
-        display: flex;
-        gap: var(--marginH);
-        flex-wrap: wrap;
-        justify-content: center;
-        align-items: center;
-        align-content: center;
-    }
 
 .level:hover {
     filter: drop-shadow(0px 0px 5px rgba(0, 0, 0, 0.15));
@@ -456,9 +445,9 @@ svg {
 
 #levelMain span {
     color: var(--grey);
+    mix-blend-mode: multiply;
     font-size: calc(21px + 0.6vw);
     line-height: calc(21px + 0.6vw);
-    mix-blend-mode: multiply;
     margin-top: 5px;
 }
 
@@ -470,6 +459,17 @@ svg {
     height: 75%;
     position: absolute;
     bottom: 0;
+}
+
+.levelFlex {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    gap: var(--marginH);
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
 }
 
 #alimentosSazonais {
@@ -555,6 +555,11 @@ svg {
 .playLevel img:hover {
     filter: drop-shadow(0px 9px 40px rgba(0, 0, 0, 15));
 }
+
+.levelHover span {
+    display: none;
+}
+
 
 
 
@@ -674,11 +679,11 @@ svg {
     width: 70%;
 }
 
-#escolasImg{
+#escolasImg {
     width: 35%;
 }
 
-#projetoImg{
+#projetoImg {
     width: 30%;
 }
 
@@ -713,7 +718,7 @@ svg {
 
 .arrow {
     display: flex;
-    z-index: 200;    
+    z-index: 200;
     background-color: var(--blue);
 }
 
@@ -779,7 +784,7 @@ svg {
     align-items: center;
 }
 
-.videoInfoFlex{
+.videoInfoFlex {
     display: flex;
     height: auto;
     gap: var(--marginH);
@@ -812,8 +817,6 @@ svg {
     margin: 0 !important;
 }
 
-
-
 .infoVideoTitle {
     margin-top: 0.9vw !important;
     line-height: 3.5rem;
@@ -827,22 +830,22 @@ svg {
     align-self: flex-end;
 }
 
-.infoVideop h4{
+.infoVideop h4 {
     margin: calc(var(--marginH)/2) 0;
 }
 
-.arrowMobile{
+.arrowMobile {
     display: none;
 }
 
-.videoPage{
+.videoPage {
     height: calc(100vh - var(--marginH) - var(--marginH)* 6);
     display: flex;
     justify-content: center;
     margin-bottom: var(--marginH);
 }
 
-.videoPage video{
+.videoPage video {
     height: 100%;
     width: -webkit-fill-available;
 }
@@ -851,15 +854,15 @@ svg {
 @media screen and (max-width:2000px) {
     li {
         font-size: calc(37px + 0.390625vw);
-}
+    }
 
-#mainIndex{
-    padding-top:0 !important;
-}
+    #mainIndex {
+        padding-top: 0 !important;
+    }
 
-.mainLanding{
-    height: calc(100vh - min(var(--headerHmin), 500px) - var(--marginH)*2);
-}
+    .mainLanding {
+        height: calc(100vh - min(var(--headerHmin), 500px) - var(--marginH)*2);
+    }
 }
 
 
@@ -867,11 +870,11 @@ svg {
 @media screen and (max-width:1500px) {
 
     /*index*/
-    #arrowIndex{
+    #arrowIndex {
         width: 4vw;
         stroke-width: 1.5px;
     }
-    
+
     .indexImage {
         display: flex;
         align-items: center;
@@ -901,31 +904,61 @@ svg {
 
     /*niveis*/
     .level {
-        width: 45%;
-        height: 45%;
+        width: 48%;
+        height: 42%;
         max-width: 300px;
         max-height: 300px;
         gap: var(--marginHMobile);
         box-sizing: border-box;
-        
-        min-width: 200px;
-        min-height: 300px;
+
+        min-width: 150px;
+        min-height: 250px;
     }
 
-    .levelFlex{
+    .levelHover {
         width: 100%;
         height: 100%;
+        position: absolute;
         display: flex;
-        gap: calc(var(--marginHMobile)/2);
-        flex-wrap: wrap;
-        justify-content: center;
         align-items: center;
-        align-content: center;
+        justify-content: center;
+        opacity: 0;
+    }
+
+    .levelHover span {
+        text-align: center;
+        display: block;
+        color: black!important;
+        mix-blend-mode: normal!important;
+    }
+
+    .level:hover .levelHover {
+        background-color: var(--grey);
+        mix-blend-mode: multiply;
+        opacity: 1;
     }
 
     .level .cover {
         height: 100%;
-        background-size: cover;
+    }
+
+    #levelMain {
+        display: flex;
+        justify-content: center;
+        width: calc(100vw);
+        min-height: calc(var(--vh, 1h) * 100 - var(--marginHMobile) - min(var(--headerHminMobile), 500px));
+        height: calc(100vh - var(--headerHminMobile) - var(--marginHmobile)*4);
+        padding: 0;
+        gap: var(--marginHMobile);
+        
+    }
+
+    .levelTitle {
+        display: none;
+    }
+
+    #levelMain span {
+        font-size: calc(20px + 0.6vw);
     }
 
     #alimentosSazonais .cover {
@@ -944,28 +977,12 @@ svg {
         background-image: url(data/jogo/levels/alimentacaoEquilibrada_3.png);
     }
 
-    #levelMain {
-        display: flex;
-        justify-content: space-between;
-        width: calc(100vw - var(--marginHMobile) * 2);
-        height: calc(var(--vh, 1h) * 100 - var(--marginHMobile) * 3 - min(var(--headerHminMobile), 500px));
-        margin: var(--marginHMobile);
-        padding: 0;
+    .levelFlex{
+        margin: var(--marginH);
     }
 
-    .levelTitle {
-        display: none;
-    }
-
-    #levelMain span {
-        font-size: calc(20px + 0.6vw);
-    }
-
-
-
-
-     /*info pages*/
-     .textInfo {
+    /*info pages*/
+    .textInfo {
         width: 100%;
         margin-bottom: var(--marginHMobile);
     }
@@ -986,13 +1003,13 @@ svg {
         display: flex;
         justify-content: space-between;
     }
-    
 
 
 
 
-     /*new explore*/
-     .exploreVideos {
+
+    /*new explore*/
+    .exploreVideos {
         position: relative;
     }
 
@@ -1028,21 +1045,21 @@ svg {
         line-height: 2.5rem;
     }
 
-    #videoMain{
+    #videoMain {
         height: calc(100vh - var(--marginHMobile)* 3 - var(--headerHminMobile));
-    max-height: calc(100vh - var(--marginHmobile)* 3 - var(--headerHminMobile));
+        max-height: calc(100vh - var(--marginHmobile)* 3 - var(--headerHminMobile));
     }
 
 
-    .infoVideop{
+    .infoVideop {
         align-self: flex-start;
     }
 
-    .arrow{
+    .arrow {
         display: none;
     }
 
-    .arrowMobile{
+    .arrowMobile {
         display: flex;
         width: calc(100% - var(--marginH)*2);
         position: absolute;
@@ -1067,12 +1084,16 @@ svg {
 
     #closeMenu,
     #closeGame {
+        display: flex;
         width: calc(15px + 1.5vw) !important;
-        height: fit-content;
+        height: auto;
+        font-variant: all-petite-caps;
+        align-items: flex-start;
+        align-content: flex-start;
     }
 }
 
-  
+
 
 
 
@@ -1110,12 +1131,12 @@ svg {
         margin: calc(var(--marginHMobile)/2) 0 calc(var(--marginHMobile)/4) 0
     }
 
-    .noneMobile{
+    .noneMobile {
         display: none;
     }
 
 
-    .noneMobile{
+    .noneMobile {
         display: none;
     }
 
@@ -1131,7 +1152,11 @@ svg {
     .closeIcon {
         width: calc(20px + 1.5vw) !important;
         margin-left: 5vw;
-        height: fit-content;
+        height: auto;
+        display: flex;
+        
+        align-items: flex-start;
+        align-content: flex-start;
     }
 
     #menuIcon {
@@ -1149,11 +1174,11 @@ svg {
 
 
     /*index*/
-    #arrowIndex{
+    #arrowIndex {
         width: 7vw;
         stroke-width: 1.5px;
     }
-    
+
     .indexImage {
         display: flex;
         align-items: center;
@@ -1252,17 +1277,17 @@ svg {
         width: 100%;
     }
 
-    #escolasImg{
+    #escolasImg {
         width: 100%;
     }
-    
-    #projetoImg{
+
+    #projetoImg {
         width: 80%;
     }
 
-    #textInfoTitle{
-            margin-top: var(--marginHMobile);
-            margin-bottom: calc(var(--marginHMobile) / 2);
+    #textInfoTitle {
+        margin-top: var(--marginHMobile);
+        margin-bottom: calc(var(--marginHMobile) / 2);
     }
 
     #textInfoTitle img {
@@ -1276,7 +1301,7 @@ svg {
     }
 
     .imageInfo {
-        width: 100%!important;
+        width: 100% !important;
     }
 
 
@@ -1305,11 +1330,10 @@ svg {
         min-height: unset;
     }
 
-
     #levelMain {
 
         width: calc(100vw - var(--marginHMobile) * 2);
-        height: calc(var(--vh, 1h) * 100 - var(--marginHMobile) * 3 - min(var(--headerHminMobile), 500px));
+        min-height: calc(var(--vh, 1h) * 100 - var(--marginHMobile) * 3 - min(var(--headerHminMobile), 500px));
         margin: var(--marginHMobile);
         padding: 0;
 
@@ -1322,7 +1346,6 @@ svg {
     .headerGameInside {
         margin: var(--marginHMobile);
     }
-
 
 
     /*new explore*/
@@ -1338,7 +1361,7 @@ svg {
 
     .exploreInfo {
         width: 100%;
-        margin: calc(var(--marginHMobile)/2) 0 ;
+        margin: calc(var(--marginHMobile)/2) 0;
     }
 
     .exploreContainer {
@@ -1361,35 +1384,35 @@ svg {
         line-height: 2rem;
     }
 
-    .infoVideop{
-        margin:0 !important;
+    .infoVideop {
+        margin: 0 !important;
     }
 
-    .videoInfoFlex{
+    .videoInfoFlex {
         flex-direction: column;
     }
 
-    #videoMain{
+    #videoMain {
         height: calc(var(--vh, 1h)* 100 - var(--marginHMobile)* 3 - var(--headerHminMobile));
-    max-height: calc(var(--vh, 1h)* 100 - var(--marginHmobile)* 3 - var(--headerHminMobile));
+        max-height: calc(var(--vh, 1h)* 100 - var(--marginHmobile)* 3 - var(--headerHminMobile));
     }
 
-    .arrowMobile{
+    .arrowMobile {
         width: calc(100% - var(--marginHMobile)*2);
-        padding: var(--marginHMobile) 0 ;
+        padding: var(--marginHMobile) 0;
     }
 
-    
+
     .exploreVideos {
         width: 100%;
         position: relative;
     }
 
-    .arrow{
+    .arrow {
         display: none;
     }
 
-    .arrowMobile{
+    .arrowMobile {
         display: flex;
         width: calc(100% - var(--marginH)*2);
         position: absolute;
@@ -1415,18 +1438,17 @@ svg {
         bottom: var(--marginHMobile);
     }
 
-    .videoPage{
+    .videoPage {
         height: auto;
         display: block;
         justify-content: center;
         align-items: flex-start;
     }
-    
-    .videoPage video{
+
+    .videoPage video {
         height: auto;
         width: 100%;
         margin-bottom: 0;
     }
-    
+
 }
-    
