@@ -312,7 +312,7 @@ svg {
 #arrowIndex {
     stroke-linecap: round;
     stroke-linejoin: round;
-    width: 2vw;
+    width: calc(20px + 1.5vw) !important;
     position: absolute;
     bottom: 0;
     left: 50%;
@@ -877,7 +877,7 @@ svg {
 
     /*index*/
     #arrowIndex {
-        width: 4vw;
+        width: calc(20px + 1.5vw) !important;
         stroke-width: 1.5px;
     }
 
@@ -1181,7 +1181,7 @@ svg {
 
     /*index*/
     #arrowIndex {
-        width: 7vw;
+        width: calc(27px + 1.5vw) !important;
         stroke-width: 1.5px;
     }
 
