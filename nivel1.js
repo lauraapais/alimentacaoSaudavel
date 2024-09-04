@@ -414,6 +414,7 @@ class Level {
         this.question = question;
         this.uiEndLevel = uiEndLevel;
         this.points = 0;
+        this.gamePlays=0;
 
         this.currentText = "";
         this.currentTextTimer = 0;
@@ -544,6 +545,23 @@ class Level {
         let content = this.points + "/" + this.totalTrues;
         textSize(h2Size*0.8);
         textFont(fontRegular);
+
+        let tries =  this.gamePlays + "/" + (this.totalTrues + 1) + " Tentativas";
+
+        push();
+        fill(109, 111, 113);
+        blendMode(MULTIPLY);
+
+        if (windowWidth < 900) {
+            text(tries, marginMobile, lastY + marginMobile/2);
+        } else if (windowWidth < 1500) {
+            text(tries, marginDesktop, lastY + textAscent());
+        } else {
+            text(tries, marginDesktop, lastY + textAscent());
+        }
+        pop();
+
+        /*
         push();
         fill(109, 111, 113);
         blendMode(MULTIPLY);
@@ -555,7 +573,7 @@ class Level {
         } else {
             text(content, marginDesktop, lastY + textAscent());
         }
-        pop();
+        pop();*/
 
 
         if (this.lastPlateItem != null && this.currentTextTimer != 0) {
@@ -667,6 +685,7 @@ class Level {
             item.plate = true;
             this.lastPlateItem = item;
             this.currentTextTimer = 50;
+            this.gamePlays++;
             if (item.value) {this.points++;
                 soundTrue.play();
             }
