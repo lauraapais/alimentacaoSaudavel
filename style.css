@@ -153,7 +153,13 @@ header {
     display: flex;
     justify-content: space-between;
     width: fit-content;
-    align-items: flex-start !important;
+    align-items: end;
+}
+
+.menuInside{
+    position: absolute;
+    margin: var(--marginH);
+    right: 0;
 }
 
 .menu li {
@@ -1345,6 +1351,12 @@ svg {
 
     .headerGameInside {
         margin: var(--marginHMobile);
+    }
+
+    .menuInside{
+        position: absolute;
+        margin: var(--marginHMobile);
+        right: 0;
     }
 
 
