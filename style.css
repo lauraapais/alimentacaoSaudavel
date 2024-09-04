@@ -153,6 +153,7 @@ header {
     display: flex;
     justify-content: space-between;
     width: fit-content;
+    align-items: flex-start;
 }
 
 .menuInside{
