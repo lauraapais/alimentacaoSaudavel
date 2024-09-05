@@ -703,23 +703,19 @@ function wrapText(txt, maxWidth) {
 }
 
 function resetLevel() {
-    // Resetar as variáveis de estado do nível atual
     let currentLevel = levels.levels[levels.currentLevel];
     
-    // Reiniciar os itens para suas posições e estados iniciais
     currentLevel.points = 0;
     currentLevel.erros = 0;
     currentLevel.lastPlateItem = null;
     currentLevel.currentTextTimer = 0;
     
-    // Reiniciar cada item do nível
     for (let i = 0; i < currentLevel.items.length; i++) {
         let item = currentLevel.items[i];
-        item.plate = false;  // Remover todos os itens do prato
-        item.dragScale = 0;  // Resetar o efeito de escala
-        currentLevel.setDefaultPosition(item);  // Reposicionar os itens
+        item.plate = false;  
+        item.dragScale = 0;
+        currentLevel.setDefaultPosition(item);  
     }
     
-    // Redesenhar o nível com as posições e estados originais
     currentLevel.status = false;
 }
