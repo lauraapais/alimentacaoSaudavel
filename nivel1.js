@@ -155,7 +155,7 @@ function loadLevels() {
     //Primavera
     level_one = new Level(color(235, 153, 194),
         'Quais são os alimentos sazonais da primavera?',
-        new UIFinish('data/jogo/endLevel/1.png', 'data/jogo/endLevel/1.png')
+        new UIFinish('data/jogo/endLevel/1_done.png', 'data/jogo/endLevel/1_erro.png')
     );
     level_one.addItem(items.grape, false, 'data/jogo/certoErrado/level1/screen1/errado.png', 'Uvas');
     level_one.addItem(items.cherry, true, 'data/jogo/certoErrado/level1/screen1/certo.png', 'Cerejas');
@@ -167,7 +167,7 @@ function loadLevels() {
     //Verão
     level_two = new Level(color(103, 175, 136),
         'Quais são os alimentos sazonais do verão?',
-        new UIFinish('data/jogo/endLevel/2.png', 'data/jogo/endLevel/2.png')
+        new UIFinish('data/jogo/endLevel/2_done.png', 'data/jogo/endLevel/2_erro.png')
     );
     level_two.addItem(items.orange, false, 'data/jogo/certoErrado/level1/screen2/errado.png', 'Laranja');
     level_two.addItem(items.pepper, true, 'data/jogo/certoErrado/level1/screen2/certo.png', 'Pimento');
@@ -179,7 +179,7 @@ function loadLevels() {
     //Outono
     level_three = new Level(color(239, 190, 46),
         'Quais são os alimentos sazonais do outono?',
-        new UIFinish('data/jogo/endLevel/3.png', 'data/jogo/endLevel/3.png')
+        new UIFinish('data/jogo/endLevel/3_done.png', 'data/jogo/endLevel/3_erro.png')
     );
     level_three.addItem(items.carot, false, 'data/jogo/certoErrado/level1/screen3/errado.png', 'Cenoura');
     level_three.addItem(items.leek, false, 'data/jogo/certoErrado/level1/screen3/errado.png', 'Alho-Francês');
@@ -191,7 +191,7 @@ function loadLevels() {
     //Inverno
     level_four = new Level(color(114, 190, 195),
         'Quais são os alimentos sazonais do inverno?',
-        new UIFinish('data/jogo/endLevel/4.png', 'data/jogo/endLevel/4.png')
+        new UIFinish('data/jogo/endLevel/4_done.png', 'data/jogo/endLevel/4_erro.png')
     );
 
     level_four.addItem(items.cherry, false, 'data/jogo/certoErrado/level1/screen4/errado.png', 'Cerejas');
@@ -285,7 +285,6 @@ class UIFinish {
     constructor(imageURLWin, imageURLLose) {
         this.imageWin = loadImage(imageURLWin);
         this.imageLose = loadImage(imageURLLose);
-        //this.text = "Concluíste o nível primavera!";
         this.w = 400;
         this.h = 400;
         this.margin = 40;
@@ -294,132 +293,104 @@ class UIFinish {
 
     display(result) {
         imageMode(CENTER);
-        if (result) {
-            if (w < 900) {
-                image(this.imageWin, width / 2, height / 2, 300, 300);
-            }
-            else if (w > 2500) {
-                image(this.imageWin, width / 2, height / 2, 500, 500);
-            } else {
-                image(this.imageWin, width / 2, height / 2, 400, 400);
-            }
-        } else {
-            if (w < 900) {
-                image(this.imageLose, width / 2, height / 2, 300, 300);
-            }
-            else if (w > 2500) {
-                image(this.imageLose, width / 2, height / 2, 500, 500);
-            } else {
-                image(this.imageLose, width / 2, height / 2, 400, 400);
-            }
-        }
+        const imgSize = w < 900 ? 300 : w > 2500 ? 500 : 400;
+        image(result ? this.imageWin : this.imageLose, width / 2, height / 2, imgSize, imgSize);
 
-        push();
-        blendMode(MULTIPLY);
-
-        if (w < 900) {
-            image(close, width / 2 - 102, height / 2 - 105, 30, 30);
-        }
-        else if (w > 2500) {
-            image(close, width / 2 - 170, height / 2 - 175, 50, 50);
-
-        }
-        else {
-            image(close, width / 2 - 136, height / 2 - 140, 40, 40);
-        }
-
-        pop();
+        const buttonSize = w < 900 ? 60 : w > 2500 ? 85 : 70;
+        const buttonOffsetY = w < 900 ? 95 : w > 2500 ? 165 : 130;
+        const buttonOffsetX = 50;
 
         push();
         rectMode(CENTER);
-        //blendMode(MULTIPLY);
+        blendMode(MULTIPLY);
         noStroke();
         fill(109, 111, 113);
-
-
-        if (w < 900) {
-            rect(width / 2, height / 2 + 105 - 7.5, 150, 45, 22);
-        }
-        else if (w > 2500) {
-            rect(width / 2, height / 2 + 175 - 12.5, 250, 75, 22);
-
-        } else {
-            rect(width / 2, height / 2 + 140 - 10, 200, 60, 22);
-        }
+        rect(width / 2 + buttonOffsetX, height / 2 + buttonOffsetY, buttonSize, buttonSize, 10);
+        rect(width / 2 - buttonOffsetX, height / 2 + buttonOffsetY, buttonSize, buttonSize, 10);
         pop();
 
         push();
-        if (w < 900) {
-            textSize(19.2);
-        }
-        else if (w > 2500) {
-            textSize(32);
-        } else {
-            textSize(25);
-        }
+        noStroke();
+        const iconSize = w < 900 ? 30 : w > 2500 ? 55 : 40;
+        const homeX = width / 2 - buttonOffsetX;
+        const actionX = width / 2 + buttonOffsetX;
 
-        fill(255);
-        textAlign(CENTER);
-        textFont(fontBold);
-        if (result) {
-            if (w < 900) {
-                text('Continuar', width / 2, height / 2 + 105 - 8.1 + textAscent() / 2);
-            }
-            else if (w > 2500) {
-                text('Continuar', width / 2, height / 2 + 175 - 13.5 + textAscent() / 2);
-            }
-            else {
-                text('Continuar', width / 2, height / 2 + 140 - 10.8 + textAscent() / 2);
-            }
-        } else {
-            text('Perdeu!', width / 2, height / 2 + 105 - 8.1 + textAscent() / 2);
-        }
-
-
+        image(result ? homeIcon : refreshIcon, homeX, height / 2 + buttonOffsetY, iconSize, iconSize);
+        image(result ? continueIcon : homeIcon, actionX, height / 2 + buttonOffsetY, iconSize, iconSize);
         pop();
     }
 
-    mousePressed() {
+    mousePressed(result) {
+        const buttonSize = w < 900 ? 30 : w > 2500 ? 42.5 : 35.5;
+        const buttonOffsetY = w < 900 ? 95 : w > 2500 ? 165 : 130;
+        const buttonOffsetX = w < 900 ? 40 : w > 2500 ? 50 : 50;
 
-        if (w < 900) {
-            if (mouseX > width / 2 - 75 && mouseX < width / 2 + 75 && 
-                mouseY > height / 2 + 105 - 7.5 - 22.5 && mouseY < height / 2 + 105 - 7.5 + 22.5) { 
+        const checkClick = (x, y, size) => (
+            mouseX > x - size && mouseX < x + size && mouseY > y - size && mouseY < y + size
+        );
+
+        const homeX = width / 2 - buttonOffsetX;
+        const actionX = width / 2 + buttonOffsetX;
+        const buttonY = height / 2 + buttonOffsetY;
+
+        if (result) {
+            if (checkClick(homeX, buttonY, buttonSize)) {
+                window.location.href = 'niveisMenu.html';
+            } else if (checkClick(actionX, buttonY, buttonSize)) {
                 this.status = true;
             }
-            else if (mouseX > (width / 2 - 102) - 30 / 2 &&
-                mouseX < (width / 2 - 102) + 30 / 2 &&
-                mouseY > (height / 2 - 195) - (30 / 2) &&
-                mouseY < (height / 2 - 105) + (30 / 2)) {
+        } else {
+            if (checkClick(homeX, buttonY, buttonSize)) {
+                currentLevel++;
+            } else if (checkClick(actionX, buttonY, buttonSize)) {
+                
                 window.location.href = 'niveisMenu.html';
             }
         }
+    
 
-        else if (w > 2500) {
 
-            if (mouseX > width / 2 - 125 && mouseX < width / 2 + 125 &&
-                mouseY > height / 2 + 175 - 12.5 - 37.5 && mouseY < height / 2 + 175 - 12.5 + 37.5) {
-                this.status = true;
-            }
-            else if (mouseX > (width / 2 - 170) - 50 / 2 &&
-                mouseX < (width / 2 - 170) + 50 / 2 &&
-                mouseY > (height / 2 - 175) - (50 / 2) &&
-                mouseY < (height / 2 - 175) + (50 / 2)) {
-                window.location.href = 'niveisMenu.html';
-            }
-        }
 
-        else {
-            if (mouseX > width / 2 - 100 && mouseX < width / 2 + 100 &&
-                mouseY > height / 2 + 140 - 10 - 30 && mouseY < height / 2 + 140 - 10 + 30) {
-                this.status = true;
-            }
-            else if (mouseX > (width / 2 - 136) - 40 / 2 &&
-                mouseX < (width / 2 - 136) + 40 / 2 &&
-                mouseY > (height / 2 - 140) - (50 / 2) &&
-                mouseY < (height / 2 - 140) + (50 / 2)) {
-                window.location.href = 'niveisMenu.html';
-            }
-        }
+        /*
+                if (w < 900) {
+                    if (mouseX > width / 2 - 75 && mouseX < width / 2 + 75 && 
+                        mouseY > height / 2 + 105 - 7.5 - 22.5 && mouseY < height / 2 + 105 - 7.5 + 22.5) { 
+                        this.status = true;
+                    }
+                    else if (mouseX > (width / 2 - 102) - 30 / 2 &&
+                        mouseX < (width / 2 - 102) + 30 / 2 &&
+                        mouseY > (height / 2 - 195) - (30 / 2) &&
+                        mouseY < (height / 2 - 105) + (30 / 2)) {
+                        window.location.href = 'niveisMenu.html';
+                    }
+                }
+        
+                else if (w > 2500) {
+        
+                    if (mouseX > width / 2 - 125 && mouseX < width / 2 + 125 &&
+                        mouseY > height / 2 + 175 - 12.5 - 37.5 && mouseY < height / 2 + 175 - 12.5 + 37.5) {
+                        this.status = true;
+                    }
+                    else if (mouseX > (width / 2 - 170) - 50 / 2 &&
+                        mouseX < (width / 2 - 170) + 50 / 2 &&
+                        mouseY > (height / 2 - 175) - (50 / 2) &&
+                        mouseY < (height / 2 - 175) + (50 / 2)) {
+                        window.location.href = 'niveisMenu.html';
+                    }
+                }
+        
+                else {
+                    if (mouseX > width / 2 - 100 && mouseX < width / 2 + 100 &&
+                        mouseY > height / 2 + 140 - 10 - 30 && mouseY < height / 2 + 140 - 10 + 30) {
+                        this.status = true;
+                    }
+                    else if (mouseX > (width / 2 - 136) - 40 / 2 &&
+                        mouseX < (width / 2 - 136) + 40 / 2 &&
+                        mouseY > (height / 2 - 140) - (50 / 2) &&
+                        mouseY < (height / 2 - 140) + (50 / 2)) {
+                        window.location.href = 'niveisMenu.html';
+                    }
+                }*/
     }
 }
 
@@ -486,7 +457,7 @@ class Level {
         for (let i = 0; i < this.items.length; i++) {
             let item = this.items[i];
             item.item.show(item.pos,
-                (itemSize + itemSize * item.dragScale / this.timeScaleMax / 10) 
+                (itemSize + itemSize * item.dragScale / this.timeScaleMax / 10)
             );
 
             push();
@@ -564,41 +535,22 @@ class Level {
         }
         pop();
 
-
-
         let content = this.points + "/" + this.totalTrues;
         textSize(h2Size * 0.8);
         textFont(fontRegular);
 
-        let tries = this.erros + "/2 Erros";
-
         push();
         fill(109, 111, 113);
         blendMode(MULTIPLY);
 
         if (windowWidth < 900) {
-            text(tries, marginMobile, lastY + marginMobile / 2);
+            text(content, marginMobile, lastY + marginMobile / 2);
         } else if (windowWidth < 1500) {
-            text(tries, marginDesktop, lastY + textAscent());
+            text(content, marginDesktop, lastY + textAscent());
         } else {
-            text(tries, marginDesktop, lastY + textAscent());
+            text(content, marginDesktop, lastY + textAscent());
         }
         pop();
-
-        /*
-        push();
-        fill(109, 111, 113);
-        blendMode(MULTIPLY);
-
-        if (windowWidth < 900) {
-            text(content, marginMobile, lastY + marginMobile/2);
-        } else if (windowWidth < 1500) {
-            text(content, marginDesktop, lastY + textAscent());
-        } else {
-            text(content, marginDesktop, lastY + textAscent());
-        }
-        pop();*/
-
 
         if (this.lastPlateItem != null && this.currentTextTimer != 0) {
             if (w < 900) {
@@ -700,7 +652,6 @@ class Level {
             }
         }
     }
-
 
     insidePlate(item) {
         if (item.pos.x > width / 2 - plateSize / 2 &&

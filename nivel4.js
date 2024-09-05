@@ -144,10 +144,13 @@ function loadItems() {
     //Lanche
     items.bread2 = new Gameitem('data/jogo/level4/screen3/1.png');
     items.watermelon = new Gameitem('data/jogo/level1/screen2/3.png');
+    items.peach = new Gameitem('data/jogo/level2/screen1/6.png');
     //Jantar
     items.pasta = new Gameitem('data/jogo/level3/screen6/4.png');
     items.shrimp = new Gameitem('data/jogo/level3/screen4/2.png');
     items.lettuce = new Gameitem('data/jogo/level3/screen3/1.png');
+    items.oliveOli = new Gameitem('data/jogo/level3/screen5/1.png');
+    items.chestnut = new Gameitem('data/jogo/level1/screen3/3.png');
 }
 
 function loadLevels() {
@@ -167,7 +170,7 @@ function loadLevels() {
         new UIFinish('data/jogo/endLevel/13.png'));
     level_two.addItem(items.chicken, true, 'data/jogo/certoErrado/level4/screen2/certo.png', 'Frango');
     level_two.addItem(items.carot, true, 'data/jogo/certoErrado/level4/screen2/certo.png', 'Cenoura');
-    level_two.addItem(items.orange, true, 'data/jogo/certoErrado/level4/screen2/certo.png', 'Laranja');
+    level_two.addItem(items.chestnut, true, 'data/jogo/certoErrado/level4/screen2/certo.png', 'Castanhas');
     level_two.addItem(items.sausage, false, 'data/jogo/certoErrado/level4/screen2/errado.png', 'Salsicha');
     level_two.addItem(items.cheese2, false, 'data/jogo/certoErrado/level4/screen2/errado.png', 'Queijo');
     level_two.addItem(items.rice, true, 'data/jogo/certoErrado/level4/screen2/certo.png', 'Arroz');
@@ -176,7 +179,7 @@ function loadLevels() {
     level_three = new Level(color(239, 190, 46), 'Cria um lanche equilibrado e com alimentos saudáveis!',
         new UIFinish('data/jogo/endLevel/14.png'));
     level_three.addItem(items.bread2, true, 'data/jogo/certoErrado/level4/screen3/certo.png', 'Pão');
-    level_three.addItem(items.watermelon, true, 'data/jogo/certoErrado/level4/screen3/certo.png', 'Melancia');
+    level_three.addItem(items.peach, true, 'data/jogo/certoErrado/level4/screen3/certo.png', 'Pêssego');
     level_three.addItem(items.milk, true, 'data/jogo/certoErrado/level4/screen3/certo.png', 'Leite');
     level_three.addItem(items.cheese1, false, 'data/jogo/certoErrado/level4/screen3/errado.png', 'Queijo');
     level_three.addItem(items.cheese2, false, 'data/jogo/certoErrado/level4/screen3/errado.png', 'Queijo');
@@ -187,7 +190,7 @@ function loadLevels() {
         new UIFinish('data/jogo/endLevel/15.png'));
     level_four.addItem(items.cheese1, false, 'data/jogo/certoErrado/level4/screen4/errado.png', 'Queijo');
     level_four.addItem(items.lettuce, true, 'data/jogo/certoErrado/level4/screen4/certo.png', 'Alface');
-    level_four.addItem(items.cheese2, false, 'data/jogo/certoErrado/level4/screen4/errado.png', 'Queijo');
+    level_four.addItem(items.oliveOli, true, 'data/jogo/certoErrado/level4/screen4/certo.png', 'Azeite');
     level_four.addItem(items.sausage, false, 'data/jogo/certoErrado/level4/screen4/errado.png', 'Salsicha');
     level_four.addItem(items.shrimp, true, 'data/jogo/certoErrado/level4/screen4/certo.png', 'Camarão');
     level_four.addItem(items.pasta, true, 'data/jogo/certoErrado/level4/screen4/certo.png', 'Massa');
