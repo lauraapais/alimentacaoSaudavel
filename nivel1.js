@@ -293,6 +293,7 @@ class UIFinish {
 
     display(result) {
 
+        this.result = result;
         imageMode(CENTER);
         const imgSize = w < 900 ? 300 : w > 2500 ? 500 : 400;
         image(result ? this.imageWin : this.imageLose, width / 2, height / 2, imgSize, imgSize);
@@ -315,14 +316,13 @@ class UIFinish {
         const iconSize = w < 900 ? 30 : w > 2500 ? 55 : 40;
         const homeX = width / 2 - buttonOffsetX;
         const actionX = width / 2 + buttonOffsetX;
-
         image(result ? homeIcon : refreshIcon, homeX, height / 2 + buttonOffsetY, iconSize, iconSize);
         image(result ? continueIcon : homeIcon, actionX, height / 2 + buttonOffsetY, iconSize, iconSize);
         pop();
     }
 
-    mousePressed(result) {
-        
+    mousePressed() {
+        const result = this.result;
         const buttonSize = w < 900 ? 30 : w > 2500 ? 42.5 : 35.5;
         const buttonOffsetY = w < 900 ? 95 : w > 2500 ? 165 : 130;
         const buttonOffsetX = w < 900 ? 40 : w > 2500 ? 50 : 50;
