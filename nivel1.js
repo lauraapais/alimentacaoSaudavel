@@ -341,7 +341,7 @@ class UIFinish {
             }
         } else {
             if (checkClick(homeX, buttonY, buttonSize)) {
-                currentLevel++;
+                this.currentLevel++;
             } else if (checkClick(actionX, buttonY, buttonSize)) {
                 
                 window.location.href = 'niveisMenu.html';
@@ -535,7 +535,7 @@ class Level {
         }
         pop();
 
-        let content = this.points + "/" + this.totalTrues;
+        let content = this.points + "/" + this.totalTrues + " certos";
         textSize(h2Size * 0.8);
         textFont(fontRegular);
 
@@ -652,6 +652,7 @@ class Level {
             }
         }
     }
+
 
     insidePlate(item) {
         if (item.pos.x > width / 2 - plateSize / 2 &&
