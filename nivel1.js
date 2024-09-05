@@ -372,7 +372,7 @@ class UIFinish {
                 text('Continuar', width / 2, height / 2 + 140 - 10.8 + textAscent() / 2);
             }
         } else {
-            text('NABO!', width / 2, height / 2 + 105 - 8.1 + textAscent() / 2);
+            text('Perdeu!', width / 2, height / 2 + 105 - 8.1 + textAscent() / 2);
         }
 
 
@@ -382,8 +382,8 @@ class UIFinish {
     mousePressed() {
 
         if (w < 900) {
-            if (mouseX > width / 2 - 75 && mouseX < width / 2 + 75 && // metade da largura do retângulo
-                mouseY > height / 2 + 105 - 7.5 - 22.5 && mouseY < height / 2 + 105 - 7.5 + 22.5) { // metade da altura do retângulo
+            if (mouseX > width / 2 - 75 && mouseX < width / 2 + 75 && 
+                mouseY > height / 2 + 105 - 7.5 - 22.5 && mouseY < height / 2 + 105 - 7.5 + 22.5) { 
                 this.status = true;
             }
             else if (mouseX > (width / 2 - 102) - 30 / 2 &&
@@ -486,7 +486,7 @@ class Level {
         for (let i = 0; i < this.items.length; i++) {
             let item = this.items[i];
             item.item.show(item.pos,
-                (itemSize + itemSize * item.dragScale / this.timeScaleMax / 10) //Animation Scale
+                (itemSize + itemSize * item.dragScale / this.timeScaleMax / 10) 
             );
 
             push();
