@@ -5,7 +5,7 @@ var items = {};
 var levels;
 var plate, plateSize, itemSize;
 var itemsScale = 0.16;
-var close;
+var close, refreshIcon, continueIcon, homeIcon;
 var heightQuestion = 300;
 var widthQuestionMobile;
 
@@ -20,15 +20,19 @@ var h1Size, h2Size;
 marginMobile = 0.06 * w;
 marginDesktop = 0.02 * w;
 
+
 var soundTrue, soundFalse;
 
 function preload() {
-    plate = loadImage('data/jogo/plate.png');
+    plate = loadImage('data/jogo/cesta.png');
     close = loadImage('data/icons/home.png');
     fontBold = loadFont('data/font/AUTHENTIC Sans ^.otf');
-    fontRegular=loadFont('data/font/AUTHENTICSans-90.otf');
+    fontRegular = loadFont('data/font/AUTHENTICSans-90.otf');
     soundTrue = loadSound('data/sound1.wav');
     soundFalse = loadSound('data/sound2.wav');
+    refreshIcon = loadImage('data/jogo/endLevel/icons/refresh.png');
+    homeIcon = loadImage('data/jogo/endLevel/icons/home.png');
+    continueIcon = loadImage('data/jogo/endLevel/icons/continue.png');
 }
 
 function setup() {
@@ -74,9 +78,7 @@ function platesize() {
             width * .85),
             height * .55);
     }
-
     else if (w < 600) {
-
         if (w > h) {
             plateSize = min(min(width * itemSize * 8,
                 width * .75),
@@ -117,15 +119,13 @@ function itemsize() {
 function textsize() {
     if (w < 900) {
         h2Size = h * 0.035;
-        heightQuestion = height / 4;
     } else if (w < 1500) {
-        h2Size = h * 0.05;
-        heightQuestion = height / 3;
+        h2Size = h * 0.04;
     } else {
-        h2Size = h * 0.05;
-        heightQuestion = height / 3;
+        h2Size = h * 0.055;
     }
 }
+
 
 function loadItems() {
     //Pequeno-Almoço
@@ -702,6 +702,24 @@ function wrapText(txt, maxWidth) {
     return lines;
 }
 
-function reset(){
+function resetLevel() {
+    // Resetar as variáveis de estado do nível atual
+    let currentLevel = levels.levels[levels.currentLevel];
     
+    // Reiniciar os itens para suas posições e estados iniciais
+    currentLevel.points = 0;
+    currentLevel.erros = 0;
+    currentLevel.lastPlateItem = null;
+    currentLevel.currentTextTimer = 0;
+    
+    // Reiniciar cada item do nível
+    for (let i = 0; i < currentLevel.items.length; i++) {
+        let item = currentLevel.items[i];
+        item.plate = false;  // Remover todos os itens do prato
+        item.dragScale = 0;  // Resetar o efeito de escala
+        currentLevel.setDefaultPosition(item);  // Reposicionar os itens
+    }
+    
+    // Redesenhar o nível com as posições e estados originais
+    currentLevel.status = false;
 }

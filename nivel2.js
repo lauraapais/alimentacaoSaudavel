@@ -655,11 +655,19 @@ function wrapText(txt, maxWidth) {
 }
 
 function resetLevel() {
-    // Reseta o nível atual para o início
-    levels.setLevel(levels.currentLevel);
-    levels.levels[levels.currentLevel].points = 0;
-    levels.levels[levels.currentLevel].erros = 0;
-    levels.levels[levels.currentLevel].setDefaultPosition();
-    levels.levels[levels.currentLevel].status = false;
-    levels.levels[levels.currentLevel].lastPlateItem = null;
+    let currentLevel = levels.levels[levels.currentLevel];
+    
+    currentLevel.points = 0;
+    currentLevel.erros = 0;
+    currentLevel.lastPlateItem = null;
+    currentLevel.currentTextTimer = 0;
+    
+    for (let i = 0; i < currentLevel.items.length; i++) {
+        let item = currentLevel.items[i];
+        item.plate = false;  
+        item.dragScale = 0;
+        currentLevel.setDefaultPosition(item);  
+    }
+    
+    currentLevel.status = false;
 }
