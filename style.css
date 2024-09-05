@@ -893,10 +893,6 @@ svg {
         height: calc(8px + 1.5vw) !important;
     }
 
-    .closeIcon {
-        
-    }
-
     #closeMenu,
 #closeGame {
     mix-blend-mode: multiply;
