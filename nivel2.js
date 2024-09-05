@@ -287,9 +287,9 @@ class UIFinish {
             }
         } else {
             if (checkClick(homeX, buttonY, buttonSize)) {
-                window.location.href = 'niveisMenu.html';
+                resetLevel();
             } else if (checkClick(actionX, buttonY, buttonSize)) {
-                this.status = true;
+                window.location.href = 'niveisMenu.html';
             }
         }
     }
@@ -654,6 +654,12 @@ function wrapText(txt, maxWidth) {
     return lines;
 }
 
-function reset(){
-    
+function resetLevel() {
+    // Reseta o nível atual para o início
+    levels.setLevel(levels.currentLevel);
+    levels.levels[levels.currentLevel].points = 0;
+    levels.levels[levels.currentLevel].erros = 0;
+    levels.levels[levels.currentLevel].setDefaultPosition();
+    levels.levels[levels.currentLevel].status = false;
+    levels.levels[levels.currentLevel].lastPlateItem = null;
 }

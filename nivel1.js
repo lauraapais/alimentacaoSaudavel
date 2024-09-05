@@ -341,9 +341,9 @@ class UIFinish {
             }
         } else {
             if (checkClick(homeX, buttonY, buttonSize)) {
-                window.location.href = 'niveisMenu.html';
+                resetLevel();
             } else if (checkClick(actionX, buttonY, buttonSize)) {
-                this.status = true;
+                window.location.href = 'niveisMenu.html';
             }
         }
     }
@@ -709,5 +709,5 @@ function wrapText(txt, maxWidth) {
 }
 
 function reset(){
-    
+
 }
