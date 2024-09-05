@@ -5,7 +5,7 @@ var items = {};
 var levels;
 var plate, plateSize, itemSize;
 var itemsScale = 0.16;
-var close;
+var close, refreshIcon, continueIcon, homeIcon;
 var heightQuestion = 300;
 var widthQuestionMobile;
 
@@ -20,15 +20,19 @@ var h1Size, h2Size;
 marginMobile = 0.06 * w;
 marginDesktop = 0.02 * w;
 
+
 var soundTrue, soundFalse;
 
 function preload() {
-    plate = loadImage('data/jogo/rodaAlimentos_1.png');
+    plate = loadImage('data/jogo/cesta.png');
     close = loadImage('data/icons/home.png');
     fontBold = loadFont('data/font/AUTHENTIC Sans ^.otf');
     fontRegular = loadFont('data/font/AUTHENTICSans-90.otf');
     soundTrue = loadSound('data/sound1.wav');
     soundFalse = loadSound('data/sound2.wav');
+    refreshIcon = loadImage('data/jogo/endLevel/icons/refresh.png');
+    homeIcon = loadImage('data/jogo/endLevel/icons/home.png');
+    continueIcon = loadImage('data/jogo/endLevel/icons/continue.png');
 }
 
 function setup() {
@@ -99,10 +103,7 @@ function platesize() {
 
 function itemsize() {
     if (w < 600) {
-        if (w > h)
-            itemSize = w * 0.00012;
-        else
-            itemSize = w * 0.0002;
+        itemSize = w * 0.0002;
     } else if (w < 1000) {
         itemSize = w * 0.0001;
     } else if (w < 1500) {
@@ -114,16 +115,14 @@ function itemsize() {
         itemSize = w * 0.000060;
     }
 }
+
 function textsize() {
     if (w < 900) {
         h2Size = h * 0.035;
-        heightQuestion = height / 4;
     } else if (w < 1500) {
-        h2Size = h * 0.05;
-        heightQuestion = height / 3;
+        h2Size = h * 0.04;
     } else {
-        h2Size = h * 0.05;
-        heightQuestion = height / 3;
+        h2Size = h * 0.055;
     }
 }
 
@@ -167,7 +166,7 @@ function loadLevels() {
     var level_one, level_two, level_three, level_four, level_five, level_six;
     //Laticineos
     level_one = new Level(color(114, 190, 195), 'Sabes que alimentos são laticíneos?',
-        new UIFinish('data/jogo/endLevel/6.png'),
+    new UIFinish('data/jogo/endLevel/6_done.png', 'data/jogo/endLevel/6_erro.png'),
         loadImage('data/jogo/rodaAlimentos_1.png'));
     level_one.addItem(items.milk, true, 'data/jogo/certoErrado/level3/screen1/certo.png', 'Leite');
     level_one.addItem(items.cheese1, true, 'data/jogo/certoErrado/level3/screen1/certo.png', 'Queijo');
@@ -178,7 +177,7 @@ function loadLevels() {
     level_one.setDefaultPosition();
     //Frutas
     level_two = new Level(color(235, 182, 180), 'Sabes que alimentos são da família das frutas?',
-        new UIFinish('data/jogo/endLevel/7.png'),
+    new UIFinish('data/jogo/endLevel/7_done.png', 'data/jogo/endLevel/7_erro.png'),
         loadImage('data/jogo/rodaAlimentos_2.png'));
     level_two.addItem(items.eggplant, false, 'data/jogo/certoErrado/level3/screen2/errado.png', 'Beringela');
     level_two.addItem(items.orange, true, 'data/jogo/certoErrado/level3/screen2/certo.png', 'Laranja');
@@ -189,7 +188,7 @@ function loadLevels() {
     level_two.setDefaultPosition();
     //Hortícolas
     level_three = new Level(color(103, 175, 136), 'Sabes que alimentos são do grupo dos hortícolas?',
-        new UIFinish('data/jogo/endLevel/8.png'),
+    new UIFinish('data/jogo/endLevel/8_done.png', 'data/jogo/endLevel/8_erro.png'),
         loadImage('data/jogo/rodaAlimentos_3.png'));
     level_three.addItem(items.lettuce, true, 'data/jogo/certoErrado/level3/screen3/certo.png', 'Alface');
     level_three.addItem(items.beans, false, 'data/jogo/certoErrado/level3/screen3/errado.png', 'Feijão');
@@ -200,7 +199,7 @@ function loadLevels() {
     level_three.setDefaultPosition();
     //Carne Peixe Ovos
     level_four = new Level(color(221, 106, 101), 'Sabes que alimentos são do grupo carne, pescado e ovos?',
-        new UIFinish('data/jogo/endLevel/9.png'),
+    new UIFinish('data/jogo/endLevel/9_done.png', 'data/jogo/endLevel/9_erro.png'),
         loadImage('data/jogo/rodaAlimentos_4.png'));
     level_four.addItem(items.fish, true, 'data/jogo/certoErrado/level3/screen4/certo.png', 'Peixe');
     level_four.addItem(items.shrimp, true, 'data/jogo/certoErrado/level3/screen4/certo.png', 'Camarão');
@@ -211,7 +210,7 @@ function loadLevels() {
     level_four.setDefaultPosition();
     //GordurasOleos
     level_five = new Level(color(155, 206, 195), 'Sabes que alimentos são gorduras e óleos?',
-        new UIFinish('data/jogo/endLevel/10.png'),
+    new UIFinish('data/jogo/endLevel/10_done.png', 'data/jogo/endLevel/10_erro.png'),
         loadImage('data/jogo/rodaAlimentos_5.png'));
     level_five.addItem(items.oliveOli, true, 'data/jogo/certoErrado/level3/screen5/certo.png', 'Azeite');
     level_five.addItem(items.eggplant, false, 'data/jogo/certoErrado/level3/screen5/errado.png', 'Beringela');
@@ -222,7 +221,7 @@ function loadLevels() {
     level_five.setDefaultPosition();
     //Cereais
     level_six = new Level(color(239, 176, 87), 'Sabes que alimentos são cereais, derivados e tubérculos?',
-        new UIFinish('data/jogo/endLevel/11.png'),
+    new UIFinish('data/jogo/endLevel/11_done.png', 'data/jogo/endLevel/11_erro.png'),
         loadImage('data/jogo/rodaAlimentos_6.png'));
     level_six.addItem(items.carot, false, 'data/jogo/certoErrado/level3/screen6/errado.png', 'Cenoura');
     level_six.addItem(items.potato, true, 'data/jogo/certoErrado/level3/screen6/certo.png', 'Batata');
@@ -314,136 +313,80 @@ class LevelLoader {
 }
 
 class UIFinish {
-    constructor(imageURL) {
-        this.image = loadImage(imageURL);
-        this.text = "Concluíste o nível primavera!";
+    constructor(imageURLWin, imageURLLose) {
+        this.imageWin = loadImage(imageURLWin);
+        this.imageLose = loadImage(imageURLLose);
         this.w = 400;
         this.h = 400;
         this.margin = 40;
         this.status = false;
     }
 
-    display() {
+    display(result) {
         imageMode(CENTER);
-        if (w < 900) {
-            image(this.image, width / 2, height / 2, 300, 300);
-        }
-        else if (w > 2500) {
-            image(this.image, width / 2, height / 2, 500, 500);
-        } else {
-            image(this.image, width / 2, height / 2, 400, 400);
-        }
+        const imgSize = w < 900 ? 300 : w > 2500 ? 500 : 400;
+        image(result ? this.imageWin : this.imageLose, width / 2, height / 2, imgSize, imgSize);
 
-        push();
-        blendMode(MULTIPLY);
-
-        if (w < 900) {
-            image(close, width / 2 - 102, height / 2 - 105, 30, 30);
-        }
-        else if (w > 2500) {
-            image(close, width / 2 - 170, height / 2 - 175, 50, 50);
-
-        }
-        else {
-            image(close, width / 2 - 136, height / 2 - 140, 40, 40);
-        }
-
-        pop();
+        const buttonSize = w < 900 ? 60 : w > 2500 ? 85 : 70;
+        const buttonOffsetY = w < 900 ? 95 : w > 2500 ? 165 : 130;
+        const buttonOffsetX = 50;
 
         push();
         rectMode(CENTER);
         blendMode(MULTIPLY);
         noStroke();
         fill(109, 111, 113);
-
-        if (w < 900) {
-            rect(width / 2, height / 2 + 105 - 7.5, 150, 45, 22);
-        }
-        else if (w > 2500) {
-            rect(width / 2, height / 2 + 175 - 12.5, 250, 75, 22);
-
-        } else {
-            rect(width / 2, height / 2 + 140 - 10, 200, 60, 22);
-        }
+        rect(width / 2 + buttonOffsetX, height / 2 + buttonOffsetY, buttonSize, buttonSize, 10);
+        rect(width / 2 - buttonOffsetX, height / 2 + buttonOffsetY, buttonSize, buttonSize, 10);
         pop();
 
         push();
-        if (w < 900) {
-            textSize(19.2);
-        }
-        else if (w > 2500) {
-            textSize(32);
-        } else {
-            textSize(25);
-        }
+        noStroke();
+        const iconSize = w < 900 ? 30 : w > 2500 ? 55 : 40;
+        const homeX = width / 2 - buttonOffsetX;
+        const actionX = width / 2 + buttonOffsetX;
 
-        fill(255);
-        textAlign(CENTER);
-        textFont(fontBold);
-        if (w < 900) {
-            text('Continuar', width / 2, height / 2 + 105 - 8.1 + textAscent() / 2);
-        }
-        else if (w > 2500) {
-            text('Continuar', width / 2, height / 2 + 175 - 13.5 + textAscent() / 2);
-        }
-        else {
-            text('Continuar', width / 2, height / 2 + 140 - 10.8 + textAscent() / 2);
-        }
+        image(result ? homeIcon : refreshIcon, homeX, height / 2 + buttonOffsetY, iconSize, iconSize);
+        image(result ? continueIcon : homeIcon, actionX, height / 2 + buttonOffsetY, iconSize, iconSize);
         pop();
     }
 
-    mousePressed() {
+    mousePressed(result) {
+        const buttonSize = w < 900 ? 30 : w > 2500 ? 42.5 : 35.5;
+        const buttonOffsetY = w < 900 ? 95 : w > 2500 ? 165 : 130;
+        const buttonOffsetX = w < 900 ? 40 : w > 2500 ? 50 : 50;
 
-        if (w < 900) {
-            if (mouseX > width / 2 - 75 && mouseX < width / 2 + 75 && // metade da largura do retângulo
-                mouseY > height / 2 + 105 - 7.5 - 22.5 && mouseY < height / 2 + 105 - 7.5 + 22.5) { // metade da altura do retângulo
+        const checkClick = (x, y, size) => (
+            mouseX > x - size && mouseX < x + size && mouseY > y - size && mouseY < y + size
+        );
+
+        const homeX = width / 2 - buttonOffsetX;
+        const actionX = width / 2 + buttonOffsetX;
+        const buttonY = height / 2 + buttonOffsetY;
+
+        if (result) {
+            if (checkClick(homeX, buttonY, buttonSize)) {
+                window.location.href = 'niveisMenu.html';
+            } else if (checkClick(actionX, buttonY, buttonSize)) {
                 this.status = true;
             }
-            else if (mouseX > (width / 2 - 102) - 30 / 2 &&
-                mouseX < (width / 2 - 102) + 30 / 2 &&
-                mouseY > (height / 2 - 195) - (30 / 2) &&
-                mouseY < (height / 2 - 105) + (30 / 2)) {
+        } else {
+            if (checkClick(homeX, buttonY, buttonSize)) {
                 window.location.href = 'niveisMenu.html';
-            }
-        }
-
-        else if (w > 2500) {
-
-            if (mouseX > width / 2 - 125 && mouseX < width / 2 + 125 &&
-                mouseY > height / 2 + 175 - 12.5 - 37.5 && mouseY < height / 2 + 175 - 12.5 + 37.5) {
+            } else if (checkClick(actionX, buttonY, buttonSize)) {
                 this.status = true;
-            }
-            else if (mouseX > (width / 2 - 170) - 50 / 2 &&
-                mouseX < (width / 2 - 170) + 50 / 2 &&
-                mouseY > (height / 2 - 175) - (50 / 2) &&
-                mouseY < (height / 2 - 175) + (50 / 2)) {
-                window.location.href = 'niveisMenu.html';
-            }
-        }
-
-        else {
-            if (mouseX > width / 2 - 100 && mouseX < width / 2 + 100 &&
-                mouseY > height / 2 + 140 - 10 - 30 && mouseY < height / 2 + 140 - 10 + 30) {
-                this.status = true;
-            }
-            else if (mouseX > (width / 2 - 136) - 40 / 2 &&
-                mouseX < (width / 2 - 136) + 40 / 2 &&
-                mouseY > (height / 2 - 140) - (50 / 2) &&
-                mouseY < (height / 2 - 140) + (50 / 2)) {
-                window.location.href = 'niveisMenu.html';
             }
         }
     }
 }
 
 class Level {
-    constructor(background, question, uiEndLevel, imageLevel) {
+    constructor(background, question, uiEndLevel) {
         this.items = [];
         this.textSize = 50;
         this.draggingItem = null;
         this.offsetX = 0;
         this.offsetY = 0;
-        this.imageLevel = imageLevel;
         this.background = background;
         this.totalTrues = 0;
         this.totalFalses = 0;
@@ -459,6 +402,8 @@ class Level {
         this.timeScaleMax = 10;
 
         this.status = false;
+
+        this.erros = 0;
     }
 
     addItem(item, value, description, name) {
@@ -483,14 +428,15 @@ class Level {
 
     display() {
         background(this.background);
-
         push();
+        blendMode(MULTIPLY);
+
         if (w < 900) {
-            image(this.imageLevel, width / 2, height / 2.2, plateSize, plateSize);
+            image(plate, width / 2, height / 2.2, plateSize, plateSize);
         } else if (w < 1500) {
-            image(this.imageLevel, width / 2, height / 2.1, plateSize, plateSize);
+            image(plate, width / 2, height / 2.1, plateSize, plateSize);
         } else {
-            image(this.imageLevel, width / 2, height / 2.1, plateSize, plateSize);
+            image(plate, width / 2, height / 2.1, plateSize, plateSize);
         }
         pop();
 
@@ -526,7 +472,8 @@ class Level {
         if (this.status && this.currentTextTimer == 0) {
             fill(0, 100);
             rect(0, 0, width, height);
-            this.uiEndLevel.display();
+
+            this.uiEndLevel.display(this.erros < 2);
         }
     }
 
@@ -542,7 +489,7 @@ class Level {
         blendMode(MULTIPLY);
 
         if (w < 900) {
-            let maxWidth = windowWidth * 0.7;
+            let maxWidth = windowWidth * 0.8;
             let lines = wrapText(this.question, maxWidth);
             let y = marginMobile + textAscent();
             for (let i = 0; i < lines.length; i++) {
@@ -550,8 +497,9 @@ class Level {
                 y += textAscent() + textDescent();
             }
             lastY = y;
-        } else if (w < 1500) {
-            let maxWidth = windowWidth * 0.8;
+        }
+        else if (w < 1500) {
+            let maxWidth = windowWidth * 0.5;
             let lines = wrapText(this.question, maxWidth);
             let y = marginDesktop + textAscent();
             for (let i = 0; i < lines.length; i++) {
@@ -559,8 +507,10 @@ class Level {
                 y += textAscent() + textDescent();
             }
             lastY = y;
-        } else {
-            let maxWidth = windowWidth * 0.4;
+        }
+
+        else {
+            let maxWidth = windowWidth * 0.3;
             let lines = wrapText(this.question, maxWidth);
             let y = marginDesktop + textAscent();
             for (let i = 0; i < lines.length; i++) {
@@ -571,11 +521,10 @@ class Level {
         }
         pop();
 
-
-
-        let content = this.points + "/" + this.totalTrues;
+        let content = this.points + "/" + this.totalTrues + " certos";
         textSize(h2Size * 0.8);
         textFont(fontRegular);
+
         push();
         fill(109, 111, 113);
         blendMode(MULTIPLY);
@@ -588,7 +537,6 @@ class Level {
             text(content, marginDesktop, lastY + textAscent());
         }
         pop();
-
 
         if (this.lastPlateItem != null && this.currentTextTimer != 0) {
             if (w < 900) {
@@ -662,7 +610,7 @@ class Level {
         }
     }
 
-    setDefaultPosition() {
+    setDefaultPosition(item = -1) {
         let space;
         let rowSpacingFactor = 1.4;
 
@@ -673,47 +621,59 @@ class Level {
                 if (i % 2 == 0) xd = 0;
                 else xd = 1;
 
-
-                this.items[i].pos.set(
-                    (width * 0.025) + space * (i + 1 - xd),
-                    height * (1 - itemsScale / 1.8 * (1 + xd * rowSpacingFactor))
-                );
+                if (item == -1 || item == this.items[i])
+                    this.items[i].pos.set(
+                        (width * 0.025) + space * (i + 1 - xd),
+                        height * (1 - itemsScale / 1.8 * (1 + xd * rowSpacingFactor))
+                    );
             }
         } else {
             space = width * 0.8 / (this.items.length + 1);
             for (let i = 0; i < this.items.length; i++) {
-                this.items[i].pos.set(
-                    (width * 0.1) + space * (i + 1),
-                    height * (1 - itemsScale / 1.5)
-                );
+                if (item == -1 || item == this.items[i])
+                    this.items[i].pos.set(
+                        (width * 0.1) + space * (i + 1),
+                        height * (1 - itemsScale / 1.5)
+                    );
             }
         }
     }
 
 
     insidePlate(item) {
-        if (dist(item.pos.x, item.pos.y, width / 2, height / 2) < plateSize / 2) {
-            item.plate = true;
+        if (item.pos.x > width / 2 - plateSize / 2 &&
+            item.pos.x < width / 2 + plateSize / 2 &&
+            item.pos.y > height / 2 - plateSize / 4 &&
+            item.pos.y < height / 2 + plateSize / 2) {
             this.lastPlateItem = item;
             this.currentTextTimer = 50;
-            if (item.value){this.points++;
+            if (item.value) {
+                item.plate = true;
+                this.points++;
+
                 soundTrue.play();
             }
-            else{
+            else {
                 soundFalse.play();
+                this.erros++;
+                this.setDefaultPosition(item);
             }
-        } else if (item.plate) {
+        }
+        else if (item.plate) {
             item.plate = false;
-            if (item.value) {this.points--;
-                
+            if (item.value) {
+                this.points--;
             }
         }
     }
 
     checkEndLevel() {
-        for (let i = 0; i < this.items.length; i++) {
-            if (this.items[i].value != this.items[i].plate)
-                return false;
+        if (this.erros < 2) {
+            for (let i = 0; i < this.items.length; i++) {
+                if (this.items[i].value != this.items[i].plate)
+                    return false;
+            }
+
         }
         return true;
     }
@@ -777,4 +737,8 @@ function wrapText(txt, maxWidth) {
     lines.push(currentLine);
 
     return lines;
+}
+
+function reset(){
+    
 }

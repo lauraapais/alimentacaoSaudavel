@@ -157,7 +157,7 @@ function loadLevels() {
     var level_one, level_two, level_three, level_four;
     //Pequeno-Almoço
     level_one = new Level(color(103, 175, 136), 'Cria um pequeno-almoço equilibrado e com alimentos saudáveis!',
-        new UIFinish('data/jogo/endLevel/12.png'));
+    new UIFinish('data/jogo/endLevel/12_done.png', 'data/jogo/endLevel/12_erro.png'));
     level_one.addItem(items.sausage, false, 'data/jogo/certoErrado/level4/screen1/errado.png', 'Salsicha');
     level_one.addItem(items.grape, true, 'data/jogo/certoErrado/level4/screen1/certo.png', 'Uvas');
     level_one.addItem(items.cheese1, false, 'data/jogo/certoErrado/level4/screen1/errado.png', 'Queijo');
@@ -167,7 +167,7 @@ function loadLevels() {
     level_one.setDefaultPosition();
     //Almoço
     level_two = new Level(color(221, 106, 101), 'Cria um almoço equilibrado e com alimentos saudáveis!',
-        new UIFinish('data/jogo/endLevel/13.png'));
+    new UIFinish('data/jogo/endLevel/13_done.png', 'data/jogo/endLevel/13_erro.png'));
     level_two.addItem(items.chicken, true, 'data/jogo/certoErrado/level4/screen2/certo.png', 'Frango');
     level_two.addItem(items.carot, true, 'data/jogo/certoErrado/level4/screen2/certo.png', 'Cenoura');
     level_two.addItem(items.chestnut, true, 'data/jogo/certoErrado/level4/screen2/certo.png', 'Castanhas');
@@ -177,7 +177,7 @@ function loadLevels() {
     level_two.setDefaultPosition();
     //Lanche
     level_three = new Level(color(239, 190, 46), 'Cria um lanche equilibrado e com alimentos saudáveis!',
-        new UIFinish('data/jogo/endLevel/14.png'));
+    new UIFinish('data/jogo/endLevel/14_done.png', 'data/jogo/endLevel/14_erro.png'));
     level_three.addItem(items.bread2, true, 'data/jogo/certoErrado/level4/screen3/certo.png', 'Pão');
     level_three.addItem(items.peach, true, 'data/jogo/certoErrado/level4/screen3/certo.png', 'Pêssego');
     level_three.addItem(items.milk, true, 'data/jogo/certoErrado/level4/screen3/certo.png', 'Leite');
@@ -187,7 +187,7 @@ function loadLevels() {
     level_three.setDefaultPosition();
     //Jantar
     level_four = new Level(color(235, 182, 180), 'Cria um jantar equilibrado e com alimentos saudáveis!',
-        new UIFinish('data/jogo/endLevel/15.png'));
+    new UIFinish('data/jogo/endLevel/15_done.png', 'data/jogo/endLevel/15_erro.png'));
     level_four.addItem(items.cheese1, false, 'data/jogo/certoErrado/level4/screen4/errado.png', 'Queijo');
     level_four.addItem(items.lettuce, true, 'data/jogo/certoErrado/level4/screen4/certo.png', 'Alface');
     level_four.addItem(items.oliveOli, true, 'data/jogo/certoErrado/level4/screen4/certo.png', 'Azeite');
@@ -276,123 +276,68 @@ class LevelLoader {
 }
 
 class UIFinish {
-    constructor(imageURL) {
-        this.image = loadImage(imageURL);
-        this.text = "Concluíste o nível primavera!";
+    constructor(imageURLWin, imageURLLose) {
+        this.imageWin = loadImage(imageURLWin);
+        this.imageLose = loadImage(imageURLLose);
         this.w = 400;
         this.h = 400;
         this.margin = 40;
         this.status = false;
     }
 
-    display() {
+    display(result) {
         imageMode(CENTER);
-        if (w < 900) {
-            image(this.image, width / 2, height / 2, 300, 300);
-        }
-        else if (w > 2500) {
-            image(this.image, width / 2, height / 2, 500, 500);
-        } else {
-            image(this.image, width / 2, height / 2, 400, 400);
-        }
+        const imgSize = w < 900 ? 300 : w > 2500 ? 500 : 400;
+        image(result ? this.imageWin : this.imageLose, width / 2, height / 2, imgSize, imgSize);
 
-        push();
-        blendMode(MULTIPLY);
-
-        if (w < 900) {
-            image(close, width / 2 - 102, height / 2 - 105, 30, 30);
-        }
-        else if (w > 2500) {
-            image(close, width / 2 - 170, height / 2 - 175, 50, 50);
-
-        }
-        else {
-            image(close, width / 2 - 136, height / 2 - 140, 40, 40);
-        }
-
-        pop();
+        const buttonSize = w < 900 ? 60 : w > 2500 ? 85 : 70;
+        const buttonOffsetY = w < 900 ? 95 : w > 2500 ? 165 : 130;
+        const buttonOffsetX = 50;
 
         push();
         rectMode(CENTER);
         blendMode(MULTIPLY);
         noStroke();
         fill(109, 111, 113);
-
-        if (w < 900) {
-            rect(width / 2, height / 2 + 105 - 7.5, 150, 45, 22);
-        }
-        else if (w > 2500) {
-            rect(width / 2, height / 2 + 175 - 12.5, 250, 75, 22);
-
-        } else {
-            rect(width / 2, height / 2 + 140 - 10, 200, 60, 22);
-        }
+        rect(width / 2 + buttonOffsetX, height / 2 + buttonOffsetY, buttonSize, buttonSize, 10);
+        rect(width / 2 - buttonOffsetX, height / 2 + buttonOffsetY, buttonSize, buttonSize, 10);
         pop();
 
         push();
-        if (w < 900) {
-            textSize(19.2);
-        }
-        else if (w > 2500) {
-            textSize(32);
-        } else {
-            textSize(25);
-        }
+        noStroke();
+        const iconSize = w < 900 ? 30 : w > 2500 ? 55 : 40;
+        const homeX = width / 2 - buttonOffsetX;
+        const actionX = width / 2 + buttonOffsetX;
 
-        fill(255);
-        textAlign(CENTER);
-textFont(fontBold);
-        if (w < 900) {
-            text('Continuar', width / 2, height / 2 + 105 - 8.1 + textAscent() / 2);
-        }
-        else if (w > 2500) {
-            text('Continuar', width / 2, height / 2 + 175 - 13.5 + textAscent() / 2);
-        }
-        else {
-            text('Continuar', width / 2, height / 2 + 140 - 10.8 + textAscent() / 2);
-        }
+        image(result ? homeIcon : refreshIcon, homeX, height / 2 + buttonOffsetY, iconSize, iconSize);
+        image(result ? continueIcon : homeIcon, actionX, height / 2 + buttonOffsetY, iconSize, iconSize);
         pop();
     }
 
-    mousePressed() {
+    mousePressed(result) {
+        const buttonSize = w < 900 ? 30 : w > 2500 ? 42.5 : 35.5;
+        const buttonOffsetY = w < 900 ? 95 : w > 2500 ? 165 : 130;
+        const buttonOffsetX = w < 900 ? 40 : w > 2500 ? 50 : 50;
 
-        if (w < 900) {
-            if (mouseX > width / 2 - 75 && mouseX < width / 2 + 75 && // metade da largura do retângulo
-                mouseY > height / 2 + 105 - 7.5 - 22.5 && mouseY < height / 2 + 105 - 7.5 + 22.5) { // metade da altura do retângulo
+        const checkClick = (x, y, size) => (
+            mouseX > x - size && mouseX < x + size && mouseY > y - size && mouseY < y + size
+        );
+
+        const homeX = width / 2 - buttonOffsetX;
+        const actionX = width / 2 + buttonOffsetX;
+        const buttonY = height / 2 + buttonOffsetY;
+
+        if (result) {
+            if (checkClick(homeX, buttonY, buttonSize)) {
+                window.location.href = 'niveisMenu.html';
+            } else if (checkClick(actionX, buttonY, buttonSize)) {
                 this.status = true;
             }
-            else if (mouseX > (width / 2 - 102) - 30 / 2 &&
-                mouseX < (width / 2 - 102) + 30 / 2 &&
-                mouseY > (height / 2 - 195) - (30 / 2) &&
-                mouseY < (height / 2 - 105) + (30 / 2)) {
+        } else {
+            if (checkClick(homeX, buttonY, buttonSize)) {
                 window.location.href = 'niveisMenu.html';
-            }
-        }
-
-        else if (w > 2500) {
-
-            if (mouseX > width / 2 - 125 && mouseX < width / 2 + 125 &&
-                mouseY > height / 2 + 175 - 12.5 - 37.5 && mouseY < height / 2 + 175 - 12.5 + 37.5) {
+            } else if (checkClick(actionX, buttonY, buttonSize)) {
                 this.status = true;
-            }
-            else if (mouseX > (width / 2 - 170) - 50 / 2 &&
-                mouseX < (width / 2 - 170) + 50 / 2 &&
-                mouseY > (height / 2 - 175) - (50 / 2) &&
-                mouseY < (height / 2 - 175) + (50 / 2)) {
-                window.location.href = 'niveisMenu.html';
-            }
-        }
-
-        else {
-            if (mouseX > width / 2 - 100 && mouseX < width / 2 + 100 &&
-                mouseY > height / 2 + 140 - 10 - 30 && mouseY < height / 2 + 140 - 10 + 30) {
-                this.status = true;
-            }
-            else if (mouseX > (width / 2 - 136) - 40 / 2 &&
-                mouseX < (width / 2 - 136) + 40 / 2 &&
-                mouseY > (height / 2 - 140) - (50 / 2) &&
-                mouseY < (height / 2 - 140) + (50 / 2)) {
-                window.location.href = 'niveisMenu.html';
             }
         }
     }
@@ -420,6 +365,8 @@ class Level {
         this.timeScaleMax = 10;
 
         this.status = false;
+
+        this.erros = 0;
     }
 
     addItem(item, value, description, name) {
@@ -479,7 +426,6 @@ class Level {
                 text(item.name, item.pos.x, item.pos.y - (item.item.image.height * itemSize / 1.5));
             }
             pop();
-            
         }
 
         this.ui();
@@ -489,7 +435,8 @@ class Level {
         if (this.status && this.currentTextTimer == 0) {
             fill(0, 100);
             rect(0, 0, width, height);
-            this.uiEndLevel.display();
+
+            this.uiEndLevel.display(this.erros < 2);
         }
     }
 
@@ -505,7 +452,7 @@ class Level {
         blendMode(MULTIPLY);
 
         if (w < 900) {
-            let maxWidth = windowWidth * 0.7;
+            let maxWidth = windowWidth * 0.8;
             let lines = wrapText(this.question, maxWidth);
             let y = marginMobile + textAscent();
             for (let i = 0; i < lines.length; i++) {
@@ -513,8 +460,9 @@ class Level {
                 y += textAscent() + textDescent();
             }
             lastY = y;
-        } else if (w < 1500) {
-            let maxWidth = windowWidth * 0.8;
+        }
+        else if (w < 1500) {
+            let maxWidth = windowWidth * 0.5;
             let lines = wrapText(this.question, maxWidth);
             let y = marginDesktop + textAscent();
             for (let i = 0; i < lines.length; i++) {
@@ -522,8 +470,10 @@ class Level {
                 y += textAscent() + textDescent();
             }
             lastY = y;
-        } else {
-            let maxWidth = windowWidth * 0.4;
+        }
+
+        else {
+            let maxWidth = windowWidth * 0.3;
             let lines = wrapText(this.question, maxWidth);
             let y = marginDesktop + textAscent();
             for (let i = 0; i < lines.length; i++) {
@@ -534,24 +484,22 @@ class Level {
         }
         pop();
 
-        
-
-        let content = this.points + "/" + this.totalTrues;
-        textSize(h2Size*0.8);
+        let content = this.points + "/" + this.totalTrues + " certos";
+        textSize(h2Size * 0.8);
         textFont(fontRegular);
+
         push();
         fill(109, 111, 113);
         blendMode(MULTIPLY);
 
         if (windowWidth < 900) {
-            text(content, marginMobile, lastY + marginMobile/2);
+            text(content, marginMobile, lastY + marginMobile / 2);
         } else if (windowWidth < 1500) {
             text(content, marginDesktop, lastY + textAscent());
         } else {
             text(content, marginDesktop, lastY + textAscent());
         }
         pop();
-
 
         if (this.lastPlateItem != null && this.currentTextTimer != 0) {
             if (w < 900) {
@@ -625,58 +573,70 @@ class Level {
         }
     }
 
-    setDefaultPosition() {
+    setDefaultPosition(item = -1) {
         let space;
         let rowSpacingFactor = 1.4;
-    
+
         if (w < 600) {
             space = width * 0.95 / (this.items.length / 2 + 3);
             for (let i = 0; i < this.items.length; i++) {
                 let xd;
                 if (i % 2 == 0) xd = 0;
                 else xd = 1;
-    
-            
-                this.items[i].pos.set(
-                    (width * 0.025) + space * (i + 1 - xd),
-                    height * (1 - itemsScale / 1.8 * (1 + xd * rowSpacingFactor))
-                );
+
+                if (item == -1 || item == this.items[i])
+                    this.items[i].pos.set(
+                        (width * 0.025) + space * (i + 1 - xd),
+                        height * (1 - itemsScale / 1.8 * (1 + xd * rowSpacingFactor))
+                    );
             }
         } else {
             space = width * 0.8 / (this.items.length + 1);
             for (let i = 0; i < this.items.length; i++) {
-                this.items[i].pos.set(
-                    (width * 0.1) + space * (i + 1),
-                    height * (1 - itemsScale / 1.5) 
-                );
+                if (item == -1 || item == this.items[i])
+                    this.items[i].pos.set(
+                        (width * 0.1) + space * (i + 1),
+                        height * (1 - itemsScale / 1.5)
+                    );
             }
         }
     }
-    
+
 
     insidePlate(item) {
-        if (dist(item.pos.x, item.pos.y, width / 2, height / 2) < plateSize / 2) {
-            item.plate = true;
+        if (item.pos.x > width / 2 - plateSize / 2 &&
+            item.pos.x < width / 2 + plateSize / 2 &&
+            item.pos.y > height / 2 - plateSize / 4 &&
+            item.pos.y < height / 2 + plateSize / 2) {
             this.lastPlateItem = item;
             this.currentTextTimer = 50;
-            if (item.value){ this.points++;
+            if (item.value) {
+                item.plate = true;
+                this.points++;
+
                 soundTrue.play();
             }
-            else{
-                soundFalse.play()
+            else {
+                soundFalse.play();
+                this.erros++;
+                this.setDefaultPosition(item);
             }
-        } else if (item.plate) {
+        }
+        else if (item.plate) {
             item.plate = false;
-            if (item.value){ this.points--;
-                
+            if (item.value) {
+                this.points--;
             }
         }
     }
 
     checkEndLevel() {
-        for (let i = 0; i < this.items.length; i++) {
-            if (this.items[i].value != this.items[i].plate)
-                return false;
+        if (this.erros < 2) {
+            for (let i = 0; i < this.items.length; i++) {
+                if (this.items[i].value != this.items[i].plate)
+                    return false;
+            }
+
         }
         return true;
     }
@@ -723,21 +683,25 @@ function replaceItem(px, py, pw, ph, w, h) {
 }
 
 function wrapText(txt, maxWidth) {
-    let words = txt.split(' '); 
+    let words = txt.split(' ');
     let lines = [];
     let currentLine = words[0];
 
     for (let i = 1; i < words.length; i++) {
         let word = words[i];
-        let width = textWidth(currentLine + ' ' + word); 
+        let width = textWidth(currentLine + ' ' + word);
         if (width < maxWidth) {
-            currentLine += ' ' + word; 
+            currentLine += ' ' + word;
         } else {
-            lines.push(currentLine); 
-            currentLine = word; 
+            lines.push(currentLine);
+            currentLine = word;
         }
     }
     lines.push(currentLine);
 
     return lines;
+}
+
+function reset(){
+    
 }
