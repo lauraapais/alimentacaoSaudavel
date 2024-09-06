@@ -157,7 +157,7 @@ function loadLevels() {
     var level_one, level_two, level_three, level_four;
     //Pequeno-Almoço
     level_one = new Level(color(103, 175, 136), 'Cria um pequeno-almoço equilibrado e com alimentos saudáveis!',
-    new UIFinish('data/jogo/endLevel/12_done.png', 'data/jogo/endLevel/12_erro.png'));
+        new UIFinish('data/jogo/endLevel/12_done.png', 'data/jogo/endLevel/12_erro.png'));
     level_one.addItem(items.sausage, false, 'data/jogo/certoErrado/level4/screen1/errado.png', 'Salsicha');
     level_one.addItem(items.grape, true, 'data/jogo/certoErrado/level4/screen1/certo.png', 'Uvas');
     level_one.addItem(items.cheese1, false, 'data/jogo/certoErrado/level4/screen1/errado.png', 'Queijo');
@@ -167,7 +167,7 @@ function loadLevels() {
     level_one.setDefaultPosition();
     //Almoço
     level_two = new Level(color(221, 106, 101), 'Cria um almoço equilibrado e com alimentos saudáveis!',
-    new UIFinish('data/jogo/endLevel/13_done.png', 'data/jogo/endLevel/13_erro.png'));
+        new UIFinish('data/jogo/endLevel/13_done.png', 'data/jogo/endLevel/13_erro.png'));
     level_two.addItem(items.chicken, true, 'data/jogo/certoErrado/level4/screen2/certo.png', 'Frango');
     level_two.addItem(items.carot, true, 'data/jogo/certoErrado/level4/screen2/certo.png', 'Cenoura');
     level_two.addItem(items.chestnut, true, 'data/jogo/certoErrado/level4/screen2/certo.png', 'Castanhas');
@@ -177,7 +177,7 @@ function loadLevels() {
     level_two.setDefaultPosition();
     //Lanche
     level_three = new Level(color(239, 190, 46), 'Cria um lanche equilibrado e com alimentos saudáveis!',
-    new UIFinish('data/jogo/endLevel/14_done.png', 'data/jogo/endLevel/14_erro.png'));
+        new UIFinish('data/jogo/endLevel/14_done.png', 'data/jogo/endLevel/14_erro.png'));
     level_three.addItem(items.bread2, true, 'data/jogo/certoErrado/level4/screen3/certo.png', 'Pão');
     level_three.addItem(items.peach, true, 'data/jogo/certoErrado/level4/screen3/certo.png', 'Pêssego');
     level_three.addItem(items.milk, true, 'data/jogo/certoErrado/level4/screen3/certo.png', 'Leite');
@@ -187,7 +187,7 @@ function loadLevels() {
     level_three.setDefaultPosition();
     //Jantar
     level_four = new Level(color(235, 182, 180), 'Cria um jantar equilibrado e com alimentos saudáveis!',
-    new UIFinish('data/jogo/endLevel/15_done.png', 'data/jogo/endLevel/15_erro.png'));
+        new UIFinish('data/jogo/endLevel/15_done.png', 'data/jogo/endLevel/15_erro.png'));
     level_four.addItem(items.cheese1, false, 'data/jogo/certoErrado/level4/screen4/errado.png', 'Queijo');
     level_four.addItem(items.lettuce, true, 'data/jogo/certoErrado/level4/screen4/certo.png', 'Alface');
     level_four.addItem(items.oliveOli, true, 'data/jogo/certoErrado/level4/screen4/certo.png', 'Azeite');
@@ -285,16 +285,19 @@ class UIFinish {
         this.status = false;
     }
 
-    display(result) {
-
+    display(result, pontos, certos, buttonBackground) {
+        let content = pontos + "/" + certos;
         this.result = result;
-        imageMode(CENTER);
-        const imgSize = w < 900 ? 300 : w > 2500 ? 500 : 400;
-        image(result ? this.imageWin : this.imageLose, width / 2, height / 2, imgSize, imgSize);
 
+        const imgSize = w < 900 ? 300 : w > 2500 ? 500 : 400;
         const buttonSize = w < 900 ? 60 : w > 2500 ? 85 : 70;
         const buttonOffsetY = w < 900 ? 95 : w > 2500 ? 165 : 130;
         const buttonOffsetX = 50;
+
+        push();
+        imageMode(CENTER);
+        image(result ? this.imageWin : this.imageLose, width / 2, height / 2, imgSize, imgSize);
+        pop();
 
         push();
         rectMode(CENTER);
@@ -307,11 +310,34 @@ class UIFinish {
 
         push();
         noStroke();
-        const iconSize = w < 900 ? 30 : w > 2500 ? 55 : 40;
+        const iconSize = w < 900 ? 20 : w > 2500 ? 45 : 35;
         const homeX = width / 2 - buttonOffsetX;
         const actionX = width / 2 + buttonOffsetX;
         image(result ? homeIcon : refreshIcon, homeX, height / 2 + buttonOffsetY, iconSize, iconSize);
         image(result ? continueIcon : homeIcon, actionX, height / 2 + buttonOffsetY, iconSize, iconSize);
+        pop();
+
+        push();
+        rectMode(CENTER);
+        noStroke();
+        fill(109, 111, 113);
+        pop();
+        push();
+        noStroke();
+        blendMode(MULTIPLY);
+        ellipse(width / 2 + imgSize / 2 - imgSize / 7, height / 2 - imgSize / 2 + imgSize / 7, imgSize / 5, imgSize / 5);
+        pop();
+        
+        push();
+        if (w < 900) {
+            textSize(h2Size / 2);
+        }
+        else {
+            textSize(h2Size / 2.6);
+        }
+        fill(255);
+        textAlign(CENTER, CENTER);  // Centraliza o texto
+        text(content, width / 2 + imgSize / 2 - imgSize / 7, height / 2 - imgSize / 2 + imgSize / 7);
         pop();
     }
 
@@ -343,6 +369,7 @@ class UIFinish {
         }
     }
 }
+
 
 class Level {
     constructor(background, question, uiEndLevel) {
@@ -437,7 +464,7 @@ class Level {
             fill(0, 100);
             rect(0, 0, width, height);
 
-            this.uiEndLevel.display(this.erros < 2);
+            this.uiEndLevel.display(this.erros < 2, this.points, this.totalTrues, this.background);
         }
     }
 
@@ -705,18 +732,18 @@ function wrapText(txt, maxWidth) {
 
 function resetLevel() {
     let currentLevel = levels.levels[levels.currentLevel];
-    
+
     currentLevel.points = 0;
     currentLevel.erros = 0;
     currentLevel.lastPlateItem = null;
     currentLevel.currentTextTimer = 0;
-    
+
     for (let i = 0; i < currentLevel.items.length; i++) {
         let item = currentLevel.items[i];
-        item.plate = false;  
+        item.plate = false;
         item.dragScale = 0;
-        currentLevel.setDefaultPosition(item);  
+        currentLevel.setDefaultPosition(item);
     }
-    
+
     currentLevel.status = false;
 }

@@ -237,16 +237,19 @@ class UIFinish {
         this.status = false;
     }
 
-    display(result) {
-
+    display(result, pontos, certos, buttonBackground) {
+        let content = pontos + "/" + certos;
         this.result = result;
-        imageMode(CENTER);
-        const imgSize = w < 900 ? 300 : w > 2500 ? 500 : 400;
-        image(result ? this.imageWin : this.imageLose, width / 2, height / 2, imgSize, imgSize);
 
+        const imgSize = w < 900 ? 300 : w > 2500 ? 500 : 400;
         const buttonSize = w < 900 ? 60 : w > 2500 ? 85 : 70;
         const buttonOffsetY = w < 900 ? 95 : w > 2500 ? 165 : 130;
         const buttonOffsetX = 50;
+
+        push();
+        imageMode(CENTER);
+        image(result ? this.imageWin : this.imageLose, width / 2, height / 2, imgSize, imgSize);
+        pop();
 
         push();
         rectMode(CENTER);
@@ -259,14 +262,36 @@ class UIFinish {
 
         push();
         noStroke();
-        const iconSize = w < 900 ? 30 : w > 2500 ? 55 : 40;
+        const iconSize = w < 900 ? 20 : w > 2500 ? 45 : 35;
         const homeX = width / 2 - buttonOffsetX;
         const actionX = width / 2 + buttonOffsetX;
         image(result ? homeIcon : refreshIcon, homeX, height / 2 + buttonOffsetY, iconSize, iconSize);
         image(result ? continueIcon : homeIcon, actionX, height / 2 + buttonOffsetY, iconSize, iconSize);
         pop();
-    }
 
+        push();
+        rectMode(CENTER);
+        noStroke();
+        fill(109, 111, 113);
+        pop();
+        push();
+        noStroke();
+        blendMode(MULTIPLY);
+        ellipse(width / 2 + imgSize / 2 - imgSize / 7, height / 2 - imgSize / 2 + imgSize / 7, imgSize / 5, imgSize / 5);
+        pop();
+        
+        push();
+        if (w < 900) {
+            textSize(h2Size / 2);
+        }
+        else {
+            textSize(h2Size / 2.6);
+        }
+        fill(255);
+        textAlign(CENTER, CENTER);  // Centraliza o texto
+        text(content, width / 2 + imgSize / 2 - imgSize / 7, height / 2 - imgSize / 2 + imgSize / 7);
+        pop();
+    }
     mousePressed() {
         const result = this.result;
         const buttonSize = w < 900 ? 30 : w > 2500 ? 42.5 : 35.5;
@@ -295,6 +320,7 @@ class UIFinish {
         }
     }
 }
+
 
 class Level {
     constructor(background, question, uiEndLevel) {
@@ -389,7 +415,7 @@ class Level {
             fill(0, 100);
             rect(0, 0, width, height);
 
-            this.uiEndLevel.display(this.erros < 2);
+            this.uiEndLevel.display(this.erros < 2, this.points, this.totalTrues, this.background);
         }
     }
 

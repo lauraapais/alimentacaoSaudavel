@@ -5,7 +5,7 @@ var items = {};
 var levels;
 var plate, plateSize, itemSize;
 var itemsScale = 0.16;
-var close, refreshIcon, continueIcon, homeIcon;
+var close, refreshIcon, continueIcon, homeIcon, lifeIcon;
 var heightQuestion = 300;
 var widthQuestionMobile;
 
@@ -33,6 +33,7 @@ function preload() {
     refreshIcon = loadImage('data/jogo/endLevel/icons/refresh.png');
     homeIcon = loadImage('data/jogo/endLevel/icons/home.png');
     continueIcon = loadImage('data/jogo/endLevel/icons/continue.png');
+    lifeIcon = loadImage('data/icons/life.png');
 }
 
 function setup() {
@@ -291,16 +292,19 @@ class UIFinish {
         this.status = false;
     }
 
-    display(result) {
-
+    display(result, pontos, certos, buttonBackground) {
+        let content = pontos + "/" + certos;
         this.result = result;
-        imageMode(CENTER);
-        const imgSize = w < 900 ? 300 : w > 2500 ? 500 : 400;
-        image(result ? this.imageWin : this.imageLose, width / 2, height / 2, imgSize, imgSize);
 
+        const imgSize = w < 900 ? 300 : w > 2500 ? 500 : 400;
         const buttonSize = w < 900 ? 60 : w > 2500 ? 85 : 70;
         const buttonOffsetY = w < 900 ? 95 : w > 2500 ? 165 : 130;
         const buttonOffsetX = 50;
+
+        push();
+        imageMode(CENTER);
+        image(result ? this.imageWin : this.imageLose, width / 2, height / 2, imgSize, imgSize);
+        pop();
 
         push();
         rectMode(CENTER);
@@ -313,11 +317,34 @@ class UIFinish {
 
         push();
         noStroke();
-        const iconSize = w < 900 ? 30 : w > 2500 ? 55 : 40;
+        const iconSize = w < 900 ? 20 : w > 2500 ? 45 : 35;
         const homeX = width / 2 - buttonOffsetX;
         const actionX = width / 2 + buttonOffsetX;
         image(result ? homeIcon : refreshIcon, homeX, height / 2 + buttonOffsetY, iconSize, iconSize);
         image(result ? continueIcon : homeIcon, actionX, height / 2 + buttonOffsetY, iconSize, iconSize);
+        pop();
+
+        push();
+        rectMode(CENTER);
+        noStroke();
+        fill(109, 111, 113);
+        pop();
+        push();
+        noStroke();
+        blendMode(MULTIPLY);
+        ellipse(width / 2 + imgSize / 2 - imgSize / 7, height / 2 - imgSize / 2 + imgSize / 7, imgSize / 5, imgSize / 5);
+        pop();
+
+        push();
+        if (w < 900) {
+            textSize(h2Size / 2);
+        }
+        else {
+            textSize(h2Size / 2.6);
+        }
+        fill(255);
+        textAlign(CENTER, CENTER);  // Centraliza o texto
+        text(content, width / 2 + imgSize / 2 - imgSize / 7, height / 2 - imgSize / 2 + imgSize / 7);
         pop();
     }
 
@@ -349,6 +376,7 @@ class UIFinish {
         }
     }
 }
+
 
 class Level {
     constructor(background, question, uiEndLevel) {
@@ -442,8 +470,7 @@ class Level {
         if (this.status && this.currentTextTimer == 0) {
             fill(0, 100);
             rect(0, 0, width, height);
-
-            this.uiEndLevel.display(this.erros < 2);
+            this.uiEndLevel.display(this.erros < 2, this.points, this.totalTrues, this.background);
         }
     }
 
@@ -490,23 +517,24 @@ class Level {
             lastY = y;
         }
         pop();
-
-        let content = this.points + "/" + this.totalTrues + " certos";
         textSize(h2Size * 0.8);
         textFont(fontRegular);
 
-        push();
-        fill(109, 111, 113);
-        blendMode(MULTIPLY);
+        let repeteIcon = this.totalTrues;
 
         if (windowWidth < 900) {
-            text(content, marginMobile, lastY + marginMobile / 2);
+            for (let i = 0; i < repeteIcon; i++) {
+                image(lifeIcon, marginMobile + 10 + i * 30, lastY, 25, 25);
+            }
         } else if (windowWidth < 1500) {
-            text(content, marginDesktop, lastY + textAscent());
+            for (let i = 0; i < repeteIcon; i++) {
+                image(lifeIcon, marginDesktop + 15 + i * 40, lastY, 35, 35);
+            }
         } else {
-            text(content, marginDesktop, lastY + textAscent());
+            for (let i = 0; i < repeteIcon; i++) {
+                image(lifeIcon, marginDesktop + 15 + i * 40, lastY, 35, 35);
+            }
         }
-        pop();
 
         if (this.lastPlateItem != null && this.currentTextTimer != 0) {
             if (w < 900) {
@@ -711,18 +739,18 @@ function wrapText(txt, maxWidth) {
 
 function resetLevel() {
     let currentLevel = levels.levels[levels.currentLevel];
-    
+
     currentLevel.points = 0;
     currentLevel.erros = 0;
     currentLevel.lastPlateItem = null;
     currentLevel.currentTextTimer = 0;
-    
+
     for (let i = 0; i < currentLevel.items.length; i++) {
         let item = currentLevel.items[i];
-        item.plate = false;  
+        item.plate = false;
         item.dragScale = 0;
-        currentLevel.setDefaultPosition(item);  
+        currentLevel.setDefaultPosition(item);
     }
-    
+
     currentLevel.status = false;
 }

@@ -529,6 +529,10 @@ svg {
     border-radius: 25px;
 }
 
+.underline{
+    text-decoration-color:var(--grey);
+}
+
 .blockDiv img {
     width: 45px !important;
 }
