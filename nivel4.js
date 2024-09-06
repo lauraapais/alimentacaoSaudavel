@@ -5,7 +5,7 @@ var items = {};
 var levels;
 var plate, plateSize, itemSize;
 var itemsScale = 0.16;
-var close, refreshIcon, continueIcon, homeIcon;
+var close, refreshIcon, continueIcon, homeIcon, lifeIcon;
 var heightQuestion = 300;
 var widthQuestionMobile;
 
@@ -33,6 +33,7 @@ function preload() {
     refreshIcon = loadImage('data/jogo/endLevel/icons/refresh.png');
     homeIcon = loadImage('data/jogo/endLevel/icons/home.png');
     continueIcon = loadImage('data/jogo/endLevel/icons/continue.png');
+    lifeIcon = loadImage('data/icons/life.png');
 }
 
 function setup() {
@@ -515,19 +516,28 @@ class Level {
         let content = this.points + "/" + this.totalTrues + " certos";
         textSize(h2Size * 0.8);
         textFont(fontRegular);
-
+       
         push();
-        fill(109, 111, 113);
-        blendMode(MULTIPLY);
+        textSize(h2Size * 0.8);
+        textFont(fontRegular);
+
+        let repeteIcon = this.totalTrues;
 
         if (windowWidth < 900) {
-            text(content, marginMobile, lastY + marginMobile / 2);
+            for (let i = 0; i < repeteIcon; i++) {
+                image(lifeIcon, marginMobile + 10 + i * 30, lastY, 25, 25);
+            }
         } else if (windowWidth < 1500) {
-            text(content, marginDesktop, lastY + textAscent());
+            for (let i = 0; i < repeteIcon; i++) {
+                image(lifeIcon, marginDesktop + 15 + i * 40, lastY, 35, 35);
+            }
         } else {
-            text(content, marginDesktop, lastY + textAscent());
+            for (let i = 0; i < repeteIcon; i++) {
+                image(lifeIcon, marginDesktop + 15 + i * 40, lastY, 35, 35);
+            }
         }
         pop();
+
 
         if (this.lastPlateItem != null && this.currentTextTimer != 0) {
             if (w < 900) {

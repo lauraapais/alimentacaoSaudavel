@@ -517,6 +517,8 @@ class Level {
             lastY = y;
         }
         pop();
+        
+        push();
         textSize(h2Size * 0.8);
         textFont(fontRegular);
 
@@ -535,6 +537,8 @@ class Level {
                 image(lifeIcon, marginDesktop + 15 + i * 40, lastY, 35, 35);
             }
         }
+        pop();
+
 
         if (this.lastPlateItem != null && this.currentTextTimer != 0) {
             if (w < 900) {
