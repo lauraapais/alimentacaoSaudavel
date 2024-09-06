@@ -35,7 +35,6 @@ function showVideo(index) {
         }
     });
 
-    // Verificar se estamos no primeiro ou no último vídeo
     if (index === 0) {
         arrowLeft.style.display = 'none';
         arrowLeftMobile.style.display = 'none';
@@ -57,28 +56,28 @@ function changeBackgroundColor(index) {
     let backgroundColor;
 
     switch (true) {
-        case index <= 1:
+        case index <= 2:
             backgroundColor = "#52BFC5";
             break;
-        case index == 2 || index == 3:
+        case index == 3 || index == 4:
             backgroundColor = "#4AB083";
             break;
-        case index >= 4 && index <= 7:
+        case index >= 5 && index <= 8:
             backgroundColor = "#89CCC5";
             break;
-        case index >= 8 && index <= 12:
+        case index >= 9 && index <= 13:
             backgroundColor = "#EC5F61";
             break;
-        case index == 13:
+        case index == 14:
             backgroundColor = "#CE6198";
             break;
-        case index == 14:
+        case index == 15:
             backgroundColor = "#EAB3D1";
             break;
-        case index == 15:
+        case index == 16:
             backgroundColor = "#F5B1B2";
             break;
-        case index == 16:
+        case index == 17:
             backgroundColor = "#ECBE2F";
             break;
     }
