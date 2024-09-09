@@ -343,7 +343,7 @@ class UIFinish {
             textSize(h2Size / 2.6);
         }
         fill(255);
-        textAlign(CENTER, CENTER);  // Centraliza o texto
+        textAlign(CENTER, CENTER);
         text(content, width / 2 + imgSize / 2 - imgSize / 7, height / 2 - imgSize / 2 + imgSize / 7);
         pop();
     }
@@ -648,7 +648,7 @@ class Level {
             item.pos.y > height / 2 - plateSize / 4 &&
             item.pos.y < height / 2 + plateSize / 2) {
             this.lastPlateItem = item;
-            this.currentTextTimer = 50;
+            this.currentTextTimer = 100;
             if (item.value) {
                 item.plate = true;
                 this.points++;

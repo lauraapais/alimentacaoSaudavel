@@ -56,28 +56,28 @@ function changeBackgroundColor(index) {
     let backgroundColor;
 
     switch (true) {
-        case index <= 2:
+        case index <= 1:
             backgroundColor = "#52BFC5";
             break;
-        case index == 3 || index == 4:
+        case index == 2 || index == 3:
             backgroundColor = "#4AB083";
             break;
-        case index >= 5 && index <= 8:
+        case index >= 4 && index <= 7:
             backgroundColor = "#89CCC5";
             break;
-        case index >= 9 && index <= 13:
+        case index >= 8 && index <= 12:
             backgroundColor = "#EC5F61";
             break;
-        case index == 14:
+        case index == 13:
             backgroundColor = "#CE6198";
             break;
-        case index == 15:
+        case index == 14:
             backgroundColor = "#EAB3D1";
             break;
-        case index == 16:
+        case index == 15:
             backgroundColor = "#F5B1B2";
             break;
-        case index == 17:
+        case index == 16:
             backgroundColor = "#ECBE2F";
             break;
     }
