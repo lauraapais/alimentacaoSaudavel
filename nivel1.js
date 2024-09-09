@@ -135,6 +135,7 @@ function loadItems() {
     items.lemon = new Gameitem('data/jogo/level1/screen1/4.png');
     items.redonion = new Gameitem('data/jogo/level1/screen1/5.png');
     items.tomato = new Gameitem('data/jogo/level1/screen1/6.png');
+    items.pea_2 = new Gameitem('data/jogo/level1/screen1/ervilha.png');
     //Verão
     items.pepper = new Gameitem('data/jogo/level1/screen2/2.png');
     items.watermelon = new Gameitem('data/jogo/level1/screen2/3.png');
@@ -155,52 +156,52 @@ function loadLevels() {
     var level_one, level_two, level_three, level_four;
     //Primavera
     level_one = new Level(color(235, 153, 194),
-        'Quais são os alimentos sazonais da primavera?',
+       'Quais são os 3 alimentos sazonais da primavera?',
         new UIFinish('data/jogo/endLevel/1_done.png', 'data/jogo/endLevel/1_erro.png')
     );
-    level_one.addItem(items.grape, false, 'data/jogo/certoErrado/level1/screen1/errado.png', 'Uvas');
+    level_one.addItem(items.grape, false, 'data/jogo/certoErrado/level1/screen1/errado_uvas.png', 'Uvas');
     level_one.addItem(items.cherry, true, 'data/jogo/certoErrado/level1/screen1/certo.png', 'Cerejas');
     level_one.addItem(items.pea, true, 'data/jogo/certoErrado/level1/screen1/certo.png', 'Favas');
-    level_one.addItem(items.almond, false, 'data/jogo/certoErrado/level1/screen1/errado.png', 'Amêndoa');
-    level_one.addItem(items.carot, false, 'data/jogo/certoErrado/level1/screen1/errado.png', 'Cenoura');
-    level_one.addItem(items.tomato, false, 'data/jogo/certoErrado/level1/screen1/errado.png', 'Tomate');
+    level_one.addItem(items.almond, false, 'data/jogo/certoErrado/level1/screen1/errado_amendoas.png', 'Amêndoa');
+    level_one.addItem(items.pea_2, true, 'data/jogo/certoErrado/level1/screen1/certo.png', 'Ervilhas');
+    level_one.addItem(items.tomato, false, 'data/jogo/certoErrado/level1/screen1/errado_tomate.png', 'Tomate');
     level_one.setDefaultPosition();
     //Verão
     level_two = new Level(color(103, 175, 136),
-        'Quais são os alimentos sazonais do verão?',
+        'Quais são os 2 alimentos sazonais do verão?',
         new UIFinish('data/jogo/endLevel/2_done.png', 'data/jogo/endLevel/2_erro.png')
     );
-    level_two.addItem(items.orange, false, 'data/jogo/certoErrado/level1/screen2/errado.png', 'Laranja');
+    level_two.addItem(items.orange, false, 'data/jogo/certoErrado/level1/screen2/errado_laranjas.png', 'Laranja');
     level_two.addItem(items.pepper, true, 'data/jogo/certoErrado/level1/screen2/certo.png', 'Pimento');
     level_two.addItem(items.watermelon, true, 'data/jogo/certoErrado/level1/screen2/certo.png', 'Melancia');
-    level_two.addItem(items.redonion, false, 'data/jogo/certoErrado/level1/screen2/errado.png', 'Cebola');
-    level_two.addItem(items.pea, false, 'data/jogo/certoErrado/level1/screen2/errado.png', 'Favas');
-    level_two.addItem(items.walnut, false, 'data/jogo/certoErrado/level1/screen2/errado.png', 'Noz');
+    level_two.addItem(items.redonion, false, 'data/jogo/certoErrado/level1/screen2/errado_cebola.png', 'Cebola');
+    level_two.addItem(items.pea, false, 'data/jogo/certoErrado/level1/screen2/errado_favas.png', 'Favas');
+    level_two.addItem(items.walnut, false, 'data/jogo/certoErrado/level1/screen2/errado_nozes.png', 'Noz');
     level_two.setDefaultPosition();
     //Outono
     level_three = new Level(color(239, 190, 46),
-        'Quais são os alimentos sazonais do outono?',
+        'Quais são os 3 alimentos sazonais do outono?',
         new UIFinish('data/jogo/endLevel/3_done.png', 'data/jogo/endLevel/3_erro.png')
     );
-    level_three.addItem(items.carot, false, 'data/jogo/certoErrado/level1/screen3/errado.png', 'Cenoura');
-    level_three.addItem(items.leek, false, 'data/jogo/certoErrado/level1/screen3/errado.png', 'Alho-Francês');
+    level_three.addItem(items.pea_2, false, 'data/jogo/certoErrado/level1/screen3/errado_ervilhas.png', 'Ervilhas');
+    level_three.addItem(items.tomato, false, 'data/jogo/certoErrado/level1/screen3/errado_tomate.png', 'Tomate');
     level_three.addItem(items.chestnut, true, 'data/jogo/certoErrado/level1/screen3/certo.png', 'Castanha');
     level_three.addItem(items.almond, true, 'data/jogo/certoErrado/level1/screen3/certo.png', 'Amêndoa');
     level_three.addItem(items.walnut, true, 'data/jogo/certoErrado/level1/screen3/certo.png', 'Noz');
-    level_three.addItem(items.watermelon, false, 'data/jogo/certoErrado/level1/screen3/errado.png', 'Melancia');
+    level_three.addItem(items.watermelon, false, 'data/jogo/certoErrado/level1/screen3/errado_melancia.png', 'Melancia');
     level_three.setDefaultPosition();
     //Inverno
     level_four = new Level(color(114, 190, 195),
-        'Quais são os alimentos sazonais do inverno?',
+        'Quais são os 2 alimentos sazonais do inverno?',
         new UIFinish('data/jogo/endLevel/4_done.png', 'data/jogo/endLevel/4_erro.png')
     );
 
-    level_four.addItem(items.cherry, false, 'data/jogo/certoErrado/level1/screen4/errado.png', 'Cerejas');
+    level_four.addItem(items.cherry, false, 'data/jogo/certoErrado/level1/screen4/errado_cerejas.png', 'Cerejas');
     level_four.addItem(items.potato, true, 'data/jogo/certoErrado/level1/screen4/certo.png', 'Batata');
-    level_four.addItem(items.tomato, false, 'data/jogo/certoErrado/level1/screen4/errado.png', 'Tomate');
-    level_four.addItem(items.chestnut, false, 'data/jogo/certoErrado/level1/screen4/errado.png', 'Castanha');
+    level_four.addItem(items.tomato, false, 'data/jogo/certoErrado/level1/screen4/errado_tomate.png', 'Tomate'); 
+    level_four.addItem(items.chestnut, false, 'data/jogo/certoErrado/level1/screen4/errado_castanhas.png', 'Castanha');
     level_four.addItem(items.orange, true, 'data/jogo/certoErrado/level1/screen4/certo.png', 'Laranja');
-    level_four.addItem(items.pepper, false, 'data/jogo/certoErrado/level1/screen4/errado.png', 'Pimento');
+    level_four.addItem(items.pepper, false, 'data/jogo/certoErrado/level1/screen4/errado_pimento.png', 'Pimento');
     level_four.setDefaultPosition();
 
     levels = new LevelLoader();
@@ -328,12 +329,11 @@ class UIFinish {
         rectMode(CENTER);
         noStroke();
         fill(109, 111, 113);
-        pop();
-        push();
         noStroke();
         blendMode(MULTIPLY);
         ellipse(width / 2 + imgSize / 2 - imgSize / 7, height / 2 - imgSize / 2 + imgSize / 7, imgSize / 5, imgSize / 5);
         pop();
+
 
         push();
         if (w < 900) {
@@ -377,7 +377,6 @@ class UIFinish {
     }
 }
 
-
 class Level {
     constructor(background, question, uiEndLevel) {
         this.items = [];
@@ -402,6 +401,7 @@ class Level {
         this.status = false;
 
         this.erros = 0;
+        this.maxErros = 2;
     }
 
     addItem(item, value, description, name) {
@@ -470,7 +470,7 @@ class Level {
         if (this.status && this.currentTextTimer == 0) {
             fill(0, 100);
             rect(0, 0, width, height);
-            this.uiEndLevel.display(this.erros < 2, this.points, this.totalTrues, this.background);
+            this.uiEndLevel.display(this.erros < this.maxErros, this.points, this.totalTrues, this.background);
         }
     }
 
@@ -522,18 +522,18 @@ class Level {
         textSize(h2Size * 0.8);
         textFont(fontRegular);
 
-        let repeteIcon = this.totalTrues;
+        //let repeteIcon = this.totalTrues;
 
         if (windowWidth < 900) {
-            for (let i = 0; i < repeteIcon; i++) {
+            for (let i = 0; i < this.maxErros - this.erros; i++) {
                 image(lifeIcon, marginMobile + 10 + i * 30, lastY, 25, 25);
             }
         } else if (windowWidth < 1500) {
-            for (let i = 0; i < repeteIcon; i++) {
+            for (let i = 0; i < this.maxErros - this.erros; i++) {
                 image(lifeIcon, marginDesktop + 15 + i * 40, lastY, 35, 35);
             }
         } else {
-            for (let i = 0; i < repeteIcon; i++) {
+            for (let i = 0; i < this.maxErros - this.erros; i++) {
                 image(lifeIcon, marginDesktop + 15 + i * 40, lastY, 35, 35);
             }
         }
@@ -670,7 +670,7 @@ class Level {
     }
 
     checkEndLevel() {
-        if (this.erros < 2) {
+        if (this.erros < this.maxErros) {
             for (let i = 0; i < this.items.length; i++) {
                 if (this.items[i].value != this.items[i].plate)
                     return false;
