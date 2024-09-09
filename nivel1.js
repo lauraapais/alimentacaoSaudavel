@@ -158,6 +158,7 @@ function loadLevels() {
     level_one = new Level(color(235, 153, 194),
        'Quais são os 3 alimentos sazonais da primavera?',
         new UIFinish('data/jogo/endLevel/1_done.png', 'data/jogo/endLevel/1_erro.png')
+        
     );
     level_one.addItem(items.grape, false, 'data/jogo/certoErrado/level1/screen1/errado_uvas.png', 'Uvas');
     level_one.addItem(items.cherry, true, 'data/jogo/certoErrado/level1/screen1/certo.png', 'Cerejas');
@@ -647,35 +648,26 @@ class Level {
             item.pos.x < width / 2 + plateSize / 2 &&
             item.pos.y > height / 2 - plateSize / 4 &&
             item.pos.y < height / 2 + plateSize / 2) {
+            item.plate = true;
             this.lastPlateItem = item;
-            this.currentTextTimer = 100;
+            this.currentTextTimer = 50;
             if (item.value) {
-                item.plate = true;
                 this.points++;
-
                 soundTrue.play();
-            }
-            else {
+            } else {
                 soundFalse.play();
-                this.erros++;
-                this.setDefaultPosition(item);
             }
         }
-        else if (item.plate) {
+         else if (item.plate) {
             item.plate = false;
-            if (item.value) {
-                this.points--;
-            }
+            if (item.value){ this.points--;}
         }
     }
 
     checkEndLevel() {
-        if (this.erros < this.maxErros) {
-            for (let i = 0; i < this.items.length; i++) {
-                if (this.items[i].value != this.items[i].plate)
-                    return false;
-            }
-
+        for (let i = 0; i < this.items.length; i++) {
+            if (this.items[i].value != this.items[i].plate)
+                return false;
         }
         return true;
     }
