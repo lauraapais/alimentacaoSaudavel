@@ -335,7 +335,6 @@ class UIFinish {
         ellipse(width / 2 + imgSize / 2 - imgSize / 7, height / 2 - imgSize / 2 + imgSize / 7, imgSize / 5, imgSize / 5);
         pop();
 
-
         push();
         if (w < 900) {
             textSize(h2Size / 2);
@@ -344,7 +343,7 @@ class UIFinish {
             textSize(h2Size / 2.6);
         }
         fill(255);
-        textAlign(CENTER, CENTER);
+        textAlign(CENTER, CENTER);  // Centraliza o texto
         text(content, width / 2 + imgSize / 2 - imgSize / 7, height / 2 - imgSize / 2 + imgSize / 7);
         pop();
     }
@@ -648,26 +647,35 @@ class Level {
             item.pos.x < width / 2 + plateSize / 2 &&
             item.pos.y > height / 2 - plateSize / 4 &&
             item.pos.y < height / 2 + plateSize / 2) {
-            item.plate = true;
             this.lastPlateItem = item;
             this.currentTextTimer = 50;
             if (item.value) {
+                item.plate = true;
                 this.points++;
+
                 soundTrue.play();
-            } else {
+            }
+            else {
                 soundFalse.play();
+                this.erros++;
+                this.setDefaultPosition(item);
             }
         }
-         else if (item.plate) {
+        else if (item.plate) {
             item.plate = false;
-            if (item.value){ this.points--;}
+            if (item.value) {
+                this.points--;
+            }
         }
     }
 
     checkEndLevel() {
-        for (let i = 0; i < this.items.length; i++) {
-            if (this.items[i].value != this.items[i].plate)
-                return false;
+        if (this.erros < this.maxErros) {
+            for (let i = 0; i < this.items.length; i++) {
+                if (this.items[i].value != this.items[i].plate)
+                    return false;
+            }
+
         }
         return true;
     }

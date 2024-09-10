@@ -126,7 +126,6 @@ function textsize() {
         h2Size = h * 0.055;
     }
 }
-
 function loadItems() {
     //Laticineos
     items.lemon = new Gameitem('data/jogo/level1/screen1/4.png');
@@ -365,7 +364,6 @@ class UIFinish {
         ellipse(width / 2 + imgSize / 2 - imgSize / 7, height / 2 - imgSize / 2 + imgSize / 7, imgSize / 5, imgSize / 5);
         pop();
 
-
         push();
         if (w < 900) {
             textSize(h2Size / 2);
@@ -412,8 +410,8 @@ class Level {
     constructor(background, question, uiEndLevel, imageLevel) {
         this.items = [];
         this.textSize = 50;
-        this.imageLevel = imageLevel;
         this.draggingItem = null;
+        this.imageLevel = imageLevel;
         this.offsetX = 0;
         this.offsetY = 0;
         this.background = background;
@@ -459,8 +457,8 @@ class Level {
     display() {
         background(this.background);
         push();
+        blendMode(MULTIPLY);
 
-       push();
         if (w < 900) {
             image(this.imageLevel, width / 2, height / 2.2, plateSize, plateSize);
         } else if (w < 1500) {
@@ -469,7 +467,6 @@ class Level {
             image(this.imageLevel, width / 2, height / 2.1, plateSize, plateSize);
         }
         pop();
-
 
         for (let i = 0; i < this.items.length; i++) {
             let item = this.items[i];
@@ -676,27 +673,39 @@ class Level {
 
 
     insidePlate(item) {
-        if (dist(item.pos.x, item.pos.y, width / 2, height / 2) < plateSize / 2) {
-            item.plate = true;
+        if (item.pos.x > width / 2 - plateSize / 2 &&
+            item.pos.x < width / 2 + plateSize / 2 &&
+            item.pos.y > height / 2 - plateSize / 4 &&
+            item.pos.y < height / 2 + plateSize / 2) {
             this.lastPlateItem = item;
             this.currentTextTimer = 50;
             if (item.value) {
+                item.plate = true;
                 this.points++;
+
                 soundTrue.play();
-            } else {
-                soundFalse.play();
             }
-        } else if (item.plate) {
+            else {
+                soundFalse.play();
+                this.erros++;
+                this.setDefaultPosition(item);
+            }
+        }
+        else if (item.plate) {
             item.plate = false;
-            if (item.value) {this.points--;
+            if (item.value) {
+                this.points--;
             }
         }
     }
 
     checkEndLevel() {
-        for (let i = 0; i < this.items.length; i++) {
-            if (this.items[i].value != this.items[i].plate)
-                return false;
+        if (this.erros < this.maxErros) {
+            for (let i = 0; i < this.items.length; i++) {
+                if (this.items[i].value != this.items[i].plate)
+                    return false;
+            }
+
         }
         return true;
     }
@@ -708,7 +717,6 @@ class Level {
         }
     }
 }
-
 
 class Gameitem {
     constructor(imageURL, name) {

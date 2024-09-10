@@ -127,6 +127,7 @@ function textsize() {
     }
 }
 
+
 function loadItems() {
     //Trás-os-Montes
     items.lemon = new Gameitem('data/jogo/level1/screen1/4.png');
@@ -278,7 +279,6 @@ class UIFinish {
         blendMode(MULTIPLY);
         ellipse(width / 2 + imgSize / 2 - imgSize / 7, height / 2 - imgSize / 2 + imgSize / 7, imgSize / 5, imgSize / 5);
         pop();
-
 
         push();
         if (w < 900) {
@@ -588,31 +588,41 @@ class Level {
 
 
     insidePlate(item) {
-        /*QUAD*/
         if (item.pos.x > width / 2 - plateSize / 2 &&
-            item.pos.x < width / 2 + plateSize / 2 &&
+            item.pos.x < width / 2 + plateSize / 10 &&
             item.pos.y > height / 2 - plateSize / 2 &&
             item.pos.y < height / 2 + plateSize / 2) {
-            item.plate = true;
             this.lastPlateItem = item;
             this.currentTextTimer = 50;
             if (item.value) {
+                item.plate = true;
                 this.points++;
+
                 soundTrue.play();
-            } else {
+            }
+            else {
                 soundFalse.play();
+                this.erros++;
+                this.setDefaultPosition(item);
             }
         }
         else if (item.plate) {
             item.plate = false;
-            if (item.value) {this.points--;
+            if (item.value) {
+                this.points--;
             }
         }
     }
+
+
+
     checkEndLevel() {
-        for (let i = 0; i < this.items.length; i++) {
-            if (this.items[i].value != this.items[i].plate)
-                return false;
+        if (this.erros < this.maxErros) {
+            for (let i = 0; i < this.items.length; i++) {
+                if (this.items[i].value != this.items[i].plate)
+                    return false;
+            }
+
         }
         return true;
     }
