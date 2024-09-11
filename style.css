@@ -453,8 +453,8 @@ svg {
 #levelMain span {
     color: var(--grey);
     mix-blend-mode: multiply;
-    font-size: calc(21px + 0.6vw);
-    line-height: calc(21px + 0.6vw);
+    font-size: calc(16px + 0.6vw);
+    line-height: calc(16px + 0.6vw);
     margin-top: 5px;
 }
 
