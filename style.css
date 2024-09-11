@@ -458,6 +458,10 @@ svg {
     margin-top: 5px;
 }
 
+.levelTitle {
+    padding: 20px 10px 0 10px;
+}
+
 .level .cover {
     background-size: cover;
     background-position: top;
