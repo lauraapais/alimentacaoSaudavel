@@ -457,7 +457,6 @@ class Level {
     display() {
         background(this.background);
         push();
-        blendMode(MULTIPLY);
 
         if (w < 900) {
             image(this.imageLevel, width / 2, height / 2.2, plateSize, plateSize);
