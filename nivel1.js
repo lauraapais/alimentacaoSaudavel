@@ -156,9 +156,9 @@ function loadLevels() {
     var level_one, level_two, level_three, level_four;
     //Primavera
     level_one = new Level(color(235, 153, 194),
-       'Quais são os 3 alimentos sazonais da primavera?',
+        'Quais são os 3 alimentos sazonais da primavera?',
         new UIFinish('data/jogo/endLevel/1_done.png', 'data/jogo/endLevel/1_erro.png')
-        
+
     );
     level_one.addItem(items.grape, false, 'data/jogo/certoErrado/level1/screen1/errado_uvas.png', 'Uvas');
     level_one.addItem(items.cherry, true, 'data/jogo/certoErrado/level1/screen1/certo.png', 'Cerejas');
@@ -199,7 +199,7 @@ function loadLevels() {
 
     level_four.addItem(items.cherry, false, 'data/jogo/certoErrado/level1/screen4/errado_cerejas.png', 'Cerejas');
     level_four.addItem(items.potato, true, 'data/jogo/certoErrado/level1/screen4/certo.png', 'Batata');
-    level_four.addItem(items.tomato, false, 'data/jogo/certoErrado/level1/screen4/errado_tomate.png', 'Tomate'); 
+    level_four.addItem(items.tomato, false, 'data/jogo/certoErrado/level1/screen4/errado_tomate.png', 'Tomate');
     level_four.addItem(items.chestnut, false, 'data/jogo/certoErrado/level1/screen4/errado_castanhas.png', 'Castanha');
     level_four.addItem(items.orange, true, 'data/jogo/certoErrado/level1/screen4/certo.png', 'Laranja');
     level_four.addItem(items.pepper, false, 'data/jogo/certoErrado/level1/screen4/errado_pimento.png', 'Pimento');
@@ -337,13 +337,13 @@ class UIFinish {
 
         push();
         if (w < 900) {
-            textSize(h2Size / 2);
+            textSize(h2Size / 2.5);
         }
-    else if (w < 1500) {
-        textSize(h2Size);
-    }
+        else if (w < 1500) {
+            textSize(h2Size /  2);
+        }
         else {
-            textSize(h2Size / 2);
+            textSize(h2Size /  2.5);
         }
         fill(255);
         textAlign(CENTER, CENTER);  // Centraliza o texto
@@ -520,7 +520,7 @@ class Level {
             lastY = y;
         }
         pop();
-        
+
         push();
         textSize(h2Size * 0.8);
         textFont(fontRegular);
