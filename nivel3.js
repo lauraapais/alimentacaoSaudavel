@@ -207,7 +207,7 @@ function loadLevels() {
     level_four.addItem(items.shrimp, true, 'data/jogo/certoErrado/level3/screen4/certo.png', 'Camarão');
     level_four.addItem(items.cheese1, false, 'data/jogo/certoErrado/level3/screen4/errado_queijo1.png', 'Queijo');
     level_four.addItem(items.chicken, true, 'data/jogo/certoErrado/level3/screen4/certo.png', 'Frango');
-    level_four.addItem(items.steak, false, 'data/jogo/certoErrado/level3/screen4/certo.png', 'Bife');
+    level_four.addItem(items.steak, true, 'data/jogo/certoErrado/level3/screen4/certo.png', 'Bife');
     level_four.addItem(items.cheese2, false, 'data/jogo/certoErrado/level3/screen4/errado_queijo2.png', 'Queijo');
     level_four.setDefaultPosition();
     //GordurasOleos
