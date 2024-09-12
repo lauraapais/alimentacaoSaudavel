@@ -1255,6 +1255,9 @@ svg {
     .exploreVideos {
         width: 100%;
         position: relative;
+        overflow-y: overlay;
+        overflow-x: hidden;
+        margin-bottom: calc(var(--marginHMobile) + 6vw);
     }
 
     .arrow {
@@ -1299,4 +1302,24 @@ svg {
         padding: var(--marginHMobile) 0;
     }
 
+}
+
+.exploreVideos::-webkit-scrollbar {
+    width: 6px;
+}
+
+.exploreVideos::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+.exploreVideos::-webkit-scrollbar-thumb {
+    background: rgba(109, 110, 112, .5);
+}
+
+.exploreVideos::-webkit-scrollbar-thumb:hover {
+    background: #555;
+}
+
+.exploreVideos::-webkit-scrollbar-button {
+    display: none;
 }
