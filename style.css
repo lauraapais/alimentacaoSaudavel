@@ -834,7 +834,6 @@ svg {
 
 .infoVideoTitle {
     margin-top: 0.9vw !important;
-    line-height: 3.5rem;
 }
 
 .infoVideop {
@@ -986,7 +985,6 @@ svg {
 
     .infoVideoTitle {
         margin-bottom: calc(var(--marginHMobile) / 4);
-        line-height: 2.5rem;
     }
 
     #videoMain {
@@ -1315,7 +1313,7 @@ svg {
 
     .infoVideoTitle {
         margin-bottom: calc(var(--marginHMobile) / 4);
-        line-height: 2rem;
+
     }
 
     .infoVideop {
