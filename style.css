@@ -848,7 +848,7 @@ svg {
     margin: calc(var(--marginH)/2) 0;
 }
 
-.arrowMobile {
+.arrowMobileNew {
     display: none;
 }
 
@@ -951,88 +951,9 @@ svg {
 
 
 
-    /*new explore*/
-    .exploreVideos {
-        position: relative;
-    }
-
-    .video_plus_info {
-        display: flex;
-    }
-
-    .videoContainer {
-        width: 70%;
-    }
-
-    .exploreInfo {
-        width: 30%;
-    }
-
-    .exploreContainer {
-        align-items: flex-start;
-    }
-
-    #arrowLeft {
-        width: 6vw;
-        stroke-width: 2px;
-    }
-
-    #arrowRight {
-        width: 6vw;
-        stroke-width: 2px;
-    }
 
 
-    .infoVideoTitle {
-        margin-bottom: calc(var(--marginHMobile) / 4);
-    }
-
-    #videoMain {
-        height: calc(100vh - var(--marginHMobile)* 3 - var(--headerHminMobile));
-        max-height: calc(100vh - var(--marginHmobile)* 3 - var(--headerHminMobile));
-    }
-
-
-    .infoVideop {
-        align-self: flex-start;
-    }
-
-    .arrow {
-        display: none;
-    }
-
-    .arrowMobile {
-        display: flex;
-        width: calc(100% - var(--marginH)*2);
-        position: absolute;
-        justify-content: space-between;
-        background-color: var(--blue);
-        transition: background-color 1s ease;
-        bottom: 0;
-    }
-
-    #arrowLeftMobile {
-        width: 3vw;
-        stroke-width: 2px;
-    }
-
-    #arrowRightMobile {
-        width: 3vw;
-        stroke-width: 2px;
-        position: absolute;
-        right: var(--marginHMobile);
-        bottom: 0;
-    }
-
-    #closeMenu,
-    #closeGame {
-        display: flex;
-        width: calc(15px + 1.5vw) !important;
-        height: auto;
-        font-variant: all-petite-caps;
-        align-items: flex-start;
-        align-content: flex-start;
-    }
+    
 }
 
 
@@ -1329,10 +1250,6 @@ svg {
         max-height: calc(var(--vh, 1h)* 100 - var(--marginHmobile)* 3 - var(--headerHminMobile));
     }
 
-    .arrowMobile {
-        width: calc(100% - var(--marginHMobile)*2);
-        padding: var(--marginHMobile) 0;
-    }
 
 
     .exploreVideos {
@@ -1344,30 +1261,16 @@ svg {
         display: none;
     }
 
-    .arrowMobile {
-        display: flex;
-        width: calc(100% - var(--marginH)*2);
-        position: absolute;
-        justify-content: space-between;
-        background-color: var(--blue);
-        transition: background-color 1s ease;
-        bottom: 0;
-    }
+
 
     #arrowLeftMobile {
         width: 6vw;
         stroke-width: 2px;
-        position: absolute;
-        left: 0;
-        bottom: var(--marginHMobile);
     }
 
     #arrowRightMobile {
         width: 6vw;
         stroke-width: 2px;
-        position: absolute;
-        right: var(--marginHMobile);
-        bottom: var(--marginHMobile);
     }
 
     .videoPage {
@@ -1381,6 +1284,19 @@ svg {
         height: auto;
         width: 100%;
         margin-bottom: 0;
+    }
+
+    .arrowMobileNew{
+        width: calc(100% - var(--marginHMobile)* 2);
+        height: fit-content;
+        display: flex;
+        position: absolute;
+        bottom: 0;
+        align-items: center;
+        background-color: var(--blue);
+        transition: background-color 1s ease;
+        justify-content: space-between;
+        padding: var(--marginHMobile) 0;
     }
 
 }

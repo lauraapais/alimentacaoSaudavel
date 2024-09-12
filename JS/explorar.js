@@ -35,21 +35,17 @@ function showVideo(index) {
         }
     });
 
-    if (index === 0) {
-        arrowLeft.style.display = 'none';
-        arrowLeftMobile.style.display = 'none';
-    } else {
-        arrowLeft.style.display = 'block';
-        arrowLeftMobile.style.display = 'block';
-    }
+    arrowLeft.style.opacity = (index === 0) ? 0 : 1;
+    arrowRight.style.opacity = (index === videos.length - 1) ? 0 : 1;
 
-    if (index === videos.length - 1) {
-        arrowRight.style.display = 'none';
-        arrowRightMobile.style.display = 'none';
-    } else {
-        arrowRight.style.display = 'block';
-        arrowRightMobile.style.display = 'block';
-    }
+    arrowLeft.style.pointerEvents = (index === 0) ? 'none' : 'auto';
+    arrowRight.style.pointerEvents = (index === videos.length - 1) ? 'none' : 'auto';
+
+    arrowLeftMobile.style.opacity = (index === 0) ? 0 : 1;
+    arrowRightMobile.style.opacity = (index === videos.length - 1) ? 0 : 1;
+
+    arrowLeftMobile.style.pointerEvents = (index === 0) ? 'none' : 'auto';
+    arrowRightMobile.style.pointerEvents = (index === videos.length - 1) ? 'none' : 'auto';
 }
 
 function changeBackgroundColor(index) {
