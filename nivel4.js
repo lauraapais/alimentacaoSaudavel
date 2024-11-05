@@ -183,7 +183,7 @@ function loadLevels() {
     level_three.addItem(items.peach, true, 'data/jogo/certoErrado/level4/screen3/certo.png', 'Pêssego');
     level_three.addItem(items.milk, true, 'data/jogo/certoErrado/level4/screen3/certo.png', 'Leite');
     level_three.addItem(items.cheese1, false, 'data/jogo/certoErrado/level4/screen3/errado_queijo1.png', 'Queijo');
-    level_three.addItem(items.cookies, false, 'data/jogo/certoErrado/level4/screen3/errado_queijo2.png', 'Bolachas');
+    level_three.addItem(items.cookies, false, 'data/jogo/certoErrado/level4/screen3/errado_bolachas.png', 'Bolachas');
     level_three.addItem(items.sausage, false, 'data/jogo/certoErrado/level4/screen3/errado_salsicha.png', 'Salsicha');
     level_three.setDefaultPosition();
     //Jantar
@@ -643,7 +643,7 @@ class Level {
             item.pos.y > height / 2 - plateSize / 2 &&
             item.pos.y < height / 2 + plateSize / 2) {
             this.lastPlateItem = item;
-            this.currentTextTimer = 150;
+            this.currentTextTimer = 70;
             if (item.value) {
                 item.plate = true;
                 this.points++;

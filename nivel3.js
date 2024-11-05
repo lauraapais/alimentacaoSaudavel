@@ -187,7 +187,7 @@ function loadLevels() {
     level_two.addItem(items.pear, true, 'data/jogo/certoErrado/level3/screen2/certo.png', 'Pêra');
     level_two.addItem(items.watermelon, true, 'data/jogo/certoErrado/level3/screen2/certo.png', 'Melancia');
     level_two.addItem(items.leek, false, 'data/jogo/certoErrado/level3/screen2/errado_alhofrances.png', 'Alho-Francês');
-    level_two.addItem(items.carot, false, 'data/jogo/certoErrado/level3/screen2/errado_tomate.png', 'Cenoura');
+    level_two.addItem(items.carot, false, 'data/jogo/certoErrado/level3/screen2/errado_cenoura.png', 'Cenoura');
     level_two.setDefaultPosition();
     //Hortícolas
     level_three = new Level(color(103, 175, 136), 'Sabes que 4 alimentos são do grupo dos hortícolas?',
@@ -682,7 +682,7 @@ class Level {
             item.pos.y > height / 2 - plateSize / 2 &&
             item.pos.y < height / 2 + plateSize / 2) {
             this.lastPlateItem = item;
-            this.currentTextTimer = 150;
+            this.currentTextTimer = 70;
             if (item.value) {
                 item.plate = true;
                 this.points++;
