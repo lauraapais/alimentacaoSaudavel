@@ -145,6 +145,7 @@ function loadItems() {
     items.bread2 = new Gameitem('data/jogo/level4/screen3/1.png');
     items.watermelon = new Gameitem('data/jogo/level1/screen2/3.png');
     items.peach = new Gameitem('data/jogo/level2/screen1/6.png');
+    items.cookies = new Gameitem('data/jogo/level4/screen3/bolachas.png');
     //Jantar
     items.pasta = new Gameitem('data/jogo/level3/screen6/4.png');
     items.shrimp = new Gameitem('data/jogo/level3/screen4/2.png');
@@ -182,7 +183,7 @@ function loadLevels() {
     level_three.addItem(items.peach, true, 'data/jogo/certoErrado/level4/screen3/certo.png', 'Pêssego');
     level_three.addItem(items.milk, true, 'data/jogo/certoErrado/level4/screen3/certo.png', 'Leite');
     level_three.addItem(items.cheese1, false, 'data/jogo/certoErrado/level4/screen3/errado_queijo1.png', 'Queijo');
-    level_three.addItem(items.cheese2, false, 'data/jogo/certoErrado/level4/screen3/errado_queijo2.png', 'Queijo');
+    level_three.addItem(items.cookies, false, 'data/jogo/certoErrado/level4/screen3/errado_queijo2.png', 'Bolachas');
     level_three.addItem(items.sausage, false, 'data/jogo/certoErrado/level4/screen3/errado_salsicha.png', 'Salsicha');
     level_three.setDefaultPosition();
     //Jantar
@@ -642,7 +643,7 @@ class Level {
             item.pos.y > height / 2 - plateSize / 2 &&
             item.pos.y < height / 2 + plateSize / 2) {
             this.lastPlateItem = item;
-            this.currentTextTimer = 50;
+            this.currentTextTimer = 150;
             if (item.value) {
                 item.plate = true;
                 this.points++;

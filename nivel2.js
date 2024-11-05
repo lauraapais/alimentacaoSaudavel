@@ -596,7 +596,7 @@ class Level {
             item.pos.y > height / 2 - plateSize / 2 &&
             item.pos.y < height / 2 + plateSize / 2) {
             this.lastPlateItem = item;
-            this.currentTextTimer = 50;
+            this.currentTextTimer = 150;
             if (item.value) {
                 item.plate = true;
                 this.points++;
